@@ -1,0 +1,30 @@
+作业分配：
+（综合参照教材附录和github中去年的一份作业的内容和组织形式）
+1.接口规范
+提交时间：2015/10/24 21:00以前
+	焦润
+	informationblservice
+	informationdataservice
+	sendblservice
+	senddataservice
+	栾志远
+	judgementblservice
+	judgementdataservice
+	shipmentblservice
+	shipmentdataservice
+	孙婧
+	receivementblservice
+	receivementdataservice
+	commodityblservice
+	commoditydataservice
+	moneyblservice
+	moneydataservice
+	倪辰皓
+	reportblservice
+	reportdataservice
+	staffblservice
+	staffdataservice
+2.信息视角
+提交时间：2015/10/24 21:00以前
+	栾志远
+	
