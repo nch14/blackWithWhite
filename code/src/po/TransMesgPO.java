@@ -13,7 +13,7 @@ public class TransMesgPO implements Serializable{
 	}
 	
 	public String refresh(String identifier,String time,String location){
-		return null;
+		return "success";
 	}
 
 }

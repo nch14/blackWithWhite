@@ -1,7 +1,7 @@
 package bl.blservice;
 import vo.*;
 
-public interface ImformationService {
+public interface InformationService {
 	/*
 	 * inquire transMesg
 	 */

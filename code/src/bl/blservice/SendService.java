@@ -5,10 +5,10 @@ import vo.OrderBillVO;
 public interface SendService {
 	
 	/*
-	 * ask the system to return the transport message
+	 * ask the system to return the send message
 	 * according to the id(String)
 	 */
-	public String inquireTransMesg(String id);
+	public OrderBillVO inquireSendMesg(String id);
 	
 	
 	/*
@@ -21,7 +21,7 @@ public interface SendService {
 			String workplaceOfSender,String phoneOfSender,String mobileOfSender,
 			String nameOfReceiver,String addressOfReceiver,String workplaceOfReceiver,
 			String phoneOfReceiver,String mobileOfReceiver,int numOfItem,double weight,
-			String nameOfItemInside,double[][][] size,double moneyForCover,String speedLevel,
+			String nameOfItemInside,Double[] size,double moneyForCover,String speedLevel,
 			String kindOfSend );
 	
 }
