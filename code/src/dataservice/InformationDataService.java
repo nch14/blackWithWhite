@@ -2,7 +2,7 @@ package dataservice;
 
 import vo.TransMesgVO;
 
-public interface ImformationDataService {
+public interface InformationDataService {
 	
 	/*
 	 * refresh the transport mesg
