@@ -1,6 +1,6 @@
 package bl.blservice;
 
-import po.OrderBillPO;
+
 
 public interface JudgementBLService {
 	

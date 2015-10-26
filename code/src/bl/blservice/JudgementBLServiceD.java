@@ -1,6 +1,6 @@
 package bl.blservice;
 
-//JudgementBLService的驱动的定义
+//JudgementBLService的驱动
 import bl.blservice.JudgementBLService;
 
 
