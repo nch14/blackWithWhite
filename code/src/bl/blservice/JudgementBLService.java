@@ -4,17 +4,20 @@ package bl.blservice;
 
 public interface JudgementBLService {
 	
-	public ResultMessage checkRecord(OrderBillPO record){
-		
-	}
-	
-	public ResultMessage updateRecord(OrderBillPO record){
-		
-	}
-	
-	public ResultMessage submitRecord(OrderBillPO record){
-		
-	}
+/*
+ * 查看单据内容
+ */
+	public ResultMessage checkRecord(OrderBillPO record);
+
+/*
+ * 修改单据内容
+ */
+	public ResultMessage updateRecord(OrderBillPO record);
+
+/*
+ * 更新单据
+ */
+	public ResultMessage submitRecord(OrderBillPO record);
 
 
 
