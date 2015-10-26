@@ -54,6 +54,8 @@ public class OrderBillPO implements Serializable{
 		moneyForCover=orderbill.moneyForCover;
 		speedLevel=orderbill.speedLevel;
 		kindOfSend=orderbill.kindOfSend;
+		time=orderbill.time;
+		money=orderbill.money;
 		
 	}
 
