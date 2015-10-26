@@ -41,7 +41,7 @@ public class ShipmentBillVO {
 		
 		public ShipmentrBillVO(String kindOfBill)(int[][][] date,String numOfHall,String numOfTrain,String numOfDestination,
 					String numOfBus,String nameOfInspection,String nameOfEscort,String[] numOfOrder,String numOfTransitBill,
-					String numOfFlight,String starting,String destination,String nameOfContainer,double moneyString numOfTransit;
+					String numOfFlight,String starting,String destination,String nameOfContainer,double money,String numOfTransit;
 					int[][][] dateOfArrival,String stationOfArrival){
 						
 						kindOfBill=shipmentbill.kindOfBill;
