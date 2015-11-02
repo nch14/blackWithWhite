@@ -1,0 +1,27 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1241" measuredH="786" mockupW="1024" mockupH="768">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::TitleWindow" x="217" y="18" w="1024" h="768" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bottomheight>0</bottomheight>
+        <close>true</close>
+        <minimize>true</minimize>
+        <text>%u7269%u6D41%u4FE1%u606F%u7BA1%u7406%u7CFB%u7EDF</text>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::MenuBar" x="218" y="42" w="1023" h="29" measuredW="415" measuredH="29" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%u8BA2%u5355%u4FE1%u606F%u67E5%u8BE2%2C%20%u5BC4%u4EF6%u4FE1%u606F%u8F93%u5165%2C%20%u62A5%u4EF7%u548C%u65F6%u95F4%u67E5%u8BE2%2C%20%u6536%u4EF6%u4FE1%u606F%u8F93%u5165</text>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::SearchBox" x="534" y="373" w="272" h="-1" measuredW="120" measuredH="25" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%u8F93%u5165%u8BA2%u5355%u53F7</text>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::Button" x="850" y="372" w="-1" h="-1" measuredW="48" measuredH="27" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%u67E5%u8BE2</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
