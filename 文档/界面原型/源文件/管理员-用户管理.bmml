@@ -1,0 +1,32 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1186" measuredH="851" mockupW="1024" mockupH="768">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::TitleWindow" x="162" y="83" w="1024" h="768" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bottomheight>0</bottomheight>
+        <close>true</close>
+        <dragger>false</dragger>
+        <maximizeRestore>false</maximizeRestore>
+        <minimize>true</minimize>
+        <text>%u7269%u6D41%u4FE1%u606F%u7BA1%u7406%u7CFB%u7EDF</text>
+        <topheight>26</topheight>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::SearchBox" x="558" y="296" w="232" h="-1" measuredW="196" measuredH="25" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%u8F93%u5165%u7528%u6237ID%u6216%u59D3%u540D%u5173%u952E%u8BCD%u641C%u7D22</text>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::DataGrid" x="366" y="405" w="617" h="337" measuredW="348" measuredH="51" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <text>%u7528%u6237ID%2C%u59D3%u540D%2C%20%u5E74%u9F84%2C%u6743%u9650%2C%20%u5BC6%u7801%2C%u64CD%u4F5C%0A00000001%2C%u683E%u5FD7%u8FDC%2C20%2C%u603B%u7ECF%u7406%2C141250084%2C%u4FEE%u6539</text>
+        <verticalScrollbar>true</verticalScrollbar>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::Button" x="852" y="295" w="-1" h="-1" measuredW="48" measuredH="27" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%u67E5%u8BE2</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

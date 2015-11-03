@@ -26,10 +26,10 @@
         <text>%u96C7%u4F63%u65B0%u5458%u5DE5%2C%u89E3%u96C7%u5458%u5DE5%2C%u4EBA%u4E8B%u8C03%u52A8%2C%u85AA%u6C34%u7B56%u7565%u8BBE%u5B9A</text>
       </controlProperties>
     </control>
-    <control controlID="4" controlTypeID="com.balsamiq.mockups::DataGrid" x="397" y="334" w="561" h="436" measuredW="522" measuredH="81" zOrder="3" locked="false" isInGroup="-1">
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::DataGrid" x="397" y="334" w="578" h="436" measuredW="522" measuredH="81" zOrder="3" locked="false" isInGroup="-1">
       <controlProperties>
         <align>center</align>
-        <text>%u59D3%u540D%2C%20%u5E74%u9F84%20%2C%u7528%u6237ID%2C%20%u804C%u4F4D%2C%u6240%u5C5E%u90E8%u95E8%2C%20%5B%5D%0AGiacomo%20Guilizzoni%2C%2037%2C00000003%2C%u8D22%u52A1%u4EBA%u5458%2C%u8D22%u52A1%u90E8%2C%5B%5D%0AMarco%20Botton%2C%2034%2C00000004%20%2C%20%u5FEB%u9012%u5458%2C%u5357%u4EAC%u6816%u971E%u533A%u4ED9%u6797%u8857%u9053%u8425%u4E1A%u5385%2C%5B%5D</text>
+        <text>%5B%5D%2C%u7528%u6237ID%2C%20%u59D3%u540D%2C%20%u5E74%u9F84%20%2C%u804C%u4F4D%2C%u6240%u5C5E%u90E8%u95E8%0A%5B%5D%2C00000003%2CGiacomo%20Guilizzoni%2C%2037%2C%u8D22%u52A1%u4EBA%u5458%2C%u8D22%u52A1%u90E8%0A%5B%5D%2C00000004%20%2CMarco%20Botton%2C%2034%2C%20%u5FEB%u9012%u5458%2C%u5357%u4EAC%u6816%u971E%u533A%u4ED9%u6797%u8857%u9053%u8425%u4E1A%u5385</text>
         <verticalScrollbar>true</verticalScrollbar>
       </controlProperties>
     </control>
@@ -82,9 +82,19 @@
         <text>%u6DFB%u52A0</text>
       </controlProperties>
     </control>
-    <control controlID="16" controlTypeID="com.balsamiq.mockups::Button" x="1008" y="770" w="-1" h="-1" measuredW="48" measuredH="27" zOrder="6" locked="false" isInGroup="-1">
+    <control controlID="16" controlTypeID="com.balsamiq.mockups::Button" x="990" y="782" w="-1" h="-1" measuredW="48" measuredH="27" zOrder="6" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>%u786E%u8BA4</text>
+        <text>%u63D0%u4EA4</text>
+      </controlProperties>
+    </control>
+    <control controlID="17" controlTypeID="com.balsamiq.mockups::Button" x="431" y="782" w="-1" h="-1" measuredW="48" measuredH="27" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%u64A4%u9500</text>
+      </controlProperties>
+    </control>
+    <control controlID="18" controlTypeID="com.balsamiq.mockups::CheckBox" x="404" y="785" w="-1" h="-1" measuredW="20" measuredH="21" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
       </controlProperties>
     </control>
   </controls>

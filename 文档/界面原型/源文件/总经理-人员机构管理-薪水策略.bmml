@@ -40,7 +40,7 @@
     </control>
     <control controlID="16" controlTypeID="com.balsamiq.mockups::Button" x="996" y="782" w="-1" h="-1" measuredW="48" measuredH="27" zOrder="9" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>%u786E%u8BA4</text>
+        <text>%u63D0%u4EA4</text>
       </controlProperties>
     </control>
     <control controlID="21" controlTypeID="com.balsamiq.mockups::Label" x="397" y="252" w="-1" h="-1" measuredW="40" measuredH="21" zOrder="4" locked="false" isInGroup="-1">
@@ -61,6 +61,16 @@
     <control controlID="27" controlTypeID="com.balsamiq.mockups::ComboBox" x="736" y="252" w="74" h="-1" measuredW="56" measuredH="62" zOrder="7" locked="false" isInGroup="-1">
       <controlProperties>
         <text>%u6708%u85AA%0A%u8BA1%u6B21%0A%u6708%u85AA+%u63D0%u6210</text>
+      </controlProperties>
+    </control>
+    <control controlID="28" controlTypeID="com.balsamiq.mockups::Button" x="389" y="782" w="-1" h="-1" measuredW="48" measuredH="27" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%u64A4%u9500</text>
+      </controlProperties>
+    </control>
+    <control controlID="29" controlTypeID="com.balsamiq.mockups::CheckBox" x="362" y="785" w="-1" h="-1" measuredW="20" measuredH="21" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
       </controlProperties>
     </control>
   </controls>
