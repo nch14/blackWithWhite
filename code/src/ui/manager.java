@@ -1197,28 +1197,29 @@ public class manager {
 		table_6 = new JTable();
 		table_6.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
 			},
 			new String[] {
-				"\u6536\u6B3E\u5355", "\u4ED8\u6B3E\u5355"
+				"\u6536\u6B3E\u5355\u7F16\u53F7", "\u6536\u6B3E\u65E5\u671F", "\u6536\u6B3E\u91D1\u989D", "\u4ED8\u6B3E\u5355\u7F16\u53F7", "\u4ED8\u6B3E\u65E5\u671F", "\u4ED8\u6B3E\u91D1\u989D"
 			}
 		));
 		scrollPane_6.setViewportView(table_6);
