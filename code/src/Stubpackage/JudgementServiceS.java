@@ -1,7 +1,7 @@
 package Stubpackage;
 
+import bl.judgement.Service.JudgementBLService;
 import po.OrderBillPO;
-import bl.blservice.JudgementBLService;
 import vo.OrderBillVO;
 
 public class JudgementServiceS implements JudgementBLService{

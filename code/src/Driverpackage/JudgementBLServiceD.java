@@ -1,9 +1,6 @@
 package Driverpackage;
 
-/*
- * JudgementBLServiceµÄÇý¶¯
- */
-import bl.blservice.JudgementBLService;
+import bl.judgement.Service.JudgementBLService;
 
 
 

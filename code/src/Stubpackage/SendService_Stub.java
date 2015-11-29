@@ -1,6 +1,6 @@
 package Stubpackage;
 
-import bl.blservice.SendService;
+import bl.send.Service.SendService;
 import vo.OrderBillVO;
 
 public class SendService_Stub implements SendService{

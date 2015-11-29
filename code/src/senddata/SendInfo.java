@@ -5,7 +5,7 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 
 import Iphelper.Iphelper;
-import bill.OrderBillPO;
+import po.OrderBillPO;
 
 public class SendInfo {
 	OrderBillPO a;

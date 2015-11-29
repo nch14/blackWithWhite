@@ -1,4 +1,4 @@
-package bl.report.impl;
+package bl.report.Impl;
 
 public class ProfitSheet {
 

@@ -2,7 +2,7 @@ package senddata;
 
 import java.rmi.RemoteException;
 
-import bill.OrderBillPO;
+import po.OrderBillPO;
 import remoteInterface.Client_Helper;
 
 public interface SendInfoHelper extends Client_Helper {

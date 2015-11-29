@@ -1,4 +1,4 @@
-package bl.report.impl;
+package bl.report.Impl;
 
 import java.util.ArrayList;
 
