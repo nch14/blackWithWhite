@@ -4,12 +4,13 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
+import java.util.ArrayList;
 
 import Iphelper.Iphelper;
 import bill.TransMesgPO;
 
 public class ShipmentInfo {
-	TransMesgPO bill;
+	ArrayList<TransMesgPO> bill;
 	boolean result;
 	
 	private String getURL() throws FileNotFoundException, ClassNotFoundException, IOException{
@@ -17,7 +18,7 @@ public class ShipmentInfo {
 		return s;
 	}
 	
-	public TransMesgPO getTransMesg(String id){
+	public ArrayList<TransMesgPO> getTransMesg(String id){
 		try {
 	      ShipmentInfoHelper x=(ShipmentInfoHelper) Naming.lookup(getURL());
 			bill=x.getTransMesg(id);
@@ -28,10 +29,10 @@ public class ShipmentInfo {
 		return bill;
 	}
 	
-	public boolean refreshTransMesg(String id,String position,String time){
+	public boolean refreshTransMesg(TransMesgPO po){
 		try {
 		      ShipmentInfoHelper x=(ShipmentInfoHelper) Naming.lookup(getURL());
-				result=x.refreshTransMesg(id, position, time);
+				result=x.refreshTransMesg(po);
 			} catch (ClassNotFoundException | NotBoundException | IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
