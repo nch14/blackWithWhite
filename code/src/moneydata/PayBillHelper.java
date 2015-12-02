@@ -1,6 +1,7 @@
 package moneydata;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import bill.PaymentBill;
 import remoteInterface.Client_Helper;
@@ -15,4 +16,6 @@ public interface PayBillHelper extends Client_Helper {
 	public boolean change(PaymentBill bill) throws RemoteException;
 	
 	public PaymentBill get(String id) throws RemoteException;
+	
+	public ArrayList<PaymentBill> getall(String[] time) throws RemoteException;
 }

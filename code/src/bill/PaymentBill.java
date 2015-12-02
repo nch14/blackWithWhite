@@ -2,7 +2,7 @@ package bill;
 
 public class PaymentBill {
 	String[] date;
-	double money;
+	public double money;
 	String name;
 	
 }

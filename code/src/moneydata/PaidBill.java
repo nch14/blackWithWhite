@@ -3,6 +3,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
+import java.util.ArrayList;
 
 import Iphelper.Iphelper;
 import bill.ReceiveMoneyBill;
@@ -10,6 +11,7 @@ import bill.ReceiveMoneyBill;
 public class PaidBill {
 	boolean result;
 	ReceiveMoneyBill a;
+	ArrayList<ReceiveMoneyBill> array;
 	
 	private String getURL() throws FileNotFoundException, ClassNotFoundException, IOException{
 		String s="rmi://"+Iphelper.getIP()+":34002/paidbillhelper";
@@ -58,5 +60,16 @@ public class PaidBill {
 			e.printStackTrace();
 		}
 		return a;
+	}
+	
+	public ArrayList<ReceiveMoneyBill> getall(String[] time){
+		try {
+			PaidBillHelper x=(PaidBillHelper) Naming.lookup(getURL());
+			array=x.getall(time);
+		} catch (ClassNotFoundException | NotBoundException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return array;
 	}
 }
