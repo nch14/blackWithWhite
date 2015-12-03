@@ -28,7 +28,7 @@ public class OrderBillPO implements Serializable{
 	 * information of the item
 	 */
 	int numOfItem;
-	double[] size;
+	double[][][] size;
 	double moneyForCover;
 	String speedLevel;
 	String kindOfSend;

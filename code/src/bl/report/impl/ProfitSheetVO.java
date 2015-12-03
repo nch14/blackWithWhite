@@ -20,5 +20,10 @@ public class ProfitSheetVO {
 			profit=totalGet;
 		}
 	
-
+		//以下为测试用
+		public ProfitSheetVO(double a,double b,double c){
+			this.totalGet=a;
+			this.totalPay=b;
+			this.profit=c;
+		}
 }

@@ -39,7 +39,7 @@ public class ProfitSheetImpl {
 	
 	public boolean export() {
 		// TODO Auto-generated method stub
-		return false;
+		return ExcelHelper.export(psVO);
 	}
 
 
