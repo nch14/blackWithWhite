@@ -1,4 +1,4 @@
-package bl.report.Impl;
+package bl.report.impl;
 
 import bl.report.service.ProfitSheetBLService;
 

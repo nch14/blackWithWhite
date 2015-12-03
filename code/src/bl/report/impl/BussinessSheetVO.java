@@ -1,4 +1,4 @@
-package bl.report.Impl;
+package bl.report.impl;
 
 import java.util.ArrayList;
 
@@ -27,3 +27,4 @@ public class BussinessSheetVO {
 		String money;
 	}
 }
+

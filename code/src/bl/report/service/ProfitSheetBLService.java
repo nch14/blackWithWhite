@@ -1,6 +1,6 @@
 package bl.report.service;
 
-import bl.report.Impl.*;
+import bl.report.impl.ProfitSheetVO;
 
 public interface ProfitSheetBLService {
 	

@@ -1,6 +1,4 @@
-package bl.report.Impl;
-
-
+package bl.report.impl;
 
 public class BussinessSheetImpl{
 	BussinessSheetVO bsVO;

@@ -1,4 +1,4 @@
-package bl.report.Impl;
+package bl.report.impl;
 import java.util.ArrayList;
 import java.util.Calendar;
 
