@@ -4,11 +4,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 
 import Iphelper.Iphelper;
 import bill.ArrivementBill_Shop;
 
-public class Arrive_Shop {
+public class Arrive_Shop implements Arrive_ShopHelper{
 	ArrivementBill_Shop a;
 	boolean result;
 	
@@ -70,6 +71,12 @@ public class Arrive_Shop {
 			  e.printStackTrace();
 		}
 		return result;
+	}
+
+	@Override
+	public void ping() throws RemoteException {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

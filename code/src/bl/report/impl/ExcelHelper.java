@@ -24,19 +24,34 @@ public class ExcelHelper {
 		style.setAlignment(HSSFCellStyle.ALIGN_CENTER); // 创建一个居中格式  
 
 		HSSFCell cell = row.createCell((short) 0);  
-		cell.setCellValue("编号");  
+		cell.setCellValue("类型");  
 		cell.setCellStyle(style);  
 		cell = row.createCell((short) 1);  
-		cell.setCellValue("日期");  
+		cell.setCellValue("付款日期");  
 		cell.setCellStyle(style);  
 		cell = row.createCell((short) 2);  
-		cell.setCellValue("金额");  
+		cell.setCellValue("付款金额");  
 		cell.setCellStyle(style);  
 		cell = row.createCell((short) 3);  
-		cell.setCellValue("缘由");  
+		cell.setCellValue("付款人");  
 		cell.setCellStyle(style);  
 		cell = row.createCell((short) 4);  
-		cell.setCellValue("办事员");  
+		cell.setCellValue("条目");  
+		cell.setCellStyle(style); 
+		cell = row.createCell((short) 5);  
+		cell.setCellValue("备注");  
+		cell.setCellStyle(style);  
+		cell = row.createCell((short) 6);  
+		cell.setCellValue(" ");  
+		cell.setCellStyle(style);  
+		cell = row.createCell((short) 7);  
+		cell.setCellValue("收款日期");  
+		cell.setCellStyle(style);  
+		cell = row.createCell((short) 8);  
+		cell.setCellValue("收款金额");  
+		cell.setCellStyle(style);  
+		cell = row.createCell((short) 9);  
+		cell.setCellValue("收款快递员");  
 		cell.setCellStyle(style);  
 		// 第五步，写入实体数据 实际应用中这些数据从数据库得到，  
 		List list = CreateSimpleExcelToDisk.getStudent();  

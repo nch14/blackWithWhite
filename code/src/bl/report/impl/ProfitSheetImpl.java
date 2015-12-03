@@ -15,7 +15,7 @@ public class ProfitSheetImpl {
 		
 		Calendar cal=Calendar.getInstance();
 		String year=""+cal.get(Calendar.YEAR);
-		String month=""+cal.get(Calendar.MONTH);
+		String month=""+cal.get(Calendar.MONTH)+1;
 		String day=""+cal.get(Calendar.DATE);
 		String[] time={year,month,day};
 		

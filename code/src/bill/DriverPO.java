@@ -5,7 +5,7 @@ package bill;
  *
  */
 public class DriverPO {
-	public String ID;
+	String ID;
 	String name;
 	String IDNumber;
 	String[] birthday;

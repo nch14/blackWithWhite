@@ -1,8 +1,20 @@
 package bl.report.impl;
 
+import java.util.ArrayList;
+
+import bill.PaymentBill;
+import bill.ReceiveMoneyBill;
+import moneydata.PaidBill;
+import moneydata.PayBill;
+
 public class BussinessSheetImpl{
 	BussinessSheetVO bsVO;
-	
+	/**
+	 * 检查是否有格式问题
+	 * @param start 开始时间
+	 * @param end  结束时间
+	 * @return 格式是够正确
+	 */
 	private boolean checkDate(String start, String end) {
 		//先检查输入的是不是两个时间
 		char[] temp1=start.toCharArray();
@@ -48,6 +60,20 @@ public class BussinessSheetImpl{
 			return null;
 		}else{
 			
+			PayBill paybill=new PayBill();
+			PaidBill paidbill=new PaidBill();
+			
+			ArrayList<PaymentBill> pay;
+			ArrayList<ReceiveMoneyBill> paid;
+			
+			try {
+				pay=paybill.getall(timeToArray(start), timeToArray(end));
+				paid=paidbill.getall(timeToArray(start), timeToArray(end));
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("此处是查询经营情况表：无法连接到服务器");
+				return null;
+			}
 			
 			
 			
@@ -55,9 +81,26 @@ public class BussinessSheetImpl{
 			return bsVO;
 		}
 			
-			
+		
+		
 			
 	
+	}
+	
+	private String[] timeToArray(String time){
+		try {
+			String year=time.substring(0,4);
+			String month=time.substring(4,6);
+			String day=time.substring(6,8);
+			
+			String[] out={year,month,day};
+			return out;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+		
 	}
 
 

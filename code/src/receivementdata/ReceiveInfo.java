@@ -3,12 +3,13 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 
 import Iphelper.Iphelper;
 import bill.ReceiveBill;
 import informationdata.ShipmentInfoHelper;
 
-public class ReceiveInfo {
+public class ReceiveInfo implements ReceiceInfoHelper{
 	boolean result;
 	ReceiveBill a;
 	
@@ -70,5 +71,11 @@ public class ReceiveInfo {
 				e.printStackTrace();
 			}
 			return result;
+	}
+
+	@Override
+	public void ping() throws RemoteException {
+		// TODO Auto-generated method stub
+		
 	}
 }

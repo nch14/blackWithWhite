@@ -4,12 +4,13 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import Iphelper.Iphelper;
 import bill.PaymentBill;
 
-public class PayBill {
+public class PayBill implements PayBillHelper{
 	boolean result;
 	PaymentBill a;
 	ArrayList<PaymentBill> array;
@@ -72,5 +73,33 @@ public class PayBill {
 			e.printStackTrace();
 		}
 		return array;
+	}
+
+	
+
+	@Override
+	public boolean change(PaymentBill bill) throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public ArrayList<PaymentBill> getall(String[] time1, String[] time2) throws RemoteException {
+		// TODO Auto-generated method stub
+		try {
+			PayBillHelper x=(PayBillHelper) Naming.lookup(getURL());
+			array=x.getall(time1,time2);
+		} catch (ClassNotFoundException | NotBoundException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return array;
+		
+	}
+
+	@Override
+	public void ping() throws RemoteException {
+		// TODO Auto-generated method stub
+		
 	}
 }

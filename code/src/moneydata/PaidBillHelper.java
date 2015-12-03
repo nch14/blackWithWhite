@@ -16,4 +16,6 @@ public interface PaidBillHelper extends Client_Helper{
 	public ReceiveMoneyBill get(String id) throws RemoteException;
 	
 	public ArrayList<ReceiveMoneyBill> getall(String[] time) throws RemoteException;
+	
+	public ArrayList<ReceiveMoneyBill> getall(String[] time1,String[] time2) throws RemoteException;
 }

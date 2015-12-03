@@ -5,7 +5,7 @@ package bill;
  *
  */
 public class TrunkPO {
-	public String vehicleCode;
+	String vehicleCode;
 	String licensePlate;
 	String serviceTime;
 

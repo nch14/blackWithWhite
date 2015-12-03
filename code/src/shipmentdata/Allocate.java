@@ -3,11 +3,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 
 import Iphelper.Iphelper;
 import bill.AllocateBill;
 
-public class Allocate {
+public class Allocate implements AllocateHelper{
 	AllocateBill a;
 	boolean result;
 	
@@ -69,5 +70,11 @@ public class Allocate {
 				e.printStackTrace();
 			}
 			return result;
+	}
+
+	@Override
+	public void ping() throws RemoteException {
+		// TODO Auto-generated method stub
+		
 	}
 }
