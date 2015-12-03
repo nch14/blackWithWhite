@@ -14,5 +14,6 @@ public class StockBill_In {
 	}
 	
 	ArrayList<Info> list;
+	public String id;
 
 }

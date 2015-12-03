@@ -1,8 +1,9 @@
 package bill;
 
 public class PaymentBill {
-	String[] date;
+	public String[] date;
 	double money;
 	String name;
+	public String id;
 	
 }

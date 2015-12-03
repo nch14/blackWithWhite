@@ -3,6 +3,7 @@ package bill;
 import java.util.ArrayList;
 
 public class ArrivementBill {
+	public String identifier;
 	class struct{
 		String id;
 		State st;

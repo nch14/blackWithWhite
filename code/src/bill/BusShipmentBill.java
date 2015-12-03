@@ -3,6 +3,7 @@ package bill;
 import java.util.ArrayList;
 
 public class BusShipmentBill {
+	public String identifier;
 	String[] date;
 	String busshipID;
 	String destination;
