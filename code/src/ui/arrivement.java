@@ -289,7 +289,7 @@ public class arrivement {
 				{null, null, null, null, null, null, null, null},
 			},
 			new String[] {
-				"\u8BA2\u5355\u53F7", "\u88C5\u8F66\u65E5\u671F", "\u5230\u8FBE\u5730", "\u8F66\u8F86\u4EE3\u53F7", "\u6C7D\u8FD0\u7F16\u53F7", "\u62BC\u8FD0\u5458", "\u8425\u4E1A\u5385\u7F16\u53F7", "\u76D1\u88C5\u5458"
+				"订单号", "装车日期", "到达地", "车辆代号", "汽运编号", "押运员", "营业厅编号", "监装员"
 			}
 		));
 		scrollPane_3.setViewportView(table_3);
@@ -306,8 +306,14 @@ public class arrivement {
 		JCheckBox checkBox_3 = new JCheckBox("");
 		checkBox_3.setBounds(173, 536, 21, 23);
 		desktopPane_4.add(checkBox_3);
-		
+		//撤消table中一行的事件监听
 		JButton button_14 = new JButton("撤消");
+		button_14.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+			}
+		});
 		
 		button_14.setBounds(200, 536, 93, 23);
 		desktopPane_4.add(button_14);
@@ -406,7 +412,7 @@ public class arrivement {
 				          table.setValueAt(textField_16, i, 1);
 				          table.setValueAt(textField_21, i, 1);
 				          table.setValueAt(textField_11.getText(), i, 2);
-				          //table.setValueAt(comboBox.getToolTipText(e), 0, 3);
+				          table.setValueAt(comboBox.getSelectedItem(), 0, 3);
 				          break;
 					}
 				}

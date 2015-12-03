@@ -1,5 +1,10 @@
-package ui;
-
+package financial;
+/**
+ * 财务人员，负责结算管理，财务支出，报表查询和账户管理
+ * @author 孙婧
+ * 2015.12.03
+ * 
+*/
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -16,29 +21,25 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JCheckBox;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class accountAddition {
 
 	private JFrame frame;
 	private JTextField textField;
 	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
 	private JTextField textField_6;
 	private JTextField textField_7;
 	private JTable table;
 	private JTextField textField_8;
-	private JTextField textField_9;
-	private JTextField textField_10;
 	private JTable table_1;
 	private JTextField textField_11;
 	private JTextField textField_12;
-	private JTextField textField_13;
-	private JTextField textField_14;
-	private JTextField textField_15;
-	private JTextField textField_16;
 	private JTable table_2;
 	private JTextField textField_17;
 	private JTextField textField_18;
@@ -87,49 +88,20 @@ public class accountAddition {
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		frame.getContentPane().add(tabbedPane, BorderLayout.CENTER);
 		
+		//结算管理的界面
 		JDesktopPane desktopPane = new JDesktopPane();
 		desktopPane.setBackground(Color.WHITE);
 		tabbedPane.addTab("结算管理", null, desktopPane, null);
 		
 		JTextPane textPane_9 = new JTextPane();
-		textPane_9.setText("查看日期");
-		textPane_9.setBounds(150, 43, 54, 21);
+		textPane_9.setText("查看日期（年/月/日）");
+		textPane_9.setBounds(150, 43, 126, 21);
 		desktopPane.add(textPane_9);
 		
 		textField_8 = new JTextField();
-		textField_8.setBounds(214, 43, 40, 21);
+		textField_8.setBounds(286, 43, 105, 21);
 		desktopPane.add(textField_8);
 		textField_8.setColumns(10);
-		
-		JTextPane textPane_10 = new JTextPane();
-		textPane_10.setText("年");
-		textPane_10.setBounds(264, 43, 18, 21);
-		desktopPane.add(textPane_10);
-		
-		textField_9 = new JTextField();
-		textField_9.setBounds(292, 43, 30, 21);
-		desktopPane.add(textField_9);
-		textField_9.setColumns(10);
-		
-		JTextPane textPane_11 = new JTextPane();
-		textPane_11.setText("月");
-		textPane_11.setBounds(332, 43, 18, 21);
-		desktopPane.add(textPane_11);
-		
-		textField_10 = new JTextField();
-		textField_10.setBounds(360, 43, 30, 21);
-		desktopPane.add(textField_10);
-		textField_10.setColumns(10);
-		
-		JTextPane textPane_12 = new JTextPane();
-		textPane_12.setText("日");
-		textPane_12.setBounds(400, 43, 18, 21);
-		desktopPane.add(textPane_12);
-		
-		JSpinner spinner_1 = new JSpinner();
-		spinner_1.setModel(new SpinnerListModel(new String[] {"请选择营业厅"}));
-		spinner_1.setBounds(520, 42, 222, 22);
-		desktopPane.add(spinner_1);
 		
 		JButton button_3 = new JButton("查询");
 		button_3.setBounds(649, 93, 93, 23);
@@ -179,6 +151,12 @@ public class accountAddition {
 		));
 		scrollPane_1.setViewportView(table_1);
 		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"请选择营业厅", "江苏省南京市仙林营业厅"}));
+		comboBox.setBounds(534, 43, 158, 21);
+		desktopPane.add(comboBox);
+		
+		//财务支出的界面
 		JDesktopPane desktopPane_1 = new JDesktopPane();
 		desktopPane_1.setBackground(Color.WHITE);
 		tabbedPane.addTab("财务支出", null, desktopPane_1, null);
@@ -190,39 +168,14 @@ public class accountAddition {
 		textField.setColumns(10);
 		
 		JTextPane textPane = new JTextPane();
-		textPane.setText("付款日期");
-		textPane.setBounds(150, 31, 54, 21);
+		textPane.setText("付款日期(年/月/日）");
+		textPane.setBounds(150, 31, 121, 21);
 		desktopPane_1.add(textPane);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(214, 31, 40, 21);
+		textField_1.setBounds(281, 31, 139, 21);
 		desktopPane_1.add(textField_1);
 		textField_1.setColumns(10);
-		
-		textField_2 = new JTextField();
-		textField_2.setBounds(292, 31, 31, 21);
-		desktopPane_1.add(textField_2);
-		textField_2.setColumns(10);
-		
-		JTextPane textPane_1 = new JTextPane();
-		textPane_1.setText("年");
-		textPane_1.setBounds(264, 31, 18, 21);
-		desktopPane_1.add(textPane_1);
-		
-		JTextPane textPane_2 = new JTextPane();
-		textPane_2.setText("月");
-		textPane_2.setBounds(333, 31, 18, 21);
-		desktopPane_1.add(textPane_2);
-		
-		textField_3 = new JTextField();
-		textField_3.setBounds(361, 31, 31, 21);
-		desktopPane_1.add(textField_3);
-		textField_3.setColumns(10);
-		
-		JTextPane textPane_3 = new JTextPane();
-		textPane_3.setText("日");
-		textPane_3.setBounds(402, 31, 18, 21);
-		desktopPane_1.add(textPane_3);
 		
 		JTextPane textPane_4 = new JTextPane();
 		textPane_4.setText("付款金额");
@@ -249,11 +202,6 @@ public class accountAddition {
 		textPane_6.setBounds(150, 62, 54, 21);
 		desktopPane_1.add(textPane_6);
 		
-		JSpinner spinner = new JSpinner();
-		spinner.setModel(new SpinnerListModel(new String[] {"中国农业银行南京仙林支行"}));
-		spinner.setBounds(214, 61, 206, 22);
-		desktopPane_1.add(spinner);
-		
 		JTextPane textPane_7 = new JTextPane();
 		textPane_7.setText("条目");
 		textPane_7.setBounds(482, 62, 31, 21);
@@ -274,7 +222,31 @@ public class accountAddition {
 		desktopPane_1.add(textField_7);
 		textField_7.setColumns(10);
 		
+		final JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"中国农业银行南京仙林支行", "中国农业银行南京栖霞支行"}));
+		comboBox_1.setBounds(214, 62, 206, 21);
+		desktopPane_1.add(comboBox_1);
+		
+		//添加付款单的事件监听
 		JButton button = new JButton("添加");
+		button.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				for(int i=0;i<table.getRowCount();i++){
+					if(table.getValueAt(i, 0)==null&&table.getValueAt(i, 1)==null&&table.getValueAt(i, 2)==null&&table.getValueAt(i, 3)==null&&table.getValueAt(i, 4)==null
+							&&table.getValueAt(i, 5)==null&&table.getValueAt(i, 6)==null){
+				           table.setValueAt(i+1, i, 0);
+				           table.setValueAt(textField_1.getText(), i, 1);
+				           table.setValueAt(textField_4.getText(), i, 2);
+				           table.setValueAt(textField_5.getText(), i, 3);
+				           table.setValueAt(comboBox_1.getSelectedItem(), i, 4);
+				           table.setValueAt(textField_6.getText(), i, 5);
+				           table.setValueAt(textField_7.getText(), i, 6);
+				           break;
+					}
+				}
+			}
+		});
 		button.setBounds(705, 116, 93, 23);
 		desktopPane_1.add(button);
 		
@@ -317,7 +289,7 @@ public class accountAddition {
 				{null, null, null, null, null, null, null, null},
 			},
 			new String[] {
-				" ", "付款单ID", "付款日期", "付款金额", "付款人", "付款账户", "条目", "备注"
+				"付款单ID", "付款日期", "付款金额", "付款人", "付款账户", "条目", "备注"
 			}
 		));
 		scrollPane.setViewportView(table);
@@ -334,6 +306,7 @@ public class accountAddition {
 		button_2.setBounds(705, 523, 93, 23);
 		desktopPane_1.add(button_2);
 		
+		//报表查询的界面
 		JDesktopPane desktopPane_2 = new JDesktopPane();
 		desktopPane_2.setBackground(Color.WHITE);
 		tabbedPane.addTab("报表查询", null, desktopPane_2, null);
@@ -342,12 +315,13 @@ public class accountAddition {
 		tabbedPane_1.setBounds(90, 76, 800, 459);
 		desktopPane_2.add(tabbedPane_1);
 		
+		//成本收益表的查询界面
 		JDesktopPane desktopPane_4 = new JDesktopPane();
 		desktopPane_4.setBackground(Color.WHITE);
 		tabbedPane_1.addTab("成本收益表", null, desktopPane_4, null);
 		
 		JTextPane textPane_24 = new JTextPane();
-		textPane_24.setText("系统当前日期");
+		textPane_24.setText("系统当前日期：");
 		textPane_24.setBounds(138, 45, 90, 21);
 		desktopPane_4.add(textPane_24);
 		
@@ -374,79 +348,30 @@ public class accountAddition {
 		button_18.setBounds(500, 357, 93, 23);
 		desktopPane_4.add(button_18);
 		
+		//经营情况表的查询界面
 		JDesktopPane desktopPane_5 = new JDesktopPane();
 		desktopPane_5.setBackground(Color.WHITE);
 		tabbedPane_1.addTab("经营情况表", null, desktopPane_5, null);
 		
 		JTextPane textPane_13 = new JTextPane();
-		textPane_13.setText("开始日期");
-		textPane_13.setBounds(86, 32, 54, 21);
+		textPane_13.setText("开始日期（年/月/日）");
+		textPane_13.setBounds(86, 32, 126, 21);
 		desktopPane_5.add(textPane_13);
 		
 		JTextPane textPane_14 = new JTextPane();
-		textPane_14.setText("结束日期");
-		textPane_14.setBounds(86, 66, 54, 21);
+		textPane_14.setText("结束日期（年/月/日）");
+		textPane_14.setBounds(86, 66, 126, 21);
 		desktopPane_5.add(textPane_14);
 		
 		textField_11 = new JTextField();
-		textField_11.setBounds(150, 32, 40, 21);
+		textField_11.setBounds(222, 32, 126, 21);
 		desktopPane_5.add(textField_11);
 		textField_11.setColumns(10);
 		
 		textField_12 = new JTextField();
-		textField_12.setBounds(150, 66, 40, 21);
+		textField_12.setBounds(222, 66, 126, 21);
 		desktopPane_5.add(textField_12);
 		textField_12.setColumns(10);
-		
-		JTextPane textPane_15 = new JTextPane();
-		textPane_15.setText("年");
-		textPane_15.setBounds(200, 32, 18, 21);
-		desktopPane_5.add(textPane_15);
-		
-		JTextPane textPane_16 = new JTextPane();
-		textPane_16.setText("年");
-		textPane_16.setBounds(200, 66, 18, 21);
-		desktopPane_5.add(textPane_16);
-		
-		textField_13 = new JTextField();
-		textField_13.setBounds(228, 32, 30, 21);
-		desktopPane_5.add(textField_13);
-		textField_13.setColumns(10);
-		
-		textField_14 = new JTextField();
-		textField_14.setBounds(228, 66, 30, 21);
-		desktopPane_5.add(textField_14);
-		textField_14.setColumns(10);
-		
-		JTextPane textPane_17 = new JTextPane();
-		textPane_17.setText("月");
-		textPane_17.setBounds(268, 32, 18, 21);
-		desktopPane_5.add(textPane_17);
-		
-		textField_15 = new JTextField();
-		textField_15.setBounds(296, 32, 30, 21);
-		desktopPane_5.add(textField_15);
-		textField_15.setColumns(10);
-		
-		JTextPane textPane_18 = new JTextPane();
-		textPane_18.setText("月");
-		textPane_18.setBounds(268, 66, 18, 21);
-		desktopPane_5.add(textPane_18);
-		
-		textField_16 = new JTextField();
-		textField_16.setBounds(296, 66, 30, 21);
-		desktopPane_5.add(textField_16);
-		textField_16.setColumns(10);
-		
-		JTextPane textPane_19 = new JTextPane();
-		textPane_19.setText("日");
-		textPane_19.setBounds(336, 32, 18, 21);
-		desktopPane_5.add(textPane_19);
-		
-		JTextPane textPane_20 = new JTextPane();
-		textPane_20.setText("日");
-		textPane_20.setBounds(336, 66, 18, 21);
-		desktopPane_5.add(textPane_20);
 		
 		JButton button_4 = new JButton("查询");
 		button_4.setBounds(569, 96, 93, 23);
@@ -500,6 +425,7 @@ public class accountAddition {
 		button_5.setBounds(676, 397, 93, 23);
 		desktopPane_5.add(button_5);
 		
+		//账户管理的界面
 		JDesktopPane desktopPane_3 = new JDesktopPane();
 		desktopPane_3.setBackground(Color.WHITE);
 		tabbedPane.addTab("账户管理", null, desktopPane_3, null);
@@ -508,6 +434,7 @@ public class accountAddition {
 		tabbedPane_2.setBounds(91, 80, 753, 465);
 		desktopPane_3.add(tabbedPane_2);
 		
+		//增加账户的界面
 		JDesktopPane desktopPane_6 = new JDesktopPane();
 		desktopPane_6.setBackground(Color.WHITE);
 		tabbedPane_2.addTab("增加账户", null, desktopPane_6, null);
@@ -541,8 +468,21 @@ public class accountAddition {
 		textField_20.setBounds(458, 21, 66, 21);
 		desktopPane_6.add(textField_20);
 		textField_20.setColumns(10);
-		
+		//添加账户信息的事件监听
 		JButton button_6 = new JButton("添加");
+		button_6.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				for(int i=0;i<table_3.getRowCount();i++){
+				    if(table_3.getValueAt(i, 0)==null&&table_3.getValueAt(i, 1)==null&&table_3.getValueAt(i, 2)==null){
+				        table_3.setValueAt(textField_18.getText(), i, 0);
+				        table_3.setValueAt(textField_19.getText(), i, 1);
+				        table_3.setValueAt(textField_20.getText(), i, 2);
+				        break;
+				    }
+				}
+			}
+		});
 		button_6.setBounds(547, 52, 93, 23);
 		desktopPane_6.add(button_6);
 		
@@ -585,7 +525,7 @@ public class accountAddition {
 				{null, null, null, null},
 			},
 			new String[] {
-				" ", "账号", "名称", "金额"
+				 "账号", "名称", "金额"
 			}
 		));
 		scrollPane_3.setViewportView(table_3);
@@ -655,7 +595,7 @@ public class accountAddition {
 				{null, null, null, null, null},
 			},
 			new String[] {
-				" ", "账号", "名称", "金额", "操作"
+				 "账号", "名称", "金额", "操作"
 			}
 		));
 		scrollPane_4.setViewportView(table_4);
@@ -725,7 +665,7 @@ public class accountAddition {
 				{null, null, null, null},
 			},
 			new String[] {
-				" ", "账号", "名称", "金额"
+				 "账号", "名称", "金额"
 			}
 		));
 		scrollPane_5.setViewportView(table_5);
