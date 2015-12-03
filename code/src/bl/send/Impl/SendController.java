@@ -1,9 +1,9 @@
 package bl.send.Impl;
 
-import bl.send.Service.SendControllerService;
-import po.OrderBillPO;
+import bl.send.Service.SendBLService;
+import bill.OrderBillPO;
 
-public class SendController implements SendControllerService {
+public class SendController implements SendBLService {
 	Send send;
 	
 	public SendController(){
@@ -11,8 +11,7 @@ public class SendController implements SendControllerService {
 	}
 	@Override
 	public boolean push(OrderBillPO order) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub		
 		return send.push(order);
 	}
 

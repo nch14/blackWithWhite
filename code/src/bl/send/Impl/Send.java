@@ -1,23 +1,37 @@
 package bl.send.Impl;
 
 import bl.send.Service.SendService;
-import po.OrderBillPO;
+import bill.OrderBillPO;
 import senddata.SendInfo;
 
 public class Send implements SendService{
 
-	@Override
 	public boolean push(OrderBillPO order) {
-		// TODO Auto-generated method stub
-		SendInfo si=new SendInfo();
-		return si.getInput(order);
+		//1.推送到服务器
+		//2.更新物流动态
+		SendInfo si;
+		try {
+			si = new SendInfo();
+			return si.getInput(order);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+		
 	}
 
-	@Override
 	public OrderBillPO inquireSendMesg(String id) {
 		// TODO Auto-generated method stub
-		SendInfo si=new SendInfo();
-		return si.getSendMesg(id);
+		SendInfo si;
+		try {
+			si = new SendInfo();
+			return si.getSendMesg(id);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 

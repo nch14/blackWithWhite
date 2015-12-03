@@ -1,5 +1,10 @@
-package ui;
-
+package TransitView;
+/**
+ * 中转中心业务员，负责汽车、火车、飞机装运管理，中转中心到达单
+ * @author 孙婧
+ * 2015.12.02
+ * 
+*/
 import java.awt.EventQueue;
 
 
@@ -23,6 +28,10 @@ import java.awt.event.ActionEvent;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.SpinnerListModel;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class flight {
 
@@ -36,11 +45,6 @@ public class flight {
 	private JTextField textField_5;
 	private JTextPane textPane;
 	private JTextField textField;
-	private JTextPane textPane_1;
-	private JTextField textField_1;
-	private JTextPane textPane_4;
-	private JTextField textField_2;
-	private JTextPane textPane_5;
 	private JTextPane textPane_6;
 	private JTextField textField_6;
 	private JTextPane textPane_7;
@@ -57,8 +61,6 @@ public class flight {
 	private JTable table_2;
 	private JTextField textField_11;
 	private JTextField textField_12;
-	private JTextField textField_13;
-	private JTextField textField_14;
 	private JTextField textField_15;
 	private JTextField textField_16;
 	private JTextField textField_17;
@@ -69,11 +71,6 @@ public class flight {
 	private JTable table_3;
 	private JTextPane textPane_26;
 	private JTextField textField_22;
-	private JTextPane textPane_27;
-	private JTextField textField_23;
-	private JTextPane textPane_28;
-	private JTextField textField_24;
-	private JTextPane textPane_29;
 	private JTextField textField_25;
 	private JTextPane textPane_30;
 	private JTextPane textPane_31;
@@ -98,13 +95,13 @@ public class flight {
 	private JTable table_4;
 	private JTextField textField_33;
 	private JTextField textField_34;
-	private JTextField textField_35;
-	private JTextField textField_36;
 	private JTextField textField_37;
 	private JTextField textField_38;
 	private JTextField textField_39;
 	private JTextField textField_40;
 	private JCheckBox chckbxNewCheckBox;
+	private JComboBox comboBox;
+	private JComboBox comboBox_1;
 
 	/**
 	 * Launch the application.
@@ -142,7 +139,7 @@ public class flight {
 		
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		frame.getContentPane().add(tabbedPane, BorderLayout.CENTER);
-		
+		//飞机装运管理的界面
 		desktopPane = new JDesktopPane();
 		desktopPane.setBackground(Color.WHITE);
 		tabbedPane.addTab("飞机装运", null, desktopPane, null);
@@ -186,7 +183,7 @@ public class flight {
 				{null, null},
 			},
 			new String[] {
-				" ", "订单号"
+				"订单号", "中转中心中转单编号"
 			}
 		));
 		table_1.getColumnModel().getColumn(0).setPreferredWidth(25);
@@ -194,7 +191,7 @@ public class flight {
 		
 		JTextPane textPane_2 = new JTextPane();
 		textPane_2.setText("出发地");
-		textPane_2.setBounds(145, 80, 60, 21);
+		textPane_2.setBounds(117, 80, 50, 21);
 		desktopPane.add(textPane_2);
 		
 		textField_3 = new JTextField();
@@ -204,7 +201,7 @@ public class flight {
 		
 		JTextPane textPane_3 = new JTextPane();
 		textPane_3.setText("监装员");
-		textPane_3.setBounds(145, 110, 50, 21);
+		textPane_3.setBounds(117, 111, 50, 21);
 		desktopPane.add(textPane_3);
 		
 		textField_4 = new JTextField();
@@ -219,47 +216,22 @@ public class flight {
 		textField_5.setColumns(10);
 		
 		textPane = new JTextPane();
-		textPane.setText("日期");
-		textPane.setBounds(145, 49, 36, 21);
+		textPane.setText("日期(年/月/日）");
+		textPane.setBounds(117, 49, 102, 21);
 		desktopPane.add(textPane);
 		
 		textField = new JTextField();
-		textField.setBounds(226, 49, 50, 21);
+		textField.setBounds(226, 49, 133, 21);
 		desktopPane.add(textField);
 		textField.setColumns(10);
 		
-		textPane_1 = new JTextPane();
-		textPane_1.setText("年");
-		textPane_1.setBounds(286, 49, 23, 21);
-		desktopPane.add(textPane_1);
-		
-		textField_1 = new JTextField();
-		textField_1.setBounds(310, 49, 30, 21);
-		desktopPane.add(textField_1);
-		textField_1.setColumns(10);
-		
-		textPane_4 = new JTextPane();
-		textPane_4.setText("月");
-		textPane_4.setBounds(350, 49, 23, 21);
-		desktopPane.add(textPane_4);
-		
-		textField_2 = new JTextField();
-		textField_2.setBounds(375, 49, 30, 21);
-		desktopPane.add(textField_2);
-		textField_2.setColumns(10);
-		
-		textPane_5 = new JTextPane();
-		textPane_5.setText("日");
-		textPane_5.setBounds(415, 49, 23, 21);
-		desktopPane.add(textPane_5);
-		
 		textPane_6 = new JTextPane();
 		textPane_6.setText("中转中心中转单编号");
-		textPane_6.setBounds(145, 141, 118, 26);
+		textPane_6.setBounds(117, 142, 118, 26);
 		desktopPane.add(textPane_6);
 		
 		textField_6 = new JTextField();
-		textField_6.setBounds(273, 142, 212, 21);
+		textField_6.setBounds(245, 147, 212, 21);
 		desktopPane.add(textField_6);
 		textField_6.setColumns(10);
 		
@@ -295,20 +267,32 @@ public class flight {
 		
 		textPane_10 = new JTextPane();
 		textPane_10.setText("本货柜货物登记");
-		textPane_10.setBounds(145, 173, 102, 26);
+		textPane_10.setBounds(117, 173, 102, 26);
 		desktopPane.add(textPane_10);
 		
 		textPane_11 = new JTextPane();
 		textPane_11.setText("订单号");
-		textPane_11.setBounds(257, 173, 60, 21);
+		textPane_11.setBounds(226, 173, 60, 21);
 		desktopPane.add(textPane_11);
 		
 		textField_10 = new JTextField();
-		textField_10.setBounds(321, 173, 152, 21);
+		textField_10.setBounds(296, 173, 161, 21);
 		desktopPane.add(textField_10);
 		textField_10.setColumns(10);
-		
+		//添加飞机装运单号事件监听
 		button = new JButton("添加");
+		button.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				for(int i=0;i<table_1.getRowCount();i++){
+					if(table_1.getValueAt(i, 0)==null&&table_1.getValueAt(i, 1)==null){
+						table_1.setValueAt(textField_10.getText(), i, 0);
+						table_1.setValueAt(textField_6.getText(), i, 1);
+						break;
+					}
+				}
+			}
+		});
 		button.setBounds(752, 173, 93, 23);
 		desktopPane.add(button);
 		
@@ -333,6 +317,7 @@ public class flight {
 		button_2.setBounds(787, 541, 93, 23);
 		desktopPane.add(button_2);
 		
+		//火车装运管理的界面
 		JDesktopPane desktopPane_1 = new JDesktopPane();
 		desktopPane_1.setBackground(Color.WHITE);
 		tabbedPane.addTab("火车装运", null, desktopPane_1, null);
@@ -376,7 +361,7 @@ public class flight {
 				{null, null},
 			},
 			new String[] {
-				" ", "订单号"
+				"订单号", "中转中心中转单编号"
 			}
 		));
 		table_2.getColumnModel().getColumn(0).setPreferredWidth(30);
@@ -389,82 +374,57 @@ public class flight {
 		textField_11.setColumns(10);
 		
 		JTextPane textPane_13 = new JTextPane();
-		textPane_13.setText("日期");
-		textPane_13.setBounds(101, 41, 30, 21);
+		textPane_13.setText("日期（年/月/日）");
+		textPane_13.setBounds(116, 41, 102, 21);
 		desktopPane_1.add(textPane_13);
 		
 		textField_12 = new JTextField();
-		textField_12.setBounds(156, 41, 45, 21);
+		textField_12.setBounds(250, 41, 115, 21);
 		desktopPane_1.add(textField_12);
 		textField_12.setColumns(10);
 		
-		JTextPane textPane_14 = new JTextPane();
-		textPane_14.setText("年");
-		textPane_14.setBounds(211, 41, 18, 21);
-		desktopPane_1.add(textPane_14);
-		
-		textField_13 = new JTextField();
-		textField_13.setBounds(239, 41, 30, 21);
-		desktopPane_1.add(textField_13);
-		textField_13.setColumns(10);
-		
-		JTextPane textPane_15 = new JTextPane();
-		textPane_15.setText("月");
-		textPane_15.setBounds(279, 41, 18, 21);
-		desktopPane_1.add(textPane_15);
-		
-		textField_14 = new JTextField();
-		textField_14.setBounds(307, 41, 30, 21);
-		desktopPane_1.add(textField_14);
-		textField_14.setColumns(10);
-		
-		JTextPane textPane_16 = new JTextPane();
-		textPane_16.setText("日");
-		textPane_16.setBounds(347, 41, 18, 21);
-		desktopPane_1.add(textPane_16);
-		
 		JTextPane textPane_17 = new JTextPane();
 		textPane_17.setText("出发地");
-		textPane_17.setBounds(101, 72, 45, 21);
+		textPane_17.setBounds(116, 72, 45, 21);
 		desktopPane_1.add(textPane_17);
 		
 		textField_15 = new JTextField();
-		textField_15.setBounds(156, 72, 209, 21);
+		textField_15.setBounds(166, 72, 199, 21);
 		desktopPane_1.add(textField_15);
 		textField_15.setColumns(10);
 		
 		JTextPane textPane_18 = new JTextPane();
 		textPane_18.setText("监装员");
-		textPane_18.setBounds(101, 103, 45, 21);
+		textPane_18.setBounds(116, 103, 45, 21);
 		desktopPane_1.add(textPane_18);
 		
 		textField_16 = new JTextField();
-		textField_16.setBounds(156, 103, 209, 21);
+		textField_16.setBounds(166, 103, 199, 21);
 		desktopPane_1.add(textField_16);
 		textField_16.setColumns(10);
 		
 		JTextPane textPane_19 = new JTextPane();
 		textPane_19.setText("中转中心中转单编号");
-		textPane_19.setBounds(101, 134, 115, 21);
+		textPane_19.setBounds(116, 134, 115, 21);
 		desktopPane_1.add(textPane_19);
 		
 		textField_17 = new JTextField();
-		textField_17.setBounds(226, 134, 139, 21);
+		textField_17.setBounds(236, 134, 129, 21);
 		desktopPane_1.add(textField_17);
 		textField_17.setColumns(10);
 		
 		JTextPane textPane_20 = new JTextPane();
 		textPane_20.setText("本货柜货物登记");
-		textPane_20.setBounds(101, 172, 100, 21);
+		textPane_20.setBounds(116, 172, 100, 21);
 		desktopPane_1.add(textPane_20);
 		
 		JTextPane textPane_21 = new JTextPane();
 		textPane_21.setText("订单号");
-		textPane_21.setBounds(211, 172, 45, 21);
+		textPane_21.setBounds(226, 172, 45, 21);
 		desktopPane_1.add(textPane_21);
 		
 		textField_18 = new JTextField();
-		textField_18.setBounds(266, 172, 99, 21);
+		textField_18.setBounds(281, 172, 129, 21);
 		desktopPane_1.add(textField_18);
 		textField_18.setColumns(10);
 		
@@ -497,13 +457,25 @@ public class flight {
 		textField_21.setBounds(491, 103, 226, 21);
 		desktopPane_1.add(textField_21);
 		textField_21.setColumns(10);
-		
+		//添加火车装运单号的事件监听
 		JButton button_3 = new JButton("添加");
+		button_3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				for(int i=0;i<table_2.getRowCount();i++){
+					if(table_2.getValueAt(i, 0)==null&&table_2.getValueAt(i, 1)==null){
+						table_2.setValueAt(textField_18.getText(), i, 0);
+						table_2.setValueAt(textField_17.getText(), i, 1);
+						break;
+					}
+				}
+			}
+		});
 		button_3.setBounds(723, 172, 93, 23);
 		desktopPane_1.add(button_3);
 		
 		JTextPane textPane_25 = new JTextPane();
-		textPane_25.setText("订单号");
+		textPane_25.setText("运费：");
 		textPane_25.setBounds(723, 134, 45, 21);
 		desktopPane_1.add(textPane_25);
 		
@@ -519,6 +491,7 @@ public class flight {
 		button_5.setBounds(778, 519, 93, 23);
 		desktopPane_1.add(button_5);
 		
+		//汽车装运管理的界面
 		JDesktopPane desktopPane_2 = new JDesktopPane();
 		desktopPane_2.setBackground(Color.WHITE);
 		tabbedPane.addTab("汽车装运", null, desktopPane_2, null);
@@ -562,45 +535,20 @@ public class flight {
 				{null, null},
 			},
 			new String[] {
-				" ", "订单号"
+				"订单号", "中转中心中转单编号"
 			}
 		));
 		scrollPane_2.setViewportView(table_3);
 		
 		textPane_26 = new JTextPane();
-		textPane_26.setText("日期");
+		textPane_26.setText("日期（年/月/日）");
 		textPane_26.setBounds(117, 44, 30, 21);
 		desktopPane_2.add(textPane_26);
 		
 		textField_22 = new JTextField();
-		textField_22.setBounds(154, 44, 45, 21);
+		textField_22.setBounds(172, 44, 191, 21);
 		desktopPane_2.add(textField_22);
 		textField_22.setColumns(10);
-		
-		textPane_27 = new JTextPane();
-		textPane_27.setText("年");
-		textPane_27.setBounds(209, 44, 18, 21);
-		desktopPane_2.add(textPane_27);
-		
-		textField_23 = new JTextField();
-		textField_23.setBounds(237, 44, 30, 21);
-		desktopPane_2.add(textField_23);
-		textField_23.setColumns(10);
-		
-		textPane_28 = new JTextPane();
-		textPane_28.setText("月");
-		textPane_28.setBounds(277, 44, 18, 21);
-		desktopPane_2.add(textPane_28);
-		
-		textField_24 = new JTextField();
-		textField_24.setBounds(305, 44, 30, 21);
-		desktopPane_2.add(textField_24);
-		textField_24.setColumns(10);
-		
-		textPane_29 = new JTextPane();
-		textPane_29.setText("日");
-		textPane_29.setBounds(345, 44, 18, 21);
-		desktopPane_2.add(textPane_29);
 		
 		textField_25 = new JTextField();
 		textField_25.setText("  中转中心业务员：");
@@ -679,15 +627,27 @@ public class flight {
 		
 		textPane_38 = new JTextPane();
 		textPane_38.setText("订单号");
-		textPane_38.setBounds(209, 176, 45, 21);
+		textPane_38.setBounds(202, 176, 45, 21);
 		desktopPane_2.add(textPane_38);
 		
 		textField_32 = new JTextField();
 		textField_32.setBounds(257, 176, 106, 21);
 		desktopPane_2.add(textField_32);
 		textField_32.setColumns(10);
-		
+		//添加汽车装运单的事件监听
 		button_6 = new JButton("添加");
+		button_6.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				for(int i=0;i<table_3.getRowCount();i++){
+					if(table_3.getValueAt(i, 0)==null&&table_3.getValueAt(i, 1)==null){
+						table_3.setValueAt(textField_32.getText(), i, 0);
+						table_3.setValueAt(textField_28.getText(), i, 1);
+						break;
+					}
+				}
+			}
+		});
 		button_6.setBounds(666, 174, 96, 23);
 		desktopPane_2.add(button_6);
 		
@@ -701,11 +661,12 @@ public class flight {
 		textPane_40.setBounds(708, 44, 54, 21);
 		desktopPane_2.add(textPane_40);
 		
-		JSpinner spinner = new JSpinner();
-		spinner.setModel(new SpinnerListModel(new String[] {"中转单", "装车单"}));
-		spinner.setBounds(772, 43, 65, 22);
-		desktopPane_2.add(spinner);
+		comboBox_1 = new JComboBox();
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"中转单", "装车单"}));
+		comboBox_1.setBounds(772, 44, 65, 21);
+		desktopPane_2.add(comboBox_1);
 		
+		//中转中心到达单的界面
 		JDesktopPane desktopPane_3 = new JDesktopPane();
 		desktopPane_3.setBackground(Color.WHITE);
 		tabbedPane.addTab("中转中心到达单", null, desktopPane_3, null);
@@ -753,7 +714,7 @@ public class flight {
 				{null, null, null},
 			},
 			new String[] {
-				" ", "订单号", "到达状态"
+				 "订单号", "到达状态"
 			}
 		));
 		scrollPane_3.setViewportView(table_4);
@@ -771,39 +732,14 @@ public class flight {
 		textField_33.setColumns(10);
 		
 		JTextPane textPane_41 = new JTextPane();
-		textPane_41.setText("日期");
-		textPane_41.setBounds(116, 31, 30, 21);
+		textPane_41.setText("日期（年/月/日）");
+		textPane_41.setBounds(116, 31, 103, 21);
 		desktopPane_3.add(textPane_41);
 		
 		textField_34 = new JTextField();
-		textField_34.setBounds(156, 31, 45, 21);
+		textField_34.setBounds(229, 31, 136, 21);
 		desktopPane_3.add(textField_34);
 		textField_34.setColumns(10);
-		
-		JTextPane textPane_42 = new JTextPane();
-		textPane_42.setText("年");
-		textPane_42.setBounds(211, 31, 18, 21);
-		desktopPane_3.add(textPane_42);
-		
-		textField_35 = new JTextField();
-		textField_35.setBounds(239, 31, 30, 21);
-		desktopPane_3.add(textField_35);
-		textField_35.setColumns(10);
-		
-		JTextPane textPane_43 = new JTextPane();
-		textPane_43.setText("月");
-		textPane_43.setBounds(279, 31, 18, 21);
-		desktopPane_3.add(textPane_43);
-		
-		textField_36 = new JTextField();
-		textField_36.setBounds(307, 31, 30, 21);
-		desktopPane_3.add(textField_36);
-		textField_36.setColumns(10);
-		
-		JTextPane textPane_44 = new JTextPane();
-		textPane_44.setText("日");
-		textPane_44.setBounds(347, 31, 18, 21);
-		desktopPane_3.add(textPane_44);
 		
 		JTextPane textPane_45 = new JTextPane();
 		textPane_45.setText("出发地");
@@ -836,12 +772,12 @@ public class flight {
 		textField_39.setColumns(10);
 		
 		JTextPane textPane_48 = new JTextPane();
-		textPane_48.setText("\u5F02\u5E38\u8D27\u7269\u5230\u8FBE\u72B6\u6001\u767B\u8BB0");
+		textPane_48.setText("货物异常到达状态登记");
 		textPane_48.setBounds(116, 111, 126, 21);
 		desktopPane_3.add(textPane_48);
 		
 		JTextPane textPane_49 = new JTextPane();
-		textPane_49.setText("\u8BA2\u5355\u53F7");
+		textPane_49.setText("订单号");
 		textPane_49.setBounds(166, 148, 45, 21);
 		desktopPane_3.add(textPane_49);
 		
@@ -854,13 +790,20 @@ public class flight {
 		textPane_50.setText("到达状态");
 		textPane_50.setBounds(446, 148, 55, 21);
 		desktopPane_3.add(textPane_50);
-		
-		JSpinner spinner_1 = new JSpinner();
-		spinner_1.setModel(new SpinnerListModel(new String[] {"丢失", "损坏"}));
-		spinner_1.setBounds(511, 147, 55, 22);
-		desktopPane_3.add(spinner_1);
-		
+		//添加中转中心到达单的事件监听
 		JButton button_7 = new JButton("添加");
+		button_7.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				for(int i=0;i<table_4.getRowCount();i++){
+					if(table_4.getValueAt(i, 0)==null&&table_4.getValueAt(i, 1)==null){
+						table_4.setValueAt(textField_40.getText(), i, 0);
+						table_4.setValueAt(comboBox.getSelectedItem(), i, 1);
+						break;
+					}
+				}
+			}
+		});
 		button_7.setBounds(687, 168, 93, 23);
 		desktopPane_3.add(button_7);
 		
@@ -875,5 +818,10 @@ public class flight {
 		JButton button_9 = new JButton("提交");
 		button_9.setBounds(687, 533, 93, 23);
 		desktopPane_3.add(button_9);
+		
+		comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"丢失", "破损"}));
+		comboBox.setBounds(511, 148, 78, 21);
+		desktopPane_3.add(comboBox);
 	}
 }

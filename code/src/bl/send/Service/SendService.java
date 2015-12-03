@@ -1,7 +1,7 @@
 package bl.send.Service;
 
-import po.OrderBillPO;
-import vo.OrderBillVO;
+import bill.OrderBillPO;
+
 
 public interface SendService {
 	

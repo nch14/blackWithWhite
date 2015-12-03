@@ -1,4 +1,4 @@
-package po;
+package bill;
 
 import java.io.Serializable;
 
@@ -28,13 +28,12 @@ public class OrderBillPO implements Serializable{
 	 * information of the item
 	 */
 	int numOfItem;
-	double[][][] size;
+	double[] size;
 	double moneyForCover;
 	String speedLevel;
 	String kindOfSend;
 	String time;
 	String money;
-	public String id;
 	
 	public OrderBillPO(){}
 	

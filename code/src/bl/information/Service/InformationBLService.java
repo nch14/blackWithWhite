@@ -1,6 +1,6 @@
 package bl.information.Service;
 
-public interface InformationControllerService {
+public interface InformationBLService {
 	
 	/**
 	 * 根据ID查询物流信息

@@ -1,8 +1,8 @@
 package bl.information.Impl;
 
-import bl.information.Service.InformationControllerService;
+import bl.information.Service.InformationBLService;
 
-public class InformationController implements InformationControllerService{
+public class InformationController implements InformationBLService{
 	Information inf;
 
 	public InformationController(){
