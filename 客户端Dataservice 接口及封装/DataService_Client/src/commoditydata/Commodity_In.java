@@ -10,7 +10,7 @@ import java.rmi.RemoteException;
 import Iphelper.Iphelper;
 import bill.StockBill_In;
 
-public class Commodity_In {
+public class Commodity_In implements Commodity_In_Manage{
 	boolean result;
 	StockBill_In bill;
 	
@@ -74,5 +74,12 @@ public class Commodity_In {
 			e.printStackTrace();
 		}
 		return result;
+	}
+
+
+	@Override
+	public void ping() throws RemoteException {
+		// TODO Auto-generated method stub
+		
 	}
 }

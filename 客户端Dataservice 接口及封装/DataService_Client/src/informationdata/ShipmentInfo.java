@@ -4,12 +4,13 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import Iphelper.Iphelper;
 import bill.TransMesgPO;
 
-public class ShipmentInfo {
+public class ShipmentInfo implements ShipmentInfoHelper{
 	ArrayList<TransMesgPO> bill;
 	boolean result;
 	
@@ -49,5 +50,11 @@ public class ShipmentInfo {
 			e.printStackTrace();
 		}
 		return result;
+	}
+
+	@Override
+	public void ping() throws RemoteException {
+		// TODO Auto-generated method stub
+		
 	}
 }

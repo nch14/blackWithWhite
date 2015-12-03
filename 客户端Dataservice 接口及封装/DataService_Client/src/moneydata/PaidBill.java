@@ -3,12 +3,13 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import Iphelper.Iphelper;
 import bill.ReceiveMoneyBill;
 
-public class PaidBill {
+public class PaidBill implements PaidBillHelper{
 	boolean result;
 	ReceiveMoneyBill a;
 	ArrayList<ReceiveMoneyBill> array;
@@ -66,6 +67,24 @@ public class PaidBill {
 		try {
 			PaidBillHelper x=(PaidBillHelper) Naming.lookup(getURL());
 			array=x.getall(time);
+		} catch (ClassNotFoundException | NotBoundException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return array;
+	}
+
+	@Override
+	public void ping() throws RemoteException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public ArrayList<ReceiveMoneyBill> getall(String[] time1, String[] time2) throws RemoteException {
+		try {
+			PaidBillHelper x=(PaidBillHelper) Naming.lookup(getURL());
+			array=x.getall(time1,time2);
 		} catch (ClassNotFoundException | NotBoundException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

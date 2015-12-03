@@ -3,11 +3,12 @@ package commoditydata;
 import java.io.IOException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 
 import Iphelper.Iphelper;
 import bill.*;
  
-public class Commodity_Out {
+public class Commodity_Out implements Commodity_Out_Manage{
 	boolean result;
 	StockBill_Out bill;
 	
@@ -69,5 +70,11 @@ public class Commodity_Out {
 			e.printStackTrace();
 		}
 		return result;
+	}
+
+	@Override
+	public void ping() throws RemoteException {
+		// TODO Auto-generated method stub
+		
 	}
 }

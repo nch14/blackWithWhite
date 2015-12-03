@@ -3,11 +3,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 
 import Iphelper.Iphelper;
 import bill.Account;
 
-public class AccountManage {
+public class AccountManage implements AccountManageHelper{
 	boolean result;
 	Account acc;
 	
@@ -69,5 +70,11 @@ public class AccountManage {
 			e.printStackTrace();
 		}
 		return acc;
+	}
+
+	@Override
+	public void ping() throws RemoteException {
+		// TODO Auto-generated method stub
+		
 	}
 }

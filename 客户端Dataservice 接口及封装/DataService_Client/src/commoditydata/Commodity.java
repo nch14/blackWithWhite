@@ -4,11 +4,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 
 import Iphelper.Iphelper;
 import bill.*;
 
-public class Commodity {
+public class Commodity implements CommodityManage{
 	StockFillmentInfo info;
 	boolean result;
 	
@@ -48,5 +49,11 @@ public class Commodity {
 			e.printStackTrace();
 		}
 		return info;
+	}
+
+	@Override
+	public void ping() throws RemoteException {
+		// TODO Auto-generated method stub
+		
 	}
 }
