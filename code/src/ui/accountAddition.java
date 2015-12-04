@@ -293,12 +293,26 @@ public class accountAddition {
 			}
 		));
 		scrollPane.setViewportView(table);
-		
-		JCheckBox checkBox = new JCheckBox("");
-		checkBox.setBounds(151, 523, 21, 23);
-		desktopPane_1.add(checkBox);
-		
+		//撤消付款单table中一行的事件监听
 		JButton button_1 = new JButton("撤消");
+		button_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				for(int i =table.getRowCount()-1;i>=0;i--){
+					if(table.getValueAt(i, 0)!=null||table.getValueAt(i, 1)!=null||table.getValueAt(i, 2)!=null||table.getValueAt(i, 3)!=null||
+							table.getValueAt(i, 4)!=null||table.getValueAt(i, 5)!=null||table.getValueAt(i, 6)!=null){
+						table.setValueAt(null, i, 0);
+						table.setValueAt(null, i, 1);
+						table.setValueAt(null, i, 2);
+						table.setValueAt(null, i, 3);
+						table.setValueAt(null, i, 4);
+						table.setValueAt(null, i, 5);
+						table.setValueAt(null, i, 6);
+						break;
+					}
+				}
+			}
+		});
 		button_1.setBounds(178, 523, 93, 23);
 		desktopPane_1.add(button_1);
 		
@@ -339,7 +353,7 @@ public class accountAddition {
 				{null, null, null, null},
 			},
 			new String[] {
-				"总收入", "总支出", "总支出", "截止时间"
+				"总收入", "总支出", "总利润", "截止时间"
 			}
 		));
 		scrollPane_7.setViewportView(table_7);
@@ -529,12 +543,21 @@ public class accountAddition {
 			}
 		));
 		scrollPane_3.setViewportView(table_3);
-		
-		JCheckBox checkBox_1 = new JCheckBox("");
-		checkBox_1.setBounds(97, 392, 21, 23);
-		desktopPane_6.add(checkBox_1);
-		
+		//撤消账户信息table中一行的事件监听
 		JButton button_7 = new JButton("撤消");
+		button_7.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				for(int i = table_3.getRowCount()-1;i>=0;i--){
+					if(table_3.getValueAt(i, 0)!=null||table_3.getValueAt(i, 1)!=null||table_3.getValueAt(i, 2)!=null){
+						table_3.setValueAt(null, i, 0);
+						table_3.setValueAt(null, i, 1);
+						table_3.setValueAt(null, i, 2);
+						break;
+					}
+				}
+			}
+		});
 		button_7.setBounds(122, 392, 93, 23);
 		desktopPane_6.add(button_7);
 		
@@ -599,12 +622,22 @@ public class accountAddition {
 			}
 		));
 		scrollPane_4.setViewportView(table_4);
-		
-		JCheckBox checkBox_2 = new JCheckBox("");
-		checkBox_2.setBounds(120, 396, 21, 23);
-		desktopPane_7.add(checkBox_2);
-		
+		//撤消修改账号信息的事件监听
 		JButton button_10 = new JButton("撤消");
+		button_10.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				for(int i=table_4.getRowCount()-1;i>=0;i--){
+					if(table_4.getValueAt(i, 0)!=null||table_4.getValueAt(i, 1)!=null||table_4.getValueAt(i, 2)!=null||table_4.getValueAt(i, 3)!=null){
+						table_4.setValueAt(null, i, 0);
+						table_4.setValueAt(null, i, 1);
+						table_4.setValueAt(null, i, 2);
+						table_4.setValueAt(null, i, 3);
+						break;
+					}
+				}
+			}
+		});
 		button_10.setBounds(147, 396, 93, 23);
 		desktopPane_7.add(button_10);
 		
@@ -669,12 +702,21 @@ public class accountAddition {
 			}
 		));
 		scrollPane_5.setViewportView(table_5);
-		
-		JCheckBox checkBox_3 = new JCheckBox("");
-		checkBox_3.setBounds(109, 393, 21, 23);
-		desktopPane_8.add(checkBox_3);
-		
-		JButton button_13 = new JButton("撤消");
+		//删除账户信息的事件监听
+		JButton button_13 = new JButton("删除");
+		button_13.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				for(int i=table_5.getRowCount()-1;i>=0;i--){
+					if(table_5.getValueAt(i, 0)!=null||table_5.getValueAt(i, 1)!=null||table_5.getValueAt(i, 2)!=null){
+						table_5.setValueAt(null, i, 0);
+						table_5.setValueAt(null, i, 1);
+						table_5.setValueAt(null, i, 2);
+						break;
+					}
+				}
+			}
+		});
 		button_13.setBounds(136, 393, 93, 23);
 		desktopPane_8.add(button_13);
 		

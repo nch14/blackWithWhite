@@ -10,16 +10,24 @@ package BusinessHall;
 
 import java.awt.EventQueue;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
+
 import java.awt.BorderLayout;
+
 import javax.swing.JDesktopPane;
+
 import java.awt.Color;
+
 import javax.swing.JTextPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
+import javax.swing.ImageIcon;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerListModel;
 import javax.swing.JFormattedTextField;
@@ -29,11 +37,15 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JCheckBox;
+
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Font;
+import java.io.File;
+import java.io.IOException;
+
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
@@ -101,6 +113,9 @@ public class arrivement {
 	private JTable table_10;
 	private JTextField textField_48;
 	private JTable table_11;
+	private JTextField textField_49;
+	private JTextField textField_50;
+	private JTextField textField_51;
 
 	/**
 	 * Launch the application.
@@ -120,6 +135,7 @@ public class arrivement {
 
 	/**
 	 * Create the application.
+	 * @throws IOException 
 	 */
 	public arrivement() {
 		initialize();
@@ -127,9 +143,11 @@ public class arrivement {
 
 	/**
 	 * Initialize the contents of the frame.
+	 * @throws IOException 
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		//frame.setIconImage(new ImageIcon("/星球3.png").getImage());
 		frame.setBounds(200, 80, 1000, 650);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//车辆装车管理界面
@@ -226,6 +244,8 @@ public class arrivement {
 							&&table_3.getValueAt(i, 4)==null&&table_3.getValueAt(i, 5)==null&&table_3.getValueAt(i, 6)==null&&table_3.getValueAt(i, 7)==null){
 				        table_3.setValueAt(textField_35.getText(),i,0);
 				        table_3.setValueAt(textField_27.getText(), i, 1);
+				        table_3.setValueAt(textField_10.getText(), i, 1);
+				        table_3.setValueAt(textField_15.getText(), i, 1);
 				        table_3.setValueAt(textField_32.getText(), i, 2);
 				        table_3.setValueAt(textField_30.getText(), i, 3);
 		                table_3.setValueAt(textField_9.getText(), i, 4);
@@ -249,12 +269,7 @@ public class arrivement {
 		table_3 = new JTable();
 		table_3.setBackground(new Color(255, 255, 255));
 		table_3.setFont(new Font("SimSun", Font.PLAIN, 12));
-		table_3.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-				
-			}
-		});
+		
 		table_3.setModel(new DefaultTableModel(
 			new Object[][] {
 				{null, null, null, null, null, null, null, null},
@@ -293,25 +308,25 @@ public class arrivement {
 			}
 		));
 		scrollPane_3.setViewportView(table_3);
-		
-		JCheckBox chckbxNewCheckBox = new JCheckBox("New check box");
-		scrollPane_3.setColumnHeaderView(chckbxNewCheckBox);
-		
-		JCheckBox chckbxNewCheckBox_1 = new JCheckBox("New check box");
-		scrollPane_3.setColumnHeaderView(chckbxNewCheckBox_1);
-		
-		JCheckBox checkBox_5 = new JCheckBox("");
-		scrollPane_3.setRowHeaderView(checkBox_5);
-		
-		JCheckBox checkBox_3 = new JCheckBox("");
-		checkBox_3.setBounds(173, 536, 21, 23);
-		desktopPane_4.add(checkBox_3);
-		//撤消table中一行的事件监听
+		//撤消装车单table中一行的事件监听
 		JButton button_14 = new JButton("撤消");
 		button_14.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+				for(int i=table_3.getRowCount()-1;i>=0;i--){
+					if(table_3.getValueAt(i, 0)!=null||table_3.getValueAt(i, 1)!=null||table_3.getValueAt(i, 2)!=null||table_3.getValueAt(i, 3)!=null||
+							table_3.getValueAt(i, 4)!=null||table_3.getValueAt(i, 5)!=null||table_3.getValueAt(i, 6)!=null||table_3.getValueAt(i, 7)!=null){
+						table_3.setValueAt(null, i, 0);
+						table_3.setValueAt(null, i, 1);
+						table_3.setValueAt(null, i, 2);
+						table_3.setValueAt(null, i, 3);
+						table_3.setValueAt(null, i, 4);
+						table_3.setValueAt(null, i, 5);
+						table_3.setValueAt(null, i, 6);
+						table_3.setValueAt(null, i, 7);
+						break;
+					}
+				}
 			}
 		});
 		
@@ -322,11 +337,17 @@ public class arrivement {
 		button_15.setBounds(600, 536, 93, 23);
 		desktopPane_4.add(button_15);
 		
+		//提交一个table的事件监听
 		JButton button_16 = new JButton("提交");
+		button_16.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+			}
+		});
 		button_16.setBounds(757, 536, 93, 23);
 		desktopPane_4.add(button_16);
 		
-		//营业厅到达单的界面
 		JTextPane textPane_42 = new JTextPane();
 		textPane_42.setText("车辆代号");
 		textPane_42.setBounds(487, 124, 54, 21);
@@ -347,6 +368,7 @@ public class arrivement {
 		desktopPane_4.add(textField_15);
 		textField_15.setColumns(10);
 		
+		//营业厅到达单的界面
 		JDesktopPane desktopPane_1 = new JDesktopPane();
 		desktopPane_1.setBackground(Color.WHITE);
 		tabbedPane.addTab("营业厅到达单", null, desktopPane_1, null);
@@ -409,10 +431,10 @@ public class arrivement {
 					if(table.getValueAt(i, 0)==null&&table.getValueAt(i, 1)==null&&table.getValueAt(i, 2)==null&&table.getValueAt(i, 3)==null){
 				          table.setValueAt(textField_12.getText(), i, 0);
 				          table.setValueAt(textField_8.getText(), i, 1);
-				          table.setValueAt(textField_16, i, 1);
-				          table.setValueAt(textField_21, i, 1);
+				          //table.setValueAt(textField_16, i, 1);
+				          //table.setValueAt(textField_21, i, 1);
 				          table.setValueAt(textField_11.getText(), i, 2);
-				          table.setValueAt(comboBox.getSelectedItem(), 0, 3);
+				          table.setValueAt(comboBox.getSelectedItem(), i, 3);
 				          break;
 					}
 				}
@@ -465,14 +487,22 @@ public class arrivement {
 		));
 		scrollPane.setViewportView(table);
 		
-		JCheckBox checkBox_6 = new JCheckBox("");
-		scrollPane.setRowHeaderView(checkBox_6);
-		
-		JCheckBox checkBox = new JCheckBox("");
-		checkBox.setBounds(232, 528, 21, 23);
-		desktopPane_1.add(checkBox);
-		
+		//撤消营业厅到达单table中的一行的事件监听
 		JButton button_5 = new JButton("撤消");
+		button_5.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				for(int i=table.getRowCount()-1;i>=0;i--){
+					if(table.getValueAt(i, 0)!=null||table.getValueAt(i, 1)!=null||table.getValueAt(i, 2)!=null||table.getValueAt(i, 3)!=null){
+						table.setValueAt(null, i, 0);
+						table.setValueAt(null, i, 1);
+						table.setValueAt(null, i, 2);
+						table.setValueAt(null, i, 3);
+						break;
+					}
+				}
+			}
+		});
 		button_5.setBounds(259, 528, 93, 23);
 		desktopPane_1.add(button_5);
 		
@@ -591,15 +621,21 @@ public class arrivement {
 			}
 		));
 		scrollPane_1.setViewportView(table_1);
-		
-		JCheckBox checkBox_4 = new JCheckBox("");
-		scrollPane_1.setRowHeaderView(checkBox_4);
-		
-		JCheckBox checkBox_1 = new JCheckBox("");
-		checkBox_1.setBounds(173, 522, 21, 23);
-		desktopPane_2.add(checkBox_1);
-		
+		//撤消派件单table中的一行的事件监听
 		JButton button_8 = new JButton("撤消");
+		button_8.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				for(int i=table_1.getRowCount()-1;i>=0;i--){
+					if(table_1.getValueAt(i, 0)!=null||table_1.getValueAt(i, 1)!=null||table_1.getValueAt(i, 2)!=null){
+						table_1.setValueAt(null, i, 0);
+						table_1.setValueAt(null, i, 1);
+						table_1.setValueAt(null, i, 2);
+						break;
+					}
+				}
+			}
+		});
 		button_8.setBounds(200, 522, 93, 23);
 		desktopPane_2.add(button_8);
 		
@@ -612,6 +648,11 @@ public class arrivement {
 		textField_22.setBounds(342, 46, 30, 21);
 		desktopPane_2.add(textField_22);
 		textField_22.setColumns(10);
+		
+		textField_49 = new JTextField();
+		textField_49.setBounds(379, 46, 30, 21);
+		desktopPane_2.add(textField_49);
+		textField_49.setColumns(10);
 		
 		JDesktopPane desktopPane_3 = new JDesktopPane();
 		desktopPane_3.setBackground(Color.WHITE);
@@ -629,7 +670,7 @@ public class arrivement {
 		desktopPane_3.add(textPane_15);
 		
 		textField_20 = new JTextField();
-		textField_20.setBounds(286, 45, 123, 21);
+		textField_20.setBounds(286, 45, 40, 21);
 		desktopPane_3.add(textField_20);
 		textField_20.setColumns(10);
 		
@@ -724,21 +765,38 @@ public class arrivement {
 			}
 		));
 		scrollPane_2.setViewportView(table_2);
-		
-		JCheckBox checkBox_7 = new JCheckBox("");
-		scrollPane_2.setRowHeaderView(checkBox_7);
-		
-		JCheckBox checkBox_2 = new JCheckBox("");
-		checkBox_2.setBounds(173, 524, 21, 23);
-		desktopPane_3.add(checkBox_2);
-		
+		//撤消收款单table中一行的事件监听
 		JButton button_11 = new JButton("撤消");
+		button_11.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				for(int i=table_2.getRowCount()-1;i>=0;i--){
+					if(table_2.getValueAt(i, 0)!=null||table_2.getValueAt(i, 1)!=null||table_2.getValueAt(i, 2)!=null||table_2.getValueAt(i, 3)!=null){
+						table_2.setValueAt(null, i, 0);
+						table_2.setValueAt(null, i, 1);
+						table_2.setValueAt(null, i, 2);
+						table_2.setValueAt(null, i, 3);
+						break;
+					}
+				}
+			}
+		});
 		button_11.setBounds(200, 524, 93, 23);
 		desktopPane_3.add(button_11);
 		
 		JButton button_12 = new JButton("提交");
 		button_12.setBounds(739, 524, 93, 23);
 		desktopPane_3.add(button_12);
+		
+		textField_50 = new JTextField();
+		textField_50.setBounds(336, 45, 30, 21);
+		desktopPane_3.add(textField_50);
+		textField_50.setColumns(10);
+		
+		textField_51 = new JTextField();
+		textField_51.setBounds(376, 45, 30, 21);
+		desktopPane_3.add(textField_51);
+		textField_51.setColumns(10);
 		
 		//司机信息管理的界面
 		JDesktopPane desktopPane = new JDesktopPane();
@@ -949,6 +1007,28 @@ public class arrivement {
 		JButton button_2 = new JButton("提交");
 		button_2.setBounds(670, 435, 93, 23);
 		desktopPane_7.add(button_2);
+		//撤消司机信息table中一行的事件监听
+		JButton button_27 = new JButton("撤消");
+		button_27.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				for(int i=table_5.getRowCount()-1;i>=0;i--){
+					if(table_5.getValueAt(i, 0)!=null||table_5.getValueAt(i, 1)!=null||table_5.getValueAt(i, 2)!=null||table_5.getValueAt(i, 3)!=null||
+							table_5.getValueAt(i, 4)!=null||table_5.getValueAt(i, 5)!=null||table_5.getValueAt(i, 6)!=null){
+						table_5.setValueAt(null, i, 0);
+						table_5.setValueAt(null, i, 1);
+						table_5.setValueAt(null, i, 2);
+						table_5.setValueAt(null, i, 3);
+						table_5.setValueAt(null, i, 4);
+						table_5.setValueAt(null, i, 5);
+						table_5.setValueAt(null, i, 6);
+						break;
+					}
+				}
+			}
+		});
+		button_27.setBounds(63, 435, 93, 23);
+		desktopPane_7.add(button_27);
 		
 		JDesktopPane desktopPane_8 = new JDesktopPane();
 		desktopPane_8.setBackground(Color.WHITE);
@@ -1177,6 +1257,23 @@ public class arrivement {
 		JButton button_22 = new JButton("提交");
 		button_22.setBounds(590, 430, 93, 23);
 		desktopPane_11.add(button_22);
+		//撤消车辆信息table中一行的事件监听
+		JButton button_28 = new JButton("撤消");
+		button_28.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				for(int i=table_9.getRowCount()-1;i>=0;i--){
+					if(table_9.getValueAt(i, 0)!=null||table_9.getValueAt(i, 1)!=null||table_9.getValueAt(i, 2)!=null){
+						table_9.setValueAt(null, i, 0);
+						table_9.setValueAt(null, i, 1);
+						table_9.setValueAt(null, i, 2);
+						break;
+					}
+				}
+			}
+		});
+		button_28.setBounds(63, 430, 93, 23);
+		desktopPane_11.add(button_28);
 		
 		JDesktopPane desktopPane_12 = new JDesktopPane();
 		desktopPane_12.setBackground(Color.WHITE);

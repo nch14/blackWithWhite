@@ -102,6 +102,14 @@ public class flight {
 	private JCheckBox chckbxNewCheckBox;
 	private JComboBox comboBox;
 	private JComboBox comboBox_1;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_13;
+	private JTextField textField_14;
+	private JTextField textField_23;
+	private JTextField textField_24;
+	private JTextField textField_35;
+	private JTextField textField_36;
 
 	/**
 	 * Launch the application.
@@ -221,7 +229,7 @@ public class flight {
 		desktopPane.add(textPane);
 		
 		textField = new JTextField();
-		textField.setBounds(226, 49, 133, 21);
+		textField.setBounds(226, 49, 40, 21);
 		desktopPane.add(textField);
 		textField.setColumns(10);
 		
@@ -301,11 +309,20 @@ public class flight {
 		textPane_12.setBounds(768, 146, 60, 21);
 		desktopPane.add(textPane_12);
 		
-		JCheckBox checkBox = new JCheckBox(" ");
-		checkBox.setBounds(173, 541, 23, 23);
-		desktopPane.add(checkBox);
-		
+		//撤消飞机装运单一行的事件监听
 		JButton button_1 = new JButton("撤消");
+		button_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				for(int i=table_1.getRowCount()-1;i>=0;i--){
+					if(table_1.getValueAt(i, 0)!=null||table_1.getValueAt(i, 1)!=null){
+						table_1.setValueAt(null, i, 0);
+						table_1.setValueAt(null, i, 1);
+						break;
+					}
+				}
+			}
+		});
 		button_1.setBounds(230, 541, 93, 23);
 		desktopPane.add(button_1);
 		
@@ -316,6 +333,16 @@ public class flight {
 		});
 		button_2.setBounds(787, 541, 93, 23);
 		desktopPane.add(button_2);
+		
+		textField_35 = new JTextField();
+		textField_35.setBounds(276, 49, 30, 21);
+		desktopPane.add(textField_35);
+		textField_35.setColumns(10);
+		
+		textField_36 = new JTextField();
+		textField_36.setBounds(316, 49, 30, 21);
+		desktopPane.add(textField_36);
+		textField_36.setColumns(10);
 		
 		//火车装运管理的界面
 		JDesktopPane desktopPane_1 = new JDesktopPane();
@@ -379,7 +406,7 @@ public class flight {
 		desktopPane_1.add(textPane_13);
 		
 		textField_12 = new JTextField();
-		textField_12.setBounds(250, 41, 115, 21);
+		textField_12.setBounds(228, 41, 43, 21);
 		desktopPane_1.add(textField_12);
 		textField_12.setColumns(10);
 		
@@ -479,17 +506,36 @@ public class flight {
 		textPane_25.setBounds(723, 134, 45, 21);
 		desktopPane_1.add(textPane_25);
 		
-		JCheckBox checkBox_1 = new JCheckBox("");
-		checkBox_1.setBounds(166, 519, 21, 23);
-		desktopPane_1.add(checkBox_1);
-		
+		//撤消火车装运单中一行的事件监听
 		JButton button_4 = new JButton("撤消");
+		button_4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				for(int i=table_2.getRowCount()-1;i>=0;i--){
+					if(table_2.getValueAt(i, 0)!=null||table_2.getValueAt(i, 1)!=null){
+						table_2.setValueAt(null, i, 0);
+						table_2.setValueAt(null, i, 1);
+						break;
+					}
+				}
+			}
+		});
 		button_4.setBounds(204, 519, 93, 23);
 		desktopPane_1.add(button_4);
 		
 		JButton button_5 = new JButton("提交");
 		button_5.setBounds(778, 519, 93, 23);
 		desktopPane_1.add(button_5);
+		
+		textField_23 = new JTextField();
+		textField_23.setBounds(281, 41, 30, 21);
+		desktopPane_1.add(textField_23);
+		textField_23.setColumns(10);
+		
+		textField_24 = new JTextField();
+		textField_24.setBounds(321, 41, 30, 21);
+		desktopPane_1.add(textField_24);
+		textField_24.setColumns(10);
 		
 		//汽车装运管理的界面
 		JDesktopPane desktopPane_2 = new JDesktopPane();
@@ -546,7 +592,7 @@ public class flight {
 		desktopPane_2.add(textPane_26);
 		
 		textField_22 = new JTextField();
-		textField_22.setBounds(172, 44, 191, 21);
+		textField_22.setBounds(172, 44, 40, 21);
 		desktopPane_2.add(textField_22);
 		textField_22.setColumns(10);
 		
@@ -666,6 +712,37 @@ public class flight {
 		comboBox_1.setBounds(772, 44, 65, 21);
 		desktopPane_2.add(comboBox_1);
 		
+		//撤消汽车装运单中一行的事件监听
+		JButton button_10 = new JButton("撤消");
+		button_10.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				for(int i=table_3.getRowCount()-1;i>=0;i--){
+					if(table_3.getValueAt(i, 0)!=null||table_3.getValueAt(i, 1)!=null){
+						table_3.setValueAt(null, i, 0);
+						table_3.setValueAt(null, i, 1);
+						break;
+					}
+				}
+			}
+		});
+		button_10.setBounds(119, 530, 93, 23);
+		desktopPane_2.add(button_10);
+		
+		JButton button_11 = new JButton("提交");
+		button_11.setBounds(669, 530, 93, 23);
+		desktopPane_2.add(button_11);
+		
+		textField_13 = new JTextField();
+		textField_13.setBounds(222, 44, 30, 21);
+		desktopPane_2.add(textField_13);
+		textField_13.setColumns(10);
+		
+		textField_14 = new JTextField();
+		textField_14.setBounds(262, 44, 30, 21);
+		desktopPane_2.add(textField_14);
+		textField_14.setColumns(10);
+		
 		//中转中心到达单的界面
 		JDesktopPane desktopPane_3 = new JDesktopPane();
 		desktopPane_3.setBackground(Color.WHITE);
@@ -719,12 +796,6 @@ public class flight {
 		));
 		scrollPane_3.setViewportView(table_4);
 		
-		chckbxNewCheckBox = new JCheckBox("New check box");
-		scrollPane_3.setColumnHeaderView(chckbxNewCheckBox);
-		
-		JCheckBox chckbxNewCheckBox_1 = new JCheckBox("New check box");
-		scrollPane_3.setColumnHeaderView(chckbxNewCheckBox_1);
-		
 		textField_33 = new JTextField();
 		textField_33.setText("  中转中心业务员：");
 		textField_33.setBounds(116, 0, 735, 21);
@@ -737,7 +808,7 @@ public class flight {
 		desktopPane_3.add(textPane_41);
 		
 		textField_34 = new JTextField();
-		textField_34.setBounds(229, 31, 136, 21);
+		textField_34.setBounds(229, 31, 39, 21);
 		desktopPane_3.add(textField_34);
 		textField_34.setColumns(10);
 		
@@ -807,11 +878,20 @@ public class flight {
 		button_7.setBounds(687, 168, 93, 23);
 		desktopPane_3.add(button_7);
 		
-		JCheckBox checkBox_2 = new JCheckBox("");
-		checkBox_2.setBounds(139, 533, 22, 23);
-		desktopPane_3.add(checkBox_2);
-		
+		//撤消中转中心到达单table中一行的事件监听
 		JButton button_8 = new JButton("撤消");
+		button_8.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				for(int i=table_4.getRowCount()-1;i>=0;i--){
+					if(table_4.getValueAt(i, 0)!=null||table_4.getValueAt(i, 1)!=null){
+						table_4.setValueAt(null, i, 0);
+						table_4.setValueAt(null, i, 1);
+						break;
+					}
+				}
+			}
+		});
 		button_8.setBounds(166, 533, 93, 23);
 		desktopPane_3.add(button_8);
 		
@@ -823,5 +903,15 @@ public class flight {
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"丢失", "破损"}));
 		comboBox.setBounds(511, 148, 78, 21);
 		desktopPane_3.add(comboBox);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(278, 31, 30, 21);
+		desktopPane_3.add(textField_1);
+		textField_1.setColumns(10);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(318, 31, 30, 21);
+		desktopPane_3.add(textField_2);
+		textField_2.setColumns(10);
 	}
 }
