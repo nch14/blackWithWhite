@@ -25,20 +25,20 @@ public class ProfitSheetImpl {
 		try {
 			pay=paybill.getall(time);
 			paid=paidbill.getall(time);
+			psVO=new ProfitSheetVO(pay,paid);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			System.out.println("此处是查询成本收益表：无法连接到服务器");
 			return null;
 		}
-		
-		psVO=new ProfitSheetVO(pay,paid);
-		
 		return psVO;
 	}
 	
 	public boolean export() {
-		// TODO Auto-generated method stub
+		if(psVO==null){
+			return false;
+		}
 		return ExcelHelper.export(psVO);
 	}
 

@@ -47,8 +47,10 @@ public class BussinessSheetImpl{
 
 
 	public boolean export() {
-		// TODO Auto-generated method stub
-		return false;
+		if(bsVO==null){
+			return false;
+		}
+		return ExcelHelper.export(bsVO);
 	}
 
 
@@ -69,15 +71,12 @@ public class BussinessSheetImpl{
 			try {
 				pay=paybill.getall(timeToArray(start), timeToArray(end));
 				paid=paidbill.getall(timeToArray(start), timeToArray(end));
+				bsVO=new BussinessSheetVO(pay,paid);
 			} catch (Exception e) {
 				e.printStackTrace();
 				System.out.println("此处是查询经营情况表：无法连接到服务器");
 				return null;
 			}
-			
-			
-			
-			
 			return bsVO;
 		}
 			

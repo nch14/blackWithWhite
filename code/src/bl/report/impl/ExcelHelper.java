@@ -15,7 +15,7 @@ import bill.ReceiveMoneyBill;
 
 public class ExcelHelper {
 	String type;
-	public boolean export(BussinessSheetVO bs){
+	public static boolean export(BussinessSheetVO bs){
 		
 		// 第一步，创建一个webbook，对应一个Excel文件  
 		HSSFWorkbook wb = new HSSFWorkbook();  
