@@ -1,6 +1,7 @@
 package bl.report.impl;
 
 import bl.report.service.ProfitSheetBLService;
+import vo.ProfitSheetVO;
 
 public class ProfitSheetController implements ProfitSheetBLService {
 	ProfitSheetImpl ps;

@@ -3,9 +3,8 @@ package vo;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-
+import bill.StaffPO;
 import enumHelp.Postion;
-import po.StaffPO;
 
 public class StaffVO {
 	String name;
@@ -30,7 +29,7 @@ public class StaffVO {
 		Calendar cal=Calendar.getInstance();
 		age=(int)(cal.get(Calendar.YEAR))-Integer.parseInt(year);
 		//¾«È·ÄêÁä
-		if(cal.get(Calendar.MONTH)<Integer.parseInt(month)){
+		if((cal.get(Calendar.MONTH)+1)<Integer.parseInt(month)){
 			age-=1;
 		}
 		if(cal.get(Calendar.MONTH)==Integer.parseInt(month)&&

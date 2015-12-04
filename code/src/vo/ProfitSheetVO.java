@@ -1,4 +1,4 @@
-package bl.report.impl;
+package vo;
 
 import java.util.ArrayList;
 import bill.PaymentBill;

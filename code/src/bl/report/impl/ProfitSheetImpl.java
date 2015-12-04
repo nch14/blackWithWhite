@@ -4,6 +4,7 @@ import java.util.Calendar;
 
 import bill.PaymentBill;
 import moneydata.*;
+import vo.ProfitSheetVO;
 import bill.*;
 public class ProfitSheetImpl {
 	ProfitSheetVO psVO;

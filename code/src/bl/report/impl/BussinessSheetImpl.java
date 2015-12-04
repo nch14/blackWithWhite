@@ -6,6 +6,7 @@ import bill.PaymentBill;
 import bill.ReceiveMoneyBill;
 import moneydata.PaidBill;
 import moneydata.PayBill;
+import vo.BussinessSheetVO;
 
 public class BussinessSheetImpl{
 	BussinessSheetVO bsVO;
