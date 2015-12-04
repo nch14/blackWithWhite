@@ -1,6 +1,6 @@
 package Driverpackage;
 
-import bl.judgement.Service.JudgementService;
+import bl.judgement.Service.JudgementBLService;
 
 
 
@@ -9,7 +9,7 @@ public class JudgementBLServiceD  {
  * judgementbl的供接口
  */
 
-		public void drive(JudgementService judgementBLService){
+		public void drive(JudgementBLService judgementBLService){
 			ResultMessage result1 = judgementBLService.checkRecord(0000000001);
 			if(result1==ResultMessage.Exist) System.out.println("Record exists\n");
 			ResultMessage result2 = judgementBLService.updateRecord(0000000001);
@@ -22,7 +22,7 @@ public class JudgementBLServiceD  {
 
 public class Client{
 		public static void main(String[] args){
-			JudgementService judgementController = new JudgementController();
+			JudgementBLService judgementController = new JudgementController();
 			JudgementBLServiceD driver = new JudgementBLServiceD(judgementController);
 			driver.drive(judgementController);
 		}

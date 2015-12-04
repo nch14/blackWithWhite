@@ -1,9 +1,9 @@
 package bl.judgement.Impl;
 
-import bl.judgement.Service.JudgementService;
+import bl.judgement.Service.JudgementBLService;
 import po.OrderBillPO;
 
-public class JudgementController implements JudgementService {
+public class JudgementController implements JudgementBLService {
 	Judgement judge;
 		
 	public JudgementController(String type){

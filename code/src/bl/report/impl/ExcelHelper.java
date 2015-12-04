@@ -1,6 +1,7 @@
 package bl.report.impl;
 
 import java.io.FileOutputStream;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
@@ -8,6 +9,9 @@ import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+
+import bill.PaymentBill;
+import bill.ReceiveMoneyBill;
 
 public class ExcelHelper {
 	String type;
@@ -45,41 +49,84 @@ public class ExcelHelper {
 		cell.setCellValue(" ");  
 		cell.setCellStyle(style);  
 		cell = row.createCell((short) 7);  
-		cell.setCellValue("收款日期");  
+		cell.setCellValue("类型");  
 		cell.setCellStyle(style);  
 		cell = row.createCell((short) 8);  
-		cell.setCellValue("收款金额");  
+		cell.setCellValue("收款日期");  
 		cell.setCellStyle(style);  
 		cell = row.createCell((short) 9);  
+		cell.setCellValue("收款金额");  
+		cell.setCellStyle(style);  
+		cell = row.createCell((short) 10);  
 		cell.setCellValue("收款快递员");  
 		cell.setCellStyle(style);  
 		// 第五步，写入实体数据 实际应用中这些数据从数据库得到，  
-		List list = CreateSimpleExcelToDisk.getStudent();  
-
-		for (int i = 0; i < list.size(); i++)  
-		{  
-		row = sheet.createRow((int) i + 1);  
-		Student stu = (Student) list.get(i);  
-		// 第四步，创建单元格，并设置值  
-		row.createCell((short) 0).setCellValue((double) stu.getId());  
-		row.createCell((short) 1).setCellValue(stu.getName());  
-		row.createCell((short) 2).setCellValue((double) stu.getAge());  
-		cell = row.createCell((short) 3);  
-		cell.setCellValue(new SimpleDateFormat("yyyy-mm-dd").format(stu.getBirth()));  
-		}  
+		ArrayList<PaymentBill> pay=bs.pay;
+		ArrayList<ReceiveMoneyBill> paid=bs.paid;
+		for(int i=0;i<Math.max(pay.size(),paid.size());i++){  
+			
+			row = sheet.createRow((int) i + 1);  
+			
+			if (i<pay.size()) {
+				PaymentBill aPayment=pay.get(i);
+				cell = row.createCell((short) 0);
+				cell.setCellValue("付款单");
+				cell.setCellStyle(style);
+				cell = row.createCell((short) 1);
+				cell.setCellValue(aPayment.getDate());
+				cell.setCellStyle(style);
+				cell = row.createCell((short) 2);
+				cell.setCellValue(aPayment.money);
+				cell.setCellStyle(style);
+				cell = row.createCell((short) 3);
+				cell.setCellValue(aPayment.payer);
+				cell.setCellStyle(style);
+				cell = row.createCell((short) 4);
+				cell.setCellValue(aPayment.type);
+				cell.setCellStyle(style);
+				cell = row.createCell((short) 5);
+				cell.setCellValue(aPayment.remarks);
+				cell.setCellStyle(style);
+				cell = row.createCell((short) 6);
+				cell.setCellValue(" ");
+				cell.setCellStyle(style);
+			}
+			if (i<paid.size()) {
+				ReceiveMoneyBill aReceiveMoneyBill=paid.get(i);
+				cell = row.createCell((short) 7);
+				cell.setCellValue("收款单");
+				cell.setCellStyle(style);
+				cell = row.createCell((short) 8);
+				cell.setCellValue(aReceiveMoneyBill.getDate());
+				cell.setCellStyle(style);
+				cell = row.createCell((short) 9);
+				cell.setCellValue(aReceiveMoneyBill.money);
+				cell.setCellStyle(style);
+				cell = row.createCell((short) 10);
+				cell.setCellValue(aReceiveMoneyBill.transactor);
+				cell.setCellStyle(style);
+			}  
+		}
 		// 第六步，将文件存到指定位置  
-		try  
-		{  
-		FileOutputStream fout = new FileOutputStream("E:/students.xls");  
-		wb.write(fout);  
-		fout.close();  
-		}  
-		catch (Exception e)  
-		{  
-		e.printStackTrace();  
-		}  
-		return false;
+		String time=getTime();
+		row = sheet.createRow((short)(Math.max(pay.size(),paid.size())+1));
+		cell=row.createCell((short)0);
+		cell.setCellValue("日期");
+		cell.setCellStyle(style);  
+		cell=row.createCell((short)1);
+		cell.setCellValue(time);
+		cell.setCellStyle(style);  
 		
+		// 第六步，将文件存到指定位置  
+		try{  
+			FileOutputStream fout = new FileOutputStream("E:/经营情况表/"+time+"经营情况表.xls");  
+			wb.write(fout);  
+			fout.close();  
+		}catch (Exception e){  
+			e.printStackTrace(); 
+			return false;
+		}  
+		return true;
 	}
 	
 	public static boolean export(ProfitSheetVO ps){
@@ -125,7 +172,7 @@ public class ExcelHelper {
 		
 		// 第六步，将文件存到指定位置  
 		try{  
-			FileOutputStream fout = new FileOutputStream("E:/"+time+".xls");  
+			FileOutputStream fout = new FileOutputStream("E:/成本收益表/"+time+"成本收益表.xls");  
 			wb.write(fout);  
 			fout.close();  
 		}catch (Exception e){  
