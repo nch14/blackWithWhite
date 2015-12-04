@@ -4,14 +4,14 @@ package bill;
  * @author nch
  *
  */
-public class TrunkPO {
+public class TruckPO {
 	String vehicleCode;
 	String licensePlate;
 	String serviceTime;
 
 	
 
-	public TrunkPO(String vehicleCode,String licensePlate,String serviceTime){
+	public TruckPO(String vehicleCode,String licensePlate,String serviceTime){
 		this.vehicleCode=vehicleCode;
 		this.licensePlate=licensePlate;
 		this.serviceTime=serviceTime;

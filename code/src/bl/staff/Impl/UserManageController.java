@@ -2,11 +2,10 @@ package bl.staff.Impl;
 
 
 
-import bl.staff.service.UserManageService;
-import po.StaffPO;
+import bl.staff.service.UserManageBLService;
 import vo.StaffVO;
 
-public class UserManageController implements UserManageService {
+public class UserManageController implements UserManageBLService {
 	UserManage userManage;
 	public UserManageController(){
 		userManage=new UserManage();
@@ -20,7 +19,7 @@ public class UserManageController implements UserManageService {
 	}
 
 	@Override
-	public boolean changeStaff(String competence, String passwords, String age, String name) {
+	public boolean changeStaffInfo(String competence, String passwords, String age, String name) {
 		// TODO Auto-generated method stub
 		boolean isComplete=userManage.changeStaff(competence, passwords, age, name);
 		return isComplete;

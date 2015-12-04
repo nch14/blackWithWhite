@@ -8,10 +8,10 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
 import Iphelper.Iphelper;
-import bill.TrunkPO;
+import bill.TruckPO;
 
 public class BusInfo implements BusInfoHelper {
-	TrunkPO a;
+	TruckPO a;
 	boolean result;
 	
 	private String getURL() throws FileNotFoundException, ClassNotFoundException, IOException{
@@ -26,7 +26,7 @@ public class BusInfo implements BusInfoHelper {
 	}
 
 	@Override
-	public boolean insert(TrunkPO po) {
+	public boolean insert(TruckPO po) {
 		// TODO Auto-generated method stub
 		
 			try {
@@ -39,7 +39,7 @@ public class BusInfo implements BusInfoHelper {
 	}
 
 	@Override
-	public boolean change(TrunkPO po) throws RemoteException {
+	public boolean change(TruckPO po) throws RemoteException {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -51,7 +51,7 @@ public class BusInfo implements BusInfoHelper {
 	}
 
 	@Override
-	public TrunkPO get(String id) throws RemoteException {
+	public TruckPO get(String id) throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}
