@@ -6,9 +6,9 @@ import bill.ReceiveMoneyBill;
 
 public class ProfitSheetVO {
 	
-		double totalGet;
-		double totalPay;
-		double profit;
+		public double totalGet;
+		public double totalPay;
+		public double profit;
 		public ProfitSheetVO(ArrayList<PaymentBill> pay,ArrayList<ReceiveMoneyBill> paid){
 			for(int i=0;i<pay.size();i++){
 				totalPay+=pay.get(i).money;

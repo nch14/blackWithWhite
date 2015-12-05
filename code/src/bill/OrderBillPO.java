@@ -2,8 +2,6 @@ package bill;
 
 import java.io.Serializable;
 
-import vo.OrderBillVO;
-
 public class OrderBillPO implements Serializable{
 	/*
 	 * information of the sender
@@ -37,7 +35,7 @@ public class OrderBillPO implements Serializable{
 	
 	public OrderBillPO(){}
 	
-	public OrderBillPO(OrderBillVO orderbill){
+	/*public OrderBillPO(OrderBillVO orderbill){
 		
 		nameOfSender=orderbill.nameOfSender;
 		addressOfSender=orderbill.addressOfSender;
@@ -57,6 +55,6 @@ public class OrderBillPO implements Serializable{
 		time=orderbill.time;
 		money=orderbill.money;
 		
-	}
+	}*/
 
 }

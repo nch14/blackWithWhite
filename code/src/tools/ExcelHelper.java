@@ -1,4 +1,4 @@
-package bl.report.impl;
+package tools;
 
 import java.io.FileOutputStream;
 import java.util.ArrayList;
@@ -16,7 +16,6 @@ import vo.BussinessSheetVO;
 import vo.ProfitSheetVO;
 
 public class ExcelHelper {
-	String type;
 	public static boolean export(BussinessSheetVO bs){
 		
 		// 第一步，创建一个webbook，对应一个Excel文件  
@@ -110,7 +109,7 @@ public class ExcelHelper {
 			}  
 		}
 		// 第六步，将文件存到指定位置  
-		String time=getTime();
+		String time=TimeHelper.getTime();
 		row = sheet.createRow((short)(Math.max(pay.size(),paid.size())+1));
 		cell=row.createCell((short)0);
 		cell.setCellValue("日期");
@@ -163,7 +162,7 @@ public class ExcelHelper {
 		cell.setCellValue(ps.profit);  
 		cell.setCellStyle(style); 
 		
-		String time=getTime();
+		String time=TimeHelper.getTime();
 		row = sheet.createRow((int) 2);
 		cell=row.createCell((short)0);
 		cell.setCellValue("日期");
@@ -184,33 +183,7 @@ public class ExcelHelper {
 		return true;
 	}
 	
-	/**
-	 * 获得系统当前时间
-	 * @return 年月日时分秒的字符串
-	 */
-	public static String getTime(){
-		Calendar c=Calendar.getInstance();
-		String s=""+c.get(Calendar.YEAR)+(c.get(Calendar.MONTH)+1)+
-				adjustTime(""+c.get(Calendar.DATE),2)+
-				adjustTime(""+c.get(Calendar.HOUR),2)+
-				adjustTime(""+c.get(Calendar.MINUTE),2)+
-				adjustTime(""+c.get(Calendar.SECOND),2);
-		
-		return s;
-	}
 	
-	/**
-	 * getTime方法的私有辅助方法，能够实现把“3”转换为“03”
-	 * @param s 待转换的字符串
-	 * @param n 需要的位数
-	 * @return
-	 */
-	public static String adjustTime(String s,int n){
-		char c[]=s.toCharArray();
-		if(c.length<n)
-			s="0"+s;
-		return s;
-	}
 	
 	//Test
 /*	public static void main(String[] args){
