@@ -1,8 +1,15 @@
-package bill;
+package vo;
 
 import java.util.ArrayList;
 
-public class StockOverview {
+/**
+ * ¿â´æ¿ìÕÕ£¬VO
+ * @author Äß³½ð©
+ *
+ */
+public class StockSnapShotVO {
+	ArrayList<Info> list;
+	
 	class Info{
 		String ID;
 		String[] date;
@@ -12,7 +19,4 @@ public class StockOverview {
 		String frameID;
 		String positionID;
 	}
-	
-	ArrayList<Info> list;
-
 }

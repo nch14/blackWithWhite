@@ -1,5 +1,10 @@
 package bl.commoditybl.Service;
-
+/**
+ * ¿âÇøµ÷Õû
+ * @author Äß³½ð©
+ *
+ */
 public interface AreaAdjustBLService {
 
+	
 }
