@@ -5,11 +5,12 @@ import bill.OrderBillPO;
 import senddata.SendInfo;
 
 public class Send implements SendService{
-
+	SendInfo si;
+	public Send(){
+		si=new SendInfo();
+	}
 	public boolean push(OrderBillPO order) {
 		//1.推送到服务器
-		//2.更新物流动态
-		SendInfo si;
 		try {
 			si = new SendInfo();
 			return si.getInput(order);
@@ -18,12 +19,11 @@ public class Send implements SendService{
 			e.printStackTrace();
 			return false;
 		}
-		
+		//2.更新物流动态
 	}
 
 	public OrderBillPO inquireSendMesg(String id) {
 		// TODO Auto-generated method stub
-		SendInfo si;
 		try {
 			si = new SendInfo();
 			return si.getSendMesg(id);
