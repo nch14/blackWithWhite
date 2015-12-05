@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 import bill.PaymentBill;
 import bill.ReceiveMoneyBill;
-import data.money.PaidBill;
-import data.money.PayBill;
+import bl.money.Impl.PaidController;
+import bl.money.Impl.PayController;
 import tools.ExcelHelper;
 import vo.BussinessSheetVO;
 
@@ -46,9 +46,6 @@ public class BussinessSheetImpl{
 		return true;
 	}
 	
-	
-
-
 	public boolean export() {
 		if(bsVO==null){
 			return false;
@@ -56,24 +53,19 @@ public class BussinessSheetImpl{
 		return ExcelHelper.export(bsVO);
 	}
 
-
-
-
 	public BussinessSheetVO show(String start,String end) {
 		// TODO Auto-generated method stub
 		if(!this.checkDate(start,end)){
 			return null;
 		}else{
-			
-			PayBill paybill=new PayBill();
-			PaidBill paidbill=new PaidBill();
-			
+			PaidController paidController=new PaidController();
+			PayController payController=new PayController();
 			ArrayList<PaymentBill> pay;
 			ArrayList<ReceiveMoneyBill> paid;
 			
 			try {
-				pay=paybill.getall(timeToArray(start), timeToArray(end));
-				paid=paidbill.getall(timeToArray(start), timeToArray(end));
+				pay=payController.getPaymentBill(timeToArray(start), timeToArray(end));
+				paid=paidController.getPaidmentBill(timeToArray(start), timeToArray(end));
 				bsVO=new BussinessSheetVO(pay,paid);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -82,11 +74,7 @@ public class BussinessSheetImpl{
 			}
 			return bsVO;
 		}
-			
-		
-		
-			
-	
+
 	}
 	
 	private String[] timeToArray(String time){
@@ -101,8 +89,7 @@ public class BussinessSheetImpl{
 			e.printStackTrace();
 			return null;
 		}
-		
-		
+
 	}
 
 

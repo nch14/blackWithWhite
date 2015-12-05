@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import bill.PaymentBill;
+import bl.money.Impl.PaidController;
+import bl.money.Impl.PayController;
 import data.money.*;
 import tools.ExcelHelper;
 import vo.ProfitSheetVO;
@@ -12,8 +14,8 @@ public class ProfitSheetImpl {
 	
 	public ProfitSheetVO show() {
 		// TODO Auto-generated method stub
-		PayBill paybill=new PayBill();
-		PaidBill paidbill=new PaidBill();
+		PaidController paidController=new PaidController();
+		PayController payController=new PayController();
 		
 		Calendar cal=Calendar.getInstance();
 		String year=""+cal.get(Calendar.YEAR);
@@ -25,8 +27,8 @@ public class ProfitSheetImpl {
 		ArrayList<ReceiveMoneyBill> paid;
 		
 		try {
-			pay=paybill.getall(time);
-			paid=paidbill.getall(time);
+			pay=payController.getPaymentBill(time);
+			paid=paidController.getPaidmentBill(time);
 			psVO=new ProfitSheetVO(pay,paid);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

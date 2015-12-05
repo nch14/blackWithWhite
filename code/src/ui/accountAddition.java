@@ -1,4 +1,4 @@
-package financial;
+package ui;
 /**
  * 财务人员，负责结算管理，财务支出，报表查询和账户管理
  * @author 孙婧

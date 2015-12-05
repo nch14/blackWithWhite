@@ -1,7 +1,6 @@
 package data.staff;
 
 import java.rmi.RemoteException;
-
 import bill.StaffPO;
 import remoteInterface.Client_Helper;
 

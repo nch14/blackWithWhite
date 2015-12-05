@@ -1,5 +1,7 @@
 package bl.money.Impl;
 
+import java.util.ArrayList;
+
 import bill.ReceiveMoneyBill;
 import data.money.PaidBill;
 /**
@@ -27,5 +29,30 @@ public class Paid {
 			return false;
 		}
 		return true;
+	}
+	public ArrayList<ReceiveMoneyBill> getPaidmentBill(String[] start, String[] end) {
+		ArrayList<ReceiveMoneyBill> receiveMoneyBill;
+		try {
+			receiveMoneyBill=paid.getall(start,end);		
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("获取收款单失败");
+			return null;
+		}
+		return receiveMoneyBill;
+	}
+	
+	public ArrayList<ReceiveMoneyBill> getPaidmentBill(String[] time) {
+		ArrayList<ReceiveMoneyBill> receiveMoneyBill;
+		try {
+			receiveMoneyBill=paid.getall(time);	
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("获取收款单失败");
+			return null;
+		}
+		return receiveMoneyBill;
 	}
 }

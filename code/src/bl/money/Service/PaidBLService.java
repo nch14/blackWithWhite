@@ -1,5 +1,7 @@
 package bl.money.Service;
 
+import java.util.ArrayList;
+
 import bill.ReceiveMoneyBill;
 
 /**
@@ -17,6 +19,19 @@ public interface PaidBLService {
 	public boolean addPaidmentBill(ReceiveMoneyBill[] bills);
 	
 	
-	public boolean getPaidmentBill();
+	/**
+	 * 获得指定时间区间内的收款单
+	 * @param start
+	 * @param end
+	 * @return
+	 */
+	public ArrayList<ReceiveMoneyBill> getPaidmentBill(String[] start,String[] end);
+	
+	/**
+	 * 获得截至到endTime的收款单
+	 * @param endTime
+	 * @return
+	 */
+	public ArrayList<ReceiveMoneyBill> getPaidmentBill(String[] endTime);
 	
 }

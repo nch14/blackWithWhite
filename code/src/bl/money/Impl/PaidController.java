@@ -1,5 +1,7 @@
 package bl.money.Impl;
 
+import java.util.ArrayList;
+
 import bill.ReceiveMoneyBill;
 import bl.money.Service.PaidBLService;
 
@@ -15,9 +17,14 @@ public class PaidController implements PaidBLService {
 	}
 
 	@Override
-	public boolean getPaidmentBill() {
+	public ArrayList<ReceiveMoneyBill> getPaidmentBill(String[] start, String[] end) {
 		// TODO Auto-generated method stub
-		return false;
+		return paid.getPaidmentBill(start, end);
+	}
+	@Override
+	public ArrayList<ReceiveMoneyBill> getPaidmentBill(String[] endTime) {
+		// TODO Auto-generated method stub
+		return paid.getPaidmentBill(endTime);
 	}
 
 }
