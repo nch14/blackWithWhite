@@ -9,7 +9,7 @@ public class InformationController implements InformationBLService{
 		inf=new Information();
 	}
 	@Override
-	public boolean inquireTransMesg(String id) {
+	public Package inquireTransMesg(String id) {
 		// TODO Auto-generated method stub
 		return inf.inquireTransMesg(id);
 	}

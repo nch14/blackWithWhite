@@ -1,19 +1,26 @@
 package bl.information.Impl;
 
-import bl.information.Service.InformationService;
 import informationdata.ShipmentInfo;
 
-public class Information implements InformationService{
-
-	@Override
-	public boolean inquireTransMesg(String id) {
-		// TODO Auto-generated method stub
-		ShipmentInfo ship=new ShipmentInfo();
-		ship.getTransMesg(id);
-		return false;
+public class Information {
+	ShipmentInfo ship;
+	
+	public Information(){
+		ship=new ShipmentInfo();
 	}
 
-	@Override
+	public Package inquireTransMesg(String id) {
+		// TODO Auto-generated method stub
+		try {
+			ship.getTransMesg(id);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+
 	public boolean refreshMesg(String id, String position, String time) {
 		// TODO Auto-generated method stub
 		return false;

@@ -7,7 +7,9 @@ public interface InformationBLService {
 	 * @param id 订单条形码号
 	 * @return
 	 */
-	public boolean inquireTransMesg(String id);
+	public Package inquireTransMesg(String id);
+	
+	
 	/**
 	 * 更新物流信息
 	 * @param id 订单条形码号
