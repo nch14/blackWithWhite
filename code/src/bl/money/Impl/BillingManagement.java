@@ -1,7 +1,7 @@
 package bl.money.Impl;
 
 import bill.ReceiveMoneyBill;
-import moneydata.PaidBill;
+import data.money.PaidBill;
 import tools.TimeHelper;
 
 /**

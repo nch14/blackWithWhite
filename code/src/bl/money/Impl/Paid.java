@@ -1,7 +1,7 @@
 package bl.money.Impl;
 
 import bill.ReceiveMoneyBill;
-import moneydata.PaidBill;
+import data.money.PaidBill;
 /**
  * 填写收款单的领域对象
  * @author 倪辰皓

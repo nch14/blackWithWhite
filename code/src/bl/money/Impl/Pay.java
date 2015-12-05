@@ -2,8 +2,8 @@ package bl.money.Impl;
 
 import bill.PaymentBill;
 import bill.ReceiveMoneyBill;
-import moneydata.PaidBill;
-import moneydata.PayBill;
+import data.money.PaidBill;
+import data.money.PayBill;
 
 /**
  * 填写付款单的领域对象

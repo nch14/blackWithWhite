@@ -3,7 +3,7 @@ package bl.money.Impl;
 import java.util.ArrayList;
 
 import bill.Account;
-import moneydata.AccountManage;
+import data.money.AccountManage;
 /**
  * 公司银行账户的账户管理领域对象
  * @author 倪辰皓

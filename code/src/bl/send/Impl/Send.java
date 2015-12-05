@@ -1,8 +1,8 @@
 package bl.send.Impl;
 
 import bl.send.Service.SendService;
+import data.send.SendInfo;
 import bill.OrderBillPO;
-import senddata.SendInfo;
 
 public class Send implements SendService{
 	SendInfo si;

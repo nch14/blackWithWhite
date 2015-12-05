@@ -1,6 +1,6 @@
 package bl.information.Impl;
 
-import informationdata.ShipmentInfo;
+import data.information.ShipmentInfo;
 
 public class Information {
 	ShipmentInfo ship;
