@@ -13,5 +13,5 @@ public interface AirTransportBLService {
 	 * @param planeBill 中转单-飞机
 	 * @return
 	 */
-	public boolean submitills(TransportBill_Plane planeBill);
+	public boolean submitBills(TransportBill_Plane planeBill);
 }

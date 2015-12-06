@@ -35,12 +35,12 @@ public class OrderBillPO implements Serializable{
 	String speedLevel;
 	String kindOfSend;
 	String time;
-	String money;
+	public double money;
 	
 	public OrderBillPO(String nameOfSender1,String addressOfSender1,String workplaceOfSender1,String phoneOfSender1,
 	String mobileOfSender1,String nameOfReceiver1,String addressOfReceiver1,String workplaceOfReceiver1,
 	String phoneOfReceiver1,String mobileOfReceiver1,String numOfItem1,String weight1,String length,String width,String height,
-	String nameOfOrder1,String volume1,String moneyForCover1,String speedLevel1,String kindOfSend1,String time1,String money1){
+	String nameOfOrder1,String volume1,String moneyForCover1,String speedLevel1,String kindOfSend1,String time1,double money1){
 		
 		this.nameOfSender=nameOfSender1;
 		this.addressOfSender=addressOfSender1;

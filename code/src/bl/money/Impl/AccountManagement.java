@@ -1,7 +1,5 @@
 package bl.money.Impl;
 
-import java.util.ArrayList;
-
 import bill.Account;
 import data.money.AccountManage;
 /**
@@ -64,7 +62,6 @@ public class AccountManagement {
 
 
 	public Account[] getAccount(String KeyWord_ID) {
-		// TODO Auto-generated method stub
 		
 		return null;
 	}

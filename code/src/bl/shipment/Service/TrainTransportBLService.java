@@ -13,5 +13,5 @@ public interface TrainTransportBLService {
 	 * @param planeBill 中转单-火车
 	 * @return
 	 */
-	public boolean submitills(TransportBill_Train Train);
+	public boolean submitBills(TransportBill_Train Train);
 }

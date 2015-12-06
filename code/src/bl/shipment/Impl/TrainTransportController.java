@@ -9,9 +9,11 @@ public class TrainTransportController implements TrainTransportBLService{
 	public TrainTransportController(){
 		trainTransport=new TrainTransport();
 	}
-	public boolean submitills(TransportBill_Train Train) {
-		
-		return false;
+	
+	@Override
+	public boolean submitBills(TransportBill_Train Train) {
+		// TODO Auto-generated method stub
+		return trainTransport.submitills(Train);
 	}
 
 }
