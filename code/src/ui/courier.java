@@ -30,6 +30,7 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.rmi.RemoteException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -529,7 +530,7 @@ public class courier {
 						textField_20.getText(),textField_21.getText(),textField_22.getText(),textField_23.getText(),
 						textField_24.getText(),textField_25.getText(),comboBox.getSelectedItem().toString(),
 						comboBox_1.getSelectedItem().toString(),textField_26.getText(),df.format(new Date()),
-					    lblNewLabel_3.getText());
+					    Double.parseDouble(lblNewLabel_3.getText()));
 				SendBLService send = new SendController();
 				send.push(order);
 				

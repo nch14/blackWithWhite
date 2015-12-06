@@ -14,7 +14,15 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import bill.StockBill_In;
+import bill.StockBill_Out;
 import bl.commoditybl.Impl.AreaAdjustController;
+import bl.commoditybl.Impl.InDepotController;
+import bl.commoditybl.Impl.InventoryController;
+import bl.commoditybl.Impl.OutDepotController;
+import bl.commoditybl.Service.InDepotBLService;
+import bl.commoditybl.Service.InventoryBLService;
+import bl.commoditybl.Service.OutDepotBLService;
 
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
@@ -38,8 +46,6 @@ public class commodity {
 	private JTextField textField_12;
 	private JTable table_2;
 	private JTextField textField_13;
-	private JTextField textField_14;
-	private JTextField textField_15;
 	private JTable table_3;
 	private JTextField textField_16;
 	private JTextField textField_17;
@@ -129,7 +135,17 @@ public class commodity {
 		desktopPane.add(button);
 		button.addMouseListener(new MouseAdapter(){
 		public void mouseClicked(MouseEvent e){
-			AreaAdjustController areaAdjustController= new AreaAdjustController();
+			for(int i=0;i<table.getRowCount();i++){
+				if(table.getValueAt(i, 1)==null&&table.getValueAt(i, 2)==null&&table.getValueAt(i, 3)==null){
+					table.setValueAt(textField.getText(), i, 1);
+					table.setValueAt(textField_1.getText()+"/"+textField_28.getText()+"/"+textField_29.getText(), i, 2);
+					table.setValueAt(textField_2.getText(), i, 3);
+					textField.setText(null);
+					textField_1.setText(null);
+					textField_2.setText(null);
+					break;
+				}
+			}
 			
 		    }	 
 		});
@@ -141,39 +157,56 @@ public class commodity {
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null},
 			},
 			new String[] {
-				"\u8BA2\u5355\u53F7", "\u5165\u5E93\u65E5\u671F", "\u76EE\u7684\u5730", "\u533A\u53F7", "\u6392\u53F7", "\u67B6\u53F7", "\u4F4D\u53F7", "\u662F\u5426\u53D1\u751F\u5E93\u5B58\u62A5\u8B66"
+				"New column", "\u8BA2\u5355\u53F7", "\u5165\u5E93\u65E5\u671F", "\u76EE\u7684\u5730", "\u533A\u53F7", "\u6392\u53F7", "\u67B6\u53F7", "\u4F4D\u53F7", "\u662F\u5426\u53D1\u751F\u5E93\u5B58\u62A5\u8B66"
 			}
 		));
-		table.getColumnModel().getColumn(2).setPreferredWidth(78);
-		table.getColumnModel().getColumn(3).setPreferredWidth(70);
+		table.getColumnModel().getColumn(3).setPreferredWidth(78);
 		table.getColumnModel().getColumn(4).setPreferredWidth(70);
 		table.getColumnModel().getColumn(5).setPreferredWidth(70);
 		table.getColumnModel().getColumn(6).setPreferredWidth(70);
-		table.getColumnModel().getColumn(7).setPreferredWidth(106);
+		table.getColumnModel().getColumn(7).setPreferredWidth(70);
+		table.getColumnModel().getColumn(8).setPreferredWidth(106);
 		scrollPane.setViewportView(table);
 		
 		JButton button_1 = new JButton("\u63D0\u4EA4");
+		button_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				String[] ID = null;
+				String[][] date = null;
+				String[] destination = null;
+				for(int i=0;i<table.getRowCount();i++){
+					ID[i]=(String) table.getValueAt(i, 1);
+					date[i]=(String[]) table.getValueAt(i, 2);
+				//二维数组
+					destination[i]=(String) table.getValueAt(i, 3);
+				}
+				StockBill_In stock_in=new StockBill_In(ID,date,destination);
+				InDepotBLService indepot= new InDepotController();
+				indepot.inDepot(stock_in);
+			}
+		});
 		button_1.setBounds(780, 549, 93, 23);
 		desktopPane.add(button_1);
 		
@@ -203,7 +236,15 @@ public class commodity {
 		
 		JLabel label_29 = new JLabel("\u65E5");
 		label_29.setBounds(601, 122, 54, 15);
-		desktopPane.add(label_29);df.format(new Date());// new Date()为获取当前系统时间
+		desktopPane.add(label_29);
+		
+		JCheckBox checkBox_2 = new JCheckBox("");
+		checkBox_2.setBounds(172, 528, 21, 23);
+		desktopPane.add(checkBox_2);
+		
+		JButton button_11 = new JButton("\u64A4\u9500");
+		button_11.setBounds(199, 528, 93, 23);
+		desktopPane.add(button_11);df.format(new Date());// new Date()为获取当前系统时间
 		
 		JDesktopPane desktopPane_4 = new JDesktopPane();
 		desktopPane_4.setBackground(Color.WHITE);
@@ -307,14 +348,25 @@ public class commodity {
 		));
 		scrollPane_1.setViewportView(table_1);
 		
-		JButton button_3 = new JButton("\u63D0\u4EA4");
-		button_3.setBounds(816, 537, 93, 23);
-		desktopPane_4.add(button_3);
-		
 		JLabel label_8 = new JLabel();
 		label_8.setBounds(282, 0, 436, 21);
 		desktopPane_4.add(label_8);
 		label_8.setText(df.format(new Date()));
+		
+		JButton button_3 = new JButton("\u63D0\u4EA4");
+		button_3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				StockBill_Out stock_out= new StockBill_Out();
+				OutDepotBLService outdepot= new OutDepotController();
+				outdepot.outDepot(stock_out);
+				if(outdepot.outDepot(stock_out)==false){
+					label_8.setText("提交失败");
+				}
+			}
+		});
+		button_3.setBounds(816, 537, 93, 23);
+		desktopPane_4.add(button_3);
 		
 		JLabel label_24 = new JLabel("\u5E74");
 		label_24.setBounds(478, 56, 54, 15);
@@ -368,7 +420,8 @@ public class commodity {
 		button_4.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				
+				InventoryBLService inventory= new InventoryController();
+				inventory.getStockSnapShot();
 			}
 		});
 		button_4.setBounds(625, 148, 93, 23);
@@ -408,6 +461,13 @@ public class commodity {
 		scrollPane_2.setViewportView(table_2);
 		
 		JButton button_5 = new JButton("\u5BFC\u51FA");
+		button_5.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				InventoryBLService inventory= new InventoryController();
+				inventory.export();
+			}
+		});
 		button_5.setBounds(795, 536, 93, 23);
 		desktopPane_2.add(button_5);
 		
@@ -455,16 +515,6 @@ public class commodity {
 		label_13.setBounds(328, 122, 54, 15);
 		desktopPane_3.add(label_13);
 		
-		textField_14 = new JTextField();
-		textField_14.setBounds(383, 119, 66, 21);
-		desktopPane_3.add(textField_14);
-		textField_14.setColumns(10);
-		
-		textField_15 = new JTextField();
-		textField_15.setBounds(383, 156, 66, 21);
-		desktopPane_3.add(textField_15);
-		textField_15.setColumns(10);
-		
 		JLabel label_14 = new JLabel("\u73B0\u5206\u533A");
 		label_14.setBounds(328, 159, 54, 15);
 		desktopPane_3.add(label_14);
@@ -502,8 +552,24 @@ public class commodity {
 		scrollPane_3.setViewportView(table_3);
 		
 		JButton button_6 = new JButton("\u63D0\u4EA4");
+		button_6.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+			}
+		});
 		button_6.setBounds(631, 493, 93, 23);
 		desktopPane_3.add(button_6);
+		
+		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"\u673A\u52A8\u533A", "\u822A\u8FD0\u533A", "\u94C1\u8FD0\u533A", "\u6C7D\u8FD0\u533A"}));
+		comboBox_1.setBounds(383, 119, 66, 21);
+		desktopPane_3.add(comboBox_1);
+		
+		JComboBox comboBox_2 = new JComboBox();
+		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"\u673A\u52A8\u533A", "\u822A\u8FD0\u533A", "\u94C1\u8FD0\u533A", "\u6C7D\u8FD0\u533A"}));
+		comboBox_2.setBounds(383, 156, 66, 21);
+		desktopPane_3.add(comboBox_2);
 		
 		JButton btnNewButton = new JButton("\u786E\u8BA4");
 		btnNewButton.addMouseListener(new MouseAdapter() {
@@ -512,11 +578,11 @@ public class commodity {
 				for(int i=0;i<table_1.getRowCount();i++){
 					if(table_3.getValueAt(i, 1)==null&&table_3.getValueAt(i, 2)==null&&table_3.getValueAt(i, 3)==null){
 						table_3.setValueAt(textField_13.getText(), i, 1);
-						table_3.setValueAt(textField_14.getText(), i, 2);
-						table_3.setValueAt(textField_15.getText(), i, 3);
+						table_3.setValueAt(comboBox_1.getSelectedItem(), i, 2);
+						table_3.setValueAt(comboBox_2.getSelectedItem(), i, 3);
 						textField_13.setText(null);
-						textField_14.setText(null);
-						textField_15.setText(null);
+						comboBox_1.setSelectedIndex(0);
+						comboBox_2.setSelectedIndex(0);
 						break;
 					}
 				}

@@ -97,9 +97,9 @@ public class sign {
 			LoginService login = new LoginController();
 			StaffVO staff=login.validUser(textField.getText(),textField_1.getText());
 			//if(staff==null){
-			//	 label_2.setText("登录失败");
+				 //label_2.setText("登录失败");
 			//}
-			//else{
+			//else if(staff.pos=="中转中心仓库管理人员"){
 				frame.dispose();
 				 commodity man=new commodity();
 				 man.main();
