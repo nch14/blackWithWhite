@@ -1,6 +1,7 @@
 package bl.staff.Impl;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import bill.StaffPO;
 import data.staff.MemberInfo;
@@ -8,15 +9,25 @@ import vo.StaffVO;
 
 public class StaffManage {
 	MemberInfo member;
+	StaffPO staffPO;
 	public StaffManage(){
 		member=new MemberInfo();
 	}
 	public boolean addNewStaff(StaffVO[] staffs) {
 		// TODO Auto-generated method stub
-		/*member.insert(po)
-*/		return false;
+		boolean result=true;
+		try {
+			for(int i=0;i<staffs.length;i++){
+				staffPO=new StaffPO(staffs[i]);
+				result=result&&member.insert(staffPO);
+			}	
+			return result;
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
 	}
-
 
 	public boolean deleteStaff(String[] ID) {
 		// TODO Auto-generated method stub
@@ -87,7 +98,7 @@ public class StaffManage {
 		return result;
 	}
 
-	public boolean changeStaffInfo(String ID,String name, int age, String authority, String password) {
+/*	public boolean changeStaffInfo(String ID,String name, int age, String authority, String password) {
 		// TODO Auto-generated method stub
 		if(name==null||age==0||authority==null||password==null)
 			return false;
@@ -106,17 +117,37 @@ public class StaffManage {
 			return false;
 		}
 		return result;
-	}
+	}*/
 
 	
 	public StaffVO getStaff(String ID) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			staffPO=member.get(ID);
+			StaffVO staffToshow=new StaffVO(staffPO);
+			return staffToshow;
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 
-	public StaffVO[] getStaff() {
+	public ArrayList<StaffVO> getAllStaff(String src) {
 		// TODO Auto-generated method stub
-		return null;
+		ArrayList<StaffPO> staffs;
+		ArrayList<StaffVO> staffsToShow=new ArrayList<StaffVO>();
+		try {
+			staffs=member.getAll(src);
+			for(int i=0;i<staffs.size();i++){
+				StaffVO staffTemp=new StaffVO(staffs.get(i));
+				staffsToShow.add(staffTemp);
+			}
+			return staffsToShow;
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 }

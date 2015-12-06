@@ -1,5 +1,7 @@
 package bl.staff.Impl;
 
+import java.util.ArrayList;
+
 import bl.staff.service.StaffManageBLService;
 import vo.StaffVO;
 
@@ -32,11 +34,11 @@ public class StaffManageController implements StaffManageBLService {
 		return staffManage.changesalarymodel(ID, salaryModel);
 	}
 
-	@Override
+/*	@Override
 	public boolean changeStaffInfo(String ID,String name, int age, String authority, String password) {
 		// TODO Auto-generated method stub
 		return staffManage.changeStaffInfo(ID,name, age, authority, password);
-	}
+	}*/
 
 	@Override
 	public StaffVO getStaff(String ID) {
@@ -45,9 +47,9 @@ public class StaffManageController implements StaffManageBLService {
 	}
 
 	@Override
-	public StaffVO[] getStaff() {
+	public ArrayList<StaffVO> getAllStaff(String src) {
 		// TODO Auto-generated method stub
-		return staffManage.getStaff();
+		return staffManage.getAllStaff(src);
 	}
 
 }
