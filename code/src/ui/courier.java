@@ -20,6 +20,10 @@ import javax.swing.JCheckBox;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class courier {
 
@@ -54,6 +58,8 @@ public class courier {
 	private JTextField textField_25;
 	private JTextField textField_26;
 	private JTextField textField_27;
+	private JTextField textField_28;
+	private JTextField textField_29;
 
 	/**
 	 * Launch the application.
@@ -83,6 +89,7 @@ public class courier {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setResizable(false);
 		frame.setTitle("\u7269\u6D41\u4FE1\u606F\u7BA1\u7406\u7CFB\u7EDF");
 		frame.setBounds(100, 100, 1000, 650);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -94,10 +101,11 @@ public class courier {
 		desktopPane.setBackground(Color.WHITE);
 		tabbedPane.addTab("订单信息查询", null, desktopPane, null);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(0, 0, 979, 21);
-		desktopPane.add(textField);
+		JLabel label_29 = new JLabel();
+		label_29.setBounds(282, 0, 436, 21);
+		desktopPane.add(label_29);
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+		label_29.setText(df.format(new Date()));df.format(new Date());// new Date()为获取当前系统时间
 		
 		textField_27 = new JTextField();
 		textField_27.setBounds(307, 163, 211, 21);
@@ -112,10 +120,10 @@ public class courier {
 		desktopPane_2.setBackground(Color.WHITE);
 		tabbedPane.addTab("报价和时间管理", null, desktopPane_2, null);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(0, 0, 979, 21);
-		desktopPane_2.add(textField_2);
+		JLabel label_30 = new JLabel();
+		label_30.setBounds(282, 0, 436, 21);
+		desktopPane_2.add(label_30);
+		label_30.setText(df.format(new Date()));df.format(new Date());
 		
 		textField_7 = new JTextField();
 		textField_7.setBounds(212, 135, 307, 22);
@@ -131,17 +139,25 @@ public class courier {
 		desktopPane_2.add(label_22);
 		
 		JLabel label_23 = new JLabel("\u9884\u8BA1\u65F6\u95F4\uFF1A");
-		label_23.setBounds(212, 266, 60, 15);
+		label_23.setBounds(212, 266, 72, 15);
 		desktopPane_2.add(label_23);
+		
+		JLabel label_24 = new JLabel("");
+		label_24.setBounds(310, 223, 54, 15);
+		desktopPane_2.add(label_24);
+		
+		JLabel label_25 = new JLabel("");
+		label_25.setBounds(310, 266, 54, 15);
+		desktopPane_2.add(label_25);
 		
 		JDesktopPane desktopPane_3 = new JDesktopPane();
 		desktopPane_3.setBackground(Color.WHITE);
 		tabbedPane.addTab("收件信息输入", null, desktopPane_3, null);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(0, 0, 979, 21);
-		desktopPane_3.add(textField_3);
+		JLabel label_31 = new JLabel();
+		label_31.setBounds(282, 0, 436, 21);
+		desktopPane_3.add(label_31);
+		label_31.setText(df.format(new Date()));df.format(new Date());
 		
 		JLabel label = new JLabel("\u8BA2\u5355\u7F16\u53F7\uFF1A");
 		label.setBounds(157, 87, 66, 15);
@@ -162,16 +178,29 @@ public class courier {
 		textField_5.setColumns(10);
 		
 		JLabel label_2 = new JLabel("\u6536\u4EF6\u65E5\u671F\uFF1A");
-		label_2.setBounds(529, 87, 64, 15);
+		label_2.setBounds(519, 87, 74, 15);
 		desktopPane_3.add(label_2);
 		
 		textField_6 = new JTextField();
-		textField_6.setBounds(594, 82, 66, 21);
+		textField_6.setBounds(594, 82, 34, 21);
 		desktopPane_3.add(textField_6);
 		textField_6.setColumns(10);
 		
 		JButton button = new JButton("\u6DFB\u52A0");
-		button.setBounds(699, 114, 93, 23);
+		button.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				for(int i=0;i<table_1.getRowCount();i++){
+					if(table_1.getValueAt(i, 1)==null&&table_1.getValueAt(i, 2)==null&&table_1.getValueAt(i, 3)==null){
+						table_1.setValueAt(textField_4.getText(), i, 1);
+						table_1.setValueAt(textField_5.getText(), i, 2);
+						table_1.setValueAt(textField_6.getText(), i, 3);
+						break;
+					}
+				}
+			}
+		});
+		button.setBounds(755, 122, 93, 23);
 		desktopPane_3.add(button);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -222,14 +251,36 @@ public class courier {
 		button_2.setBounds(732, 536, 93, 23);
 		desktopPane_3.add(button_2);
 		
+		JLabel label_26 = new JLabel("\u5E74");
+		label_26.setBounds(638, 87, 54, 15);
+		desktopPane_3.add(label_26);
+		
+		textField_28 = new JTextField();
+		textField_28.setBounds(658, 84, 34, 21);
+		desktopPane_3.add(textField_28);
+		textField_28.setColumns(10);
+		
+		JLabel label_27 = new JLabel("\u6708");
+		label_27.setBounds(699, 87, 54, 15);
+		desktopPane_3.add(label_27);
+		
+		textField_29 = new JTextField();
+		textField_29.setBounds(718, 84, 66, 21);
+		desktopPane_3.add(textField_29);
+		textField_29.setColumns(10);
+		
+		JLabel label_28 = new JLabel("\u65E5");
+		label_28.setBounds(794, 87, 54, 15);
+		desktopPane_3.add(label_28);
+		
 		JDesktopPane desktopPane_1 = new JDesktopPane();
 		desktopPane_1.setBackground(Color.WHITE);
 		tabbedPane.addTab("寄件信息输入", null, desktopPane_1, null);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(0, 0, 979, 21);
-		desktopPane_1.add(textField_1);
+		JLabel label_32 = new JLabel();
+		label_32.setBounds(282, 0, 436, 21);
+		desktopPane_1.add(label_32);
+		label_32.setText(df.format(new Date()));df.format(new Date());
 		
 		JLabel label_3 = new JLabel("\u5BC4\u4EF6\u4EBA\u4FE1\u606F");
 		label_3.setBounds(99, 73, 68, 15);
@@ -438,5 +489,9 @@ public class courier {
 		JButton button_5 = new JButton("\u63D0\u4EA4");
 		button_5.setBounds(740, 507, 68, 23);
 		desktopPane_1.add(button_5);
+		
+		JLabel lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setBounds(738, 486, 54, 15);
+		desktopPane_1.add(lblNewLabel_3);
 	}
 }

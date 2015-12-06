@@ -5,7 +5,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import java.awt.event.*;
+
 
 public class sign {
 
@@ -16,7 +19,7 @@ public class sign {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void main() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -41,6 +44,8 @@ public class sign {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setTitle("\u7269\u6D41\u4FE1\u606F\u7BA1\u7406\u7CFB\u7EDF");
+		frame.setResizable(false);
 		frame.setBounds(100, 100, 1000, 650);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -63,9 +68,27 @@ public class sign {
 		frame.getContentPane().add(textField_1);
 		textField_1.setColumns(10);
 		
+		
+		ImageIcon img = new ImageIcon( "C:\\Users\\lenovo\\Pictures\\Camera Roll\\674424_184308084693_2.jpg");
+		
+		
+		JLabel lblNewLabel = new JLabel(img);
+		lblNewLabel.setBounds(121, 41, 765, 286); 
+		frame.getContentPane().add(lblNewLabel);
+		
+		
 		JButton button = new JButton("\u767B\u5F55");
-		button.setBounds(421, 456, 93, 23);
+		button.setBounds(469, 454, 93, 23);
 		frame.getContentPane().add(button);
-	}
+		button.addMouseListener(new MouseAdapter(){
+		public void mouseClicked(MouseEvent e){
+			
+				 frame.dispose();
+			 manager man=new manager();
+			 man.main();
+			
 
+			 }
+		});
+	}
 }

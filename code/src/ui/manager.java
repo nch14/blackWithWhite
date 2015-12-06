@@ -8,29 +8,28 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JComboBox;
 import javax.swing.JTabbedPane;
-import java.awt.BorderLayout;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JPanel;
-import javax.swing.JInternalFrame;
 import javax.swing.JTable;
 import javax.swing.JCheckBox;
-import javax.swing.JTextPane;
-import javax.swing.JToggleButton;
-import javax.swing.JSplitPane;
-import javax.swing.JLayeredPane;
 import javax.swing.JDesktopPane;
 import java.awt.Color;
-import javax.swing.JList;
-import javax.swing.JTextArea;
-import javax.swing.JSpinner;
-import java.awt.List;
+import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellEditor;
+import javax.swing.table.TableCellRenderer;
 import javax.swing.JLabel;
+import javax.swing.AbstractCellEditor;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+
 
 public class manager {
 
@@ -59,11 +58,13 @@ public class manager {
 	private JTextField textField_13;
 	private JTextField textField_14;
 	private JTable table_6;
+	private JTextField textField_15;
+	private JTextField textField_16;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public void main() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -88,26 +89,28 @@ public class manager {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setResizable(false);
 		frame.setTitle("\u7269\u6D41\u4FE1\u606F\u7BA1\u7406\u7CFB\u7EDF");
 		frame.setBounds(100, 100, 1000, 650);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(0, 0, 984, 611);
+		tabbedPane.setBounds(0, 0, 1053, 611);
 		frame.getContentPane().add(tabbedPane);
 		
 		JDesktopPane desktopPane = new JDesktopPane();
 		desktopPane.setBackground(Color.WHITE);
 		tabbedPane.addTab("审判单据", null, desktopPane, null);
 		
-		textField = new JTextField();
-		textField.setBounds(0, 0, 979, 21);
-		desktopPane.add(textField);
-		textField.setColumns(10);
+		JLabel label_18 = new JLabel();
+		label_18.setBounds(282, 0, 436, 21);
+		desktopPane.add(label_18);
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+		label_18.setText(df.format(new Date()));df.format(new Date());// new Date()为获取当前系统时间
 		
 		JTabbedPane tabbedPane_1 = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane_1.setBounds(46, 36, 881, 536);
+		tabbedPane_1.setBounds(46, 36, 883, 536);
 		desktopPane.add(tabbedPane_1);
 		
 		JDesktopPane desktopPane_5 = new JDesktopPane();
@@ -153,10 +156,13 @@ public class manager {
 				{null, null, null, null, null, null},
 			},
 			new String[] {
-				"New column", "订单号", "费用合计（元）", "快递类型", "单据状态", "操作"
+				"New column", "\u8BA2\u5355\u53F7", "\u8D39\u7528\u5408\u8BA1\uFF08\u5143\uFF09", "\u5FEB\u9012\u7C7B\u578B", "\u5355\u636E\u72B6\u6001", "\u64CD\u4F5C"
 			}
 		));
+		table.getColumnModel().getColumn(0).setPreferredWidth(15);
 		scrollPane.setViewportView(table);
+		table.getColumnModel().getColumn(0).setCellEditor(new MyRender());//设置编辑器	
+		table.getColumnModel().getColumn(0).setCellRenderer(new MyRender() );
 		
 		JCheckBox checkBox = new JCheckBox("");
 		checkBox.setBounds(154, 479, 21, 23);
@@ -171,6 +177,12 @@ public class manager {
 		desktopPane_5.add(button_1);
 		
 		JButton button_2 = new JButton("\u63D0\u4EA4");
+		button_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				
+			}
+		});
 		button_2.setBounds(718, 479, 93, 23);
 		desktopPane_5.add(button_2);
 		
@@ -221,6 +233,8 @@ public class manager {
 			}
 		));
 		scrollPane1.setViewportView(table);
+		table.getColumnModel().getColumn(0).setCellEditor(new MyRender());//设置编辑器	
+		table.getColumnModel().getColumn(0).setCellRenderer(new MyRender() );
 		
 		JCheckBox checkBox1 = new JCheckBox("");
 		checkBox.setBounds(154, 479, 21, 23);
@@ -286,6 +300,8 @@ public class manager {
 		));
 		table_7.getColumnModel().getColumn(4).setPreferredWidth(84);
 		scrollPane2.setViewportView(table_7);
+		table_7.getColumnModel().getColumn(0).setCellEditor(new MyRender());//设置编辑器	
+		table_7.getColumnModel().getColumn(0).setCellRenderer(new MyRender() );
 		
 		JCheckBox checkBox2 = new JCheckBox("");
 		checkBox2.setBounds(154, 479, 21, 23);
@@ -350,6 +366,8 @@ public class manager {
 			}
 		));
 		scrollPane3.setViewportView(table);
+		table.getColumnModel().getColumn(0).setCellEditor(new MyRender());//设置编辑器	
+		table.getColumnModel().getColumn(0).setCellRenderer(new MyRender() );
 		
 		JCheckBox checkBox3 = new JCheckBox("");
 		checkBox.setBounds(154, 479, 21, 23);
@@ -414,6 +432,8 @@ public class manager {
 			}
 		));
 		scrollPane4.setViewportView(table);
+		table.getColumnModel().getColumn(0).setCellEditor(new MyRender());//设置编辑器	
+		table.getColumnModel().getColumn(0).setCellRenderer(new MyRender() );
 		
 		JCheckBox checkBox4 = new JCheckBox("");
 		checkBox4.setBounds(154, 479, 21, 23);
@@ -479,6 +499,8 @@ public class manager {
 		));
 		table_8.getColumnModel().getColumn(4).setPreferredWidth(82);
 		scrollPane5.setViewportView(table_8);
+		table_8.getColumnModel().getColumn(0).setCellEditor(new MyRender());//设置编辑器	
+		table_8.getColumnModel().getColumn(0).setCellRenderer(new MyRender() );
 		
 		JCheckBox checkBox5 = new JCheckBox("");
 		checkBox5.setBounds(154, 479, 21, 23);
@@ -543,6 +565,8 @@ public class manager {
 			}
 		));
 		scrollPane6.setViewportView(table);
+		table.getColumnModel().getColumn(0).setCellEditor(new MyRender());//设置编辑器	
+		table.getColumnModel().getColumn(0).setCellRenderer(new MyRender() );
 		
 		JCheckBox checkBox6 = new JCheckBox("");
 		checkBox6.setBounds(154, 479, 21, 23);
@@ -607,6 +631,8 @@ public class manager {
 			}
 		));
 		scrollPane7.setViewportView(table);
+		table.getColumnModel().getColumn(0).setCellEditor(new MyRender());//设置编辑器	
+		table.getColumnModel().getColumn(0).setCellRenderer(new MyRender() );
 		
 		JCheckBox checkBox7 = new JCheckBox("");
 		checkBox7.setBounds(154, 479, 21, 23);
@@ -671,6 +697,8 @@ public class manager {
 			}
 		));
 		scrollPane8.setViewportView(table);
+		table.getColumnModel().getColumn(0).setCellEditor(new MyRender());//设置编辑器	
+		table.getColumnModel().getColumn(0).setCellRenderer(new MyRender() );
 		
 		JCheckBox checkBox8 = new JCheckBox("");
 		checkBox8.setBounds(154, 479, 21, 23);
@@ -735,6 +763,8 @@ public class manager {
 			}
 		));
 		scrollPane9.setViewportView(table);
+		table.getColumnModel().getColumn(0).setCellEditor(new MyRender());//设置编辑器	
+		table.getColumnModel().getColumn(0).setCellRenderer(new MyRender() );
 		
 		JCheckBox checkBox9 = new JCheckBox("");
 		checkBox9.setBounds(154, 479, 21, 23);
@@ -756,10 +786,10 @@ public class manager {
 		desktopPane_1.setBackground(Color.WHITE);
 		tabbedPane.addTab("人员与机构管理", null, desktopPane_1, null);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(0, 0, 979, 21);
-		desktopPane_1.add(textField_1);
+		JLabel label_19 = new JLabel();
+		label_19.setBounds(282, 0, 436, 21);
+		desktopPane_1.add(label_19);
+		label_19.setText(df.format(new Date()));df.format(new Date());
 		
 		JTabbedPane tabbedPane_2 = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane_2.setBounds(46, 36, 881, 536);
@@ -806,6 +836,24 @@ public class manager {
 		desktopPane_13.add(comboBox_1);
 		
 		JButton button_3 = new JButton("\u6DFB\u52A0");
+		button_3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				for(int i=0;i<table_1.getRowCount();i++){
+					if(table_1.getValueAt(i, 1)==null&&table_1.getValueAt(i, 2)==null&&table_1.getValueAt(i, 3)==null&&table_1.getValueAt(i, 4)==null){
+						table_1.setValueAt(textField_3.getText(), i, 1);
+						table_1.setValueAt(textField_4.getText(), i, 2);
+						table_1.setValueAt(comboBox.getSelectedItem(), i, 3);
+						table_1.setValueAt(comboBox_1.getSelectedItem(), i, 4);
+						textField_3.setText(null);
+						textField_4.setText(null);
+						comboBox.setToolTipText("快递员");
+						comboBox_1.setToolTipText("南京市栖霞区仙林街道营业厅");
+						break;
+					}
+				}
+			}
+		});
 		button_3.setBounds(744, 66, 93, 23);
 		desktopPane_13.add(button_3);
 		
@@ -842,6 +890,8 @@ public class manager {
 			}
 		));
 		scrollPane_1.setViewportView(table_1);
+		table_1.getColumnModel().getColumn(0).setCellEditor(new MyRender());//设置编辑器	
+		table_1.getColumnModel().getColumn(0).setCellRenderer(new MyRender() );
 		
 		JCheckBox checkBox_1 = new JCheckBox("");
 		checkBox_1.setBounds(70, 467, 21, 23);
@@ -910,6 +960,8 @@ public class manager {
 			}
 		));
 		scrollPane_2.setViewportView(table_2);
+		table_2.getColumnModel().getColumn(0).setCellEditor(new MyRender());//设置编辑器	
+		table_2.getColumnModel().getColumn(0).setCellRenderer(new MyRender() );
 		
 		JCheckBox checkBox_2 = new JCheckBox("");
 		checkBox_2.setBounds(77, 465, 21, 23);
@@ -954,11 +1006,11 @@ public class manager {
 		desktopPane_15.add(comboBox_3);
 		
 		JButton button_9 = new JButton("\u6DFB\u52A0");
-		button_9.setBounds(698, 94, 93, 23);
+		button_9.setBounds(706, 79, 93, 23);
 		desktopPane_15.add(button_9);
 		
 		JScrollPane scrollPane_3 = new JScrollPane();
-		scrollPane_3.setBounds(98, 157, 665, 294);
+		scrollPane_3.setBounds(77, 115, 675, 334);
 		desktopPane_15.add(scrollPane_3);
 		
 		table_3 = new JTable();
@@ -990,6 +1042,8 @@ public class manager {
 			}
 		));
 		scrollPane_3.setViewportView(table_3);
+		table_3.getColumnModel().getColumn(0).setCellEditor(new MyRender());//设置编辑器	
+		table_3.getColumnModel().getColumn(0).setCellRenderer(new MyRender() );
 		
 		JCheckBox chckbxNewCheckBox = new JCheckBox("");
 		chckbxNewCheckBox.setBounds(98, 466, 21, 23);
@@ -1030,7 +1084,7 @@ public class manager {
 		desktopPane_16.add(button_12);
 		
 		JScrollPane scrollPane_4 = new JScrollPane();
-		scrollPane_4.setBounds(110, 136, 653, 309);
+		scrollPane_4.setBounds(77, 115, 675, 334);
 		desktopPane_16.add(scrollPane_4);
 		
 		table_4 = new JTable();
@@ -1062,6 +1116,8 @@ public class manager {
 			}
 		));
 		scrollPane_4.setViewportView(table_4);
+		table_4.getColumnModel().getColumn(0).setCellEditor(new MyRender());//设置编辑器	
+		table_4.getColumnModel().getColumn(0).setCellRenderer(new MyRender() );
 		
 		JCheckBox chckbxNewCheckBox_1 = new JCheckBox("");
 		chckbxNewCheckBox_1.setBounds(110, 463, 21, 23);
@@ -1079,10 +1135,10 @@ public class manager {
 		desktopPane_2.setBackground(Color.WHITE);
 		tabbedPane.addTab("查看报表", null, desktopPane_2, null);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(0, 0, 979, 21);
-		desktopPane_2.add(textField_2);
+		JLabel label_20 = new JLabel();
+		label_20.setBounds(282, 0, 436, 21);
+		desktopPane_2.add(label_20);
+		label_20.setText(df.format(new Date()));df.format(new Date());
 		
 		JTabbedPane tabbedPane_3 = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane_3.setBounds(46, 36, 881, 536);
@@ -1097,7 +1153,7 @@ public class manager {
 		desktopPane_17.add(label_6);
 		
 		textField_8 = new JTextField();
-		textField_8.setBounds(334, 95, 66, 21);
+		textField_8.setBounds(334, 95, 34, 21);
 		desktopPane_17.add(textField_8);
 		textField_8.setColumns(10);
 		
@@ -1119,6 +1175,28 @@ public class manager {
 			}
 		));
 		scrollPane_5.setViewportView(table_5);
+		
+		JLabel label_15 = new JLabel("\u5E74");
+		label_15.setBounds(378, 98, 54, 15);
+		desktopPane_17.add(label_15);
+		
+		textField_15 = new JTextField();
+		textField_15.setBounds(400, 95, 34, 21);
+		desktopPane_17.add(textField_15);
+		textField_15.setColumns(10);
+		
+		JLabel label_16 = new JLabel("\u6708");
+		label_16.setBounds(442, 98, 54, 15);
+		desktopPane_17.add(label_16);
+		
+		textField_16 = new JTextField();
+		textField_16.setBounds(462, 95, 34, 21);
+		desktopPane_17.add(textField_16);
+		textField_16.setColumns(10);
+		
+		JLabel label_17 = new JLabel("\u65E5");
+		label_17.setBounds(506, 98, 54, 15);
+		desktopPane_17.add(label_17);
 		
 		JDesktopPane desktopPane_18 = new JDesktopPane();
 		desktopPane_18.setBackground(Color.WHITE);
@@ -1227,5 +1305,35 @@ public class manager {
 		JButton button_16 = new JButton("\u5BFC\u51FA");
 		button_16.setBounds(733, 474, 93, 23);
 		desktopPane_18.add(button_16);
+	}
+}
+class MyRender extends AbstractCellEditor implements TableCellRenderer,ActionListener, TableCellEditor{	
+	private static final long serialVersionUID = 1L;	
+	private JCheckBox button =null;	
+	
+	public MyRender(){		
+		button = new JCheckBox("");
+		}
+	@Override
+	public Object getCellEditorValue() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Component getTableCellEditorComponent(JTable arg0, Object arg1, boolean arg2, int arg3, int arg4) {
+		// TODO Auto-generated method stub
+		return button;
+		
+	}
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public Component getTableCellRendererComponent(JTable arg0, Object arg1, boolean arg2, boolean arg3, int arg4,
+			int arg5) {
+		// TODO Auto-generated method stub
+		return button;
 	}
 }

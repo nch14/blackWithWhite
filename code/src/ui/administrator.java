@@ -1,8 +1,11 @@
 package ui;
 
 import java.awt.EventQueue;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JTabbedPane;
 import java.awt.BorderLayout;
 import javax.swing.JDesktopPane;
@@ -49,6 +52,8 @@ public class administrator {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setTitle("\u7269\u6D41\u4FE1\u606F\u7BA1\u7406\u7CFB\u7EDF");
+		frame.setResizable(false);
 		frame.setBounds(100, 100, 1000, 650);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -59,10 +64,11 @@ public class administrator {
 		desktopPane.setBackground(Color.WHITE);
 		tabbedPane.addTab("用户管理", null, desktopPane, null);
 		
-		textField = new JTextField();
-		textField.setBounds(0, 0, 979, 21);
-		desktopPane.add(textField);
-		textField.setColumns(10);
+		JLabel label = new JLabel();
+		label.setBounds(282, 0, 436, 21);
+		desktopPane.add(label);
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+		label.setText(df.format(new Date()));df.format(new Date());// new Date()为获取当前系统时间
 		
 		textField_1 = new JTextField();
 		textField_1.setBounds(279, 121, 238, 21);
