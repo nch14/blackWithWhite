@@ -2,6 +2,7 @@ package bl.shipment.Impl;
 
 import bill.TransportBill_Train;
 import bl.shipment.Service.TrainTransportBLService;
+import tools.MoneyHelper;
 
 public class TrainTransportController implements TrainTransportBLService{
 	TrainTransport trainTransport;
@@ -11,9 +12,8 @@ public class TrainTransportController implements TrainTransportBLService{
 	}
 	
 	@Override
-	public boolean submitBills(TransportBill_Train Train) {
-		// TODO Auto-generated method stub
-		return trainTransport.submitills(Train);
+	public double submitBills(TransportBill_Train Train) {
+		return trainTransport.submitBills(Train);
 	}
 
 }

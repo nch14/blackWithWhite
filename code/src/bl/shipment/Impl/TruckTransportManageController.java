@@ -10,12 +10,12 @@ public class TruckTransportManageController implements TruckTransportManageBLSer
 		truckTransportManage=new TruckTransportManage();
 	}
 	@Override
-	public boolean submitBills(TransportBill_Truck truckBill) {
+	public double submitBills(TransportBill_Truck truckBill) {
 		// TODO Auto-generated method stub
 		return truckTransportManage.submitBills(truckBill);
 	}
 	@Override
-	public boolean submitBills(BusShipmentBill_Center truckBill) {
+	public double submitBills(BusShipmentBill_Center truckBill) {
 		// TODO Auto-generated method stub
 		return truckTransportManage.submitBills(truckBill);
 	}
