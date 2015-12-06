@@ -33,7 +33,7 @@ import javax.swing.DefaultComboBoxModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class flight {
+public class transitCenterClerk {
 
 	private JFrame frame;
 	private JTable table;
@@ -42,7 +42,6 @@ public class flight {
 	private JTable table_1;
 	private JTextField textField_3;
 	private JTextField textField_4;
-	private JTextField textField_5;
 	private JTextPane textPane;
 	private JTextField textField;
 	private JTextPane textPane_6;
@@ -59,7 +58,6 @@ public class flight {
 	private JButton button;
 	private JTextPane textPane_12;
 	private JTable table_2;
-	private JTextField textField_11;
 	private JTextField textField_12;
 	private JTextField textField_15;
 	private JTextField textField_16;
@@ -71,7 +69,6 @@ public class flight {
 	private JTable table_3;
 	private JTextPane textPane_26;
 	private JTextField textField_22;
-	private JTextField textField_25;
 	private JTextPane textPane_30;
 	private JTextPane textPane_31;
 	private JTextPane textPane_32;
@@ -93,7 +90,6 @@ public class flight {
 	private JTextPane textPane_40;
 	private JTable table_5;
 	private JTable table_4;
-	private JTextField textField_33;
 	private JTextField textField_34;
 	private JTextField textField_37;
 	private JTextField textField_38;
@@ -110,6 +106,10 @@ public class flight {
 	private JTextField textField_24;
 	private JTextField textField_35;
 	private JTextField textField_36;
+	private JTextPane textPane_1;
+	private JTextPane textPane_4;
+	private JTextPane textPane_5;
+	private JTextPane textPane_14;
 
 	/**
 	 * Launch the application.
@@ -118,7 +118,7 @@ public class flight {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					flight window = new flight();
+					transitCenterClerk window = new transitCenterClerk();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -130,7 +130,7 @@ public class flight {
 	/**
 	 * Create the application.
 	 */
-	public flight() {
+	public transitCenterClerk() {
 		initialize();
 	}
 
@@ -216,12 +216,6 @@ public class flight {
 		textField_4.setBounds(226, 111, 133, 21);
 		desktopPane.add(textField_4);
 		textField_4.setColumns(10);
-		
-		textField_5 = new JTextField();
-		textField_5.setText("  中转中心业务员：");
-		textField_5.setBounds(117, 0, 765, 21);
-		desktopPane.add(textField_5);
-		textField_5.setColumns(10);
 		
 		textPane = new JTextPane();
 		textPane.setText("日期(年/月/日）");
@@ -344,6 +338,11 @@ public class flight {
 		desktopPane.add(textField_36);
 		textField_36.setColumns(10);
 		
+		textPane_1 = new JTextPane();
+		textPane_1.setText("\u4E2D\u8F6C\u4E2D\u5FC3\u4E1A\u52A1\u5458\uFF1A");
+		textPane_1.setBounds(300, 0, 102, 21);
+		desktopPane.add(textPane_1);
+		
 		//火车装运管理的界面
 		JDesktopPane desktopPane_1 = new JDesktopPane();
 		desktopPane_1.setBackground(Color.WHITE);
@@ -393,12 +392,6 @@ public class flight {
 		));
 		table_2.getColumnModel().getColumn(0).setPreferredWidth(30);
 		scrollPane_1.setViewportView(table_2);
-		
-		textField_11 = new JTextField();
-		textField_11.setText("  中转中心业务员：");
-		textField_11.setBounds(116, 0, 744, 21);
-		desktopPane_1.add(textField_11);
-		textField_11.setColumns(10);
 		
 		JTextPane textPane_13 = new JTextPane();
 		textPane_13.setText("日期（年/月/日）");
@@ -537,6 +530,11 @@ public class flight {
 		desktopPane_1.add(textField_24);
 		textField_24.setColumns(10);
 		
+		textPane_4 = new JTextPane();
+		textPane_4.setText("\u4E2D\u8F6C\u4E2D\u5FC3\u4E1A\u52A1\u5458\uFF1A");
+		textPane_4.setBounds(265, 0, 102, 21);
+		desktopPane_1.add(textPane_4);
+		
 		//汽车装运管理的界面
 		JDesktopPane desktopPane_2 = new JDesktopPane();
 		desktopPane_2.setBackground(Color.WHITE);
@@ -595,12 +593,6 @@ public class flight {
 		textField_22.setBounds(172, 44, 40, 21);
 		desktopPane_2.add(textField_22);
 		textField_22.setColumns(10);
-		
-		textField_25 = new JTextField();
-		textField_25.setText("  中转中心业务员：");
-		textField_25.setBounds(117, 0, 720, 21);
-		desktopPane_2.add(textField_25);
-		textField_25.setColumns(10);
 		
 		textPane_30 = new JTextPane();
 		textPane_30.setText("出发地");
@@ -743,6 +735,11 @@ public class flight {
 		desktopPane_2.add(textField_14);
 		textField_14.setColumns(10);
 		
+		textPane_5 = new JTextPane();
+		textPane_5.setText("\u4E2D\u8F6C\u4E2D\u5FC3\u4E1A\u52A1\u5458\uFF1A");
+		textPane_5.setBounds(272, 0, 106, 21);
+		desktopPane_2.add(textPane_5);
+		
 		//中转中心到达单的界面
 		JDesktopPane desktopPane_3 = new JDesktopPane();
 		desktopPane_3.setBackground(Color.WHITE);
@@ -795,12 +792,6 @@ public class flight {
 			}
 		));
 		scrollPane_3.setViewportView(table_4);
-		
-		textField_33 = new JTextField();
-		textField_33.setText("  中转中心业务员：");
-		textField_33.setBounds(116, 0, 735, 21);
-		desktopPane_3.add(textField_33);
-		textField_33.setColumns(10);
 		
 		JTextPane textPane_41 = new JTextPane();
 		textPane_41.setText("日期（年/月/日）");
@@ -913,5 +904,11 @@ public class flight {
 		textField_2.setBounds(318, 31, 30, 21);
 		desktopPane_3.add(textField_2);
 		textField_2.setColumns(10);
+		
+		textPane_14 = new JTextPane();
+		textPane_14.setText("\u4E2D\u8F6C\u4E2D\u5FC3\u4E1A\u52A1\u5458\uFF1A");
+		textPane_14.setBounds(262, 0, 103, 21);
+		desktopPane_3.add(textPane_14);
 	}
 }
+

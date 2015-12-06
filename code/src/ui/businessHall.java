@@ -36,6 +36,7 @@ import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import javax.swing.JCheckBox;
 
 import java.awt.event.KeyAdapter;
@@ -49,26 +50,25 @@ import java.io.IOException;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
-public class arrivement {
+import bill.DriverPO;
 
+public class businessHall {
+
+	protected static final String ID = null;
 	private JFrame frame;
-	private JTextField textField_7;
 	private JTextField textField_8;
 	private JTextField textField_11;
 	private JTextField textField_12;
 	private JTable table;
-	private JTextField textField_13;
 	private JTextField textField_14;
 	private JTextField textField_17;
 	private JTextField textField_18;
 	private JTable table_1;
-	private JTextField textField_19;
 	private JTextField textField_20;
 	private JTextField textField_23;
 	private JTextField textField_24;
 	private JTextField textField_25;
 	private JTable table_2;
-	private JTextField textField_26;
 	private JTextField textField_27;
 	private JTextField textField_30;
 	private JTextField textField_31;
@@ -124,7 +124,7 @@ public class arrivement {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					arrivement window = new arrivement();
+					businessHall window = new businessHall();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -137,7 +137,7 @@ public class arrivement {
 	 * Create the application.
 	 * @throws IOException 
 	 */
-	public arrivement() {
+	public businessHall() {
 		initialize();
 	}
 
@@ -157,14 +157,6 @@ public class arrivement {
 		JDesktopPane desktopPane_4 = new JDesktopPane();
 		desktopPane_4.setBackground(Color.CYAN);
 		tabbedPane.addTab("车辆装车管理", null, desktopPane_4, null);
-		
-		textField_26 = new JTextField();
-		textField_26.setBackground(Color.WHITE);
-		textField_26.setForeground(Color.BLACK);
-		textField_26.setText("                                                                            营业厅业务员：");
-		textField_26.setBounds(150, 0, 700, 21);
-		desktopPane_4.add(textField_26);
-		textField_26.setColumns(10);
 		
 		JTextPane textPane_19 = new JTextPane();
 		textPane_19.setBackground(Color.CYAN);
@@ -253,9 +245,7 @@ public class arrivement {
 					if(table_3.getValueAt(i, 0)==null&&table_3.getValueAt(i, 1)==null&&table_3.getValueAt(i, 2)==null&&table_3.getValueAt(i, 3)==null
 							&&table_3.getValueAt(i, 4)==null&&table_3.getValueAt(i, 5)==null&&table_3.getValueAt(i, 6)==null&&table_3.getValueAt(i, 7)==null){
 				        table_3.setValueAt(textField_35.getText(),i,0);
-				        table_3.setValueAt(textField_27.getText(), i, 1);
-				        //table_3.setValueAt(textField_10.getText(), i, 1);
-				        //table_3.setValueAt(textField_15.getText(), i, 1);
+				        table_3.setValueAt(textField_27.getText()+textField_10.getText()+textField_15.getText(), i, 1);
 				        table_3.setValueAt(textField_32.getText(), i, 2);
 				        table_3.setValueAt(textField_30.getText(), i, 3);
 		                table_3.setValueAt(textField_9.getText(), i, 4);
@@ -345,11 +335,6 @@ public class arrivement {
 		button_14.setBounds(200, 536, 93, 23);
 		desktopPane_4.add(button_14);
 		
-		JButton button_15 = new JButton("确认");
-		button_15.setBackground(Color.GRAY);
-		button_15.setBounds(600, 536, 93, 23);
-		desktopPane_4.add(button_15);
-		
 		//提交一个table的事件监听
 		JButton button_16 = new JButton("提交");
 		button_16.setBackground(Color.GRAY);
@@ -383,16 +368,16 @@ public class arrivement {
 		desktopPane_4.add(textField_15);
 		textField_15.setColumns(10);
 		
+		JTextPane textPane_34 = new JTextPane();
+		textPane_34.setBackground(Color.CYAN);
+		textPane_34.setText("营业厅业务员：");
+		textPane_34.setBounds(286, 0, 93, 21);
+		desktopPane_4.add(textPane_34);
+		
 		//营业厅到达单的界面
 		JDesktopPane desktopPane_1 = new JDesktopPane();
 		desktopPane_1.setBackground(Color.WHITE);
 		tabbedPane.addTab("营业厅到达单", null, desktopPane_1, null);
-		
-		textField_7 = new JTextField();
-		textField_7.setText("                                                                             营业厅业务员：");
-		textField_7.setBounds(150, 0, 700, 21);
-		desktopPane_1.add(textField_7);
-		textField_7.setColumns(10);
 		
 		JTextPane textPane_8 = new JTextPane();
 		textPane_8.setText("到达日期");
@@ -445,9 +430,7 @@ public class arrivement {
 				for(int i=0;i<table.getRowCount();i++){
 					if(table.getValueAt(i, 0)==null&&table.getValueAt(i, 1)==null&&table.getValueAt(i, 2)==null&&table.getValueAt(i, 3)==null){
 				          table.setValueAt(textField_12.getText(), i, 0);
-				          table.setValueAt(textField_8.getText(), i, 1);
-				          //table.setValueAt(textField_16, i, 1);
-				          //table.setValueAt(textField_21, i, 1);
+				          table.setValueAt(textField_8.getText()+textField_16.getText()+textField_21.getText(), i, 1);
 				          table.setValueAt(textField_11.getText(), i, 2);
 				          table.setValueAt(comboBox.getSelectedItem(), i, 3);
 				          break;
@@ -536,15 +519,14 @@ public class arrivement {
 		desktopPane_1.add(textField_21);
 		textField_21.setColumns(10);
 		
+		JTextPane textPane_35 = new JTextPane();
+		textPane_35.setText("营业厅业务员：");
+		textPane_35.setBounds(291, 0, 93, 21);
+		desktopPane_1.add(textPane_35);
+		
 		JDesktopPane desktopPane_2 = new JDesktopPane();
 		desktopPane_2.setBackground(Color.WHITE);
 		tabbedPane.addTab("派件单", null, desktopPane_2, null);
-		
-		textField_13 = new JTextField();
-		textField_13.setText("                                                                                           营业厅业务员 ：");
-		textField_13.setBounds(150, 0, 700, 21);
-		desktopPane_2.add(textField_13);
-		textField_13.setColumns(10);
 		
 		JTextPane textPane_12 = new JTextPane();
 		textPane_12.setText("到达日期（年/月/日）");
@@ -583,7 +565,7 @@ public class arrivement {
 				for(int i=0;i<table_1.getRowCount();i++){
 					if(table_1.getValueAt(i, 0)==null&&table_1.getValueAt(i, 1)==null&&table_1.getValueAt(i, 2)==null){
 				        table_1.setValueAt(textField_18.getText(), i, 0);
-				        table_1.setValueAt(textField_14.getText(), i, 1);
+				        table_1.setValueAt(textField_14.getText()+textField_22.getText()+textField_49.getText(), i, 1);
 				        table_1.setValueAt(textField_17.getText(), i, 2);
 				        break;
 					}
@@ -669,15 +651,14 @@ public class arrivement {
 		desktopPane_2.add(textField_49);
 		textField_49.setColumns(10);
 		
+		JTextPane textPane_36 = new JTextPane();
+		textPane_36.setText("营业厅业务员：");
+		textPane_36.setBounds(286, 0, 93, 21);
+		desktopPane_2.add(textPane_36);
+		
 		JDesktopPane desktopPane_3 = new JDesktopPane();
 		desktopPane_3.setBackground(Color.WHITE);
 		tabbedPane.addTab("收款单填写", null, desktopPane_3, null);
-		
-		textField_19 = new JTextField();
-		textField_19.setText("                                                                                        营业厅业务员：");
-		textField_19.setBounds(150, 0, 700, 21);
-		desktopPane_3.add(textField_19);
-		textField_19.setColumns(10);
 		
 		JTextPane textPane_15 = new JTextPane();
 		textPane_15.setText("收款日期（年/月/日）");
@@ -725,7 +706,7 @@ public class arrivement {
 			public void mouseClicked(MouseEvent e) {
 				for(int i=0;i<table_2.getRowCount();i++){
 					if(table_2.getValueAt(i, 0)==null&&table_2.getValueAt(i, 1)==null&&table_2.getValueAt(i, 3)==null){
-				        table_2.setValueAt(textField_20.getText(), i, 0);
+				        table_2.setValueAt(textField_20.getText()+textField_50.getText()+textField_51.getText(), i, 0);
 				        table_2.setValueAt(textField_23.getText(), i, 1);
 				        table_2.setValueAt(textField_24.getText(), i, 2);
 				        table_2.setValueAt(textField_25.getText(), i, 3);
@@ -813,6 +794,11 @@ public class arrivement {
 		desktopPane_3.add(textField_51);
 		textField_51.setColumns(10);
 		
+		JTextPane textPane_37 = new JTextPane();
+		textPane_37.setText("营业厅业务员：");
+		textPane_37.setBounds(270, 0, 96, 21);
+		desktopPane_3.add(textPane_37);
+		
 		//司机信息管理的界面
 		JDesktopPane desktopPane = new JDesktopPane();
 		desktopPane.setBackground(Color.WHITE);
@@ -851,7 +837,15 @@ public class arrivement {
 		));
 		scrollPane_4.setViewportView(table_4);
 		
+		//查找司机信息的事件监听
 		JButton button = new JButton("查找");
+		button.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				e.getID();
+				//table_4.getDriver(ID);
+			}
+		});
 		button.setBounds(487, 67, 93, 23);
 		desktopPane_6.add(button);
 		
@@ -960,12 +954,8 @@ public class arrivement {
 						table_5.setValueAt(textField_2.getText(), i, 1);
 						table_5.setValueAt(textField_29.getText(), i, 2);
 						table_5.setValueAt(textField_3.getText(), i, 3);
-						table_5.setValueAt(textField_4.getText(), i, 4);
-						table_5.setValueAt(textField_5.getText(), i, 4);
-						table_5.setValueAt(textField_6.getText(), i, 4);
-						table_5.setValueAt(textField_36.getText(), i, 5);
-						table_5.setValueAt(textField_37.getText(), i, 5);
-						table_5.setValueAt(textField_38.getText(), i, 5);
+						table_5.setValueAt(textField_4.getText()+textField_5.getText()+textField_6.getText(), i, 4);
+						table_5.setValueAt(textField_36.getText()+textField_37.getText()+textField_38.getText(), i, 5);
 						table_5.setValueAt(textField_28.getText(), i, 6);
 						break;
 					}
@@ -1213,10 +1203,7 @@ public class arrivement {
 					if(table_9.getValueAt(i, 0)==null&&table_9.getValueAt(i, 1)==null&&table_9.getValueAt(i, 2)==null){
 						table_9.setValueAt(textField_42.getText(), i, 0);
 						table_9.setValueAt(textField_43.getText(), i, 1);
-						table_9.setValueAt(textField_44.getText(), i, 2);
-						table_9.setValueAt(textField_45.getText(), i, 2);
-						
-						table_9.setValueAt(textField_46.getText(), i, 2);
+						table_9.setValueAt(textField_44.getText()+textField_45.getText()+textField_46.getText(), i, 2);
 						break;
 					}
 				}
@@ -1365,3 +1352,4 @@ public class arrivement {
 		desktopPane_13.add(button_26);
 	}
 }
+
