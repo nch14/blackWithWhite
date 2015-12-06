@@ -82,10 +82,15 @@ public class DriverManage {
 		}
 	}
 
-
 	public ArrayList<DriverPO> getAllDriver(String str) {
 		// TODO Auto-generated method stub
-		return null;
+		try {
+			return driverInfo.getAll(str);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 

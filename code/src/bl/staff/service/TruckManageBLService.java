@@ -1,5 +1,7 @@
 package bl.staff.service;
 
+import java.util.ArrayList;
+
 import bill.TruckPO;
 
 public interface TruckManageBLService {
@@ -34,6 +36,6 @@ public interface TruckManageBLService {
 	 * 显示所有货车
 	 * @return
 	 */
-	public TruckPO[] getTruck ();
+	public ArrayList<TruckPO> getTruck ();
 
 }

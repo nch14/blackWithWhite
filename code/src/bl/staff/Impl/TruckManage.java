@@ -1,6 +1,7 @@
 package bl.staff.Impl;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import bill.DriverPO;
 import bill.TruckPO;
@@ -78,10 +79,16 @@ public class TruckManage {
 		}
 	}
 
-
-
-	public TruckPO[] getTruck() {
+	public ArrayList<TruckPO> getTruck() {
 		// TODO Auto-generated method stub
-		return null;
+		ArrayList<TruckPO> allTrucks;
+		try {
+			allTrucks=truckInfo.getAll();
+			return allTrucks;
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 }

@@ -6,11 +6,11 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
-import bill.TransportBill_Bus;
+import bill.TransportBill_Truck;
 import data.Iphelper.Iphelper;
 
 public class BusShipment implements BusShipmentHelper{
-	TransportBill_Bus a;
+	TransportBill_Truck a;
 	boolean result;
 	
 	private String getURL() throws FileNotFoundException, ClassNotFoundException, IOException{
@@ -18,7 +18,7 @@ public class BusShipment implements BusShipmentHelper{
 		return s;
 	}
 	
-	public boolean insert(TransportBill_Bus bill){
+	public boolean insert(TransportBill_Truck bill){
 		try {
 			 BusShipmentHelper x=(BusShipmentHelper) Naming.lookup(getURL());
 			 result=x.insert(bill);
@@ -29,7 +29,7 @@ public class BusShipment implements BusShipmentHelper{
 		return result;
 	}
 	
-	public TransportBill_Bus get(String id){
+	public TransportBill_Truck get(String id){
 		try {
 			 BusShipmentHelper x=(BusShipmentHelper) Naming.lookup(getURL());
 			 a=x.get(id);
@@ -40,7 +40,7 @@ public class BusShipment implements BusShipmentHelper{
 		return a;
 	}
 	
-	public boolean change(TransportBill_Bus bill){
+	public boolean change(TransportBill_Truck bill){
 		try {
 			 BusShipmentHelper x=(BusShipmentHelper) Naming.lookup(getURL());
 			 result=x.change(bill);

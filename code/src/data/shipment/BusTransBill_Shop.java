@@ -9,7 +9,7 @@ import java.rmi.RemoteException;
 import bill.BusShipmentBill_Shop;
 import data.Iphelper.Iphelper;
 
-public class BusShipment_Shop implements BusTransBill_ShopHelper{
+public class BusTransBill_Shop implements BusTransBill_ShopHelper{
 	BusShipmentBill_Shop a;
 	boolean result;
 	

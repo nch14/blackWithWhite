@@ -1,5 +1,7 @@
 package bl.staff.Impl;
 
+import java.util.ArrayList;
+
 import bill.TruckPO;
 import bl.staff.service.TruckManageBLService;
 
@@ -33,7 +35,7 @@ public class TruckManageController implements TruckManageBLService {
 	}
 
 	@Override
-	public TruckPO[] getTruck() {
+	public ArrayList<TruckPO> getTruck() {
 		// TODO Auto-generated method stub
 		return truckManage.getTruck();
 	}
