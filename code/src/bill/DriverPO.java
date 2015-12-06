@@ -5,8 +5,8 @@ package bill;
  *
  */
 public class DriverPO {
-	String ID;
-	String name;
+	public String ID;
+	public String name;
 	String IDNumber;
 	String[] birthday;
 	boolean isBoy;

@@ -3,9 +3,10 @@ package bill;
 import java.util.ArrayList;
 
 public class AllocateBill {
+	public String ID;//单据的ID
 	boolean judged;
 	String[] date;
-	String numID;
+	String numID;//快递员的ID
 	ArrayList<String> list;
 	
 	public AllocateBill(){}

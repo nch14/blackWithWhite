@@ -11,7 +11,7 @@ public class ArrivementBill {
 			st=t;
 		}
 	}
-	
+	public String ID;//µ¥¾ÝµÄID
 	String[] date;
 	String placeOfDeparture;
 	ArrayList<struct> bill=new  ArrayList<struct>();

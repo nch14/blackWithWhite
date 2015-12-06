@@ -3,12 +3,12 @@ package bill;
 import java.util.ArrayList;
 
 public class BusShipmentBill {
-	String[] date;
-	String busshipID;
+	String[] date;//日期
+	String busshipID;//汽运编号
 	String destination;
-	String busID;
-	String Observer;
-	String guard;
+	String busID;//汽车编号
+	String Observer;//监装员
+	String guard;//押运员
 	ArrayList<String> idCollection=new ArrayList<String>();
 	double money;
 }
