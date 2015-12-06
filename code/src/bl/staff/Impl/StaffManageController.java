@@ -33,9 +33,9 @@ public class StaffManageController implements StaffManageBLService {
 	}
 
 	@Override
-	public boolean changeStaffInfo(String name, int age, String authority, String password) {
+	public boolean changeStaffInfo(String ID,String name, int age, String authority, String password) {
 		// TODO Auto-generated method stub
-		return staffManage.changeStaffInfo(name, age, authority, password);
+		return staffManage.changeStaffInfo(ID,name, age, authority, password);
 	}
 
 	@Override

@@ -87,9 +87,25 @@ public class StaffManage {
 		return result;
 	}
 
-	public boolean changeStaffInfo(String name, int age, String authority, String password) {
+	public boolean changeStaffInfo(String ID,String name, int age, String authority, String password) {
 		// TODO Auto-generated method stub
-		return false;
+		if(name==null||age==0||authority==null||password==null)
+			return false;
+		
+		StaffVO thisStaff;
+		StaffPO thatStaff;
+		boolean result=true;
+		try {
+			thisStaff=this.getStaff(ID);
+			thatStaff=new StaffPO(thisStaff);
+			thatStaff.changeStaffInfo(name, age, authority, password);
+			result=result&&member.change(thatStaff);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+		return result;
 	}
 
 	

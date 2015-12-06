@@ -48,7 +48,7 @@ public interface StaffManageBLService {
 	 * @param password	√‹¬Î
 	 * @return
 	 */
-	public boolean changeStaffInfo (String name,int age,String authority,String password);
+	public boolean changeStaffInfo (String ID,String name,int age,String authority,String password);
 	
 	/**
 	 * ≤È’“‘±π§
