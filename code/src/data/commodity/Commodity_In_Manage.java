@@ -1,16 +1,17 @@
 package data.commodity;
 import java.rmi.*;
+import java.util.ArrayList;
 
 import remoteInterface.Client_Helper;
 import bill.StockBill_In;
 public interface Commodity_In_Manage extends Client_Helper {
 	/**
-	 * 插入一个入库单
+	 * 插入入库单,ID为中转中心编号
 	 * @param bill
 	 * @return 
 	 * @throws RemoteException
 	 */
-	public boolean insert(StockBill_In bill) throws RemoteException;
+	public ArrayList<StockBill_In> insert(ArrayList<StockBill_In> bill,String ID) throws RemoteException;
 	
 	/**
 	 * 删除一个入库单
@@ -50,5 +51,4 @@ public interface Commodity_In_Manage extends Client_Helper {
 	 * @return 
 	 * @throws RemoteException
 	 */
-	public String[] getPosition(String str) throws RemoteException;
 }

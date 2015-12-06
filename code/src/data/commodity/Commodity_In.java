@@ -82,4 +82,5 @@ public class Commodity_In implements Commodity_In_Manage{
 		// TODO Auto-generated method stub
 		
 	}
+
 }
