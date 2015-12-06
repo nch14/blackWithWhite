@@ -7,6 +7,7 @@ import java.util.ArrayList;
  *
  */
 public class ReceiveMoneyBill {
+	public String ID;
 	public String[] date;
 	public double money;
 	public String transactor;//收款的快递员

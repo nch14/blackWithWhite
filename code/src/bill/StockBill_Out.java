@@ -11,5 +11,5 @@ public class StockBill_Out {
 		String ListID;
 	}
 	ArrayList<Info> list;
-
+	public String ID;
 }

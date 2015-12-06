@@ -5,8 +5,8 @@ package bill;
  *
  */
 public class TruckPO {
-	String vehicleCode;
-	String licensePlate;
+	public String vehicleCode;
+	public String licensePlate;
 	String serviceTime;
 
 	
