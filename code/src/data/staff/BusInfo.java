@@ -6,6 +6,7 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import bill.TruckPO;
 import data.Iphelper.Iphelper;
@@ -60,6 +61,12 @@ public class BusInfo implements BusInfoHelper {
 	public boolean init() throws RemoteException {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public ArrayList<TruckPO> getAll(String str) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

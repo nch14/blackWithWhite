@@ -1,5 +1,6 @@
 package data.staff;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import bill.TruckPO;
 import remoteInterface.Client_Helper;
@@ -14,4 +15,6 @@ public interface BusInfoHelper extends Client_Helper {
 	public TruckPO get(String id) throws RemoteException;
 	
 	public boolean init() throws RemoteException;
+	
+	public ArrayList<TruckPO> getAll(String str) throws RemoteException;//Ä£ºýËÑË÷
 }
