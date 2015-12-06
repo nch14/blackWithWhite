@@ -18,6 +18,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JCheckBox;
 import javax.swing.table.DefaultTableModel;
+
+import bill.OrderBillPO;
+import bl.send.Impl.PredictTimeAndMonthController;
+import bl.send.Impl.Send;
+import bl.send.Impl.SendController;
+import bl.send.Service.PredictTimeAndMontyBLService;
+import bl.send.Service.SendBLService;
+
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.MouseAdapter;
@@ -131,6 +139,13 @@ public class courier {
 		textField_7.setColumns(10);
 		
 		JButton button_3 = new JButton("\u786E\u8BA4");
+		button_3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				PredictTimeAndMontyBLService predictTimeAndMonthController=new PredictTimeAndMonthController();
+				predictTimeAndMonthController.moneyAndTime(textField_7.getText());
+			}
+		});
 		button_3.setBounds(580, 134, 93, 23);
 		desktopPane_2.add(button_3);
 		
@@ -149,6 +164,14 @@ public class courier {
 		JLabel label_25 = new JLabel("");
 		label_25.setBounds(310, 266, 54, 15);
 		desktopPane_2.add(label_25);
+		
+		JLabel label_33 = new JLabel("");
+		label_33.setBounds(310, 223, 54, 15);
+		desktopPane_2.add(label_33);
+		
+		JLabel label_34 = new JLabel("");
+		label_34.setBounds(310, 266, 54, 15);
+		desktopPane_2.add(label_34);
 		
 		JDesktopPane desktopPane_3 = new JDesktopPane();
 		desktopPane_3.setBackground(Color.WHITE);
@@ -280,7 +303,7 @@ public class courier {
 		JLabel label_32 = new JLabel();
 		label_32.setBounds(282, 0, 436, 21);
 		desktopPane_1.add(label_32);
-		label_32.setText(df.format(new Date()));df.format(new Date());
+		label_32.setText(df.format(new Date()));
 		
 		JLabel label_3 = new JLabel("\u5BC4\u4EF6\u4EBA\u4FE1\u606F");
 		label_3.setBounds(99, 73, 68, 15);
@@ -483,15 +506,38 @@ public class courier {
 		desktopPane_1.add(lblNewLabel_2);
 		
 		JButton button_4 = new JButton("\u786E\u8BA4");
+		button_4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+			}
+		});
 		button_4.setBounds(654, 507, 68, 23);
 		desktopPane_1.add(button_4);
-		
-		JButton button_5 = new JButton("\u63D0\u4EA4");
-		button_5.setBounds(740, 507, 68, 23);
-		desktopPane_1.add(button_5);
 		
 		JLabel lblNewLabel_3 = new JLabel("");
 		lblNewLabel_3.setBounds(738, 486, 54, 15);
 		desktopPane_1.add(lblNewLabel_3);
+		
+		JButton button_5 = new JButton("\u63D0\u4EA4");
+		button_5.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				OrderBillPO order = new OrderBillPO(textField_9.getText(),textField_10.getText(),textField_11.getText(),
+						textField_12.getText(),textField_13.getText(),textField_14.getText(),textField_15.getText(),
+						textField_16.getText(),textField_17.getText(),textField_18.getText(),textField_19.getText(),
+						textField_20.getText(),textField_21.getText(),textField_22.getText(),textField_23.getText(),
+						textField_24.getText(),textField_25.getText(),comboBox.getSelectedItem().toString(),
+						comboBox_1.getSelectedItem().toString(),textField_26.getText(),df.format(new Date()),
+					    lblNewLabel_3.getText());
+				SendBLService send = new SendController();
+				send.push(order);
+				
+			}
+		});
+		button_5.setBounds(740, 507, 68, 23);
+		desktopPane_1.add(button_5);
+		
+		
 	}
 }

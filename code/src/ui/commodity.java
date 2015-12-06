@@ -13,6 +13,9 @@ import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import bl.commoditybl.Impl.AreaAdjustController;
+
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.*;
@@ -32,11 +35,6 @@ public class commodity {
 	private JTextField textField_5;
 	private JTextField textField_6;
 	private JTable table_1;
-	private JTextField textField_7;
-	private JTextField textField_8;
-	private JTextField textField_9;
-	private JTextField textField_10;
-	private JTextField textField_11;
 	private JTextField textField_12;
 	private JTable table_2;
 	private JTextField textField_13;
@@ -131,6 +129,7 @@ public class commodity {
 		desktopPane.add(button);
 		button.addMouseListener(new MouseAdapter(){
 		public void mouseClicked(MouseEvent e){
+			AreaAdjustController areaAdjustController= new AreaAdjustController();
 			
 		    }	 
 		});
@@ -366,6 +365,12 @@ public class commodity {
 		textField_12.setColumns(10);
 		
 		JButton button_4 = new JButton("\u67E5\u8BE2");
+		button_4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				
+			}
+		});
 		button_4.setBounds(625, 148, 93, 23);
 		desktopPane_2.add(button_4);
 		

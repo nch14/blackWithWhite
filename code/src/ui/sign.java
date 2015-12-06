@@ -5,9 +5,15 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import bl.staff.Impl.LoginController;
+import bl.staff.service.LoginService;
+import vo.StaffVO;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.*;
+import java.awt.Color;
 
 
 public class sign {
@@ -80,12 +86,24 @@ public class sign {
 		JButton button = new JButton("\u767B\u5F55");
 		button.setBounds(469, 454, 93, 23);
 		frame.getContentPane().add(button);
+		
+		JLabel label_2 = new JLabel("");
+		label_2.setForeground(Color.RED);
+		label_2.setBounds(458, 520, 167, 15);
+		frame.getContentPane().add(label_2);
+		
 		button.addMouseListener(new MouseAdapter(){
 		public void mouseClicked(MouseEvent e){
-			
-				 frame.dispose();
-			 manager man=new manager();
-			 man.main();
+			LoginService login = new LoginController();
+			StaffVO staff=login.validUser(textField.getText(),textField_1.getText());
+			//if(staff==null){
+			//	 label_2.setText("µÇÂ¼Ê§°Ü");
+			//}
+			//else{
+				frame.dispose();
+				 commodity man=new commodity();
+				 man.main();
+			//}
 			
 
 			 }

@@ -800,30 +800,30 @@ public class manager {
 		tabbedPane_2.addTab("¹ÍÓ¶ÐÂÔ±¹¤", null, desktopPane_13, null);
 		
 		JLabel label = new JLabel("\u59D3\u540D");
-		label.setBounds(70, 26, 54, 15);
+		label.setBounds(60, 26, 54, 15);
 		desktopPane_13.add(label);
 		
 		textField_3 = new JTextField();
-		textField_3.setBounds(106, 23, 66, 21);
+		textField_3.setBounds(101, 23, 66, 21);
 		desktopPane_13.add(textField_3);
 		textField_3.setColumns(10);
 		
 		JLabel label_1 = new JLabel("\u5E74\u9F84");
-		label_1.setBounds(203, 26, 54, 15);
+		label_1.setBounds(177, 26, 54, 15);
 		desktopPane_13.add(label_1);
 		
 		textField_4 = new JTextField();
-		textField_4.setBounds(240, 23, 60, 21);
+		textField_4.setBounds(216, 23, 60, 21);
 		desktopPane_13.add(textField_4);
 		textField_4.setColumns(10);
 		
 		JLabel label_2 = new JLabel("\u804C\u4F4D");
-		label_2.setBounds(335, 26, 54, 15);
+		label_2.setBounds(368, 26, 54, 15);
 		desktopPane_13.add(label_2);
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"\u5FEB\u9012\u5458", "\u8425\u4E1A\u5385\u4E1A\u52A1\u5458", "\u4E2D\u8F6C\u4E2D\u5FC3\u4E1A\u52A1\u5458", "\u4E2D\u8F6C\u4E2D\u5FC3\u4ED3\u5E93\u7BA1\u7406\u4EBA\u5458", "\u8D22\u52A1\u4EBA\u5458", "\u7BA1\u7406\u5458"}));
-		comboBox.setBounds(375, 23, 132, 21);
+		comboBox.setBounds(406, 23, 132, 21);
 		desktopPane_13.add(comboBox);
 		
 		JLabel lblNewLabel = new JLabel("\u6240\u5C5E\u90E8\u95E8");
@@ -908,6 +908,15 @@ public class manager {
 		JButton button_5 = new JButton("\u63D0\u4EA4");
 		button_5.setBounds(744, 467, 93, 23);
 		desktopPane_13.add(button_5);
+		
+		JLabel label_21 = new JLabel("\u6027\u522B");
+		label_21.setBounds(286, 26, 54, 15);
+		desktopPane_13.add(label_21);
+		
+		JComboBox comboBox_5 = new JComboBox();
+		comboBox_5.setModel(new DefaultComboBoxModel(new String[] {"\u7537", "\u5973"}));
+		comboBox_5.setBounds(326, 23, 32, 21);
+		desktopPane_13.add(comboBox_5);
 		
 		JDesktopPane desktopPane_14 = new JDesktopPane();
 		desktopPane_14.setBackground(Color.WHITE);
