@@ -318,11 +318,6 @@ public class transitCenterClerk {
 		button.setBounds(750, 170, 93, 23);
 		desktopPane.add(button);
 		
-		JLabel textPane_12 = new JLabel();
-		textPane_12.setText("运费：");
-		textPane_12.setBounds(559, 142, 40, 21);
-		desktopPane.add(textPane_12);
-		
 		//撤消飞机装运单一行的事件监听
 		JButton button_1 = new JButton("撤消");
 		button_1.addActionListener(new ActionListener() {
@@ -372,11 +367,6 @@ public class transitCenterClerk {
 		desktopPane.add(textPane_1);
 		SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		textPane_1.setText(df.format(new Date()));
-		
-		//飞机运费的label
-		JLabel textPane_27 = new JLabel();
-		textPane_27.setBounds(609, 142, 65, 21);
-		desktopPane.add(textPane_27);
 		
 		//火车装运管理的界面
 		JDesktopPane desktopPane_1 = new JDesktopPane();
@@ -529,11 +519,6 @@ public class transitCenterClerk {
 		button_3.setBounds(750, 170, 93, 23);
 		desktopPane_1.add(button_3);
 		
-		JLabel textPane_25 = new JLabel();
-		textPane_25.setText("运费：");
-		textPane_25.setBounds(559, 142, 40, 21);
-		desktopPane_1.add(textPane_25);
-		
 		//撤消火车装运单中一行的事件监听
 		JButton button_4 = new JButton("撤消");
 		button_4.addActionListener(new ActionListener() {
@@ -574,11 +559,6 @@ public class transitCenterClerk {
 		JButton button_5 = new JButton("\u63D0\u4EA4");
 		button_5.setBounds(750, 540, 93, 23);
 		desktopPane_1.add(button_5);
-		
-		//火车运费的label
-		JLabel textPane_16 = new JLabel();
-		textPane_16.setBounds(609, 142, 65, 21);
-		desktopPane_1.add(textPane_16);
 		
 		//汽车装运管理的界面
 		JDesktopPane desktopPane_2 = new JDesktopPane();
@@ -734,11 +714,6 @@ public class transitCenterClerk {
 		button_6.setBounds(750, 170, 93, 23);
 		desktopPane_2.add(button_6);
 		
-		JLabel textPane_39 = new JLabel();
-		textPane_39.setText("运费：");
-		textPane_39.setBounds(559, 142, 40, 21);
-		desktopPane_2.add(textPane_39);
-		
 		JLabel textPane_40 = new JLabel();
 		textPane_40.setText("单据属性");
 		textPane_40.setBounds(504, 179, 54, 21);
@@ -789,11 +764,6 @@ public class transitCenterClerk {
 		textPane_5.setBounds(280, 0, 700, 21);
 		desktopPane_2.add(textPane_5);
 		textPane_5.setText(df.format(new Date()));
-		
-		//汽车运费的Label
-		JLabel textPane_15 = new JLabel();
-		textPane_15.setBounds(609, 142, 65, 21);
-		desktopPane_2.add(textPane_15);
 		
 		//中转中心到达单的界面
 		JDesktopPane desktopPane_3 = new JDesktopPane();
