@@ -1,4 +1,4 @@
-package TransitView;
+package ui;
 /**
  * 中转中心业务员，负责汽车、火车、飞机装运管理，中转中心到达单
  * @author 孙婧

@@ -1,4 +1,4 @@
-package BusinessHall;
+package ui;
 /**
  * 营业厅业务员，负责车辆装车管理，营业厅到达单，派件单，收款单填写，司机和车辆信息管理
  * @author 孙婧
@@ -155,16 +155,19 @@ public class arrivement {
 		frame.getContentPane().add(tabbedPane, BorderLayout.CENTER);
 		
 		JDesktopPane desktopPane_4 = new JDesktopPane();
-		desktopPane_4.setBackground(Color.WHITE);
+		desktopPane_4.setBackground(Color.CYAN);
 		tabbedPane.addTab("车辆装车管理", null, desktopPane_4, null);
 		
 		textField_26 = new JTextField();
-		textField_26.setText("  营业厅业务员：");
+		textField_26.setBackground(Color.WHITE);
+		textField_26.setForeground(Color.BLACK);
+		textField_26.setText("                                                                            营业厅业务员：");
 		textField_26.setBounds(150, 0, 700, 21);
 		desktopPane_4.add(textField_26);
 		textField_26.setColumns(10);
 		
 		JTextPane textPane_19 = new JTextPane();
+		textPane_19.setBackground(Color.CYAN);
 		textPane_19.setText("装车日期（年/月/日）");
 		textPane_19.setBounds(150, 31, 126, 21);
 		desktopPane_4.add(textPane_19);
@@ -175,11 +178,13 @@ public class arrivement {
 		textField_27.setColumns(10);
 		
 		JTextPane textPane_20 = new JTextPane();
+		textPane_20.setBackground(Color.CYAN);
 		textPane_20.setText("汽运编号");
 		textPane_20.setBounds(150, 62, 54, 21);
 		desktopPane_4.add(textPane_20);
 		
 		JTextPane textPane_21 = new JTextPane();
+		textPane_21.setBackground(Color.CYAN);
 		textPane_21.setText("营业厅编号");
 		textPane_21.setBounds(150, 93, 75, 21);
 		desktopPane_4.add(textPane_21);
@@ -195,16 +200,19 @@ public class arrivement {
 		textField_31.setColumns(10);
 		
 		JTextPane textPane_22 = new JTextPane();
+		textPane_22.setBackground(Color.CYAN);
 		textPane_22.setText("到达地");
 		textPane_22.setBounds(499, 31, 42, 21);
 		desktopPane_4.add(textPane_22);
 		
 		JTextPane textPane_23 = new JTextPane();
+		textPane_23.setBackground(Color.CYAN);
 		textPane_23.setText("押运员");
 		textPane_23.setBounds(499, 62, 42, 21);
 		desktopPane_4.add(textPane_23);
 		
 		JTextPane textPane_24 = new JTextPane();
+		textPane_24.setBackground(Color.CYAN);
 		textPane_24.setText("监装员");
 		textPane_24.setBounds(499, 93, 42, 21);
 		desktopPane_4.add(textPane_24);
@@ -225,6 +233,7 @@ public class arrivement {
 		textField_34.setColumns(10);
 		
 		JTextPane textPane_25 = new JTextPane();
+		textPane_25.setBackground(Color.CYAN);
 		textPane_25.setText("订单号");
 		textPane_25.setBounds(154, 124, 42, 21);
 		desktopPane_4.add(textPane_25);
@@ -235,6 +244,7 @@ public class arrivement {
 		textField_35.setColumns(10);
 		
 		final JButton button_13 = new JButton("添加");
+		button_13.setBackground(Color.GRAY);
 		//添加装车单的事件监听
 		button_13.addMouseListener(new MouseAdapter() {
 			@Override
@@ -244,8 +254,8 @@ public class arrivement {
 							&&table_3.getValueAt(i, 4)==null&&table_3.getValueAt(i, 5)==null&&table_3.getValueAt(i, 6)==null&&table_3.getValueAt(i, 7)==null){
 				        table_3.setValueAt(textField_35.getText(),i,0);
 				        table_3.setValueAt(textField_27.getText(), i, 1);
-				        table_3.setValueAt(textField_10.getText(), i, 1);
-				        table_3.setValueAt(textField_15.getText(), i, 1);
+				        //table_3.setValueAt(textField_10.getText(), i, 1);
+				        //table_3.setValueAt(textField_15.getText(), i, 1);
 				        table_3.setValueAt(textField_32.getText(), i, 2);
 				        table_3.setValueAt(textField_30.getText(), i, 3);
 		                table_3.setValueAt(textField_9.getText(), i, 4);
@@ -267,6 +277,7 @@ public class arrivement {
 		desktopPane_4.add(scrollPane_3);
 		
 		table_3 = new JTable();
+		table_3.setForeground(Color.BLACK);
 		table_3.setBackground(new Color(255, 255, 255));
 		table_3.setFont(new Font("SimSun", Font.PLAIN, 12));
 		
@@ -310,6 +321,7 @@ public class arrivement {
 		scrollPane_3.setViewportView(table_3);
 		//撤消装车单table中一行的事件监听
 		JButton button_14 = new JButton("撤消");
+		button_14.setBackground(Color.GRAY);
 		button_14.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -334,11 +346,13 @@ public class arrivement {
 		desktopPane_4.add(button_14);
 		
 		JButton button_15 = new JButton("确认");
+		button_15.setBackground(Color.GRAY);
 		button_15.setBounds(600, 536, 93, 23);
 		desktopPane_4.add(button_15);
 		
 		//提交一个table的事件监听
 		JButton button_16 = new JButton("提交");
+		button_16.setBackground(Color.GRAY);
 		button_16.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -349,6 +363,7 @@ public class arrivement {
 		desktopPane_4.add(button_16);
 		
 		JTextPane textPane_42 = new JTextPane();
+		textPane_42.setBackground(Color.CYAN);
 		textPane_42.setText("车辆代号");
 		textPane_42.setBounds(487, 124, 54, 21);
 		desktopPane_4.add(textPane_42);
@@ -374,7 +389,7 @@ public class arrivement {
 		tabbedPane.addTab("营业厅到达单", null, desktopPane_1, null);
 		
 		textField_7 = new JTextField();
-		textField_7.setText("  营业厅业务员：");
+		textField_7.setText("                                                                             营业厅业务员：");
 		textField_7.setBounds(150, 0, 700, 21);
 		desktopPane_1.add(textField_7);
 		textField_7.setColumns(10);
@@ -526,7 +541,7 @@ public class arrivement {
 		tabbedPane.addTab("派件单", null, desktopPane_2, null);
 		
 		textField_13 = new JTextField();
-		textField_13.setText("  营业厅业务员 ：");
+		textField_13.setText("                                                                                           营业厅业务员 ：");
 		textField_13.setBounds(150, 0, 700, 21);
 		desktopPane_2.add(textField_13);
 		textField_13.setColumns(10);
@@ -659,7 +674,7 @@ public class arrivement {
 		tabbedPane.addTab("收款单填写", null, desktopPane_3, null);
 		
 		textField_19 = new JTextField();
-		textField_19.setText("  营业厅业务员：");
+		textField_19.setText("                                                                                        营业厅业务员：");
 		textField_19.setBounds(150, 0, 700, 21);
 		desktopPane_3.add(textField_19);
 		textField_19.setColumns(10);
