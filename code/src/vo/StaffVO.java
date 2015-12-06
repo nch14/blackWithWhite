@@ -5,15 +5,17 @@ import java.util.Calendar;
 import java.util.Date;
 import bill.StaffPO;
 import enumHelp.Postion;
+import tools.TimeHelper;
 
 public class StaffVO {
-	String name;
-	String passwords;
-	String department;
-	Postion pos;
-	String ID;
-	int age;
-	String sex;
+	public String name;
+	public String passwords;
+	public String department;
+	public String pos;
+	public String ID;
+	public int age;
+	public String sex;
+	public String SalaryModel;
 	public StaffVO(StaffPO staffPO){
 		name=staffPO.name;
 		passwords=staffPO.passwords;
@@ -21,8 +23,8 @@ public class StaffVO {
 		pos=staffPO.pos;
 		ID=staffPO.ID;
 		sex=staffPO.sex;
-		
-		String year=staffPO.birthday.substring(0,4);
+		age=Integer.parseInt(TimeHelper.getTime().substring(0, 4))-staffPO.birthyear;
+/*		String year=staffPO.birthday.substring(0,4);
 		String month=staffPO.birthday.substring(4,6);
 		String day=staffPO.birthday.substring(6,8);
 		
@@ -35,7 +37,7 @@ public class StaffVO {
 		if(cal.get(Calendar.MONTH)==Integer.parseInt(month)&&
 				cal.get(Calendar.DATE)<Integer.parseInt(day)){
 			age-=1;
-		}
+		}*/
 	}
 	
 	public StaffVO(){
