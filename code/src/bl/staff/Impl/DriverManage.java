@@ -21,7 +21,7 @@ public class DriverManage {
 				result=result&&driverInfo.insert(drivers[i]);
 			}	
 			return result;
-		} catch (RemoteException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
@@ -49,13 +49,37 @@ public class DriverManage {
 	public boolean ChangeDriverInfo(String[] name, String[] ID, String[] IDCardNumber, String[] birthday,
 			boolean[] isBoy, String[] TelNumber, String[] validate) {
 		// TODO Auto-generated method stub
-		return false;
+		if(name.length!=ID.length||name.length!=IDCardNumber.length||name.length!=birthday.length||
+				name.length!=isBoy.length||name.length!=TelNumber.length||name.length!=validate.length)
+			return false;
+		if(name.length<=0)
+			return false;
+		boolean result=true;
+		try {
+			for(int i=0;i<name.length;i++){
+				DriverPO driver=driverInfo.get(ID[i]);
+				driver.ChangeDriverInfo(name[i], IDCardNumber[i], birthday[i], isBoy[i], TelNumber[i], validate[i]);
+				result=result&&driverInfo.change(driver);
+			}
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+		return result;
 	}
 
 
 	public DriverPO getDriver(String ID) {
 		// TODO Auto-generated method stub
-		return null;
+		try {
+			DriverPO driver=driverInfo.get(ID);
+			return driver;
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 

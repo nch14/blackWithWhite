@@ -4,35 +4,38 @@ import bill.TruckPO;
 import bl.staff.service.TruckManageBLService;
 
 public class TruckManageController implements TruckManageBLService {
-
+	TruckManage truckManage;
+	public TruckManageController(){
+		truckManage=new TruckManage();
+	}
 	@Override
 	public boolean addNewTruck(TruckPO[] trucks) {
 		// TODO Auto-generated method stub
-		return false;
+		return truckManage.addNewTruck(trucks);
 	}
 
 	@Override
 	public boolean deleteTruck(String[] ID) {
 		// TODO Auto-generated method stub
-		return false;
+		return truckManage.deleteTruck(ID);
 	}
 
 	@Override
 	public boolean ChangeTruckInfo(String[] truckID, String[] licensePlate, String[] inTime) {
 		// TODO Auto-generated method stub
-		return false;
+		return truckManage.ChangeTruckInfo(truckID, licensePlate, inTime);
 	}
 
 	@Override
 	public TruckPO getTruck(String ID) {
 		// TODO Auto-generated method stub
-		return null;
+		return truckManage.getTruck(ID);
 	}
 
 	@Override
 	public TruckPO[] getTruck() {
 		// TODO Auto-generated method stub
-		return null;
+		return truckManage.getTruck();
 	}
 
 }
