@@ -2,7 +2,7 @@ package bl.information.Service;
 
 import java.util.ArrayList;
 
-import bill.PackageVO;
+import vo.PackageVO;
 
 public interface InformationBLService {
 	

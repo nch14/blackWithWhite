@@ -2,9 +2,9 @@ package bl.information.Impl;
 
 import java.util.ArrayList;
 
-import bill.PackageVO;
 import bill.TransMesgPO;
 import bl.information.Service.InformationBLService;
+import vo.PackageVO;
 
 public class InformationController implements InformationBLService{
 	Information inf;

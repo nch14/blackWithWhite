@@ -2,9 +2,9 @@ package bl.information.Impl;
 
 import java.util.ArrayList;
 
-import bill.PackageVO;
 import bill.TransMesgPO;
 import data.information.ShipmentInfo;
+import vo.PackageVO;
 
 public class Information {
 	ShipmentInfo ship;

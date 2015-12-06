@@ -1,21 +1,29 @@
 package bill;
 import enumHelp.Postion;
+import tools.TimeHelper;
+import vo.StaffVO;
 public class StaffPO {
 	public String name;
 	public String passwords;
 	public String department;
-	public Postion pos;
+	public String pos;
 	public String ID;
-	public String birthday;
+	public int birthyear;
 	public String sex;
+	public String SalaryModel;
  
-	public StaffPO(String name,String passwords,String department,String ID,String birthday,String sex,Postion pos){
-		this.name=name;
-		this.passwords=passwords;
-		this.department=department;
-		this.pos=pos;
-		this.ID=ID;
-		this.birthday=birthday;
-		this.sex=sex;
+	public StaffPO(StaffVO staff){
+		this.name=staff.name;
+		this.passwords=staff.passwords;
+		this.department=staff.department;
+		this.pos=staff.pos;
+		this.ID=staff.ID;
+		this.birthyear=Integer.parseInt(TimeHelper.getTime().substring(0, 4))-staff.age;
+		this.sex=staff.sex;
+	}
+	
+	public void changePosition(String newPosition,String newDepartment){
+		this.pos=newPosition;
+		this.department=newDepartment;
 	}
 }

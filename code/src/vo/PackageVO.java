@@ -1,6 +1,8 @@
-package bill;
+package vo;
 
 import java.util.ArrayList;
+
+import bill.TransMesgPO;
 /**
  * 存储在系统中的货物概念，货物持有标记它位置的状态信息、订单号
  * @author 倪辰皓
