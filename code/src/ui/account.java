@@ -5,31 +5,33 @@ package ui;
  * 2015.12.03
  * 
 */
-import java.awt.EventQueue;
+ import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JDesktopPane;
-import java.awt.BorderLayout;
-import javax.swing.JTabbedPane;
-import java.awt.Color;
-import javax.swing.JTextField;
-import javax.swing.JTextPane;
-import javax.swing.JSpinner;
-import javax.swing.SpinnerListModel;
-import javax.swing.JButton;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JCheckBox;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
 
-public class accountAddition {
+
+ import javax.swing.JFrame;
+ import javax.swing.JDesktopPane;
+ import java.awt.BorderLayout;
+ import javax.swing.JTabbedPane;
+ import java.awt.Color;
+ import javax.swing.JTextField;
+ import javax.swing.JTextPane;
+ import javax.swing.JSpinner;
+ import javax.swing.SpinnerListModel;
+ import javax.swing.JButton;
+ import javax.swing.JScrollPane;
+ import javax.swing.JTable;
+ import javax.swing.table.DefaultTableModel;
+ import javax.swing.JCheckBox;
+ import java.awt.event.MouseAdapter;
+ import java.awt.event.MouseEvent;
+ import javax.swing.JComboBox;
+ import javax.swing.DefaultComboBoxModel;
+
+
+public class account {
 
 	private JFrame frame;
-	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_4;
 	private JTextField textField_5;
@@ -41,7 +43,6 @@ public class accountAddition {
 	private JTextField textField_11;
 	private JTextField textField_12;
 	private JTable table_2;
-	private JTextField textField_17;
 	private JTextField textField_18;
 	private JTextField textField_19;
 	private JTextField textField_20;
@@ -53,6 +54,14 @@ public class accountAddition {
 	private JTextField textField_23;
 	private JTable table_6;
 	private JTable table_7;
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private JTextField textField;
+	private JTextField textField_9;
+	private JTextField textField_10;
+	private JTextField textField_13;
+	private JTextField textField_14;
+	private JTextField textField_15;
 
 	/**
 	 * Launch the application.
@@ -61,7 +70,7 @@ public class accountAddition {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					accountAddition window = new accountAddition();
+					account window = new account();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -73,7 +82,7 @@ public class accountAddition {
 	/**
 	 * Create the application.
 	 */
-	public accountAddition() {
+	public account() {
 		initialize();
 	}
 
@@ -99,11 +108,18 @@ public class accountAddition {
 		desktopPane.add(textPane_9);
 		
 		textField_8 = new JTextField();
-		textField_8.setBounds(286, 43, 105, 21);
+		textField_8.setBounds(286, 43, 40, 21);
 		desktopPane.add(textField_8);
 		textField_8.setColumns(10);
 		
+		//查询收款单的事件监听
 		JButton button_3 = new JButton("查询");
+		button_3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+			}
+		});
 		button_3.setBounds(649, 93, 93, 23);
 		desktopPane.add(button_3);
 		
@@ -156,16 +172,20 @@ public class accountAddition {
 		comboBox.setBounds(534, 43, 158, 21);
 		desktopPane.add(comboBox);
 		
+		textField_2 = new JTextField();
+		textField_2.setBounds(336, 43, 30, 21);
+		desktopPane.add(textField_2);
+		textField_2.setColumns(10);
+		
+		textField_3 = new JTextField();
+		textField_3.setBounds(376, 43, 30, 21);
+		desktopPane.add(textField_3);
+		textField_3.setColumns(10);
+		
 		//财务支出的界面
 		JDesktopPane desktopPane_1 = new JDesktopPane();
 		desktopPane_1.setBackground(Color.WHITE);
 		tabbedPane.addTab("财务支出", null, desktopPane_1, null);
-		
-		textField = new JTextField();
-		textField.setText("  财务人员：");
-		textField.setBounds(150, 0, 700, 21);
-		desktopPane_1.add(textField);
-		textField.setColumns(10);
 		
 		JTextPane textPane = new JTextPane();
 		textPane.setText("付款日期(年/月/日）");
@@ -173,7 +193,7 @@ public class accountAddition {
 		desktopPane_1.add(textPane);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(281, 31, 139, 21);
+		textField_1.setBounds(281, 31, 42, 21);
 		desktopPane_1.add(textField_1);
 		textField_1.setColumns(10);
 		
@@ -236,7 +256,7 @@ public class accountAddition {
 					if(table.getValueAt(i, 0)==null&&table.getValueAt(i, 1)==null&&table.getValueAt(i, 2)==null&&table.getValueAt(i, 3)==null&&table.getValueAt(i, 4)==null
 							&&table.getValueAt(i, 5)==null&&table.getValueAt(i, 6)==null){
 				           table.setValueAt(i+1, i, 0);
-				           table.setValueAt(textField_1.getText(), i, 1);
+				           table.setValueAt(textField_1.getText()+textField.getText()+textField_9.getText(), i, 1);
 				           table.setValueAt(textField_4.getText(), i, 2);
 				           table.setValueAt(textField_5.getText(), i, 3);
 				           table.setValueAt(comboBox_1.getSelectedItem(), i, 4);
@@ -320,6 +340,21 @@ public class accountAddition {
 		button_2.setBounds(705, 523, 93, 23);
 		desktopPane_1.add(button_2);
 		
+		JTextPane textPane_1 = new JTextPane();
+		textPane_1.setText("财务人员：");
+		textPane_1.setBounds(265, 0, 93, 21);
+		desktopPane_1.add(textPane_1);
+		
+		textField = new JTextField();
+		textField.setBounds(333, 31, 31, 21);
+		desktopPane_1.add(textField);
+		textField.setColumns(10);
+		
+		textField_9 = new JTextField();
+		textField_9.setBounds(374, 31, 31, 21);
+		desktopPane_1.add(textField_9);
+		textField_9.setColumns(10);
+		
 		//报表查询的界面
 		JDesktopPane desktopPane_2 = new JDesktopPane();
 		desktopPane_2.setBackground(Color.WHITE);
@@ -378,12 +413,12 @@ public class accountAddition {
 		desktopPane_5.add(textPane_14);
 		
 		textField_11 = new JTextField();
-		textField_11.setBounds(222, 32, 126, 21);
+		textField_11.setBounds(222, 32, 41, 21);
 		desktopPane_5.add(textField_11);
 		textField_11.setColumns(10);
 		
 		textField_12 = new JTextField();
-		textField_12.setBounds(222, 66, 126, 21);
+		textField_12.setBounds(222, 66, 41, 21);
 		desktopPane_5.add(textField_12);
 		textField_12.setColumns(10);
 		
@@ -398,39 +433,39 @@ public class accountAddition {
 		table_2 = new JTable();
 		table_2.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
 			},
 			new String[] {
-				"收款单", "付款单"
+				"\u6536\u6B3E\u65E5\u671F", "\u6536\u6B3E\u91D1\u989D", "\u6536\u6B3E\u5FEB\u9012\u5458", "\u4ED8\u6B3E\u65E5\u671F", "\u4ED8\u6B3E\u91D1\u989D", "\u6761\u76EE", "\u5907\u6CE8"
 			}
 		));
 		scrollPane_2.setViewportView(table_2);
@@ -438,6 +473,26 @@ public class accountAddition {
 		JButton button_5 = new JButton("导出");
 		button_5.setBounds(676, 397, 93, 23);
 		desktopPane_5.add(button_5);
+		
+		textField_10 = new JTextField();
+		textField_10.setBounds(273, 32, 31, 21);
+		desktopPane_5.add(textField_10);
+		textField_10.setColumns(10);
+		
+		textField_13 = new JTextField();
+		textField_13.setBounds(314, 32, 31, 21);
+		desktopPane_5.add(textField_13);
+		textField_13.setColumns(10);
+		
+		textField_14 = new JTextField();
+		textField_14.setBounds(273, 66, 31, 21);
+		desktopPane_5.add(textField_14);
+		textField_14.setColumns(10);
+		
+		textField_15 = new JTextField();
+		textField_15.setBounds(314, 66, 31, 21);
+		desktopPane_5.add(textField_15);
+		textField_15.setColumns(10);
 		
 		//账户管理的界面
 		JDesktopPane desktopPane_3 = new JDesktopPane();
@@ -786,10 +841,10 @@ public class accountAddition {
 		button_16.setBounds(489, 387, 93, 23);
 		desktopPane_9.add(button_16);
 		
-		textField_17 = new JTextField();
-		textField_17.setText("  财务人员：");
-		textField_17.setBounds(91, 0, 753, 21);
-		desktopPane_3.add(textField_17);
-		textField_17.setColumns(10);
+		JTextPane textPane_2 = new JTextPane();
+		textPane_2.setText("\u8D22\u52A1\u4EBA\u5458\uFF1A");
+		textPane_2.setBounds(271, 0, 66, 21);
+		desktopPane_3.add(textPane_2);
 	}
 }
+
