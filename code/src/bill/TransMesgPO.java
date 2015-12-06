@@ -11,4 +11,10 @@ public class TransMesgPO implements Serializable{
 		time="";
 		location="";
 	}
+	
+	public TransMesgPO(String id,String time,String location){
+		this.id=id;
+		this.time=time;
+		this.location=location;
+	}
 }

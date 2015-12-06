@@ -1,5 +1,9 @@
 package bill;
-
+/**
+ * 公司银行账户
+ * @author 倪辰皓
+ *
+ */
 public class Account {
 
 	private static String ID;

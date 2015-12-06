@@ -1,5 +1,9 @@
 package bl.information.Impl;
 
+import java.util.ArrayList;
+
+import bill.PackageVO;
+import bill.TransMesgPO;
 import data.information.ShipmentInfo;
 
 public class Information {
@@ -9,21 +13,32 @@ public class Information {
 		ship=new ShipmentInfo();
 	}
 
-	public Package inquireTransMesg(String id) {
+	public PackageVO  inquireTransMesg(String id) {
 		// TODO Auto-generated method stub
+		ArrayList<TransMesgPO> transMesg;
+		PackageVO packageVO=new PackageVO(id); 
 		try {
-			ship.getTransMesg(id);
+			transMesg=ship.getTransMesg(id);
+			packageVO.refreshState(transMesg);
+			return packageVO;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return null;
 		}
-		return null;
 	}
 
 
 	public boolean refreshMesg(String id, String position, String time) {
 		// TODO Auto-generated method stub
-		return false;
+		TransMesgPO message=new TransMesgPO(id,time,position);
+		try {
+			return ship.refreshTransMesg(message);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 }

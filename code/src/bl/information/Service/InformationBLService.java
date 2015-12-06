@@ -1,5 +1,9 @@
 package bl.information.Service;
 
+import java.util.ArrayList;
+
+import bill.PackageVO;
+
 public interface InformationBLService {
 	
 	/**
@@ -7,7 +11,7 @@ public interface InformationBLService {
 	 * @param id ∂©µ•Ãı–Œ¬Î∫≈
 	 * @return
 	 */
-	public Package inquireTransMesg(String id);
+	public PackageVO inquireTransMesg(String id);
 	
 	
 	/**
