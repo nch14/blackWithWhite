@@ -28,6 +28,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerListModel;
 import javax.swing.JFormattedTextField;
@@ -46,6 +47,8 @@ import java.awt.event.MouseEvent;
 import java.awt.Font;
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
@@ -147,6 +150,7 @@ public class businessHall {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setResizable(false);
 		//frame.setIconImage(new ImageIcon("/星球3.png").getImage());
 		frame.setBounds(200, 80, 1000, 650);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -158,7 +162,7 @@ public class businessHall {
 		desktopPane_4.setBackground(Color.WHITE);
 		tabbedPane.addTab("车辆装车管理", null, desktopPane_4, null);
 		
-		JTextPane textPane_19 = new JTextPane();
+		JLabel textPane_19 = new JLabel();
 		textPane_19.setBackground(Color.WHITE);
 		textPane_19.setText("装车日期（年/月/日）");
 		textPane_19.setBounds(150, 30, 126, 21);
@@ -169,13 +173,13 @@ public class businessHall {
 		desktopPane_4.add(textField_27);
 		textField_27.setColumns(10);
 		
-		JTextPane textPane_20 = new JTextPane();
+		JLabel textPane_20 = new JLabel();
 		textPane_20.setBackground(Color.WHITE);
 		textPane_20.setText("汽运编号");
 		textPane_20.setBounds(150, 60, 54, 21);
 		desktopPane_4.add(textPane_20);
 		
-		JTextPane textPane_21 = new JTextPane();
+		JLabel textPane_21 = new JLabel();
 		textPane_21.setBackground(Color.WHITE);
 		textPane_21.setText("营业厅编号");
 		textPane_21.setBounds(150, 93, 75, 21);
@@ -191,19 +195,19 @@ public class businessHall {
 		desktopPane_4.add(textField_31);
 		textField_31.setColumns(10);
 		
-		JTextPane textPane_22 = new JTextPane();
+		JLabel textPane_22 = new JLabel();
 		textPane_22.setBackground(Color.WHITE);
 		textPane_22.setText("到达地");
 		textPane_22.setBounds(500, 30, 42, 21);
 		desktopPane_4.add(textPane_22);
 		
-		JTextPane textPane_23 = new JTextPane();
+		JLabel textPane_23 = new JLabel();
 		textPane_23.setBackground(Color.WHITE);
 		textPane_23.setText("押运员");
 		textPane_23.setBounds(499, 62, 42, 21);
 		desktopPane_4.add(textPane_23);
 		
-		JTextPane textPane_24 = new JTextPane();
+		JLabel textPane_24 = new JLabel();
 		textPane_24.setBackground(Color.WHITE);
 		textPane_24.setText("监装员");
 		textPane_24.setBounds(499, 93, 42, 21);
@@ -224,7 +228,7 @@ public class businessHall {
 		desktopPane_4.add(textField_34);
 		textField_34.setColumns(10);
 		
-		JTextPane textPane_25 = new JTextPane();
+		JLabel textPane_25 = new JLabel();
 		textPane_25.setBackground(Color.WHITE);
 		textPane_25.setText("订单号");
 		textPane_25.setBounds(500, 151, 42, 21);
@@ -347,7 +351,7 @@ public class businessHall {
 		button_16.setBounds(757, 536, 93, 23);
 		desktopPane_4.add(button_16);
 		
-		JTextPane textPane_42 = new JTextPane();
+		JLabel textPane_42 = new JLabel();
 		textPane_42.setBackground(Color.WHITE);
 		textPane_42.setText("车辆代号");
 		textPane_42.setBounds(150, 124, 54, 21);
@@ -368,23 +372,25 @@ public class businessHall {
 		desktopPane_4.add(textField_15);
 		textField_15.setColumns(10);
 		
-		JTextPane textPane_34 = new JTextPane();
+		JLabel textPane_34 = new JLabel();
 		textPane_34.setBackground(Color.WHITE);
 		textPane_34.setText("营业厅业务员：");
-		textPane_34.setBounds(496, 0, 93, 21);
+		textPane_34.setBounds(280, 0, 700, 21);
 		desktopPane_4.add(textPane_34);
+		SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		textPane_34.setText(df.format(new Date()));
 		
 		//营业厅到达单的界面
 		JDesktopPane desktopPane_1 = new JDesktopPane();
 		desktopPane_1.setBackground(Color.WHITE);
 		tabbedPane.addTab("营业厅到达单", null, desktopPane_1, null);
 		
-		JTextPane textPane_8 = new JTextPane();
+		JLabel textPane_8 = new JLabel();
 		textPane_8.setText("到达日期");
 		textPane_8.setBounds(150, 58, 54, 21);
 		desktopPane_1.add(textPane_8);
 		
-		JTextPane textPane_9 = new JTextPane();
+		JLabel textPane_9 = new JLabel();
 		textPane_9.setText("（年/月/日）");
 		textPane_9.setBounds(200, 58, 78, 21);
 		desktopPane_1.add(textPane_9);
@@ -398,7 +404,7 @@ public class businessHall {
 		list.setBounds(314, 212, 36, -40);
 		desktopPane_1.add(list);
 		
-		JTextPane textPane_10 = new JTextPane();
+		JLabel textPane_10 = new JLabel();
 		textPane_10.setText("出发地");
 		textPane_10.setBounds(150, 89, 44, 21);
 		desktopPane_1.add(textPane_10);
@@ -408,7 +414,7 @@ public class businessHall {
 		desktopPane_1.add(textField_11);
 		textField_11.setColumns(10);
 		
-		JTextPane textPane_11 = new JTextPane();
+		JLabel textPane_11 = new JLabel();
 		textPane_11.setText("订单编号");
 		textPane_11.setBounds(467, 132, 54, 21);
 		desktopPane_1.add(textPane_11);
@@ -519,16 +525,17 @@ public class businessHall {
 		desktopPane_1.add(textField_21);
 		textField_21.setColumns(10);
 		
-		JTextPane textPane_35 = new JTextPane();
+		JLabel textPane_35 = new JLabel();
 		textPane_35.setText("营业厅业务员：");
-		textPane_35.setBounds(496, 0, 93, 21);
+		textPane_35.setBounds(280, 0, 700, 21);
 		desktopPane_1.add(textPane_35);
+		textPane_35.setText(df.format(new Date()));
 		
 		JDesktopPane desktopPane_2 = new JDesktopPane();
 		desktopPane_2.setBackground(Color.WHITE);
 		tabbedPane.addTab("派件单", null, desktopPane_2, null);
 		
-		JTextPane textPane_12 = new JTextPane();
+		JLabel textPane_12 = new JLabel();
 		textPane_12.setText("到达日期（年/月/日）");
 		textPane_12.setBounds(150, 46, 126, 21);
 		desktopPane_2.add(textPane_12);
@@ -538,7 +545,7 @@ public class businessHall {
 		desktopPane_2.add(textField_14);
 		textField_14.setColumns(10);
 		
-		JTextPane textPane_13 = new JTextPane();
+		JLabel textPane_13 = new JLabel();
 		textPane_13.setText("派送员");
 		textPane_13.setBounds(500, 46, 45, 21);
 		desktopPane_2.add(textPane_13);
@@ -548,7 +555,7 @@ public class businessHall {
 		desktopPane_2.add(textField_17);
 		textField_17.setColumns(10);
 		
-		JTextPane textPane_14 = new JTextPane();
+		JLabel textPane_14 = new JLabel();
 		textPane_14.setText("订单编号");
 		textPane_14.setBounds(425, 100, 54, 21);
 		desktopPane_2.add(textPane_14);
@@ -651,16 +658,17 @@ public class businessHall {
 		desktopPane_2.add(textField_49);
 		textField_49.setColumns(10);
 		
-		JTextPane textPane_36 = new JTextPane();
+		JLabel textPane_36 = new JLabel();
 		textPane_36.setText("营业厅业务员：");
-		textPane_36.setBounds(496, 0, 93, 21);
+		textPane_36.setBounds(280, 0, 700, 21);
 		desktopPane_2.add(textPane_36);
+		textPane_36.setText(df.format(new Date()));
 		
 		JDesktopPane desktopPane_3 = new JDesktopPane();
 		desktopPane_3.setBackground(Color.WHITE);
 		tabbedPane.addTab("收款单填写", null, desktopPane_3, null);
 		
-		JTextPane textPane_15 = new JTextPane();
+		JLabel textPane_15 = new JLabel();
 		textPane_15.setText("收款日期（年/月/日）");
 		textPane_15.setBounds(150, 45, 126, 21);
 		desktopPane_3.add(textPane_15);
@@ -670,7 +678,7 @@ public class businessHall {
 		desktopPane_3.add(textField_20);
 		textField_20.setColumns(10);
 		
-		JTextPane textPane_16 = new JTextPane();
+		JLabel textPane_16 = new JLabel();
 		textPane_16.setText("收款快递员");
 		textPane_16.setBounds(512, 45, 66, 21);
 		desktopPane_3.add(textPane_16);
@@ -680,7 +688,7 @@ public class businessHall {
 		desktopPane_3.add(textField_23);
 		textField_23.setColumns(10);
 		
-		JTextPane textPane_17 = new JTextPane();
+		JLabel textPane_17 = new JLabel();
 		textPane_17.setText("收款金额");
 		textPane_17.setBounds(179, 76, 54, 21);
 		desktopPane_3.add(textPane_17);
@@ -690,7 +698,7 @@ public class businessHall {
 		desktopPane_3.add(textField_24);
 		textField_24.setColumns(10);
 		
-		JTextPane textPane_18 = new JTextPane();
+		JLabel textPane_18 = new JLabel();
 		textPane_18.setText("订单编号");
 		textPane_18.setBounds(443, 131, 54, 21);
 		desktopPane_3.add(textPane_18);
@@ -794,10 +802,11 @@ public class businessHall {
 		desktopPane_3.add(textField_51);
 		textField_51.setColumns(10);
 		
-		JTextPane textPane_37 = new JTextPane();
+		JLabel textPane_37 = new JLabel();
 		textPane_37.setText("营业厅业务员：");
-		textPane_37.setBounds(496, 0, 93, 21);
+		textPane_37.setBounds(280, 0, 700, 21);
 		desktopPane_3.add(textPane_37);
+		textPane_37.setText(df.format(new Date()));
 		
 		//司机信息管理的界面
 		JDesktopPane desktopPane = new JDesktopPane();
@@ -812,7 +821,7 @@ public class businessHall {
 		desktopPane_6.setBackground(Color.WHITE);
 		tabbedPane_1.addTab("查找司机信息", null, desktopPane_6, null);
 		
-		JTextPane textPane = new JTextPane();
+		JLabel textPane = new JLabel();
 		textPane.setText("司机编号");
 		textPane.setBounds(100, 96, 54, 21);
 		desktopPane_6.add(textPane);
@@ -853,7 +862,7 @@ public class businessHall {
 		desktopPane_7.setBackground(Color.WHITE);
 		tabbedPane_1.addTab("增加新的司机信息", null, desktopPane_7, null);
 		
-		JTextPane textPane_1 = new JTextPane();
+		JLabel textPane_1 = new JLabel();
 		textPane_1.setText("司机编号");
 		textPane_1.setBounds(63, 10, 54, 21);
 		desktopPane_7.add(textPane_1);
@@ -863,7 +872,7 @@ public class businessHall {
 		desktopPane_7.add(textField_1);
 		textField_1.setColumns(10);
 		
-		JTextPane textPane_2 = new JTextPane();
+		JLabel textPane_2 = new JLabel();
 		textPane_2.setText("姓名");
 		textPane_2.setBounds(258, 10, 30, 21);
 		desktopPane_7.add(textPane_2);
@@ -873,7 +882,7 @@ public class businessHall {
 		desktopPane_7.add(textField_2);
 		textField_2.setColumns(10);
 		
-		JTextPane textPane_3 = new JTextPane();
+		JLabel textPane_3 = new JLabel();
 		textPane_3.setText("身份证号");
 		textPane_3.setBounds(426, 10, 54, 21);
 		desktopPane_7.add(textPane_3);
@@ -883,7 +892,7 @@ public class businessHall {
 		desktopPane_7.add(textField_3);
 		textField_3.setColumns(10);
 		
-		JTextPane textPane_4 = new JTextPane();
+		JLabel textPane_4 = new JLabel();
 		textPane_4.setText("出生日期");
 		textPane_4.setBounds(426, 41, 54, 21);
 		desktopPane_7.add(textPane_4);
@@ -908,12 +917,12 @@ public class businessHall {
 		desktopPane_7.add(textField_28);
 		textField_28.setColumns(10);
 		
-		JTextPane textPane_5 = new JTextPane();
+		JLabel textPane_5 = new JLabel();
 		textPane_5.setText("手机号码");
 		textPane_5.setBounds(63, 41, 54, 21);
 		desktopPane_7.add(textPane_5);
 		
-		JTextPane textPane_6 = new JTextPane();
+		JLabel textPane_6 = new JLabel();
 		textPane_6.setText("性别");
 		textPane_6.setBounds(258, 41, 30, 21);
 		desktopPane_7.add(textPane_6);
@@ -923,7 +932,7 @@ public class businessHall {
 		desktopPane_7.add(textField_29);
 		textField_29.setColumns(10);
 		
-		JTextPane textPane_7 = new JTextPane();
+		JLabel textPane_7 = new JLabel();
 		textPane_7.setText("行驶证期限");
 		textPane_7.setBounds(63, 72, 66, 21);
 		desktopPane_7.add(textPane_7);
@@ -1039,7 +1048,7 @@ public class businessHall {
 		desktopPane_8.setBackground(Color.WHITE);
 		tabbedPane_1.addTab("删除已有司机信息", null, desktopPane_8, null);
 		
-		JTextPane textPane_26 = new JTextPane();
+		JLabel textPane_26 = new JLabel();
 		textPane_26.setText("司机编号");
 		textPane_26.setBounds(100, 96, 54, 21);
 		desktopPane_8.add(textPane_26);
@@ -1076,7 +1085,7 @@ public class businessHall {
 		desktopPane_9.setBackground(Color.WHITE);
 		tabbedPane_1.addTab("修改司机信息", null, desktopPane_9, null);
 		
-		JTextPane textPane_27 = new JTextPane();
+		JLabel textPane_27 = new JLabel();
 		textPane_27.setText("司机编号");
 		textPane_27.setBounds(100, 96, 54, 21);
 		desktopPane_9.add(textPane_27);
@@ -1109,10 +1118,11 @@ public class businessHall {
 		button_19.setBounds(580, 330, 121, 23);
 		desktopPane_9.add(button_19);
 		
-		JTextPane textPane_38 = new JTextPane();
+		JLabel textPane_38 = new JLabel();
 		textPane_38.setText("\u8425\u4E1A\u5385\u4E1A\u52A1\u5458\uFF1A");
-		textPane_38.setBounds(496, 0, 93, 21);
+		textPane_38.setBounds(280, 0, 700, 21);
 		desktopPane.add(textPane_38);
+		textPane_38.setText(df.format(new Date()));
 		
 		//车辆信息管理的界面
 		JDesktopPane desktopPane_5 = new JDesktopPane();
@@ -1127,7 +1137,7 @@ public class businessHall {
 		desktopPane_10.setBackground(Color.WHITE);
 		tabbedPane_2.addTab("查找车辆信息", null, desktopPane_10, null);
 		
-		JTextPane textPane_28 = new JTextPane();
+		JLabel textPane_28 = new JLabel();
 		textPane_28.setText("车辆代号");
 		textPane_28.setBounds(100, 90, 54, 21);
 		desktopPane_10.add(textPane_28);
@@ -1160,7 +1170,7 @@ public class businessHall {
 		desktopPane_11.setBackground(Color.WHITE);
 		tabbedPane_2.addTab("增加车辆信息", null, desktopPane_11, null);
 		
-		JTextPane textPane_29 = new JTextPane();
+		JLabel textPane_29 = new JLabel();
 		textPane_29.setText("车辆代号");
 		textPane_29.setBounds(63, 20, 54, 21);
 		desktopPane_11.add(textPane_29);
@@ -1170,7 +1180,7 @@ public class businessHall {
 		desktopPane_11.add(textField_42);
 		textField_42.setColumns(10);
 		
-		JTextPane textPane_30 = new JTextPane();
+		JLabel textPane_30 = new JLabel();
 		textPane_30.setText("车牌号");
 		textPane_30.setBounds(255, 20, 42, 21);
 		desktopPane_11.add(textPane_30);
@@ -1180,7 +1190,7 @@ public class businessHall {
 		desktopPane_11.add(textField_43);
 		textField_43.setColumns(10);
 		
-		JTextPane textPane_31 = new JTextPane();
+		JLabel textPane_31 = new JLabel();
 		textPane_31.setText("服役时间");
 		textPane_31.setBounds(493, 20, 54, 21);
 		desktopPane_11.add(textPane_31);
@@ -1286,7 +1296,7 @@ public class businessHall {
 		desktopPane_12.setBackground(Color.WHITE);
 		tabbedPane_2.addTab("删除车辆信息", null, desktopPane_12, null);
 		
-		JTextPane textPane_32 = new JTextPane();
+		JLabel textPane_32 = new JLabel();
 		textPane_32.setText("车辆代号");
 		textPane_32.setBounds(100, 90, 54, 21);
 		desktopPane_12.add(textPane_32);
@@ -1323,7 +1333,7 @@ public class businessHall {
 		desktopPane_13.setBackground(Color.WHITE);
 		tabbedPane_2.addTab("修改车辆信息", null, desktopPane_13, null);
 		
-		JTextPane textPane_33 = new JTextPane();
+		JLabel textPane_33 = new JLabel();
 		textPane_33.setText("车辆代号");
 		textPane_33.setBounds(100, 90, 54, 21);
 		desktopPane_13.add(textPane_33);
@@ -1356,10 +1366,11 @@ public class businessHall {
 		button_26.setBounds(580, 330, 121, 23);
 		desktopPane_13.add(button_26);
 		
-		JTextPane textPane_39 = new JTextPane();
+		JLabel textPane_39 = new JLabel();
 		textPane_39.setText("营业厅业务员：");
-		textPane_39.setBounds(496, 0, 93, 21);
+		textPane_39.setBounds(280, 0, 700, 21);
 		desktopPane_5.add(textPane_39);
+		textPane_39.setText(df.format(new Date()));
 	}
 }
 

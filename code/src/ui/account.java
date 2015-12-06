@@ -9,24 +9,38 @@ package ui;
 
 
 
+
+
+
+
+
  import javax.swing.JFrame;
- import javax.swing.JDesktopPane;
- import java.awt.BorderLayout;
- import javax.swing.JTabbedPane;
- import java.awt.Color;
- import javax.swing.JTextField;
- import javax.swing.JTextPane;
- import javax.swing.JSpinner;
- import javax.swing.SpinnerListModel;
- import javax.swing.JButton;
- import javax.swing.JScrollPane;
- import javax.swing.JTable;
- import javax.swing.table.DefaultTableModel;
- import javax.swing.JCheckBox;
- import java.awt.event.MouseAdapter;
- import java.awt.event.MouseEvent;
- import javax.swing.JComboBox;
- import javax.swing.DefaultComboBoxModel;
+import javax.swing.JDesktopPane;
+
+import java.awt.BorderLayout;
+
+import javax.swing.JTabbedPane;
+
+import java.awt.Color;
+
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerListModel;
+import javax.swing.JButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JCheckBox;
+
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 
 public class account {
@@ -91,6 +105,7 @@ public class account {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setResizable(false);
 		frame.setBounds(200, 80, 1000, 650);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -102,7 +117,7 @@ public class account {
 		desktopPane.setBackground(Color.WHITE);
 		tabbedPane.addTab("结算管理", null, desktopPane, null);
 		
-		JTextPane textPane_9 = new JTextPane();
+		JLabel textPane_9 = new JLabel();
 		textPane_9.setText("查看日期（年/月/日）");
 		textPane_9.setBounds(150, 43, 126, 21);
 		desktopPane.add(textPane_9);
@@ -182,17 +197,19 @@ public class account {
 		desktopPane.add(textField_3);
 		textField_3.setColumns(10);
 		
-		JTextPane textPane_3 = new JTextPane();
-		textPane_3.setText("\u8D22\u52A1\u4EBA\u5458\uFF1A");
-		textPane_3.setBounds(496, 0, 66, 21);
-		desktopPane.add(textPane_3);
+		JLabel label_3 = new JLabel();
+		label_3.setText("财务人员：");
+		label_3.setBounds(280, 0, 700, 21);
+		desktopPane.add(label_3);
+		SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		label_3.setText(df.format(new Date()));
 		
 		//财务支出的界面
 		JDesktopPane desktopPane_1 = new JDesktopPane();
 		desktopPane_1.setBackground(Color.WHITE);
 		tabbedPane.addTab("财务支出", null, desktopPane_1, null);
 		
-		JTextPane textPane = new JTextPane();
+		JLabel textPane = new JLabel();
 		textPane.setText("付款日期(年/月/日）");
 		textPane.setBounds(150, 31, 121, 21);
 		desktopPane_1.add(textPane);
@@ -202,7 +219,7 @@ public class account {
 		desktopPane_1.add(textField_1);
 		textField_1.setColumns(10);
 		
-		JTextPane textPane_4 = new JTextPane();
+		JLabel textPane_4 = new JLabel();
 		textPane_4.setText("付款金额");
 		textPane_4.setBounds(472, 31, 54, 21);
 		desktopPane_1.add(textPane_4);
@@ -212,7 +229,7 @@ public class account {
 		desktopPane_1.add(textField_4);
 		textField_4.setColumns(10);
 		
-		JTextPane textPane_5 = new JTextPane();
+		JLabel textPane_5 = new JLabel();
 		textPane_5.setText("付款人");
 		textPane_5.setBounds(653, 31, 42, 21);
 		desktopPane_1.add(textPane_5);
@@ -222,12 +239,12 @@ public class account {
 		desktopPane_1.add(textField_5);
 		textField_5.setColumns(10);
 		
-		JTextPane textPane_6 = new JTextPane();
+		JLabel textPane_6 = new JLabel();
 		textPane_6.setText("付款账号");
 		textPane_6.setBounds(150, 62, 54, 21);
 		desktopPane_1.add(textPane_6);
 		
-		JTextPane textPane_7 = new JTextPane();
+		JLabel textPane_7 = new JLabel();
 		textPane_7.setText("条目");
 		textPane_7.setBounds(482, 62, 31, 21);
 		desktopPane_1.add(textPane_7);
@@ -237,7 +254,7 @@ public class account {
 		desktopPane_1.add(textField_6);
 		textField_6.setColumns(10);
 		
-		JTextPane textPane_8 = new JTextPane();
+		JLabel textPane_8 = new JLabel();
 		textPane_8.setText("备注");
 		textPane_8.setBounds(663, 62, 31, 21);
 		desktopPane_1.add(textPane_8);
@@ -345,10 +362,11 @@ public class account {
 		button_2.setBounds(705, 549, 93, 23);
 		desktopPane_1.add(button_2);
 		
-		JTextPane textPane_1 = new JTextPane();
+		JLabel textPane_1 = new JLabel();
 		textPane_1.setText("财务人员：");
-		textPane_1.setBounds(496, 0, 66, 21);
+		textPane_1.setBounds(280, 0, 700, 21);
 		desktopPane_1.add(textPane_1);
+		textPane_1.setText(df.format(new Date()));
 		
 		textField = new JTextField();
 		textField.setBounds(333, 31, 31, 21);
@@ -374,9 +392,9 @@ public class account {
 		desktopPane_4.setBackground(Color.WHITE);
 		tabbedPane_1.addTab("成本收益表", null, desktopPane_4, null);
 		
-		JTextPane textPane_24 = new JTextPane();
+		JLabel textPane_24 = new JLabel();
 		textPane_24.setText("系统当前日期：");
-		textPane_24.setBounds(138, 45, 90, 21);
+		textPane_24.setBounds(138, 45, 92, 21);
 		desktopPane_4.add(textPane_24);
 		
 		JButton button_17 = new JButton("查询");
@@ -402,17 +420,23 @@ public class account {
 		button_18.setBounds(500, 357, 93, 23);
 		desktopPane_4.add(button_18);
 		
+		//得到系统当前时间
+		JLabel textPane_3 = new JLabel();
+		textPane_3.setBounds(232, 45, 120, 21);
+		desktopPane_4.add(textPane_3);
+		textPane_3.setText(df.format(new Date()));
+		
 		//经营情况表的查询界面
 		JDesktopPane desktopPane_5 = new JDesktopPane();
 		desktopPane_5.setBackground(Color.WHITE);
 		tabbedPane_1.addTab("经营情况表", null, desktopPane_5, null);
 		
-		JTextPane textPane_13 = new JTextPane();
+		JLabel textPane_13 = new JLabel();
 		textPane_13.setText("开始日期（年/月/日）");
 		textPane_13.setBounds(86, 32, 126, 21);
 		desktopPane_5.add(textPane_13);
 		
-		JTextPane textPane_14 = new JTextPane();
+		JLabel textPane_14 = new JLabel();
 		textPane_14.setText("结束日期（年/月/日）");
 		textPane_14.setBounds(86, 66, 126, 21);
 		desktopPane_5.add(textPane_14);
@@ -499,10 +523,11 @@ public class account {
 		desktopPane_5.add(textField_15);
 		textField_15.setColumns(10);
 		
-		JTextPane textPane_10 = new JTextPane();
+		JLabel textPane_10 = new JLabel();
 		textPane_10.setText("\u8D22\u52A1\u4EBA\u5458\uFF1A");
-		textPane_10.setBounds(496, 0, 66, 21);
+		textPane_10.setBounds(280, 0, 700, 21);
 		desktopPane_2.add(textPane_10);
+		textPane_10.setText(df.format(new Date()));
 		
 		//账户管理的界面
 		JDesktopPane desktopPane_3 = new JDesktopPane();
@@ -518,7 +543,7 @@ public class account {
 		desktopPane_6.setBackground(Color.WHITE);
 		tabbedPane_2.addTab("增加账户", null, desktopPane_6, null);
 		
-		JTextPane textPane_21 = new JTextPane();
+		JLabel textPane_21 = new JLabel();
 		textPane_21.setText("账号");
 		textPane_21.setBounds(80, 21, 32, 21);
 		desktopPane_6.add(textPane_21);
@@ -528,7 +553,7 @@ public class account {
 		desktopPane_6.add(textField_18);
 		textField_18.setColumns(10);
 		
-		JTextPane textPane_22 = new JTextPane();
+		JLabel textPane_22 = new JLabel();
 		textPane_22.setText("名称");
 		textPane_22.setBounds(264, 21, 32, 21);
 		desktopPane_6.add(textPane_22);
@@ -538,7 +563,7 @@ public class account {
 		desktopPane_6.add(textField_19);
 		textField_19.setColumns(10);
 		
-		JTextPane textPane_23 = new JTextPane();
+		JLabel textPane_23 = new JLabel();
 		textPane_23.setText("金额");
 		textPane_23.setBounds(416, 21, 32, 21);
 		desktopPane_6.add(textPane_23);
@@ -851,10 +876,11 @@ public class account {
 		button_16.setBounds(496, 388, 93, 23);
 		desktopPane_9.add(button_16);
 		
-		JTextPane textPane_2 = new JTextPane();
+		JLabel textPane_2 = new JLabel();
 		textPane_2.setText("\u8D22\u52A1\u4EBA\u5458\uFF1A");
-		textPane_2.setBounds(496, 0, 66, 21);
+		textPane_2.setBounds(280, 0, 700, 21);
 		desktopPane_3.add(textPane_2);
+		textPane_2.setText(df.format(new Date()));
 	}
 }
 
