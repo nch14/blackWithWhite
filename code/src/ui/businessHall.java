@@ -154,57 +154,57 @@ public class businessHall {
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		frame.getContentPane().add(tabbedPane, BorderLayout.CENTER);
 		
-		JDesktopPane desktopPane_4 = new JDesktopPane();
-		desktopPane_4.setBackground(Color.CYAN);
+		JDesktopPane desktopPane_4 =new JDesktopPane();
+		desktopPane_4.setBackground(Color.WHITE);
 		tabbedPane.addTab("车辆装车管理", null, desktopPane_4, null);
 		
 		JTextPane textPane_19 = new JTextPane();
-		textPane_19.setBackground(Color.CYAN);
+		textPane_19.setBackground(Color.WHITE);
 		textPane_19.setText("装车日期（年/月/日）");
-		textPane_19.setBounds(150, 31, 126, 21);
+		textPane_19.setBounds(150, 30, 126, 21);
 		desktopPane_4.add(textPane_19);
 		
 		textField_27 = new JTextField();
-		textField_27.setBounds(286, 31, 42, 21);
+		textField_27.setBounds(285, 30, 40, 21);
 		desktopPane_4.add(textField_27);
 		textField_27.setColumns(10);
 		
 		JTextPane textPane_20 = new JTextPane();
-		textPane_20.setBackground(Color.CYAN);
+		textPane_20.setBackground(Color.WHITE);
 		textPane_20.setText("汽运编号");
-		textPane_20.setBounds(150, 62, 54, 21);
+		textPane_20.setBounds(150, 60, 54, 21);
 		desktopPane_4.add(textPane_20);
 		
 		JTextPane textPane_21 = new JTextPane();
-		textPane_21.setBackground(Color.CYAN);
+		textPane_21.setBackground(Color.WHITE);
 		textPane_21.setText("营业厅编号");
 		textPane_21.setBounds(150, 93, 75, 21);
 		desktopPane_4.add(textPane_21);
 		
 		textField_30 = new JTextField();
-		textField_30.setBounds(286, 62, 122, 21);
+		textField_30.setBounds(285, 60, 120, 21);
 		desktopPane_4.add(textField_30);
 		textField_30.setColumns(10);
 		
 		textField_31 = new JTextField();
-		textField_31.setBounds(286, 93, 122, 21);
+		textField_31.setBounds(285, 93, 120, 21);
 		desktopPane_4.add(textField_31);
 		textField_31.setColumns(10);
 		
 		JTextPane textPane_22 = new JTextPane();
-		textPane_22.setBackground(Color.CYAN);
+		textPane_22.setBackground(Color.WHITE);
 		textPane_22.setText("到达地");
-		textPane_22.setBounds(499, 31, 42, 21);
+		textPane_22.setBounds(500, 30, 42, 21);
 		desktopPane_4.add(textPane_22);
 		
 		JTextPane textPane_23 = new JTextPane();
-		textPane_23.setBackground(Color.CYAN);
+		textPane_23.setBackground(Color.WHITE);
 		textPane_23.setText("押运员");
 		textPane_23.setBounds(499, 62, 42, 21);
 		desktopPane_4.add(textPane_23);
 		
 		JTextPane textPane_24 = new JTextPane();
-		textPane_24.setBackground(Color.CYAN);
+		textPane_24.setBackground(Color.WHITE);
 		textPane_24.setText("监装员");
 		textPane_24.setBounds(499, 93, 42, 21);
 		desktopPane_4.add(textPane_24);
@@ -225,13 +225,13 @@ public class businessHall {
 		textField_34.setColumns(10);
 		
 		JTextPane textPane_25 = new JTextPane();
-		textPane_25.setBackground(Color.CYAN);
+		textPane_25.setBackground(Color.WHITE);
 		textPane_25.setText("订单号");
-		textPane_25.setBounds(154, 124, 42, 21);
+		textPane_25.setBounds(500, 151, 42, 21);
 		desktopPane_4.add(textPane_25);
 		
 		textField_35 = new JTextField();
-		textField_35.setBounds(286, 124, 122, 21);
+		textField_35.setBounds(551, 151, 155, 21);
 		desktopPane_4.add(textField_35);
 		textField_35.setColumns(10);
 		
@@ -263,7 +263,7 @@ public class businessHall {
 		desktopPane_4.add(button_13);
 		
 		JScrollPane scrollPane_3 = new JScrollPane();
-		scrollPane_3.setBounds(150, 190, 700, 323);
+		scrollPane_3.setBounds(150, 190, 700, 325);
 		desktopPane_4.add(scrollPane_3);
 		
 		table_3 = new JTable();
@@ -348,30 +348,30 @@ public class businessHall {
 		desktopPane_4.add(button_16);
 		
 		JTextPane textPane_42 = new JTextPane();
-		textPane_42.setBackground(Color.CYAN);
+		textPane_42.setBackground(Color.WHITE);
 		textPane_42.setText("车辆代号");
-		textPane_42.setBounds(487, 124, 54, 21);
+		textPane_42.setBounds(150, 124, 54, 21);
 		desktopPane_4.add(textPane_42);
 		
 		textField_9 = new JTextField();
-		textField_9.setBounds(551, 124, 155, 21);
+		textField_9.setBounds(285, 128, 120, 21);
 		desktopPane_4.add(textField_9);
 		textField_9.setColumns(10);
 		
 		textField_10 = new JTextField();
-		textField_10.setBounds(338, 31, 31, 21);
+		textField_10.setBounds(335, 30, 30, 21);
 		desktopPane_4.add(textField_10);
 		textField_10.setColumns(10);
 		
 		textField_15 = new JTextField();
-		textField_15.setBounds(379, 31, 31, 21);
+		textField_15.setBounds(375, 30, 30, 21);
 		desktopPane_4.add(textField_15);
 		textField_15.setColumns(10);
 		
 		JTextPane textPane_34 = new JTextPane();
-		textPane_34.setBackground(Color.CYAN);
+		textPane_34.setBackground(Color.WHITE);
 		textPane_34.setText("营业厅业务员：");
-		textPane_34.setBounds(286, 0, 93, 21);
+		textPane_34.setBounds(496, 0, 93, 21);
 		desktopPane_4.add(textPane_34);
 		
 		//营业厅到达单的界面
@@ -386,11 +386,11 @@ public class businessHall {
 		
 		JTextPane textPane_9 = new JTextPane();
 		textPane_9.setText("（年/月/日）");
-		textPane_9.setBounds(203, 58, 78, 21);
+		textPane_9.setBounds(200, 58, 78, 21);
 		desktopPane_1.add(textPane_9);
 		
 		textField_8 = new JTextField();
-		textField_8.setBounds(291, 58, 44, 21);
+		textField_8.setBounds(290, 58, 40, 21);
 		desktopPane_1.add(textField_8);
 		textField_8.setColumns(10);
 		
@@ -404,13 +404,13 @@ public class businessHall {
 		desktopPane_1.add(textPane_10);
 		
 		textField_11 = new JTextField();
-		textField_11.setBounds(291, 89, 126, 21);
+		textField_11.setBounds(290, 89, 120, 21);
 		desktopPane_1.add(textField_11);
 		textField_11.setColumns(10);
 		
 		JTextPane textPane_11 = new JTextPane();
 		textPane_11.setText("订单编号");
-		textPane_11.setBounds(445, 132, 54, 21);
+		textPane_11.setBounds(467, 132, 54, 21);
 		desktopPane_1.add(textPane_11);
 		
 		textField_12 = new JTextField();
@@ -442,7 +442,7 @@ public class businessHall {
 		desktopPane_1.add(button_4);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(203, 182, 647, 315);
+		scrollPane.setBounds(150, 190, 700, 325);
 		desktopPane_1.add(scrollPane);
 		
 		table = new JTable();
@@ -510,18 +510,18 @@ public class businessHall {
 		
 		//派件单的界面
 		textField_16 = new JTextField();
-		textField_16.setBounds(345, 58, 30, 21);
+		textField_16.setBounds(340, 58, 30, 21);
 		desktopPane_1.add(textField_16);
 		textField_16.setColumns(10);
 		
 		textField_21 = new JTextField();
-		textField_21.setBounds(385, 58, 30, 21);
+		textField_21.setBounds(380, 58, 30, 21);
 		desktopPane_1.add(textField_21);
 		textField_21.setColumns(10);
 		
 		JTextPane textPane_35 = new JTextPane();
 		textPane_35.setText("营业厅业务员：");
-		textPane_35.setBounds(291, 0, 93, 21);
+		textPane_35.setBounds(496, 0, 93, 21);
 		desktopPane_1.add(textPane_35);
 		
 		JDesktopPane desktopPane_2 = new JDesktopPane();
@@ -534,7 +534,7 @@ public class businessHall {
 		desktopPane_2.add(textPane_12);
 		
 		textField_14 = new JTextField();
-		textField_14.setBounds(286, 46, 45, 21);
+		textField_14.setBounds(286, 46, 40, 21);
 		desktopPane_2.add(textField_14);
 		textField_14.setColumns(10);
 		
@@ -550,11 +550,11 @@ public class businessHall {
 		
 		JTextPane textPane_14 = new JTextPane();
 		textPane_14.setText("订单编号");
-		textPane_14.setBounds(212, 87, 54, 21);
+		textPane_14.setBounds(425, 100, 54, 21);
 		desktopPane_2.add(textPane_14);
 		
 		textField_18 = new JTextField();
-		textField_18.setBounds(286, 87, 122, 21);
+		textField_18.setBounds(500, 100, 140, 21);
 		desktopPane_2.add(textField_18);
 		textField_18.setColumns(10);
 		//添加派件单的事件监听
@@ -576,7 +576,7 @@ public class businessHall {
 		desktopPane_2.add(button_7);
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(150, 132, 700, 361);
+		scrollPane_1.setBounds(150, 190, 700, 325);
 		desktopPane_2.add(scrollPane_1);
 		
 		table_1 = new JTable();
@@ -642,18 +642,18 @@ public class businessHall {
 		
 		//收款单填写的界面
 		textField_22 = new JTextField();
-		textField_22.setBounds(342, 46, 30, 21);
+		textField_22.setBounds(336, 46, 30, 21);
 		desktopPane_2.add(textField_22);
 		textField_22.setColumns(10);
 		
 		textField_49 = new JTextField();
-		textField_49.setBounds(379, 46, 30, 21);
+		textField_49.setBounds(376, 46, 30, 21);
 		desktopPane_2.add(textField_49);
 		textField_49.setColumns(10);
 		
 		JTextPane textPane_36 = new JTextPane();
 		textPane_36.setText("营业厅业务员：");
-		textPane_36.setBounds(286, 0, 93, 21);
+		textPane_36.setBounds(496, 0, 93, 21);
 		desktopPane_2.add(textPane_36);
 		
 		JDesktopPane desktopPane_3 = new JDesktopPane();
@@ -692,11 +692,11 @@ public class businessHall {
 		
 		JTextPane textPane_18 = new JTextPane();
 		textPane_18.setText("订单编号");
-		textPane_18.setBounds(522, 76, 54, 21);
+		textPane_18.setBounds(443, 131, 54, 21);
 		desktopPane_3.add(textPane_18);
 		
 		textField_25 = new JTextField();
-		textField_25.setBounds(588, 76, 90, 21);
+		textField_25.setBounds(512, 131, 166, 21);
 		desktopPane_3.add(textField_25);
 		textField_25.setColumns(10);
 		//添加收款单的事件监听
@@ -715,11 +715,11 @@ public class businessHall {
 				}
 			}
 		});
-		button_10.setBounds(757, 74, 93, 23);
+		button_10.setBounds(739, 131, 93, 23);
 		desktopPane_3.add(button_10);
 		
 		JScrollPane scrollPane_2 = new JScrollPane();
-		scrollPane_2.setBounds(150, 124, 700, 362);
+		scrollPane_2.setBounds(150, 190, 700, 325);
 		desktopPane_3.add(scrollPane_2);
 		
 		table_2 = new JTable();
@@ -796,7 +796,7 @@ public class businessHall {
 		
 		JTextPane textPane_37 = new JTextPane();
 		textPane_37.setText("营业厅业务员：");
-		textPane_37.setBounds(270, 0, 96, 21);
+		textPane_37.setBounds(496, 0, 93, 21);
 		desktopPane_3.add(textPane_37);
 		
 		//司机信息管理的界面
@@ -814,16 +814,16 @@ public class businessHall {
 		
 		JTextPane textPane = new JTextPane();
 		textPane.setText("司机编号");
-		textPane.setBounds(80, 68, 54, 21);
+		textPane.setBounds(100, 96, 54, 21);
 		desktopPane_6.add(textPane);
 		
 		textField = new JTextField();
-		textField.setBounds(145, 68, 102, 21);
+		textField.setBounds(176, 96, 130, 21);
 		desktopPane_6.add(textField);
 		textField.setColumns(10);
 		
 		JScrollPane scrollPane_4 = new JScrollPane();
-		scrollPane_4.setBounds(80, 206, 706, 43);
+		scrollPane_4.setBounds(80, 210, 700, 45);
 		desktopPane_6.add(scrollPane_4);
 		
 		table_4 = new JTable();
@@ -846,12 +846,12 @@ public class businessHall {
 				//table_4.getDriver(ID);
 			}
 		});
-		button.setBounds(487, 67, 93, 23);
+		button.setBounds(485, 95, 93, 23);
 		desktopPane_6.add(button);
 		
 		JDesktopPane desktopPane_7 = new JDesktopPane();
 		desktopPane_7.setBackground(Color.WHITE);
-		tabbedPane_1.addTab("增加司机信息", null, desktopPane_7, null);
+		tabbedPane_1.addTab("增加新的司机信息", null, desktopPane_7, null);
 		
 		JTextPane textPane_1 = new JTextPane();
 		textPane_1.setText("司机编号");
@@ -1037,11 +1037,11 @@ public class businessHall {
 		
 		JDesktopPane desktopPane_8 = new JDesktopPane();
 		desktopPane_8.setBackground(Color.WHITE);
-		tabbedPane_1.addTab("删除司机信息", null, desktopPane_8, null);
+		tabbedPane_1.addTab("删除已有司机信息", null, desktopPane_8, null);
 		
 		JTextPane textPane_26 = new JTextPane();
 		textPane_26.setText("司机编号");
-		textPane_26.setBounds(100, 96, 66, 21);
+		textPane_26.setBounds(100, 96, 54, 21);
 		desktopPane_8.add(textPane_26);
 		
 		textField_39 = new JTextField();
@@ -1050,11 +1050,11 @@ public class businessHall {
 		textField_39.setColumns(10);
 		
 		JButton button_3 = new JButton("查找");
-		button_3.setBounds(478, 96, 93, 23);
+		button_3.setBounds(485, 95, 93, 23);
 		desktopPane_8.add(button_3);
 		
 		JScrollPane scrollPane_6 = new JScrollPane();
-		scrollPane_6.setBounds(100, 206, 598, 43);
+		scrollPane_6.setBounds(80, 210, 700, 45);
 		desktopPane_8.add(scrollPane_6);
 		
 		table_6 = new JTable();
@@ -1069,7 +1069,7 @@ public class businessHall {
 		scrollPane_6.setViewportView(table_6);
 		
 		JButton button_17 = new JButton("删除司机信息");
-		button_17.setBounds(577, 330, 121, 23);
+		button_17.setBounds(580, 330, 121, 23);
 		desktopPane_8.add(button_17);
 		
 		JDesktopPane desktopPane_9 = new JDesktopPane();
@@ -1078,20 +1078,20 @@ public class businessHall {
 		
 		JTextPane textPane_27 = new JTextPane();
 		textPane_27.setText("司机编号");
-		textPane_27.setBounds(100, 98, 54, 21);
+		textPane_27.setBounds(100, 96, 54, 21);
 		desktopPane_9.add(textPane_27);
 		
 		textField_40 = new JTextField();
-		textField_40.setBounds(164, 98, 166, 21);
+		textField_40.setBounds(176, 96, 130, 21);
 		desktopPane_9.add(textField_40);
 		textField_40.setColumns(10);
 		
 		JButton button_18 = new JButton("查找");
-		button_18.setBounds(494, 96, 93, 23);
+		button_18.setBounds(485, 95, 93, 23);
 		desktopPane_9.add(button_18);
 		
 		JScrollPane scrollPane_7 = new JScrollPane();
-		scrollPane_7.setBounds(100, 211, 648, 43);
+		scrollPane_7.setBounds(80, 210, 700, 45);
 		desktopPane_9.add(scrollPane_7);
 		
 		table_7 = new JTable();
@@ -1106,8 +1106,13 @@ public class businessHall {
 		scrollPane_7.setViewportView(table_7);
 		
 		JButton button_19 = new JButton("修改司机信息");
-		button_19.setBounds(618, 323, 130, 23);
+		button_19.setBounds(580, 330, 121, 23);
 		desktopPane_9.add(button_19);
+		
+		JTextPane textPane_38 = new JTextPane();
+		textPane_38.setText("\u8425\u4E1A\u5385\u4E1A\u52A1\u5458\uFF1A");
+		textPane_38.setBounds(496, 0, 93, 21);
+		desktopPane.add(textPane_38);
 		
 		//车辆信息管理的界面
 		JDesktopPane desktopPane_5 = new JDesktopPane();
@@ -1124,20 +1129,20 @@ public class businessHall {
 		
 		JTextPane textPane_28 = new JTextPane();
 		textPane_28.setText("车辆代号");
-		textPane_28.setBounds(86, 90, 56, 21);
+		textPane_28.setBounds(100, 90, 54, 21);
 		desktopPane_10.add(textPane_28);
 		
 		textField_41 = new JTextField();
-		textField_41.setBounds(152, 90, 130, 21);
+		textField_41.setBounds(170, 90, 130, 21);
 		desktopPane_10.add(textField_41);
 		textField_41.setColumns(10);
 		
 		JButton button_20 = new JButton("查找");
-		button_20.setBounds(485, 88, 93, 23);
+		button_20.setBounds(485, 90, 93, 23);
 		desktopPane_10.add(button_20);
 		
 		JScrollPane scrollPane_8 = new JScrollPane();
-		scrollPane_8.setBounds(86, 224, 636, 45);
+		scrollPane_8.setBounds(80, 210, 700, 45);
 		desktopPane_10.add(scrollPane_8);
 		
 		table_8 = new JTable();
@@ -1283,20 +1288,20 @@ public class businessHall {
 		
 		JTextPane textPane_32 = new JTextPane();
 		textPane_32.setText("车辆代号");
-		textPane_32.setBounds(100, 63, 54, 21);
+		textPane_32.setBounds(100, 90, 54, 21);
 		desktopPane_12.add(textPane_32);
 		
 		textField_47 = new JTextField();
-		textField_47.setBounds(164, 63, 66, 21);
+		textField_47.setBounds(170, 90, 130, 21);
 		desktopPane_12.add(textField_47);
 		textField_47.setColumns(10);
 		
 		JButton button_23 = new JButton("查找");
-		button_23.setBounds(438, 61, 93, 23);
+		button_23.setBounds(485, 90, 93, 23);
 		desktopPane_12.add(button_23);
 		
 		JScrollPane scrollPane_10 = new JScrollPane();
-		scrollPane_10.setBounds(100, 205, 600, 42);
+		scrollPane_10.setBounds(80, 210, 700, 45);
 		desktopPane_12.add(scrollPane_10);
 		
 		table_10 = new JTable();
@@ -1311,7 +1316,7 @@ public class businessHall {
 		scrollPane_10.setViewportView(table_10);
 		
 		JButton button_24 = new JButton("删除车辆信息");
-		button_24.setBounds(569, 315, 131, 23);
+		button_24.setBounds(580, 330, 121, 23);
 		desktopPane_12.add(button_24);
 		
 		JDesktopPane desktopPane_13 = new JDesktopPane();
@@ -1320,20 +1325,20 @@ public class businessHall {
 		
 		JTextPane textPane_33 = new JTextPane();
 		textPane_33.setText("车辆代号");
-		textPane_33.setBounds(135, 94, 55, 21);
+		textPane_33.setBounds(100, 90, 54, 21);
 		desktopPane_13.add(textPane_33);
 		
 		textField_48 = new JTextField();
-		textField_48.setBounds(200, 94, 66, 21);
+		textField_48.setBounds(170, 90, 130, 21);
 		desktopPane_13.add(textField_48);
 		textField_48.setColumns(10);
 		
 		JButton button_25 = new JButton("查找");
-		button_25.setBounds(483, 92, 93, 23);
+		button_25.setBounds(485, 90, 93, 23);
 		desktopPane_13.add(button_25);
 		
 		JScrollPane scrollPane_11 = new JScrollPane();
-		scrollPane_11.setBounds(135, 190, 582, 44);
+		scrollPane_11.setBounds(80, 210, 700, 45);
 		desktopPane_13.add(scrollPane_11);
 		
 		table_11 = new JTable();
@@ -1348,8 +1353,13 @@ public class businessHall {
 		scrollPane_11.setViewportView(table_11);
 		
 		JButton button_26 = new JButton("修改车辆信息");
-		button_26.setBounds(587, 307, 130, 23);
+		button_26.setBounds(580, 330, 121, 23);
 		desktopPane_13.add(button_26);
+		
+		JTextPane textPane_39 = new JTextPane();
+		textPane_39.setText("营业厅业务员：");
+		textPane_39.setBounds(496, 0, 93, 21);
+		desktopPane_5.add(textPane_39);
 	}
 }
 

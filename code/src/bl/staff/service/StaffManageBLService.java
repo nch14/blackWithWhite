@@ -1,5 +1,7 @@
 package bl.staff.service;
 
+import java.util.ArrayList;
+
 import vo.StaffVO;
 
 /**
@@ -47,8 +49,8 @@ public interface StaffManageBLService {
 	 * @param authority 权限
 	 * @param password	密码
 	 * @return
-	 */
-	public boolean changeStaffInfo (String name,int age,String authority,String password);
+	 *//*
+	public boolean changeStaffInfo (String ID,String name,int age,String authority,String password);*/
 	
 	/**
 	 * 查找员工
@@ -58,10 +60,11 @@ public interface StaffManageBLService {
 	public StaffVO getStaff (String ID);
 	
 	/**
-	 * 显示所有员工
+	 * 显示所有员工或者模糊搜索所有员工
+	 * src=""时，显示所有员工
 	 * @return
 	 */
-	public StaffVO[] getStaff ();
+	public ArrayList<StaffVO> getAllStaff (String src);
 
 
 }

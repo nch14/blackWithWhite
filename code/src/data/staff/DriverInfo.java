@@ -1,6 +1,7 @@
 package data.staff;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import bill.DriverPO;
 
@@ -40,6 +41,12 @@ public class DriverInfo implements DriverInfoHelper{
 	public boolean init() throws RemoteException {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public ArrayList<DriverPO> getAll(String str) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -1,5 +1,7 @@
 package bl.staff.service;
 
+import java.util.ArrayList;
+
 import bill.DriverPO;
 import bill.TruckPO;
 
@@ -36,8 +38,8 @@ public interface DriverManageBLService {
 	 */
 	public DriverPO getDriver (String ID);
 	/**
-	 * 显示所有司机
+	 * 显示所有司机或模糊搜索
 	 * @return
 	 */
-	public DriverPO[] getDriver ();
+	public ArrayList<DriverPO> getAllDriver (String str);
 }

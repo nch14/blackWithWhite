@@ -124,7 +124,7 @@ public class account {
 		desktopPane.add(button_3);
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(150, 156, 700, 376);
+		scrollPane_1.setBounds(150, 155, 700, 375);
 		desktopPane.add(scrollPane_1);
 		
 		table_1 = new JTable();
@@ -181,6 +181,11 @@ public class account {
 		textField_3.setBounds(376, 43, 30, 21);
 		desktopPane.add(textField_3);
 		textField_3.setColumns(10);
+		
+		JTextPane textPane_3 = new JTextPane();
+		textPane_3.setText("\u8D22\u52A1\u4EBA\u5458\uFF1A");
+		textPane_3.setBounds(496, 0, 66, 21);
+		desktopPane.add(textPane_3);
 		
 		//财务支出的界面
 		JDesktopPane desktopPane_1 = new JDesktopPane();
@@ -271,7 +276,7 @@ public class account {
 		desktopPane_1.add(button);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(150, 169, 700, 327);
+		scrollPane.setBounds(150, 155, 700, 375);
 		desktopPane_1.add(scrollPane);
 		
 		table = new JTable();
@@ -333,16 +338,16 @@ public class account {
 				}
 			}
 		});
-		button_1.setBounds(178, 523, 93, 23);
+		button_1.setBounds(173, 549, 93, 23);
 		desktopPane_1.add(button_1);
 		
 		JButton button_2 = new JButton("提交");
-		button_2.setBounds(705, 523, 93, 23);
+		button_2.setBounds(705, 549, 93, 23);
 		desktopPane_1.add(button_2);
 		
 		JTextPane textPane_1 = new JTextPane();
 		textPane_1.setText("财务人员：");
-		textPane_1.setBounds(265, 0, 93, 21);
+		textPane_1.setBounds(496, 0, 66, 21);
 		desktopPane_1.add(textPane_1);
 		
 		textField = new JTextField();
@@ -379,7 +384,7 @@ public class account {
 		desktopPane_4.add(button_17);
 		
 		JScrollPane scrollPane_7 = new JScrollPane();
-		scrollPane_7.setBounds(114, 186, 479, 43);
+		scrollPane_7.setBounds(120, 185, 480, 45);
 		desktopPane_4.add(scrollPane_7);
 		
 		table_7 = new JTable();
@@ -427,7 +432,7 @@ public class account {
 		desktopPane_5.add(button_4);
 		
 		JScrollPane scrollPane_2 = new JScrollPane();
-		scrollPane_2.setBounds(86, 141, 576, 250);
+		scrollPane_2.setBounds(85, 140, 575, 250);
 		desktopPane_5.add(scrollPane_2);
 		
 		table_2 = new JTable();
@@ -494,6 +499,11 @@ public class account {
 		desktopPane_5.add(textField_15);
 		textField_15.setColumns(10);
 		
+		JTextPane textPane_10 = new JTextPane();
+		textPane_10.setText("\u8D22\u52A1\u4EBA\u5458\uFF1A");
+		textPane_10.setBounds(496, 0, 66, 21);
+		desktopPane_2.add(textPane_10);
+		
 		//账户管理的界面
 		JDesktopPane desktopPane_3 = new JDesktopPane();
 		desktopPane_3.setBackground(Color.WHITE);
@@ -556,7 +566,7 @@ public class account {
 		desktopPane_6.add(button_6);
 		
 		JScrollPane scrollPane_3 = new JScrollPane();
-		scrollPane_3.setBounds(80, 97, 560, 274);
+		scrollPane_3.setBounds(80, 100, 560, 275);
 		desktopPane_6.add(scrollPane_3);
 		
 		table_3 = new JTable();
@@ -626,16 +636,16 @@ public class account {
 		
 		textField_21 = new JTextField();
 		textField_21.setText("输入账号或名称关键词搜索");
-		textField_21.setBounds(164, 30, 299, 21);
+		textField_21.setBounds(140, 40, 300, 21);
 		desktopPane_7.add(textField_21);
 		textField_21.setColumns(10);
 		
 		JButton button_9 = new JButton("查询");
-		button_9.setBounds(496, 29, 93, 23);
+		button_9.setBounds(496, 40, 93, 23);
 		desktopPane_7.add(button_9);
 		
 		JScrollPane scrollPane_4 = new JScrollPane();
-		scrollPane_4.setBounds(110, 89, 534, 284);
+		scrollPane_4.setBounds(80, 100, 560, 275);
 		desktopPane_7.add(scrollPane_4);
 		
 		table_4 = new JTable();
@@ -706,16 +716,16 @@ public class account {
 		
 		textField_22 = new JTextField();
 		textField_22.setText("输入账号或名称关键词搜索");
-		textField_22.setBounds(161, 37, 286, 21);
+		textField_22.setBounds(140, 40, 300, 21);
 		desktopPane_8.add(textField_22);
 		textField_22.setColumns(10);
 		
 		JButton button_12 = new JButton("查询");
-		button_12.setBounds(493, 36, 93, 23);
+		button_12.setBounds(496, 40, 93, 23);
 		desktopPane_8.add(button_12);
 		
 		JScrollPane scrollPane_5 = new JScrollPane();
-		scrollPane_5.setBounds(93, 91, 559, 280);
+		scrollPane_5.setBounds(80, 100, 560, 275);
 		desktopPane_8.add(scrollPane_5);
 		
 		table_5 = new JTable();
@@ -776,7 +786,7 @@ public class account {
 		desktopPane_8.add(button_13);
 		
 		JButton button_14 = new JButton("提交");
-		button_14.setBounds(493, 393, 93, 23);
+		button_14.setBounds(496, 393, 93, 23);
 		desktopPane_8.add(button_14);
 		
 		JDesktopPane desktopPane_9 = new JDesktopPane();
@@ -785,16 +795,16 @@ public class account {
 		
 		textField_23 = new JTextField();
 		textField_23.setText("输入账号或名称关键词搜索");
-		textField_23.setBounds(140, 37, 299, 21);
+		textField_23.setBounds(140, 40, 300, 21);
 		desktopPane_9.add(textField_23);
 		textField_23.setColumns(10);
 		
 		JButton button_15 = new JButton("查询");
-		button_15.setBounds(489, 36, 93, 23);
+		button_15.setBounds(496, 40, 93, 23);
 		desktopPane_9.add(button_15);
 		
 		JScrollPane scrollPane_6 = new JScrollPane();
-		scrollPane_6.setBounds(91, 88, 559, 289);
+		scrollPane_6.setBounds(80, 100, 560, 275);
 		desktopPane_9.add(scrollPane_6);
 		
 		table_6 = new JTable();
@@ -838,12 +848,12 @@ public class account {
 		scrollPane_6.setViewportView(table_6);
 		
 		JButton button_16 = new JButton("确认");
-		button_16.setBounds(489, 387, 93, 23);
+		button_16.setBounds(496, 388, 93, 23);
 		desktopPane_9.add(button_16);
 		
 		JTextPane textPane_2 = new JTextPane();
 		textPane_2.setText("\u8D22\u52A1\u4EBA\u5458\uFF1A");
-		textPane_2.setBounds(271, 0, 66, 21);
+		textPane_2.setBounds(496, 0, 66, 21);
 		desktopPane_3.add(textPane_2);
 	}
 }

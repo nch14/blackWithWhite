@@ -5,15 +5,18 @@ package bill;
  *
  */
 public class TruckPO {
-	String vehicleCode;
-	String licensePlate;
-	String serviceTime;
-
-	
+	public String vehicleCode;
+	public String licensePlate;
+	String serviceTime;	
 
 	public TruckPO(String vehicleCode,String licensePlate,String serviceTime){
 		this.vehicleCode=vehicleCode;
 		this.licensePlate=licensePlate;
 		this.serviceTime=serviceTime;
+	}
+	
+	public void ChangeTruckInfo(String licensePlate, String inTime){
+		this.licensePlate=licensePlate;
+		this.serviceTime=inTime;
 	}
 }

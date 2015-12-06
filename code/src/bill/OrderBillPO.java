@@ -3,6 +3,7 @@ package bill;
 import java.io.Serializable;
 
 public class OrderBillPO implements Serializable{
+	public String ID;
 	/*
 	 * information of the sender
 	 */

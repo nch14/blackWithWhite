@@ -153,7 +153,7 @@ public class transitCenterClerk {
 		tabbedPane.addTab("飞机装运", null, desktopPane, null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(117, 209, 765, 316);
+		scrollPane.setBounds(150, 210, 700, 320);
 		desktopPane.add(scrollPane);
 		
 		table_1 = new JTable();
@@ -199,41 +199,41 @@ public class transitCenterClerk {
 		
 		JTextPane textPane_2 = new JTextPane();
 		textPane_2.setText("出发地");
-		textPane_2.setBounds(117, 80, 50, 21);
+		textPane_2.setBounds(150, 80, 50, 21);
 		desktopPane.add(textPane_2);
 		
 		textField_3 = new JTextField();
-		textField_3.setBounds(226, 80, 133, 21);
+		textField_3.setBounds(260, 80, 133, 21);
 		desktopPane.add(textField_3);
 		textField_3.setColumns(10);
 		
 		JTextPane textPane_3 = new JTextPane();
 		textPane_3.setText("监装员");
-		textPane_3.setBounds(117, 111, 50, 21);
+		textPane_3.setBounds(150, 111, 50, 21);
 		desktopPane.add(textPane_3);
 		
 		textField_4 = new JTextField();
-		textField_4.setBounds(226, 111, 133, 21);
+		textField_4.setBounds(260, 111, 133, 21);
 		desktopPane.add(textField_4);
 		textField_4.setColumns(10);
 		
 		textPane = new JTextPane();
 		textPane.setText("日期(年/月/日）");
-		textPane.setBounds(117, 49, 102, 21);
+		textPane.setBounds(150, 49, 102, 21);
 		desktopPane.add(textPane);
 		
 		textField = new JTextField();
-		textField.setBounds(226, 49, 40, 21);
+		textField.setBounds(262, 49, 40, 21);
 		desktopPane.add(textField);
 		textField.setColumns(10);
 		
 		textPane_6 = new JTextPane();
 		textPane_6.setText("中转中心中转单编号");
-		textPane_6.setBounds(117, 142, 118, 26);
+		textPane_6.setBounds(150, 142, 118, 26);
 		desktopPane.add(textPane_6);
 		
 		textField_6 = new JTextField();
-		textField_6.setBounds(245, 147, 212, 21);
+		textField_6.setBounds(297, 147, 212, 21);
 		desktopPane.add(textField_6);
 		textField_6.setColumns(10);
 		
@@ -269,16 +269,16 @@ public class transitCenterClerk {
 		
 		textPane_10 = new JTextPane();
 		textPane_10.setText("本货柜货物登记");
-		textPane_10.setBounds(117, 173, 102, 26);
+		textPane_10.setBounds(150, 174, 102, 26);
 		desktopPane.add(textPane_10);
 		
 		textPane_11 = new JTextPane();
 		textPane_11.setText("订单号");
-		textPane_11.setBounds(226, 173, 60, 21);
+		textPane_11.setBounds(260, 178, 50, 21);
 		desktopPane.add(textPane_11);
 		
 		textField_10 = new JTextField();
-		textField_10.setBounds(296, 173, 161, 21);
+		textField_10.setBounds(348, 178, 161, 21);
 		desktopPane.add(textField_10);
 		textField_10.setColumns(10);
 		//添加飞机装运单号事件监听
@@ -295,16 +295,20 @@ public class transitCenterClerk {
 				}
 			}
 		});
-		button.setBounds(752, 173, 93, 23);
+		button.setBounds(750, 170, 93, 23);
 		desktopPane.add(button);
 		
 		textPane_12 = new JTextPane();
 		textPane_12.setText("运费：");
-		textPane_12.setBounds(768, 146, 60, 21);
+		textPane_12.setBounds(569, 142, 60, 21);
 		desktopPane.add(textPane_12);
 		
 		//撤消飞机装运单一行的事件监听
 		JButton button_1 = new JButton("撤消");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		button_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -317,7 +321,7 @@ public class transitCenterClerk {
 				}
 			}
 		});
-		button_1.setBounds(230, 541, 93, 23);
+		button_1.setBounds(200, 540, 93, 23);
 		desktopPane.add(button_1);
 		
 		JButton button_2 = new JButton("提交");
@@ -325,22 +329,22 @@ public class transitCenterClerk {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		button_2.setBounds(787, 541, 93, 23);
+		button_2.setBounds(750, 540, 93, 23);
 		desktopPane.add(button_2);
 		
 		textField_35 = new JTextField();
-		textField_35.setBounds(276, 49, 30, 21);
+		textField_35.setBounds(312, 49, 30, 21);
 		desktopPane.add(textField_35);
 		textField_35.setColumns(10);
 		
 		textField_36 = new JTextField();
-		textField_36.setBounds(316, 49, 30, 21);
+		textField_36.setBounds(352, 49, 30, 21);
 		desktopPane.add(textField_36);
 		textField_36.setColumns(10);
 		
 		textPane_1 = new JTextPane();
 		textPane_1.setText("\u4E2D\u8F6C\u4E2D\u5FC3\u4E1A\u52A1\u5458\uFF1A");
-		textPane_1.setBounds(300, 0, 102, 21);
+		textPane_1.setBounds(490, 0, 102, 21);
 		desktopPane.add(textPane_1);
 		
 		//火车装运管理的界面
@@ -349,7 +353,7 @@ public class transitCenterClerk {
 		tabbedPane.addTab("火车装运", null, desktopPane_1, null);
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(116, 213, 744, 281);
+		scrollPane_1.setBounds(150, 210, 700, 320);
 		desktopPane_1.add(scrollPane_1);
 		
 		table_2 = new JTable();
@@ -395,56 +399,56 @@ public class transitCenterClerk {
 		
 		JTextPane textPane_13 = new JTextPane();
 		textPane_13.setText("日期（年/月/日）");
-		textPane_13.setBounds(116, 41, 102, 21);
+		textPane_13.setBounds(150, 41, 102, 21);
 		desktopPane_1.add(textPane_13);
 		
 		textField_12 = new JTextField();
-		textField_12.setBounds(228, 41, 43, 21);
+		textField_12.setBounds(255, 41, 40, 21);
 		desktopPane_1.add(textField_12);
 		textField_12.setColumns(10);
 		
 		JTextPane textPane_17 = new JTextPane();
 		textPane_17.setText("出发地");
-		textPane_17.setBounds(116, 72, 45, 21);
+		textPane_17.setBounds(150, 72, 45, 21);
 		desktopPane_1.add(textPane_17);
 		
 		textField_15 = new JTextField();
-		textField_15.setBounds(166, 72, 199, 21);
+		textField_15.setBounds(211, 72, 199, 21);
 		desktopPane_1.add(textField_15);
 		textField_15.setColumns(10);
 		
 		JTextPane textPane_18 = new JTextPane();
 		textPane_18.setText("监装员");
-		textPane_18.setBounds(116, 103, 45, 21);
+		textPane_18.setBounds(150, 103, 45, 21);
 		desktopPane_1.add(textPane_18);
 		
 		textField_16 = new JTextField();
-		textField_16.setBounds(166, 103, 199, 21);
+		textField_16.setBounds(211, 103, 199, 21);
 		desktopPane_1.add(textField_16);
 		textField_16.setColumns(10);
 		
 		JTextPane textPane_19 = new JTextPane();
 		textPane_19.setText("中转中心中转单编号");
-		textPane_19.setBounds(116, 134, 115, 21);
+		textPane_19.setBounds(150, 134, 115, 21);
 		desktopPane_1.add(textPane_19);
 		
 		textField_17 = new JTextField();
-		textField_17.setBounds(236, 134, 129, 21);
+		textField_17.setBounds(281, 134, 129, 21);
 		desktopPane_1.add(textField_17);
 		textField_17.setColumns(10);
 		
 		JTextPane textPane_20 = new JTextPane();
 		textPane_20.setText("本货柜货物登记");
-		textPane_20.setBounds(116, 172, 100, 21);
+		textPane_20.setBounds(150, 179, 100, 21);
 		desktopPane_1.add(textPane_20);
 		
 		JTextPane textPane_21 = new JTextPane();
 		textPane_21.setText("订单号");
-		textPane_21.setBounds(226, 172, 45, 21);
+		textPane_21.setBounds(290, 179, 45, 21);
 		desktopPane_1.add(textPane_21);
 		
 		textField_18 = new JTextField();
-		textField_18.setBounds(281, 172, 129, 21);
+		textField_18.setBounds(378, 179, 129, 21);
 		desktopPane_1.add(textField_18);
 		textField_18.setColumns(10);
 		
@@ -491,16 +495,20 @@ public class transitCenterClerk {
 				}
 			}
 		});
-		button_3.setBounds(723, 172, 93, 23);
+		button_3.setBounds(750, 170, 93, 23);
 		desktopPane_1.add(button_3);
 		
 		JTextPane textPane_25 = new JTextPane();
 		textPane_25.setText("运费：");
-		textPane_25.setBounds(723, 134, 45, 21);
+		textPane_25.setBounds(501, 134, 45, 21);
 		desktopPane_1.add(textPane_25);
 		
 		//撤消火车装运单中一行的事件监听
 		JButton button_4 = new JButton("撤消");
+		button_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		button_4.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -513,27 +521,27 @@ public class transitCenterClerk {
 				}
 			}
 		});
-		button_4.setBounds(204, 519, 93, 23);
+		button_4.setBounds(200, 540, 93, 23);
 		desktopPane_1.add(button_4);
 		
-		JButton button_5 = new JButton("提交");
-		button_5.setBounds(778, 519, 93, 23);
-		desktopPane_1.add(button_5);
-		
 		textField_23 = new JTextField();
-		textField_23.setBounds(281, 41, 30, 21);
+		textField_23.setBounds(305, 41, 30, 21);
 		desktopPane_1.add(textField_23);
 		textField_23.setColumns(10);
 		
 		textField_24 = new JTextField();
-		textField_24.setBounds(321, 41, 30, 21);
+		textField_24.setBounds(345, 41, 30, 21);
 		desktopPane_1.add(textField_24);
 		textField_24.setColumns(10);
 		
 		textPane_4 = new JTextPane();
 		textPane_4.setText("\u4E2D\u8F6C\u4E2D\u5FC3\u4E1A\u52A1\u5458\uFF1A");
-		textPane_4.setBounds(265, 0, 102, 21);
+		textPane_4.setBounds(490, 0, 102, 21);
 		desktopPane_1.add(textPane_4);
+		
+		JButton button_5 = new JButton("\u63D0\u4EA4");
+		button_5.setBounds(750, 540, 93, 23);
+		desktopPane_1.add(button_5);
 		
 		//汽车装运管理的界面
 		JDesktopPane desktopPane_2 = new JDesktopPane();
@@ -541,7 +549,7 @@ public class transitCenterClerk {
 		tabbedPane.addTab("汽车装运", null, desktopPane_2, null);
 		
 		JScrollPane scrollPane_2 = new JScrollPane();
-		scrollPane_2.setBounds(117, 215, 720, 285);
+		scrollPane_2.setBounds(150, 210, 700, 320);
 		desktopPane_2.add(scrollPane_2);
 		
 		table_3 = new JTable();
@@ -586,41 +594,41 @@ public class transitCenterClerk {
 		
 		textPane_26 = new JTextPane();
 		textPane_26.setText("日期（年/月/日）");
-		textPane_26.setBounds(117, 44, 30, 21);
+		textPane_26.setBounds(150, 44, 30, 21);
 		desktopPane_2.add(textPane_26);
 		
 		textField_22 = new JTextField();
-		textField_22.setBounds(172, 44, 40, 21);
+		textField_22.setBounds(232, 44, 40, 21);
 		desktopPane_2.add(textField_22);
 		textField_22.setColumns(10);
 		
 		textPane_30 = new JTextPane();
 		textPane_30.setText("出发地");
-		textPane_30.setBounds(117, 75, 45, 21);
+		textPane_30.setBounds(150, 75, 45, 21);
 		desktopPane_2.add(textPane_30);
 		
 		textPane_31 = new JTextPane();
 		textPane_31.setText("监装员");
-		textPane_31.setBounds(117, 106, 45, 21);
+		textPane_31.setBounds(150, 106, 45, 21);
 		desktopPane_2.add(textPane_31);
 		
 		textPane_32 = new JTextPane();
 		textPane_32.setText("中转中心中转单编号");
-		textPane_32.setBounds(117, 137, 120, 21);
+		textPane_32.setBounds(150, 137, 120, 21);
 		desktopPane_2.add(textPane_32);
 		
 		textField_26 = new JTextField();
-		textField_26.setBounds(172, 75, 191, 21);
+		textField_26.setBounds(232, 75, 191, 21);
 		desktopPane_2.add(textField_26);
 		textField_26.setColumns(10);
 		
 		textField_27 = new JTextField();
-		textField_27.setBounds(172, 106, 191, 21);
+		textField_27.setBounds(232, 106, 191, 21);
 		desktopPane_2.add(textField_27);
 		textField_27.setColumns(10);
 		
 		textField_28 = new JTextField();
-		textField_28.setBounds(247, 137, 116, 21);
+		textField_28.setBounds(307, 137, 116, 21);
 		desktopPane_2.add(textField_28);
 		textField_28.setColumns(10);
 		
@@ -656,7 +664,7 @@ public class transitCenterClerk {
 		
 		textPane_36 = new JTextPane();
 		textPane_36.setText("本车货物登记");
-		textPane_36.setBounds(117, 176, 82, 21);
+		textPane_36.setBounds(150, 179, 82, 21);
 		desktopPane_2.add(textPane_36);
 		
 		textPane_37 = new JTextPane();
@@ -665,11 +673,11 @@ public class transitCenterClerk {
 		
 		textPane_38 = new JTextPane();
 		textPane_38.setText("订单号");
-		textPane_38.setBounds(202, 176, 45, 21);
+		textPane_38.setBounds(262, 179, 45, 21);
 		desktopPane_2.add(textPane_38);
 		
 		textField_32 = new JTextField();
-		textField_32.setBounds(257, 176, 106, 21);
+		textField_32.setBounds(317, 179, 106, 21);
 		desktopPane_2.add(textField_32);
 		textField_32.setColumns(10);
 		//添加汽车装运单的事件监听
@@ -686,12 +694,12 @@ public class transitCenterClerk {
 				}
 			}
 		});
-		button_6.setBounds(666, 174, 96, 23);
+		button_6.setBounds(750, 170, 93, 23);
 		desktopPane_2.add(button_6);
 		
 		textPane_39 = new JTextPane();
 		textPane_39.setText("运费：");
-		textPane_39.setBounds(669, 137, 45, 21);
+		textPane_39.setBounds(535, 137, 45, 21);
 		desktopPane_2.add(textPane_39);
 		
 		textPane_40 = new JTextPane();
@@ -718,26 +726,30 @@ public class transitCenterClerk {
 				}
 			}
 		});
-		button_10.setBounds(119, 530, 93, 23);
+		button_10.setBounds(200, 540, 93, 23);
 		desktopPane_2.add(button_10);
 		
 		JButton button_11 = new JButton("提交");
-		button_11.setBounds(669, 530, 93, 23);
+		button_11.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		button_11.setBounds(750, 540, 93, 23);
 		desktopPane_2.add(button_11);
 		
 		textField_13 = new JTextField();
-		textField_13.setBounds(222, 44, 30, 21);
+		textField_13.setBounds(282, 44, 30, 21);
 		desktopPane_2.add(textField_13);
 		textField_13.setColumns(10);
 		
 		textField_14 = new JTextField();
-		textField_14.setBounds(262, 44, 30, 21);
+		textField_14.setBounds(322, 44, 30, 21);
 		desktopPane_2.add(textField_14);
 		textField_14.setColumns(10);
 		
 		textPane_5 = new JTextPane();
 		textPane_5.setText("\u4E2D\u8F6C\u4E2D\u5FC3\u4E1A\u52A1\u5458\uFF1A");
-		textPane_5.setBounds(272, 0, 106, 21);
+		textPane_5.setBounds(490, 0, 102, 21);
 		desktopPane_2.add(textPane_5);
 		
 		//中转中心到达单的界面
@@ -750,7 +762,7 @@ public class transitCenterClerk {
 		desktopPane_3.add(table_5);
 		
 		JScrollPane scrollPane_3 = new JScrollPane();
-		scrollPane_3.setBounds(116, 212, 735, 294);
+		scrollPane_3.setBounds(150, 210, 700, 320);
 		desktopPane_3.add(scrollPane_3);
 		
 		table_4 = new JTable();
@@ -795,21 +807,21 @@ public class transitCenterClerk {
 		
 		JTextPane textPane_41 = new JTextPane();
 		textPane_41.setText("日期（年/月/日）");
-		textPane_41.setBounds(116, 31, 103, 21);
+		textPane_41.setBounds(150, 31, 103, 21);
 		desktopPane_3.add(textPane_41);
 		
 		textField_34 = new JTextField();
-		textField_34.setBounds(229, 31, 39, 21);
+		textField_34.setBounds(263, 31, 40, 21);
 		desktopPane_3.add(textField_34);
 		textField_34.setColumns(10);
 		
 		JTextPane textPane_45 = new JTextPane();
 		textPane_45.setText("出发地");
-		textPane_45.setBounds(116, 62, 45, 21);
+		textPane_45.setBounds(150, 62, 45, 21);
 		desktopPane_3.add(textPane_45);
 		
 		textField_37 = new JTextField();
-		textField_37.setBounds(166, 62, 199, 21);
+		textField_37.setBounds(213, 62, 199, 21);
 		desktopPane_3.add(textField_37);
 		textField_37.setColumns(10);
 		
@@ -835,7 +847,7 @@ public class transitCenterClerk {
 		
 		JTextPane textPane_48 = new JTextPane();
 		textPane_48.setText("货物异常到达状态登记");
-		textPane_48.setBounds(116, 111, 126, 21);
+		textPane_48.setBounds(150, 110, 126, 21);
 		desktopPane_3.add(textPane_48);
 		
 		JTextPane textPane_49 = new JTextPane();
@@ -844,7 +856,7 @@ public class transitCenterClerk {
 		desktopPane_3.add(textPane_49);
 		
 		textField_40 = new JTextField();
-		textField_40.setBounds(211, 148, 154, 21);
+		textField_40.setBounds(229, 148, 154, 21);
 		desktopPane_3.add(textField_40);
 		textField_40.setColumns(10);
 		
@@ -866,7 +878,7 @@ public class transitCenterClerk {
 				}
 			}
 		});
-		button_7.setBounds(687, 168, 93, 23);
+		button_7.setBounds(750, 170, 93, 23);
 		desktopPane_3.add(button_7);
 		
 		//撤消中转中心到达单table中一行的事件监听
@@ -883,11 +895,15 @@ public class transitCenterClerk {
 				}
 			}
 		});
-		button_8.setBounds(166, 533, 93, 23);
+		button_8.setBounds(200, 540, 93, 23);
 		desktopPane_3.add(button_8);
 		
 		JButton button_9 = new JButton("提交");
-		button_9.setBounds(687, 533, 93, 23);
+		button_9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		button_9.setBounds(750, 540, 93, 23);
 		desktopPane_3.add(button_9);
 		
 		comboBox = new JComboBox();
@@ -896,18 +912,18 @@ public class transitCenterClerk {
 		desktopPane_3.add(comboBox);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(278, 31, 30, 21);
+		textField_1.setBounds(313, 31, 30, 21);
 		desktopPane_3.add(textField_1);
 		textField_1.setColumns(10);
 		
 		textField_2 = new JTextField();
-		textField_2.setBounds(318, 31, 30, 21);
+		textField_2.setBounds(353, 31, 30, 21);
 		desktopPane_3.add(textField_2);
 		textField_2.setColumns(10);
 		
 		textPane_14 = new JTextPane();
 		textPane_14.setText("\u4E2D\u8F6C\u4E2D\u5FC3\u4E1A\u52A1\u5458\uFF1A");
-		textPane_14.setBounds(262, 0, 103, 21);
+		textPane_14.setBounds(490, 0, 102, 21);
 		desktopPane_3.add(textPane_14);
 	}
 }

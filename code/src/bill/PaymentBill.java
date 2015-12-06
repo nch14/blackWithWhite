@@ -5,6 +5,7 @@ package bill;
  *
  */
 public class PaymentBill {
+	public String ID;
 	public String[] date;
 	public double money;
 	public String payer;//¸¶¿îÈË

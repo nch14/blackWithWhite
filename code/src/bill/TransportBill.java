@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class TransportBill {
 	String[] date;
-	String transBillID;
+	public String transBillID;
 	String placeOfDeparture;
 	String destination;
 	String observer;
