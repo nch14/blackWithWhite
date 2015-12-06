@@ -2,7 +2,7 @@ package bill;
 import java.io.Serializable;
 
 public class TransMesgPO implements Serializable{
-	String id;;
+	public String id;
 	String time;
 	String location;
 	

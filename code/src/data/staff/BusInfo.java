@@ -64,7 +64,7 @@ public class BusInfo implements BusInfoHelper {
 	}
 
 	@Override
-	public ArrayList<TruckPO> getAll(String str) throws RemoteException {
+	public ArrayList<TruckPO> getAll() throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}

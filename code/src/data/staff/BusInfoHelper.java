@@ -16,5 +16,5 @@ public interface BusInfoHelper extends Client_Helper {
 	
 	public boolean init() throws RemoteException;
 	
-	public ArrayList<TruckPO> getAll(String str) throws RemoteException;//Ä£ºýËÑË÷
+	public ArrayList<TruckPO> getAll() throws RemoteException;//Ä£ºýËÑË÷
 }
