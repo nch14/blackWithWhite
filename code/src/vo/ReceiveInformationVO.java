@@ -1,8 +1,7 @@
-package bill;
+package vo;
 
-public class ReceiveBill {
+public class ReceiveInformationVO {
 	String nameOfReceiver;
 	String ID;
 	String[] time;
-	
 }

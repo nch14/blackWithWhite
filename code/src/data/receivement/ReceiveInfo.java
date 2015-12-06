@@ -5,20 +5,20 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
-import bill.ReceiveBill;
 import data.Iphelper.Iphelper;
 import data.information.ShipmentInfoHelper;
+import vo.ReceiveInformationVO;
 
 public class ReceiveInfo implements ReceiceInfoHelper{
 	boolean result;
-	ReceiveBill a;
+	ReceiveInformationVO a;
 	
 	private String getURL() throws FileNotFoundException, ClassNotFoundException, IOException{
 		String s="rmi://"+Iphelper.getIP()+":35000/receiceinfohelper";
 		return s;
 	}
 	
-	public ReceiveBill get(String id){
+	public ReceiveInformationVO get(String id){
 		try {
 		      ReceiceInfoHelper x=(ReceiceInfoHelper) Naming.lookup(getURL());
 				a=x.get(id);
@@ -29,7 +29,7 @@ public class ReceiveInfo implements ReceiceInfoHelper{
 			return a;
 	}
 	
-	public boolean insert(ReceiveBill bill){
+	public boolean insert(ReceiveInformationVO bill){
 		try {
 		      ReceiceInfoHelper x=(ReceiceInfoHelper) Naming.lookup(getURL());
 				result=x.insert(bill);

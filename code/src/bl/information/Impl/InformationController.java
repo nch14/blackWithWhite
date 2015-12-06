@@ -1,5 +1,9 @@
 package bl.information.Impl;
 
+import java.util.ArrayList;
+
+import bill.PackageVO;
+import bill.TransMesgPO;
 import bl.information.Service.InformationBLService;
 
 public class InformationController implements InformationBLService{
@@ -9,7 +13,7 @@ public class InformationController implements InformationBLService{
 		inf=new Information();
 	}
 	@Override
-	public Package inquireTransMesg(String id) {
+	public PackageVO  inquireTransMesg(String id) {
 		// TODO Auto-generated method stub
 		return inf.inquireTransMesg(id);
 	}

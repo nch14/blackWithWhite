@@ -86,7 +86,31 @@ public class PaidBill implements PaidBillHelper{
 			PaidBillHelper x=(PaidBillHelper) Naming.lookup(getURL());
 			array=x.getall(time1,time2);
 		} catch (ClassNotFoundException | NotBoundException | IOException e) {
-			// TODO Auto-generated catch block
+			
+			e.printStackTrace();
+		}
+		return array;
+	}
+
+	@Override
+	public ArrayList<ReceiveMoneyBill> getall_Oneday(String[] time) throws RemoteException {
+		try {
+			PaidBillHelper x=(PaidBillHelper) Naming.lookup(getURL());
+			array=x.getall_Oneday(time);
+		} catch (ClassNotFoundException | NotBoundException | IOException e) {
+			
+			e.printStackTrace();
+		}
+		return array;
+	}
+
+	@Override
+	public ArrayList<ReceiveMoneyBill> getall(String[] time, String ID_Of_Shop) throws RemoteException {
+		try {
+			PaidBillHelper x=(PaidBillHelper) Naming.lookup(getURL());
+			array=x.getall(time,ID_Of_Shop);
+		} catch (ClassNotFoundException | NotBoundException | IOException e) {
+			
 			e.printStackTrace();
 		}
 		return array;
