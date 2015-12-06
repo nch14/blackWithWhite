@@ -56,7 +56,7 @@ public class ShipmentBillPO implements Serializable{
 		numOfFlight=shipmentbill.numOfFlight;
 		starting=shipmentbill.starting;
 		destination=shipmentbill.destination;
-		nameOfContaine=shipmentbill.nameOfContainer;
+		nameOfContainer=shipmentbill.nameOfContainer;
 		money=shipmentbill.money;
 		numOfTransit=shipmentbill.numOfTransit;
 		dateOfArrival=shipmentbill.dateOfArrival;
