@@ -3,6 +3,7 @@ package data.commodity;
 import remoteInterface.Client_Helper;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import bill.StockBill_Out;
 public interface Commodity_Out_Manage extends Client_Helper {
