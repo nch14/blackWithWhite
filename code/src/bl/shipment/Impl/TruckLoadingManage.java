@@ -2,6 +2,7 @@ package bl.shipment.Impl;
 
 import bill.BusShipmentBill_Shop;
 import data.shipment.BusTransBill_Shop;
+import tools.MoneyHelper;
 
 public class TruckLoadingManage {
 	BusTransBill_Shop busTransBill_shop;
@@ -11,14 +12,17 @@ public class TruckLoadingManage {
 		busTransBill_shop=new BusTransBill_Shop();
 	}
 
-	public boolean submitBills(BusShipmentBill_Shop shop) {
+	public double submitBills(BusShipmentBill_Shop shop) {
 		// TODO Auto-generated method stub
 		try {
-			return busTransBill_shop.insert(shop);
+			boolean success=busTransBill_shop.insert(shop);
+			if(!success)
+				return -1;
+			return MoneyHelper.getFreight(shop.idCollection);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return false;
+			return -1;
 		}
 	}
 }

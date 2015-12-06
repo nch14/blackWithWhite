@@ -2,20 +2,24 @@ package bl.shipment.Impl;
 
 import bill.TransportBill_Train;
 import data.shipment.TrainShipment;
+import tools.MoneyHelper;
 
 public class TrainTransport {
 	TrainShipment trainShipment;
 	public TrainTransport(){
 		trainShipment=new TrainShipment();
 	}
-	public boolean submitills(TransportBill_Train Train) {
+	public double submitBills(TransportBill_Train Train) {
 		
 		try {
-			return trainShipment.insert(Train);
+			boolean success=trainShipment.insert(Train);
+			if(!success)
+				return -1;
+			return MoneyHelper.getFreight(Train.list);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return false;
+			return -1;
 		}
 	}
 }

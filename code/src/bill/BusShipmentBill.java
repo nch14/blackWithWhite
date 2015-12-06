@@ -9,6 +9,6 @@ public class BusShipmentBill {
 	String busID;//汽车编号
 	String Observer;//监装员
 	String guard;//押运员
-	ArrayList<String> idCollection=new ArrayList<String>();
+	public ArrayList<String> idCollection=new ArrayList<String>();
 	double money;
 }

@@ -11,7 +11,7 @@ public interface AirTransportBLService {
 	/**
 	 * 
 	 * @param planeBill 中转单-飞机
-	 * @return
+	 * @return 该单据所列货物总运费（如果返回值为-1，即输入有误或网络连接错误——即发生了异常）
 	 */
-	public boolean submitBills(TransportBill_Plane planeBill);
+	public double submitBills(TransportBill_Plane planeBill);
 }

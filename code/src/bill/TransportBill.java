@@ -9,6 +9,6 @@ public class TransportBill {
 	String destination;
 	String observer;
 	double money;
-	ArrayList<String> list=new ArrayList<String>();
+	public ArrayList<String> list=new ArrayList<String>();
 
 }

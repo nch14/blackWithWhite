@@ -2,20 +2,24 @@ package bl.shipment.Impl;
 
 import bill.TransportBill_Plane;
 import data.shipment.PlaneShipment;
+import tools.MoneyHelper;
 
 public class AirTransport {
 	PlaneShipment planeInfo;
 	public AirTransport(){
 		planeInfo=new PlaneShipment();
 	}
-	public boolean submitills(TransportBill_Plane planeBill) {
+	public double submitBills(TransportBill_Plane planeBill) {
 		// TODO Auto-generated method stub
 		try {
-			return planeInfo.insert(planeBill);
+			boolean success=planeInfo.insert(planeBill);
+			if(!success)
+				return -1;
+			return MoneyHelper.getFreight(planeBill.list);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return false;
+			return -1;
 		}
 	}
 	

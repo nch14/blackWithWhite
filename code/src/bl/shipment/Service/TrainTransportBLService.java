@@ -10,8 +10,8 @@ import bill.TransportBill_Train;
 public interface TrainTransportBLService {
 	/**
 	 * 
-	 * @param planeBill 中转单-火车
-	 * @return
+	 * @param Train 中转单-火车
+	 * @return 该单据所列货物总运费（如果返回值为-1，即输入有误或网络连接错误——即发生了异常）
 	 */
-	public boolean submitBills(TransportBill_Train Train);
+	public double submitBills(TransportBill_Train Train);
 }

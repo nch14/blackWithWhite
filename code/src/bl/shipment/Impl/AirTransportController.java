@@ -9,9 +9,9 @@ public class AirTransportController implements AirTransportBLService {
 		airTransport=new AirTransport();
 	}
 	@Override
-	public boolean submitBills(TransportBill_Plane planeBill) {
+	public double submitBills(TransportBill_Plane planeBill) {
 		// TODO Auto-generated method stub
-		return airTransport.submitills(planeBill);
+		return airTransport.submitBills(planeBill);
 	}
 	
 }
