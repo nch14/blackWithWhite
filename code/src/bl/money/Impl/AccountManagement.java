@@ -1,5 +1,8 @@
 package bl.money.Impl;
 
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+
 import bill.Account;
 import data.money.AccountManage;
 /**
@@ -61,8 +64,15 @@ public class AccountManagement {
 	}
 
 
-	public Account[] getAccount(String KeyWord_ID) {
-		
-		return null;
+	public ArrayList<Account> getAccount(String KeyWord_ID) {
+		ArrayList<Account> accounts;
+		try {
+			accounts=accountManage.getAll(KeyWord_ID);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+		return accounts;
 	}
 }

@@ -17,7 +17,7 @@ public class Distribution {
 			for(int i=0;i<bills.length;i++){
 				result=result&&allocate.insert(bills[i]);
 			}
-			
+			//更新物流动态
 			InformationController IC=new InformationController();
 			for(int j=0;j<bills.length;j++)	{
 				for(int i=0;i<bills[j].list.size();i++){

@@ -1,5 +1,7 @@
 package bl.money.Impl;
 
+import java.util.ArrayList;
+
 import bill.Account;
 import bl.money.Service.AccountManageBLService;
 
@@ -27,7 +29,7 @@ public class AccountManageController implements AccountManageBLService {
 	}
 
 	@Override
-	public Account[] getAccount(String KeyWord_ID) {
+	public ArrayList<Account> getAccount(String KeyWord_ID) {
 		// TODO Auto-generated method stub
 		return accoutManagement.getAccount(KeyWord_ID);
 	}

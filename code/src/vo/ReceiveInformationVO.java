@@ -1,7 +1,7 @@
 package vo;
 
 public class ReceiveInformationVO {
-	String nameOfReceiver;
-	String ID;
-	String[] time;
+	public String nameOfReceiver;
+	public String ID;
+	public String[] time;
 }

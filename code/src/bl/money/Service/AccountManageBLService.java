@@ -1,5 +1,7 @@
 package bl.money.Service;
 
+import java.util.ArrayList;
+
 import bill.Account;
 
 /**
@@ -32,5 +34,5 @@ public interface AccountManageBLService {
 	 * @param KeyWord_ID 账号或者账户关键字
 	 * @return
 	 */
-	public Account[] getAccount(String KeyWord_ID);
+	public ArrayList<Account> getAccount(String KeyWord_ID);
 }
