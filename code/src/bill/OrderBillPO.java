@@ -3,13 +3,14 @@ package bill;
 import java.io.Serializable;
 
 public class OrderBillPO implements Serializable{
+	public static String billType="OrderBill";
 	public String ID;
 	/*
 	 * information of the sender
 	 */
 	String nameOfSender;
 	String addressOfSender;
-	String workplaceOfSender;
+	public String workplaceOfSender;
 	String phoneOfSender;
 	String mobileOfSender;
 	
@@ -34,7 +35,7 @@ public class OrderBillPO implements Serializable{
 	double moneyForCover;
 	String speedLevel;
 	String kindOfSend;
-	String time;
+	public String time;
 	public double money;
 	
 	public OrderBillPO(String nameOfSender1,String addressOfSender1,String workplaceOfSender1,String phoneOfSender1,

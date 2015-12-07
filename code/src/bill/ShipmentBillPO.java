@@ -1,12 +1,10 @@
 package bill;
 
 import java.io.Serializable;
-import vo.ShipmentBillVO;
 
 
 public class ShipmentBillPO implements Serializable{
-	
-	String kindOfBill;
+	public static String billtype="ShipmentBill";
 	
 /*
  * 装车单信息
@@ -41,7 +39,7 @@ public class ShipmentBillPO implements Serializable{
 	
 	public ShipmentBillPO(){}
 	
-	public ShipmentBillPO(ShipmentBillVO shipmentbill){
+/*	public ShipmentBillPO(ShipmentBillVO shipmentbill){
 		
 		kindOfBill=shipmentbill.kindOfBill;
 		date=shipmentbill.date;
@@ -63,6 +61,6 @@ public class ShipmentBillPO implements Serializable{
 		stationOfArrival=shipmentbill.stationOfArrival;
 			
 		
-	}
+	}*/
 
 }

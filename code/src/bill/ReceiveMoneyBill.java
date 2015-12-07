@@ -7,6 +7,7 @@ import java.util.ArrayList;
  *
  */
 public class ReceiveMoneyBill {
+	public static String billtype="ReceiveMoney";
 	public String ID;
 	public String[] date;
 	public double money;

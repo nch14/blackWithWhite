@@ -2,7 +2,11 @@ package bl.send.Impl;
 
 import bl.send.Service.SendBLService;
 import bill.OrderBillPO;
-
+/**
+ * ×´Ì¬£ºÒÑÍê³É
+ * @author Äß³½ð©
+ *
+ */
 public class SendController implements SendBLService {
 	Send send;
 	

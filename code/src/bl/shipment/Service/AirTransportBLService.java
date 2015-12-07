@@ -3,6 +3,7 @@ package bl.shipment.Service;
 import bill.TransportBill_Plane;
 
 /**
+ * 状态：已完成
  * 飞机装运管理
  * @author 倪辰皓
  *

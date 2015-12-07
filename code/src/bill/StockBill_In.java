@@ -2,7 +2,7 @@ package bill;
 
 import java.util.ArrayList;
 public class StockBill_In {
-
+	public static String billtype="StockBill_In";
 	public String ID;
 	
 	ArrayList<Info> list;
