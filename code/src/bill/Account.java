@@ -6,7 +6,7 @@ package bill;
  */
 public class Account {
 
-	private static String ID;
+	private String ID;
 	public String name;
 	private double balance;
 	
@@ -14,5 +14,9 @@ public class Account {
 		this.ID="1000";
 		this.balance=balance;
 		this.name=name;
+	}
+	
+	public String getID(){
+		return this.ID;
 	}
 }
