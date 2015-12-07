@@ -18,33 +18,7 @@ public class BussinessSheetImpl{
 	 * @param end  结束时间
 	 * @return 格式是够正确
 	 */
-	private boolean checkDate(String start, String end) {
-		//先检查输入的是不是两个时间
-		char[] temp1=start.toCharArray();
-		char[] temp2=end.toCharArray();
-		
-		if(temp1.length!=8||temp2.length!=8)
-			return false;
-		
-		boolean isNum=true;//
-		for(int i=0;i<8;i++){
-			if(temp1[i]<'0'||temp1[i]>'9'){
-				isNum=false;
-				break;
-			}
-			if(temp2[i]<'0'||temp2[i]>'9'){
-				isNum=false;
-				break;
-			}
-		}
-		if(!isNum)
-			return false;
-		
-		if(Integer.parseInt(start)>Integer.parseInt(end)){
-			return false;
-		}
-		return true;
-	}
+	
 	
 	public boolean export() {
 		if(bsVO==null){
@@ -75,6 +49,33 @@ public class BussinessSheetImpl{
 			return bsVO;
 		}
 
+	}
+	private boolean checkDate(String start, String end) {
+		//先检查输入的是不是两个时间
+		char[] temp1=start.toCharArray();
+		char[] temp2=end.toCharArray();
+		
+		if(temp1.length!=8||temp2.length!=8)
+			return false;
+		
+		boolean isNum=true;//
+		for(int i=0;i<8;i++){
+			if(temp1[i]<'0'||temp1[i]>'9'){
+				isNum=false;
+				break;
+			}
+			if(temp2[i]<'0'||temp2[i]>'9'){
+				isNum=false;
+				break;
+			}
+		}
+		if(!isNum)
+			return false;
+		
+		if(Integer.parseInt(start)>Integer.parseInt(end)){
+			return false;
+		}
+		return true;
 	}
 	
 	private String[] timeToArray(String time){

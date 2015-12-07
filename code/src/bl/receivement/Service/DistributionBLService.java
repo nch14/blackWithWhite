@@ -1,6 +1,8 @@
 package bl.receivement.Service;
 
+import bill.AllocateBill;
 import bill.ArrivementBill;
+import bill.ArrivementBill_Shop;
 
 /**
  * 接收与派件
@@ -14,7 +16,7 @@ public interface DistributionBLService {
 	 * @param arrive 营业厅到达单
 	 * @return
 	 */
-	public boolean receive(ArrivementBill arrive);
+	public boolean receive(ArrivementBill_Shop arrive);
 	
 	/**
 	 * 派件
@@ -23,5 +25,5 @@ public interface DistributionBLService {
 	 * @param ID  IDs
 	 * @return
 	 */
-	public boolean distribution(String[][] time,String[] deliveryMan,String[] ID);
+	public boolean distribution(AllocateBill[] bills);
 }

@@ -6,8 +6,8 @@ public class AllocateBill {
 	public String ID;//单据的ID
 	boolean judged;
 	String[] date;
-	String numID;//快递员的ID
-	ArrayList<String> list;
+	public String numID;//快递员的ID
+	public ArrayList<String> list;//单据的寄件单号
 	
 	public AllocateBill(){}
 	public AllocateBill(String a,String[] b){
@@ -15,5 +15,7 @@ public class AllocateBill {
 		date=b;
 		list=new ArrayList<String>();
 	}
+	
+
 
 }

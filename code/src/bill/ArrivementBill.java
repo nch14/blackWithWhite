@@ -3,19 +3,30 @@ package bill;
 import java.util.ArrayList;
 
 public class ArrivementBill {
+	
+	public String ID;//单据的ID
+	String[] date;
+	String placeOfDeparture;
+	public ArrayList<struct> bill=new  ArrayList<struct>();
+	
+	public ArrivementBill(){}
+	
+	public ArrayList<String> showAllID(){
+		ArrayList<String> back=new ArrayList<String>();
+		for(int i=0;i<bill.size();i++){
+			back.add(bill.get(i).id);
+		}	
+		return back;	
+	}
+
+	
+	
 	class struct{
-		String id;
+		public String id;
 		State st;
 		struct(String s,State t){
 			id=s;
 			st=t;
 		}
 	}
-	public String ID;//单据的ID
-	String[] date;
-	String placeOfDeparture;
-	ArrayList<struct> bill=new  ArrayList<struct>();
-	
-	public ArrivementBill(){}
-
 }
