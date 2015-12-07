@@ -14,6 +14,11 @@ package ui;
 
 
 
+
+
+
+
+
  import javax.swing.JFrame;
 import javax.swing.JDesktopPane;
 
@@ -37,10 +42,18 @@ import javax.swing.JCheckBox;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+
+import bill.PaymentBill;
+import bill.ReceiveMoneyBill;
+import bl.money.Impl.AccountManageController;
+import bl.money.Impl.PaidController;
+import bl.report.impl.BussinessSheetController;
+import bl.report.impl.ProfitSheetController;
 
 
 public class account {
@@ -132,7 +145,8 @@ public class account {
 		button_3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+				PaidController pc=new PaidController();
+				pc.getPaidmentBill(textField_8.getText());
 			}
 		});
 		button_3.setBounds(649, 93, 93, 23);
@@ -184,7 +198,7 @@ public class account {
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"请选择营业厅", "江苏省南京市仙林营业厅"}));
-		comboBox.setBounds(534, 43, 158, 21);
+		comboBox.setBounds(534, 43, 183, 21);
 		desktopPane.add(comboBox);
 		
 		textField_2 = new JTextField();
@@ -265,8 +279,8 @@ public class account {
 		textField_7.setColumns(10);
 		
 		final JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"中国农业银行南京仙林支行", "中国农业银行南京栖霞支行"}));
-		comboBox_1.setBounds(214, 62, 206, 21);
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"\u4E2D\u56FD\u519C\u4E1A\u94F6\u884C", "\u4E2D\u56FD\u5DE5\u5546\u94F6\u884C", "\u4E2D\u56FD\u5EFA\u8BBE\u94F6\u884C", "\u5357\u4EAC\u94F6\u884C"}));
+		comboBox_1.setBounds(214, 62, 191, 21);
 		desktopPane_1.add(comboBox_1);
 		
 		//添加付款单的事件监听
@@ -397,7 +411,17 @@ public class account {
 		textPane_24.setBounds(138, 45, 92, 21);
 		desktopPane_4.add(textPane_24);
 		
+		
+		
+		//查询成本收益表的事件监听
 		JButton button_17 = new JButton("查询");
+		button_17.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ProfitSheetController pfc=new ProfitSheetController();
+				pfc.show();
+			}
+		});
 		button_17.setBounds(500, 90, 93, 23);
 		desktopPane_4.add(button_17);
 		
@@ -416,7 +440,15 @@ public class account {
 		));
 		scrollPane_7.setViewportView(table_7);
 		
+		//导出成本收益表的事件监听
 		JButton button_18 = new JButton("导出");
+		button_18.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ProfitSheetController pfc=new ProfitSheetController();
+				pfc.export();
+			}
+		});
 		button_18.setBounds(500, 357, 93, 23);
 		desktopPane_4.add(button_18);
 		
@@ -451,7 +483,16 @@ public class account {
 		desktopPane_5.add(textField_12);
 		textField_12.setColumns(10);
 		
+		//查询经营情况表的事件监听
 		JButton button_4 = new JButton("查询");
+		button_4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				BussinessSheetController bsc=new BussinessSheetController();
+				bsc.show(textField_11.getText()+textField_10.getText()+textField_13.getText(),
+						textField_12.getText()+textField_14.getText()+textField_15.getText());
+			}
+		});
 		button_4.setBounds(569, 96, 93, 23);
 		desktopPane_5.add(button_4);
 		
@@ -493,13 +534,20 @@ public class account {
 				{null, null, null, null, null, null, null, null},
 				{null, null, null, null, null, null, null, null},
 			},
-			new String[] {
-				"\u6536\u6B3E\u65E5\u671F", "\u6536\u6B3E\u91D1\u989D", "\u6536\u6B3E\u5FEB\u9012\u5458", "\u4ED8\u6B3E\u65E5\u671F", "\u4ED8\u6B3E\u91D1\u989D", "\u6761\u76EE", "\u5907\u6CE8"
+			new String[] {"收款日期","收款金额","收款快递员","付款日期","付款金额","条目","备注"
 			}
 		));
 		scrollPane_2.setViewportView(table_2);
 		
+		//导出经营情况表的事件监听
 		JButton button_5 = new JButton("导出");
+		button_5.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				BussinessSheetController bsc=new BussinessSheetController();
+				bsc.export();
+			}
+		});
 		button_5.setBounds(676, 397, 93, 23);
 		desktopPane_5.add(button_5);
 		
@@ -524,7 +572,7 @@ public class account {
 		textField_15.setColumns(10);
 		
 		JLabel textPane_10 = new JLabel();
-		textPane_10.setText("\u8D22\u52A1\u4EBA\u5458\uFF1A");
+		textPane_10.setText("财务人员：");
 		textPane_10.setBounds(280, 0, 700, 21);
 		desktopPane_2.add(textPane_10);
 		textPane_10.setText(df.format(new Date()));
@@ -655,6 +703,7 @@ public class account {
 		button_8.setBounds(547, 392, 93, 23);
 		desktopPane_6.add(button_8);
 		
+		//修改账户信息的界面
 		JDesktopPane desktopPane_7 = new JDesktopPane();
 		desktopPane_7.setBackground(Color.WHITE);
 		tabbedPane_2.addTab("修改账户信息", null, desktopPane_7, null);
@@ -665,7 +714,16 @@ public class account {
 		desktopPane_7.add(textField_21);
 		textField_21.setColumns(10);
 		
+		//查询账户信息的事件监听
 		JButton button_9 = new JButton("查询");
+		button_9.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				AccountManageController amc=new AccountManageController();
+				amc.getAccount(textField_21.getText());
+				//amc.changeAccountInfo(textField_21.getText(), textField_21.getText());
+			}
+		});
 		button_9.setBounds(496, 40, 93, 23);
 		desktopPane_7.add(button_9);
 		
@@ -745,7 +803,16 @@ public class account {
 		desktopPane_8.add(textField_22);
 		textField_22.setColumns(10);
 		
+		//删除账户信息的事件监听
 		JButton button_12 = new JButton("查询");
+		button_12.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				AccountManageController amc=new AccountManageController();
+				amc.getAccount(textField_22.getText());
+				//amc.delateAccount(null);
+			}
+		});
 		button_12.setBounds(496, 40, 93, 23);
 		desktopPane_8.add(button_12);
 		
@@ -824,7 +891,15 @@ public class account {
 		desktopPane_9.add(textField_23);
 		textField_23.setColumns(10);
 		
+		//查询账户信息的事件监听
 		JButton button_15 = new JButton("查询");
+		button_15.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				AccountManageController amc=new AccountManageController();
+				amc.getAccount(textField_23.getText());
+			}
+		});
 		button_15.setBounds(496, 40, 93, 23);
 		desktopPane_9.add(button_15);
 		
