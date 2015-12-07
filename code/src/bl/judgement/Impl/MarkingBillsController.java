@@ -9,10 +9,10 @@ public class MarkingBillsController<T> implements MarkingBillsBLService<T> {
 		markingBills=new MarkingBills<T>();
 	}
 	@Override
-	public ArrayList<T> getBills() {
+	public ArrayList<T> getBills(String type) {
 		// TODO Auto-generated method stub
 		
-		return markingBills.getBills();
+		return markingBills.getBills(type);
 	}
 
 	@Override
