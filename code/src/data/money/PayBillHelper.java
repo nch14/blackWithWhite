@@ -20,5 +20,7 @@ public interface PayBillHelper extends Client_Helper {
 	public ArrayList<PaymentBill> getall(String[] time) throws RemoteException;
 	
 	public ArrayList<PaymentBill> getall(String[] time1,String[] time2) throws RemoteException;
+	
+	public ArrayList<PaymentBill> getUnjudged() throws RemoteException;
 
 }

@@ -1,6 +1,7 @@
 package data.shipment;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import bill.TransportBill_Plane;
 import bill.TransportBill_Train;
@@ -16,4 +17,6 @@ public interface TrainShipmentHelper extends Client_Helper{
 	public boolean delete(String id) throws RemoteException;
 	
 	public boolean init() throws RemoteException;
+	
+	public ArrayList<TransportBill_Train> getUnjudged() throws RemoteException;
 }

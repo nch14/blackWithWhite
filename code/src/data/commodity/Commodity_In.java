@@ -85,4 +85,19 @@ public class Commodity_In implements Commodity_In_Manage{
 		return bill;
 	}
 
+
+	@Override
+	public ArrayList<StockBill_In> getUnjudged() throws RemoteException {
+		// TODO Auto-generated method stub
+		ArrayList<StockBill_In> array =new ArrayList<StockBill_In>();
+		try {
+			Commodity_In_Manage x=(Commodity_In_Manage) Naming.lookup(getURL());
+			array=x.getUnjudged();
+		} catch (ClassNotFoundException | NotBoundException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return array;
+	}
+
 }

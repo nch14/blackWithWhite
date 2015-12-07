@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import bill.*;
 import data.Iphelper.Iphelper;
@@ -76,5 +77,19 @@ public class Commodity_Out implements Commodity_Out_Manage{
 	public void ping() throws RemoteException {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public ArrayList<StockBill_Out> getUnjudged() throws RemoteException {
+		// TODO Auto-generated method stub
+		ArrayList<StockBill_Out> array=new ArrayList<StockBill_Out>();
+		try {
+			Commodity_Out_Manage x=(Commodity_Out_Manage) Naming.lookup(getURL());
+			array=x.getUnjudged();
+		} catch (ClassNotFoundException | NotBoundException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return array;
 	}
 }

@@ -115,4 +115,18 @@ public class PaidBill implements PaidBillHelper{
 		}
 		return array;
 	}
+
+	@Override
+	public ArrayList<ReceiveMoneyBill> getUnjudged() throws RemoteException {
+		// TODO Auto-generated method stub
+		ArrayList<ReceiveMoneyBill> array=new ArrayList<ReceiveMoneyBill>();
+		try {
+			PaidBillHelper x=(PaidBillHelper) Naming.lookup(getURL());
+			array=x.getUnjudged();
+		} catch (ClassNotFoundException | NotBoundException | IOException e) {
+			
+			e.printStackTrace();
+		}
+		return array;
+	}
 }

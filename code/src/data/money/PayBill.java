@@ -102,4 +102,18 @@ public class PayBill implements PayBillHelper{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public ArrayList<PaymentBill> getUnjudged() throws RemoteException {
+		// TODO Auto-generated method stub
+		ArrayList<PaymentBill> array=new ArrayList<PaymentBill>();
+		try {
+			PayBillHelper x=(PayBillHelper) Naming.lookup(getURL());
+			array=x.getUnjudged();
+		} catch (ClassNotFoundException | NotBoundException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return array;
+	}
 }

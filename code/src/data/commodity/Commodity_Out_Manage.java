@@ -13,4 +13,5 @@ public interface Commodity_Out_Manage extends Client_Helper {
 	public boolean change(StockBill_Out bill) throws RemoteException;
 	public StockBill_Out get(String id) throws RemoteException;
 	public boolean init() throws RemoteException;
+	public ArrayList<StockBill_Out> getUnjudged() throws RemoteException;
 }

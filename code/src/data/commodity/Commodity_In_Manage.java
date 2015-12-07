@@ -1,7 +1,11 @@
 package data.commodity;
-import java.rmi.*;
+
 
 import remoteInterface.Client_Helper;
+
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+
 import bill.StockBill_In;
 public interface Commodity_In_Manage extends Client_Helper {
 	/**
@@ -50,4 +54,5 @@ public interface Commodity_In_Manage extends Client_Helper {
 	 * @return 
 	 * @throws RemoteException
 	 */
+	public ArrayList<StockBill_In> getUnjudged() throws RemoteException;
 }

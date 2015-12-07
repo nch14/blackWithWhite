@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import bill.TransportBill_Plane;
 import data.Iphelper.Iphelper;
@@ -77,5 +78,19 @@ public class PlaneShipment implements PlaneShipmentHelper{
 	public void ping() throws RemoteException {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public ArrayList<TransportBill_Plane> getUnjudged() throws RemoteException {
+		// TODO Auto-generated method stub
+		ArrayList<TransportBill_Plane> array=new ArrayList<TransportBill_Plane>();
+		try {
+			PlaneShipmentHelper x=(PlaneShipmentHelper) Naming.lookup(getURL());
+			 array=x.getUnjudged();
+			} catch (ClassNotFoundException | NotBoundException | IOException e) {
+					// TODO Auto-generated catch block
+			  e.printStackTrace();
+		}
+		return array;
 	}
 }

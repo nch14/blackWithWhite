@@ -1,6 +1,7 @@
 package data.send;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import bill.OrderBillPO;
 import remoteInterface.Client_Helper;
@@ -11,4 +12,6 @@ public interface SendInfoHelper extends Client_Helper {
 	public boolean getInput(OrderBillPO bill) throws RemoteException;
 	
 	public boolean init() throws RemoteException;
+	
+	public ArrayList<OrderBillPO> getUnjudged() throws RemoteException;
 }

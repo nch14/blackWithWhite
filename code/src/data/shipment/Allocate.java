@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import bill.AllocateBill;
 import data.Iphelper.Iphelper;
@@ -76,5 +77,19 @@ public class Allocate implements AllocateHelper{
 	public void ping() throws RemoteException {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public ArrayList<AllocateBill> getUnjudged() throws RemoteException {
+		// TODO Auto-generated method stub
+		ArrayList<AllocateBill> array=new ArrayList<AllocateBill>();
+		try {
+			  AllocateHelper x=(AllocateHelper) Naming.lookup(getURL());
+				array=x.getUnjudged();
+			} catch (ClassNotFoundException | NotBoundException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return array;
 	}
 }

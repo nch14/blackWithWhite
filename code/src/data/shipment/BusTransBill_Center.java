@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import bill.BusShipmentBill_Center;
 import data.Iphelper.Iphelper;
@@ -77,5 +78,19 @@ public class BusTransBill_Center implements BusTransBill_CenterHelper{
 	public void ping() throws RemoteException {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public ArrayList<BusShipmentBill_Center> getUnjudged() throws RemoteException {
+		// TODO Auto-generated method stub
+		ArrayList<BusShipmentBill_Center> array=new ArrayList<BusShipmentBill_Center>();
+		try {
+			BusTransBill_CenterHelper x=(BusTransBill_CenterHelper) Naming.lookup(getURL());
+			 array=x.getUnjudged();
+			} catch (ClassNotFoundException | NotBoundException | IOException e) {
+					// TODO Auto-generated catch block
+			  e.printStackTrace();
+		}
+		return array;
 	}
 }

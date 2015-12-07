@@ -3,6 +3,7 @@ package data.shipment;
 import remoteInterface.Client_Helper;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import bill.ArrivementBill_Center;
 
@@ -16,4 +17,6 @@ public interface Arrive_CenterHelper extends Client_Helper {
 	public ArrivementBill_Center get(String id) throws RemoteException;
 	
 	public boolean init() throws RemoteException;
+	
+	public ArrayList<ArrivementBill_Center> getUnjudged() throws RemoteException;
 }

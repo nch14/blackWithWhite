@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import bill.ArrivementBill_Center;
 import data.Iphelper.Iphelper;
@@ -77,5 +78,19 @@ public class Arrive_Center implements Arrive_CenterHelper{
 	public void ping() throws RemoteException {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public ArrayList<ArrivementBill_Center> getUnjudged() throws RemoteException {
+		// TODO Auto-generated method stub
+		ArrayList<ArrivementBill_Center> array=new ArrayList<ArrivementBill_Center>();
+		try {
+			Arrive_CenterHelper x=(Arrive_CenterHelper) Naming.lookup(getURL());
+				array=x.getUnjudged();
+			} catch (ClassNotFoundException | NotBoundException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return array;
 	}
 }

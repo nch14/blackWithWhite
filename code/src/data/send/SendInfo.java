@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import bill.OrderBillPO;
 import data.Iphelper.Iphelper;
@@ -54,5 +55,19 @@ public class SendInfo implements SendInfoHelper{
 	public void ping() throws RemoteException {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public ArrayList<OrderBillPO> getUnjudged() throws RemoteException {
+		// TODO Auto-generated method stub
+		ArrayList<OrderBillPO> array=new ArrayList<OrderBillPO>();
+		try {
+		      SendInfoHelper x=(SendInfoHelper) Naming.lookup(getURL());
+				array=x.getUnjudged();
+			} catch (ClassNotFoundException | NotBoundException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return array;
 	}
 }
