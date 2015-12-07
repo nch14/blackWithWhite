@@ -1,7 +1,8 @@
 package bill;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import bill.StockBill_Out;
+import bill.StockBill_Out.Info;
 
 public class StockBlockInfo {
 	//HashMap<Integer,Row> base=new HashMap<Integer,Row>();
@@ -198,5 +199,40 @@ public class StockBlockInfo {
 			result[0]="plane";
 		}
 		return result;
+	}
+	
+	void free(String ID,String form){
+		if(form.equals("bus")){
+			for(Row j:bus){
+				for(Position p:j.array){
+					if(p.id.equals(ID)&&!p.empty)
+						p.empty=true;
+				}
+			}
+		}
+		else if(form.equals("train")){
+			for(Row j:train){
+				for(Position p:j.array){
+					if(p.id.equals(ID)&&!p.empty)
+						p.empty=true;
+				}
+			}
+		}
+		else if(form.equals("plane")){
+			for(Row j:plane){
+				for(Position p:j.array){
+					if(p.id.equals(ID)&&!p.empty)
+						p.empty=true;
+				}
+			}
+		}
+	}
+	
+	public boolean free(StockBill_Out bill){
+		ArrayList<Info> array=bill.list;
+		for(Info i:array){
+			free(i.ID,i.form);
+		}
+		return true;
 	}
 }

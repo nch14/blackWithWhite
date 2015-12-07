@@ -18,10 +18,10 @@ public class Commodity implements CommodityManage{
 		return s;
 	}
 	
-	public boolean adjustCommodity(StockBlockInfo a){
+	public boolean adjustCommodity(String num,String block){
 		try {
 			CommodityManage x=(CommodityManage) Naming.lookup(getURL());
-			result=x.adjustCommodity(a);
+			result=x.adjustCommodity(num,block);
 		} catch (ClassNotFoundException | NotBoundException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -29,10 +29,10 @@ public class Commodity implements CommodityManage{
 		return result;
 	}
 	
-	public boolean init(){
+	public boolean init(String id){
 		try {
 			CommodityManage x=(CommodityManage) Naming.lookup(getURL());
-			result=x.init();
+			result=x.init(id);
 		} catch (ClassNotFoundException | NotBoundException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -40,10 +40,10 @@ public class Commodity implements CommodityManage{
 		return result;
 	}
 	
-	public StockFillmentInfo checkCommodity(){
+	public StockFillmentInfo checkCommodity(String id){
 		try {
 			CommodityManage x=(CommodityManage) Naming.lookup(getURL());
-			info=x.checkCommodity();
+			info=x.checkCommodity(id);
 		} catch (ClassNotFoundException | NotBoundException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
