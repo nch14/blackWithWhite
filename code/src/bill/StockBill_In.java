@@ -5,8 +5,19 @@ public class StockBill_In {
 	public static String billtype="StockBill_In";
 	public String ID;
 	
-	ArrayList<Info> list;
+	public ArrayList<Info> list;
 	
+	public int getLength(){
+		return list.size();
+	}
+	
+	public String[] getID(){
+		String[] s=new String[list.size()];
+		for(int i=0;i<list.size();++i){
+			s[i]=list.get(i).ID;
+		}
+		return s;
+	}
 	/**
 	 * UI层创建入库单
 	 * @param ID
@@ -32,10 +43,11 @@ public class StockBill_In {
 		}
 	}
 	
-	class Info{
-		private String ID;//寄件单号
+	public class Info{
+		public  String ID;//寄件单号
+		public String form;//运输方式
 		private String[] date;//入库日期
-		private String destination;
+		private String destination;//目的地
 		private String zoneID;//区号
 		private String rowID;//排号
 		private String frameID;//架号
@@ -53,5 +65,7 @@ public class StockBill_In {
 			this.positionID=positionID;
 		}
 	}
+	
+	
 
 }

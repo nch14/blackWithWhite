@@ -17,10 +17,10 @@ public class Commodity_Out implements Commodity_Out_Manage{
 		return s;
 	}
 	
-	public boolean insert(StockBill_Out a){
+	public boolean insert(StockBill_Out a,String ID){
 		try {
 			Commodity_Out_Manage x=(Commodity_Out_Manage) Naming.lookup(getURL());
-			result=x.insert(a);
+			result=x.insert(a,ID);
 		} catch (ClassNotFoundException | NotBoundException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

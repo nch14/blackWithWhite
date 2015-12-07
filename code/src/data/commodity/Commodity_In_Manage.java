@@ -37,7 +37,7 @@ public interface Commodity_In_Manage extends Client_Helper {
 	public StockBill_In get(String id) throws RemoteException;
 	
 	/**
-	 * 初始化库区
+	 * 初始化数据库
 	 * @param bill
 	 * @return 
 	 * @throws RemoteException

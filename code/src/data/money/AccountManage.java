@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import bill.Account;
 import data.Iphelper.Iphelper;
@@ -77,4 +78,20 @@ public class AccountManage implements AccountManageHelper{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public ArrayList<Account> getAll(String id) throws RemoteException {
+		// TODO Auto-generated method stub
+		ArrayList<Account> array = null;
+		try {
+			AccountManageHelper x=(AccountManageHelper) Naming.lookup(getURL());
+			array=x.getAll(id);
+		} catch (ClassNotFoundException | NotBoundException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return array;
+	}
+
+	
 }
