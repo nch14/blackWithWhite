@@ -14,9 +14,9 @@ public interface CommodityManage extends Client_Helper{
 	 * @return
 	 * @throws RemoteException
 	 */
-	public boolean adjustCommodity(String num,String block) throws RemoteException;
+	public boolean adjustCommodity(String ID,String num,String block) throws RemoteException;
 	
 	public boolean init(String id) throws RemoteException;
 	
-	public StockFillmentInfo checkCommodity(String id) throws RemoteException;
+	public StockBlockInfo checkCommodity(String id) throws RemoteException;
 }
