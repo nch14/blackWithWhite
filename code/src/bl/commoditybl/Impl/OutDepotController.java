@@ -1,5 +1,7 @@
 package bl.commoditybl.Impl;
 
+import java.util.ArrayList;
+
 import bill.StockBill_Out;
 import bl.commoditybl.Service.OutDepotBLService;
 
@@ -16,6 +18,11 @@ public class OutDepotController implements OutDepotBLService {
 	public boolean outDepot(StockBill_Out stock_out) {
 		// TODO Auto-generated method stub
 		return outDepot.outDepot(stock_out);
+	}
+	@Override
+	public ArrayList<StockBill_Out> getUnmarkingBills() {
+		// TODO Auto-generated method stub
+		return outDepot.getUnmarkingBills();
 	}
 
 

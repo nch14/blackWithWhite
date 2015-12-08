@@ -1,5 +1,8 @@
 package bl.commoditybl.Service;
 
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+
 import bill.StockBill_In;
 
 /**
@@ -15,4 +18,10 @@ public interface InDepotBLService {
 	 * @return 分配好位置的入库信息（用于UI显示位置）
 	 */
 	public StockBill_In inDepot(StockBill_In stock_in);
+	
+	
+	public ArrayList<StockBill_In> getUnmarkingBills();
+		
+		
+	
 }

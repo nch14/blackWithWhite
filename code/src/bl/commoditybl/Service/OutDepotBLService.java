@@ -1,5 +1,7 @@
 package bl.commoditybl.Service;
 
+import java.util.ArrayList;
+
 import bill.StockBill_Out;
 /**
  * 出库
@@ -14,4 +16,6 @@ public interface OutDepotBLService {
 	 * @return 是否创建成功
 	 */
 	public boolean outDepot(StockBill_Out stock_out);
+	
+	public ArrayList<StockBill_Out> getUnmarkingBills();
 }
