@@ -1,6 +1,7 @@
 package bl.staff.Impl;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import bill.StaffPO;
 import data.staff.MemberInfo;
@@ -39,5 +40,10 @@ public class UserManage {
 			return false;
 		}
 		return result;
+	}
+	public ArrayList<StaffVO> getAllStaff(String src) {
+		StaffManageController staff=new StaffManageController();
+		// TODO Auto-generated method stub
+		return staff.getAllStaff(src);
 	}
 }

@@ -1,5 +1,7 @@
 package bl.staff.service;
 
+import java.util.ArrayList;
+
 import vo.StaffVO;
 
 /**
@@ -21,4 +23,11 @@ public interface UserManageBLService {
 	 * 更改用户的信息
 	 */
 	public boolean changeStaffInfo(String competence,String passwords,String age,String name);
+	
+	/**
+	 * 显示所有员工或者模糊搜索所有员工
+	 * src=""时，显示所有员工
+	 * @return
+	 */
+	public ArrayList<StaffVO> getAllStaff (String src);
 }

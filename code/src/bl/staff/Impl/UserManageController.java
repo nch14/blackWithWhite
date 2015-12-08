@@ -2,6 +2,8 @@ package bl.staff.Impl;
 
 
 
+import java.util.ArrayList;
+
 import bl.staff.service.UserManageBLService;
 import vo.StaffVO;
 
@@ -23,6 +25,13 @@ public class UserManageController implements UserManageBLService {
 		// TODO Auto-generated method stub
 		boolean isComplete=userManage.changeStaff(competence, passwords, age, name);
 		return isComplete;
+	}
+
+
+	@Override
+	public ArrayList<StaffVO> getAllStaff(String src) {
+		// TODO Auto-generated method stub
+		return userManage.getAllStaff(src);
 	}
 	
 	
