@@ -235,4 +235,5 @@ public class StockBlockInfo {
 		}
 		return true;
 	}
+	
 }
