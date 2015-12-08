@@ -19,6 +19,18 @@ package ui;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
  import javax.swing.JFrame;
 import javax.swing.JDesktopPane;
 
@@ -48,9 +60,16 @@ import java.util.Date;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
+import data.money.AccountManage;
+import vo.BussinessSheetVO;
+import vo.ProfitSheetVO;
+import bill.Account;
+import bill.MoneyPO;
 import bill.PaymentBill;
 import bill.ReceiveMoneyBill;
+import bl.judgement.Impl.MarkingBillsController;
 import bl.money.Impl.AccountManageController;
+import bl.money.Impl.BillingManagementController;
 import bl.money.Impl.PaidController;
 import bl.report.impl.BussinessSheetController;
 import bl.report.impl.ProfitSheetController;
@@ -130,6 +149,13 @@ public class account {
 		desktopPane.setBackground(Color.WHITE);
 		tabbedPane.addTab("结算管理", null, desktopPane, null);
 		
+		final JLabel label_3 = new JLabel();
+		label_3.setText("财务人员：");
+		label_3.setBounds(280, 0, 700, 21);
+		desktopPane.add(label_3);
+		SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		label_3.setText(df.format(new Date()));
+		
 		JLabel textPane_9 = new JLabel();
 		textPane_9.setText("查看日期（年/月/日）");
 		textPane_9.setBounds(150, 43, 126, 21);
@@ -140,13 +166,34 @@ public class account {
 		desktopPane.add(textField_8);
 		textField_8.setColumns(10);
 		
+		final JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"请选择营业厅", "江苏省南京市仙林营业厅"}));
+		comboBox.setBounds(534, 43, 183, 21);
+		desktopPane.add(comboBox);
+		
 		//查询收款单的事件监听
 		JButton button_3 = new JButton("查询");
 		button_3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				PaidController pc=new PaidController();
-				pc.getPaidmentBill(null);
+				String[] time={textField_8.getText(),textField_2.getText(),textField_3.getText()};
+				BillingManagementController bmc=new BillingManagementController();
+				ReceiveMoneyBill[] bills=bmc.getBills(time,(String) comboBox.getSelectedItem());
+				if(bills==null){
+					label_3.setText("未查找到收款单信息！");
+				}else{
+					for(int i=0;i<bills.length;i++){
+						ReceiveMoneyBill bill=bills[i];
+					    table_1.setValueAt(bill.date[0]+bill.date[1]+bill.date[2], i, 0);
+					    table_1.setValueAt(bill.ID, i, 1);
+					    table_1.setValueAt(bill.transactor, i, 2);
+					    table_1.setValueAt(bill.transactor, i, 3);
+					    table_1.setValueAt(bill.list, i, 4);
+					    table_1.setValueAt(bill.money, i, 5);
+					    table_1.setValueAt(bill.bussinessHallCode, i, 6);
+					}
+				}
+					
 			}
 		});
 		button_3.setBounds(649, 93, 93, 23);
@@ -196,11 +243,6 @@ public class account {
 		));
 		scrollPane_1.setViewportView(table_1);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"请选择营业厅", "江苏省南京市仙林营业厅"}));
-		comboBox.setBounds(534, 43, 183, 21);
-		desktopPane.add(comboBox);
-		
 		textField_2 = new JTextField();
 		textField_2.setBounds(336, 43, 30, 21);
 		desktopPane.add(textField_2);
@@ -210,13 +252,6 @@ public class account {
 		textField_3.setBounds(376, 43, 30, 21);
 		desktopPane.add(textField_3);
 		textField_3.setColumns(10);
-		
-		JLabel label_3 = new JLabel();
-		label_3.setText("财务人员：");
-		label_3.setBounds(280, 0, 700, 21);
-		desktopPane.add(label_3);
-		SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		label_3.setText(df.format(new Date()));
 		
 		//财务支出的界面
 		JDesktopPane desktopPane_1 = new JDesktopPane();
@@ -279,7 +314,7 @@ public class account {
 		textField_7.setColumns(10);
 		
 		final JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"\u4E2D\u56FD\u519C\u4E1A\u94F6\u884C", "\u4E2D\u56FD\u5DE5\u5546\u94F6\u884C", "\u4E2D\u56FD\u5EFA\u8BBE\u94F6\u884C", "\u5357\u4EAC\u94F6\u884C"}));
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"中国农业银行", "中国工商银行", "中国建设银行", "南京银行"}));
 		comboBox_1.setBounds(214, 62, 191, 21);
 		desktopPane_1.add(comboBox_1);
 		
@@ -349,6 +384,7 @@ public class account {
 			}
 		));
 		scrollPane.setViewportView(table);
+		
 		//撤消付款单table中一行的事件监听
 		JButton button_1 = new JButton("撤消");
 		button_1.addMouseListener(new MouseAdapter() {
@@ -402,7 +438,7 @@ public class account {
 		desktopPane_2.add(tabbedPane_1);
 		
 		//成本收益表的查询界面
-		JDesktopPane desktopPane_4 = new JDesktopPane();
+		final JDesktopPane desktopPane_4 = new JDesktopPane();
 		desktopPane_4.setBackground(Color.WHITE);
 		tabbedPane_1.addTab("成本收益表", null, desktopPane_4, null);
 		
@@ -411,15 +447,28 @@ public class account {
 		textPane_24.setBounds(138, 45, 92, 21);
 		desktopPane_4.add(textPane_24);
 		
-		
+		//得到系统当前时间
+	    final JLabel textPane_3 = new JLabel();
+		textPane_3.setBounds(232, 45, 120, 21);
+		desktopPane_4.add(textPane_3);
+		textPane_3.setText(df.format(new Date()));
 		
 		//查询成本收益表的事件监听
 		JButton button_17 = new JButton("查询");
 		button_17.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				ProfitSheetVO profit;
 				ProfitSheetController pfc=new ProfitSheetController();
-				pfc.show();
+				profit=pfc.show();
+				if(profit==null){
+					desktopPane_4.setToolTipText("未查找到成本收益表信息！");
+				}else{
+					table_7.setValueAt(profit.totalGet, 0, 0);
+					table_7.setValueAt(profit.totalPay, 0, 1);
+					table_7.setValueAt(profit.profit, 0, 2);
+					table_7.setValueAt(textPane_3.getText(), 0, 3);
+				}
 			}
 		});
 		button_17.setBounds(500, 90, 93, 23);
@@ -452,14 +501,8 @@ public class account {
 		button_18.setBounds(500, 357, 93, 23);
 		desktopPane_4.add(button_18);
 		
-		//得到系统当前时间
-		JLabel textPane_3 = new JLabel();
-		textPane_3.setBounds(232, 45, 120, 21);
-		desktopPane_4.add(textPane_3);
-		textPane_3.setText(df.format(new Date()));
-		
 		//经营情况表的查询界面
-		JDesktopPane desktopPane_5 = new JDesktopPane();
+		final JDesktopPane desktopPane_5 = new JDesktopPane();
 		desktopPane_5.setBackground(Color.WHITE);
 		tabbedPane_1.addTab("经营情况表", null, desktopPane_5, null);
 		
@@ -488,9 +531,20 @@ public class account {
 		button_4.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				ArrayList<PaymentBill> pay;
+				ArrayList<ReceiveMoneyBill> receive;
+				BussinessSheetVO business;
 				BussinessSheetController bsc=new BussinessSheetController();
-				bsc.show(textField_11.getText()+textField_10.getText()+textField_13.getText(),
+				business=bsc.show(textField_11.getText()+textField_10.getText()+textField_13.getText(),
 						textField_12.getText()+textField_14.getText()+textField_15.getText());
+				if(business==null){
+					desktopPane_5.setToolTipText("未查找到经营情况表信息！");
+				}else{
+					for(int i=0;i<table_2.getRowCount();i++){
+					     table_2.setValueAt(business.paid,i,0);
+					     table_2.setValueAt(business.pay, i, 1);
+					}
+				}
 			}
 		});
 		button_4.setBounds(569, 96, 93, 23);
@@ -704,7 +758,7 @@ public class account {
 		desktopPane_6.add(button_8);
 		
 		//修改账户信息的界面
-		JDesktopPane desktopPane_7 = new JDesktopPane();
+		final JDesktopPane desktopPane_7 = new JDesktopPane();
 		desktopPane_7.setBackground(Color.WHITE);
 		tabbedPane_2.addTab("修改账户信息", null, desktopPane_7, null);
 		
@@ -719,9 +773,16 @@ public class account {
 		button_9.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				ArrayList<Account> account;
 				AccountManageController amc=new AccountManageController();
-				amc.getAccount(textField_21.getText());
-				//amc.changeAccountInfo(textField_21.getText(), textField_21.getText());
+				account = amc.getAccount(textField_21.getText());
+				if(account==null){
+					desktopPane_7.setToolTipText("未查找到任何账户信息！");
+				}else{
+					for(int i=0;i<account.size();i++){
+					    table_4.setValueAt(account.get(i), i/table_4.getColumnCount(), i%table_4.getColumnCount());
+					}
+				}
 			}
 		});
 		button_9.setBounds(496, 40, 93, 23);
@@ -808,9 +869,16 @@ public class account {
 		button_12.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				ArrayList<Account> account;
 				AccountManageController amc=new AccountManageController();
-				amc.getAccount(textField_22.getText());
-				//amc.delateAccount(null);
+				account = amc.getAccount(textField_21.getText());
+				if(account==null){
+					desktopPane_7.setToolTipText("未查找到任何账户信息！");
+				}else{
+					for(int i=0;i<account.size();i++){
+					    table_4.setValueAt(account.get(i), i/table_4.getColumnCount(), i%table_4.getColumnCount());
+					}
+				}
 			}
 		});
 		button_12.setBounds(496, 40, 93, 23);
@@ -896,8 +964,16 @@ public class account {
 		button_15.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				ArrayList<Account> account;
 				AccountManageController amc=new AccountManageController();
-				amc.getAccount(textField_23.getText());
+				account = amc.getAccount(textField_21.getText());
+				if(account==null){
+					desktopPane_7.setToolTipText("未查找到任何账户信息！");
+				}else{
+					for(int i=0;i<account.size();i++){
+					    table_4.setValueAt(account.get(i), i/table_4.getColumnCount(), i%table_4.getColumnCount());
+					}
+				}
 			}
 		});
 		button_15.setBounds(496, 40, 93, 23);
