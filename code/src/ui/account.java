@@ -146,7 +146,7 @@ public class account {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				PaidController pc=new PaidController();
-				pc.getPaidmentBill(textField_8.getText());
+				pc.getPaidmentBill(null);
 			}
 		});
 		button_3.setBounds(649, 93, 93, 23);

@@ -1,3 +1,4 @@
+
 package ui;
 
 import java.awt.EventQueue;
@@ -18,9 +19,12 @@ import bill.StockBill_In;
 import bill.StockBill_Out;
 import bl.commoditybl.Impl.AreaAdjustController;
 import bl.commoditybl.Impl.InDepotController;
+import bl.commoditybl.Impl.InitDepotAreaController;
 import bl.commoditybl.Impl.InventoryController;
 import bl.commoditybl.Impl.OutDepotController;
+import bl.commoditybl.Service.AreaAdjustBLService;
 import bl.commoditybl.Service.InDepotBLService;
+import bl.commoditybl.Service.InitDepotAreaBLService;
 import bl.commoditybl.Service.InventoryBLService;
 import bl.commoditybl.Service.OutDepotBLService;
 
@@ -555,7 +559,14 @@ public class commodity {
 		button_6.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+				int[] rows=null;
+				for(int i=0;i<table_3.getRowCount();i++){
+					rows[i]=(int) table_3.getValueAt(i, 0);
+					
+				}
+				String type=(String) table_3.getValueAt(0, 1);
+				AreaAdjustBLService areaadjust = new AreaAdjustController();
+				areaadjust.areaAdjust(rows, type);
 			}
 		});
 		button_6.setBounds(631, 493, 93, 23);
@@ -732,11 +743,45 @@ public class commodity {
 		));
 		scrollPane_4.setViewportView(table_4);
 		
+		/*
+		 * 将库区初始化信息提交
+		 */
 		JButton button_7 = new JButton("\u63D0\u4EA4");
+		button_7.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				int[] motorTransport=null;
+				int[] trainTransport=null;
+				int[] airTransport=null;
+				int[] balnkSpace=null;
+				for(int i=0;i<table_4.getRowCount();i++){
+					if(table_4.getValueAt(i, 1)=="航运区"){
+						airTransport[i]=(int)table_4.getValueAt(i, 0);
+					}else if(table_4.getValueAt(i, 1)=="铁运区"){
+						trainTransport[i]=(int)table_4.getValueAt(i, 0);
+					}else if(table_4.getValueAt(i, 1)=="汽运区"){
+						motorTransport[i]=(int)table_4.getValueAt(i, 0);
+					}else if(table_4.getValueAt(i, 1)=="机动区"){
+						balnkSpace[i]=(int)table_4.getValueAt(i, 0);
+					}
+				}
+				InitDepotAreaBLService initdepotarea = new InitDepotAreaController();
+				initdepotarea.init(motorTransport, trainTransport, airTransport, balnkSpace);
+			}
+		});
 		button_7.setBounds(714, 479, 93, 23);
 		desktopPane_1.add(button_7);
-		
+	
+		/*
+		 * 将库区初始化信息加入table
+		 */
 		JButton button_8 = new JButton("\u786E\u8BA4");
+		button_8.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				
+			}
+		});
 		button_8.setBounds(617, 186, 93, 23);
 		desktopPane_1.add(button_8);
 	}

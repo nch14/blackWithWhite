@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class AllocateBill {
 	public String ID;//单据的ID
-	boolean judged;
+	public boolean judged;
 	String[] date;
 	public String numID;//快递员的ID
 	public ArrayList<String> list;//单据的寄件单号

@@ -15,6 +15,13 @@ public class StaffVO {
 	public int age;
 	public String sex;
 	public String SalaryModel;
+	public StaffVO(String ID1,String name1,String age1,String pos1,String department1){
+		this.ID=ID1;
+		this.name=name1;
+		this.age=Integer.parseInt(age1);
+		this.pos=pos1;
+		this.department=department1;
+	}
 	public StaffVO(StaffPO staffPO){
 		name=staffPO.name;
 		passwords=staffPO.passwords;

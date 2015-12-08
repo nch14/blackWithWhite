@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class ArrivementBill {
 	
 	public String ID;//µ¥¾ÝµÄID
+	public boolean judged;
 	String[] date;
 	String placeOfDeparture;
 	public ArrayList<struct> bill=new  ArrayList<struct>();
