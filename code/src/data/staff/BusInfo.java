@@ -29,7 +29,6 @@ public class BusInfo implements BusInfoHelper {
 	@Override
 	public boolean insert(TruckPO po) {
 		// TODO Auto-generated method stub
-		boolean result=false;
 			try {
 				BusInfoHelper x=(BusInfoHelper) Naming.lookup(getURL());
 				result=x.insert(po);
@@ -99,7 +98,7 @@ public class BusInfo implements BusInfoHelper {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return result;
+		return array;
 	}
 
 }
