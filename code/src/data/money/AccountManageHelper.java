@@ -19,4 +19,5 @@ public interface AccountManageHelper extends Client_Helper {
 	public Account get(String id) throws RemoteException;
 	
 	public ArrayList<Account> getAll(String id) throws RemoteException;
+	
 }

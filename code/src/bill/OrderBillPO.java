@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class OrderBillPO implements Serializable{
 	public static String billType="OrderBill";
 	public String ID;
+	public boolean judged;
 	/*
 	 * information of the sender
 	 */

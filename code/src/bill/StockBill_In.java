@@ -4,6 +4,7 @@ import java.util.ArrayList;
 public class StockBill_In {
 	public static String billtype="StockBill_In";
 	public String ID;
+	public boolean judged;
 	
 	public ArrayList<Info> list;
 	

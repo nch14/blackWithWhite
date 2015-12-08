@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class TransportBill {
 	String[] date;
+	public boolean judged;
 	public String transBillID;
 	String placeOfDeparture;
 	String destination;

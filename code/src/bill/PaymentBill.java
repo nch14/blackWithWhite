@@ -5,6 +5,7 @@ package bill;
  *
  */
 public class PaymentBill {
+	public boolean judged;
 	public static String billtype="PaymentBill";
 	public String ID;
 	public String[] date;

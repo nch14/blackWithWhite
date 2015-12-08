@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class ReceiveMoneyBill {
 	public static String billtype="ReceiveMoney";
 	public String ID;
+	public boolean judged;
 	public String[] date;
 	public double money;
 	public String transactor;//收款的快递员
