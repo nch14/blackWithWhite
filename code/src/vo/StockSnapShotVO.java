@@ -8,15 +8,17 @@ import java.util.ArrayList;
  *
  */
 public class StockSnapShotVO {
-	ArrayList<Info> list;
+	//数组第一位为名字，第二位为已用空间，第三位为空余空间，第四位为使用百分比
+	String[] truck; 
+	String[] air;
+	String[] train;
+	String[] blank;//机动区
 	
-	class Info{
-		String ID;
-		String[] date;
-		String destination;
-		String zoneID;
-		String rowID;
-		String frameID;
-		String positionID;
+	public StockSnapShotVO(	String[] truck,String[] air,String[] train,String[] blank){
+		this.truck=truck;
+		this.air=air;
+		this.train=train;
+		this.blank=blank;
 	}
+	
 }
