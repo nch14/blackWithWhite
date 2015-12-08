@@ -22,6 +22,11 @@ import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
+
+import bl.staff.Impl.StaffManageController;
+import bl.staff.service.StaffManageBLService;
+import vo.StaffVO;
+
 import javax.swing.JLabel;
 import javax.swing.AbstractCellEditor;
 import javax.swing.DefaultComboBoxModel;
@@ -905,7 +910,34 @@ public class manager {
 		button_4.setBounds(97, 467, 93, 23);
 		desktopPane_13.add(button_4);
 		
+		/*
+		 * 雇佣新员工信息提交
+		 */
 		JButton button_5 = new JButton("\u63D0\u4EA4");
+		button_5.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				StaffVO[] staff=null;
+				for(int i=0;i<table_1.getRowCount();i++){
+				StaffVO staffvo= new StaffVO(table_1.getValueAt(i, 1).toString(),table_1.getValueAt(i, 2).toString(),
+						table_1.getValueAt(i, 3).toString(),table_1.getValueAt(i, 4).toString(),table_1.getValueAt(i, 5).toString());
+				staff[i]=staffvo;
+				}
+				StaffManageBLService addnewstaff = new StaffManageController();
+				addnewstaff.addNewStaff(staff);
+				if(addnewstaff.addNewStaff(staff)==true){
+					for(int i=0;i<table_2.getRowCount();i++){
+						table_2.setValueAt(null, i, 1);
+						table_2.setValueAt(null, i, 2);
+						table_2.setValueAt(null, i, 3);
+						table_2.setValueAt(null, i, 4);
+						table_2.setValueAt(null, i, 5);
+					}
+				}else{
+					
+				}
+			}
+		});
 		button_5.setBounds(744, 467, 93, 23);
 		desktopPane_13.add(button_5);
 		
@@ -915,7 +947,7 @@ public class manager {
 		
 		JComboBox comboBox_5 = new JComboBox();
 		comboBox_5.setModel(new DefaultComboBoxModel(new String[] {"\u7537", "\u5973"}));
-		comboBox_5.setBounds(326, 23, 32, 21);
+		comboBox_5.setBounds(320, 23, 38, 21);
 		desktopPane_13.add(comboBox_5);
 		
 		JDesktopPane desktopPane_14 = new JDesktopPane();
@@ -980,8 +1012,33 @@ public class manager {
 		button_7.setBounds(104, 465, 93, 23);
 		desktopPane_14.add(button_7);
 		
+		/*
+		 * 解雇员工信息提交
+		 */
 		JButton button_8 = new JButton("\u63D0\u4EA4");
-		button_8.setBounds(659, 465, 93, 23);
+		button_8.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				String[] staff=null;
+				for(int i=0;i<table_2.getRowCount();i++){
+					staff[i]=table_2.getValueAt(i, 1).toString();
+				}
+				StaffManageBLService deletestaff = new StaffManageController();
+				deletestaff.deleteStaff(staff);
+				if(deletestaff.deleteStaff(staff)==true){
+					for(int i=0;i<table_2.getRowCount();i++){
+						table_2.setValueAt(null, i, 1);
+						table_2.setValueAt(null, i, 2);
+						table_2.setValueAt(null, i, 3);
+						table_2.setValueAt(null, i, 4);
+						table_2.setValueAt(null, i, 5);
+					}
+				}else{
+					
+				}
+			}
+		});
+		button_8.setBounds(697, 465, 93, 23);
 		desktopPane_14.add(button_8);
 		
 		JDesktopPane desktopPane_15 = new JDesktopPane();
@@ -1062,7 +1119,38 @@ public class manager {
 		button_10.setBounds(125, 466, 93, 23);
 		desktopPane_15.add(button_10);
 		
+		/*
+		 * 人事调动信息提交
+		 */
 		JButton button_11 = new JButton("\u63D0\u4EA4");
+		button_11.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				String[] ID = null;
+				String[] newPosition = null;
+				String[] newDepartment = null;
+				for(int i=0;i<table_3.getRowCount();i++){
+					ID[i]=table_3.getValueAt(i, 1).toString();
+					newPosition[i]=table_3.getValueAt(i, 6).toString();
+					newDepartment[i]=table_3.getValueAt(i, 7).toString();
+				}
+				StaffManageBLService changeposition = new StaffManageController();
+				changeposition.changePosition(ID, newPosition, newDepartment);
+				if(changeposition.changePosition(ID, newPosition, newDepartment)==true){
+					for(int i=0;i<table_3.getRowCount();i++){
+						table_3.setValueAt(null, i, 1);
+						table_3.setValueAt(null, i, 2);
+						table_3.setValueAt(null, i, 3);
+						table_3.setValueAt(null, i, 4);
+						table_3.setValueAt(null, i, 5);
+						table_3.setValueAt(null, i, 6);
+						table_3.setValueAt(null, i, 7);
+					}
+				}else{
+					
+				}
+			}
+		});
 		button_11.setBounds(670, 466, 93, 23);
 		desktopPane_15.add(button_11);
 		
@@ -1136,9 +1224,37 @@ public class manager {
 		button_13.setBounds(137, 463, 93, 23);
 		desktopPane_16.add(button_13);
 		
+		/*
+		 * 薪水策略提交
+		 */
 		JButton button_14 = new JButton("\u63D0\u4EA4");
 		button_14.setBounds(690, 463, 93, 23);
 		desktopPane_16.add(button_14);
+		button_11.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				String[] ID = null;
+				String[] salaryModel = null;
+				for(int i=0;i<table_4.getRowCount();i++){
+					ID[i]=table_4.getValueAt(i, 1).toString();
+					salaryModel[i]=table_4.getValueAt(i, 6).toString();
+				}
+				StaffManageBLService changeSalarymodel = new StaffManageController();
+				changeSalarymodel.changesalarymodel(ID, salaryModel);
+				if(changeSalarymodel.changesalarymodel(ID, salaryModel)==true){
+					for(int i=0;i<table_4.getRowCount();i++){
+						table_4.setValueAt(null, i, 1);
+						table_4.setValueAt(null, i, 2);
+						table_4.setValueAt(null, i, 3);
+						table_4.setValueAt(null, i, 4);
+						table_4.setValueAt(null, i, 5);
+						table_4.setValueAt(null, i, 6);
+					}
+				}else{
+					
+				}
+			}
+		});
 		
 		JDesktopPane desktopPane_2 = new JDesktopPane();
 		desktopPane_2.setBackground(Color.WHITE);
@@ -1166,9 +1282,17 @@ public class manager {
 		desktopPane_17.add(textField_8);
 		textField_8.setColumns(10);
 		
+		/*
+		 * 查看成本收益表
+		 */
 		JButton btnNewButton = new JButton("\u67E5\u8BE2");
 		btnNewButton.setBounds(519, 153, 93, 23);
 		desktopPane_17.add(btnNewButton);
+		 btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+		});
 		
 		JScrollPane scrollPane_5 = new JScrollPane();
 		scrollPane_5.setBounds(235, 247, 377, 44);

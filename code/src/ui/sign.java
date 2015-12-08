@@ -96,14 +96,17 @@ public class sign {
 		public void mouseClicked(MouseEvent e){
 			LoginService login = new LoginController();
 			StaffVO staff=login.validUser(textField.getText(),textField_1.getText());
-			//if(staff==null){
-				 //label_2.setText("登录失败");
-			//}
-			//else if(staff.pos=="中转中心仓库管理人员"){
+			if(staff==null){
+				 label_2.setText("登录失败");
+			}
+			else if(staff.pos=="中转中心仓库管理人员"){
 				frame.dispose();
 				 commodity man=new commodity();
 				 man.main();
-			//}
+			}else if(staff.pos=="快递员"){
+				frame.dispose();
+				 courier.main();
+			}
 			
 
 			 }
