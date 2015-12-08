@@ -54,6 +54,8 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
 import bill.DriverPO;
+import bl.staff.Impl.DriverManageCotroller;
+import bl.staff.Impl.TruckManageController;
 
 public class businessHall {
 
@@ -851,8 +853,8 @@ public class businessHall {
 		button.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				e.getID();
-				//table_4.getDriver(ID);
+				DriverManageCotroller dmc=new DriverManageCotroller();
+				dmc.getDriver(textField.getText());
 			}
 		});
 		button.setBounds(485, 95, 93, 23);
@@ -1058,7 +1060,15 @@ public class businessHall {
 		desktopPane_8.add(textField_39);
 		textField_39.setColumns(10);
 		
+		//查找司机信息的事件监听
 		JButton button_3 = new JButton("查找");
+		button_3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				DriverManageCotroller dmc=new DriverManageCotroller();
+				dmc.getDriver(textField_39.getText());
+			}
+		});
 		button_3.setBounds(485, 95, 93, 23);
 		desktopPane_8.add(button_3);
 		
@@ -1077,7 +1087,15 @@ public class businessHall {
 		));
 		scrollPane_6.setViewportView(table_6);
 		
+		//删除司机信息的事件监听
 		JButton button_17 = new JButton("删除司机信息");
+		button_17.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				DriverManageCotroller dmc=new DriverManageCotroller();
+				dmc.deleteDriver(null);
+			}
+		});
 		button_17.setBounds(580, 330, 121, 23);
 		desktopPane_8.add(button_17);
 		
@@ -1095,7 +1113,15 @@ public class businessHall {
 		desktopPane_9.add(textField_40);
 		textField_40.setColumns(10);
 		
+		//查找司机信息的事件监听
 		JButton button_18 = new JButton("查找");
+		button_18.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				DriverManageCotroller dmc=new DriverManageCotroller();
+				dmc.getDriver(textField_40.getText());
+			}
+		});
 		button_18.setBounds(485, 95, 93, 23);
 		desktopPane_9.add(button_18);
 		
@@ -1114,12 +1140,20 @@ public class businessHall {
 		));
 		scrollPane_7.setViewportView(table_7);
 		
+		//修改司机信息的事件监听
 		JButton button_19 = new JButton("修改司机信息");
+		button_19.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				DriverManageCotroller dmc=new DriverManageCotroller();
+				dmc.ChangeDriverInfo(null, null, null, null, null, null, null);
+			}
+		});
 		button_19.setBounds(580, 330, 121, 23);
 		desktopPane_9.add(button_19);
 		
 		JLabel textPane_38 = new JLabel();
-		textPane_38.setText("\u8425\u4E1A\u5385\u4E1A\u52A1\u5458\uFF1A");
+		textPane_38.setText("营业厅业务员：");
 		textPane_38.setBounds(280, 0, 700, 21);
 		desktopPane.add(textPane_38);
 		textPane_38.setText(df.format(new Date()));
@@ -1147,7 +1181,15 @@ public class businessHall {
 		desktopPane_10.add(textField_41);
 		textField_41.setColumns(10);
 		
+		//查找车辆信息的事件监听
 		JButton button_20 = new JButton("查找");
+		button_20.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				TruckManageController tmc=new TruckManageController();
+				tmc.getTruck(textField_41.getText());
+			}
+		});
 		button_20.setBounds(485, 90, 93, 23);
 		desktopPane_10.add(button_20);
 		
@@ -1307,6 +1349,13 @@ public class businessHall {
 		textField_47.setColumns(10);
 		
 		JButton button_23 = new JButton("查找");
+		button_23.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				TruckManageController tmc=new TruckManageController();
+				tmc.getTruck(textField_47.getText());
+			}
+		});
 		button_23.setBounds(485, 90, 93, 23);
 		desktopPane_12.add(button_23);
 		
@@ -1325,7 +1374,15 @@ public class businessHall {
 		));
 		scrollPane_10.setViewportView(table_10);
 		
+		//删除车辆信息的事件监听
 		JButton button_24 = new JButton("删除车辆信息");
+		button_24.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				TruckManageController tmc=new TruckManageController();
+				tmc.deleteTruck(null);
+			}
+		});
 		button_24.setBounds(580, 330, 121, 23);
 		desktopPane_12.add(button_24);
 		
@@ -1344,6 +1401,13 @@ public class businessHall {
 		textField_48.setColumns(10);
 		
 		JButton button_25 = new JButton("查找");
+		button_25.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				TruckManageController tmc=new TruckManageController();
+				tmc.getTruck(textField_48.getText());
+			}
+		});
 		button_25.setBounds(485, 90, 93, 23);
 		desktopPane_13.add(button_25);
 		
@@ -1362,7 +1426,15 @@ public class businessHall {
 		));
 		scrollPane_11.setViewportView(table_11);
 		
+		//修改车辆信息的事件监听
 		JButton button_26 = new JButton("修改车辆信息");
+		button_26.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				TruckManageController tmc=new TruckManageController();
+				tmc.ChangeTruckInfo(null, null, null);
+			}
+		});
 		button_26.setBounds(580, 330, 121, 23);
 		desktopPane_13.add(button_26);
 		
