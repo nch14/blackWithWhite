@@ -26,10 +26,9 @@ public class Company implements Serializable {
 		}
 		citys.add(city);
 		//下面还要调用一次同步方法
-		CompanySettingsController.push();
-		return false;
+		return CompanySettingsController.push();
 	}
-	public void deleteCity(City city){
+	public boolean deleteCity(City city){
 		Distance findDistance;
 		ArrayList<Distance> distanceToDelete=new ArrayList<Distance>();
 		for(int i=0;i<distance.size();i++){
@@ -42,8 +41,9 @@ public class Company implements Serializable {
 			distance.remove(dis);
 			distanceToDelete.remove(dis);
 		}
-			citys.remove(city);
+		citys.remove(city);
 		//下面还要调用一次同步方法
+		return CompanySettingsController.push();
 	}
 	
 

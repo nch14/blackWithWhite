@@ -28,14 +28,14 @@ public class MarkingBills<T> {
 			break;
 		case "StockBill_In"://入库单
 			InDepotController inDepotController=new InDepotController();
-			list=(ArrayList<T>) inDepotController.getUnmaringBills();
+			list=(ArrayList<T>) inDepotController.getUnmarkingBills();
 			break;
 		case "StockBill_out"://出库单
 			OutDepotController outDepotController=new OutDepotController();
 			list=(ArrayList<T>) outDepotController.getUnmarkingBills();
 			break;
 			
-		case "Buss":
+/*		case "Buss":
 			
 			break;
 		case "":
@@ -43,14 +43,14 @@ public class MarkingBills<T> {
 			break;
 		case "":
 			
-			break;
+			break;*/
 			
 			
 			
 		default:
 			return null;
 		}
-		return null;
+		return list;
 	}
 
 	
