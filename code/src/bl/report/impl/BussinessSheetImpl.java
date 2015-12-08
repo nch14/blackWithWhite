@@ -12,6 +12,12 @@ import vo.BussinessSheetVO;
 public class BussinessSheetImpl{
 	BussinessSheetVO bsVO;
 	
+	/**
+	 * 检查是否有格式问题
+	 * @param start 开始时间
+	 * @param end  结束时间
+	 * @return 格式是够正确
+	 */
 	
 	
 	public boolean export() {
@@ -44,13 +50,6 @@ public class BussinessSheetImpl{
 		}
 
 	}
-	/**
-	 * 检查是否有格式问题
-	 * @param start 开始时间
-	 * @param end  结束时间
-	 * @return 格式是够正确
-	 */
-	
 	private boolean checkDate(String start, String end) {
 		//先检查输入的是不是两个时间
 		char[] temp1=start.toCharArray();
