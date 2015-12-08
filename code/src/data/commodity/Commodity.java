@@ -10,7 +10,7 @@ import bill.*;
 import data.Iphelper.Iphelper;
 
 public class Commodity implements CommodityManage{
-	StockFillmentInfo info;
+	StockBlockInfo info;
 	boolean result;
 	
 	private String getURL() throws FileNotFoundException, ClassNotFoundException, IOException{
@@ -18,10 +18,10 @@ public class Commodity implements CommodityManage{
 		return s;
 	}
 	
-	public boolean adjustCommodity(String num,String block){
+	public boolean adjustCommodity(String ID,String num,String block){
 		try {
 			CommodityManage x=(CommodityManage) Naming.lookup(getURL());
-			result=x.adjustCommodity(num,block);
+			result=x.adjustCommodity(ID,num,block);
 		} catch (ClassNotFoundException | NotBoundException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -40,7 +40,7 @@ public class Commodity implements CommodityManage{
 		return result;
 	}
 	
-	public StockFillmentInfo checkCommodity(String id){
+	public StockBlockInfo checkCommodity(String id){
 		try {
 			CommodityManage x=(CommodityManage) Naming.lookup(getURL());
 			info=x.checkCommodity(id);
