@@ -1,6 +1,10 @@
 package bl.send.Impl;
 
 import data.send.SendInfo;
+
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+
 import bill.OrderBillPO;
 import bl.information.Impl.InformationController;
 
@@ -37,6 +41,19 @@ public class Send {
 			e.printStackTrace();
 			return null;
 		}
+	}
+	public ArrayList<OrderBillPO> getUnmarkingBills() {
+		// TODO Auto-generated method stub
+		ArrayList<OrderBillPO> result;
+		try {
+			result=si.getUnjudged();
+			return result;
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+		
 	}
 
 

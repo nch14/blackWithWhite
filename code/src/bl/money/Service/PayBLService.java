@@ -32,5 +32,9 @@ public interface PayBLService {
 	 * @return
 	 */
 	public ArrayList<PaymentBill> getPaymentBill(String[] endTime);
-	
+	/**
+	 * 获得未审批的单据
+	 * @return
+	 */
+	public ArrayList<PaymentBill> getUnmarkingBills();
 }

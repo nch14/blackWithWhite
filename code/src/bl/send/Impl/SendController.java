@@ -1,6 +1,9 @@
 package bl.send.Impl;
 
 import bl.send.Service.SendBLService;
+
+import java.util.ArrayList;
+
 import bill.OrderBillPO;
 /**
  * ×´Ì¬£ºÒÑÍê³É
@@ -23,6 +26,11 @@ public class SendController implements SendBLService {
 	public OrderBillPO inquireSendMesg(String id) {
 		// TODO Auto-generated method stub
 		return send.inquireSendMesg(id);
+	}
+	@Override
+	public ArrayList<OrderBillPO> getUnmarkingBills() {
+		// TODO Auto-generated method stub
+		return send.getUnmarkingBills();
 	}
 
 }

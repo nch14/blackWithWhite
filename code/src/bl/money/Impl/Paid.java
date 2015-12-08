@@ -1,5 +1,6 @@
 package bl.money.Impl;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import bill.ReceiveMoneyBill;
@@ -54,5 +55,19 @@ public class Paid {
 			return null;
 		}
 		return receiveMoneyBill;
+	}
+	
+	public ArrayList<ReceiveMoneyBill> getUnmarkingBills() {
+		// TODO Auto-generated method stub
+		ArrayList<ReceiveMoneyBill> result;
+		try {
+			result=paid.getUnjudged();
+			return result;
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+		
 	}
 }

@@ -18,12 +18,17 @@ public class PayController implements PayBLService {
 	@Override
 	public ArrayList<PaymentBill> getPaymentBill(String[] start, String[] end) {
 		// TODO Auto-generated method stub
-		return null;
+		return pay.getPaymentBill(start, end);
 	}
 	@Override
 	public ArrayList<PaymentBill> getPaymentBill(String[] endTime) {
 		// TODO Auto-generated method stub
-		return null;
+		return pay.getPaymentBill(endTime);
+	}
+	@Override
+	public ArrayList<PaymentBill> getUnmarkingBills() {
+		// TODO Auto-generated method stub
+		return pay.getUnmarkingBills();
 	}
 
 }

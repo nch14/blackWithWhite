@@ -26,5 +26,10 @@ public class PaidController implements PaidBLService {
 		// TODO Auto-generated method stub
 		return paid.getPaidmentBill(endTime);
 	}
+	@Override
+	public ArrayList<ReceiveMoneyBill> getUnmarkingBills() {
+		// TODO Auto-generated method stub
+		return paid.getUnmarkingBills();
+	}
 
 }

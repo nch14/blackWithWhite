@@ -2,6 +2,7 @@ package bl.money.Service;
 
 import java.util.ArrayList;
 
+import bill.PaymentBill;
 import bill.ReceiveMoneyBill;
 
 /**
@@ -33,5 +34,9 @@ public interface PaidBLService {
 	 * @return
 	 */
 	public ArrayList<ReceiveMoneyBill> getPaidmentBill(String[] endTime);
-	
+	/**
+	 * 获得未审批的单据
+	 * @return
+	 */
+	public ArrayList<ReceiveMoneyBill> getUnmarkingBills();
 }

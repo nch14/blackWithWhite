@@ -1,5 +1,7 @@
 package bl.send.Service;
 
+import java.util.ArrayList;
+
 import bill.OrderBillPO;
 
 public interface SendBLService {
@@ -17,5 +19,10 @@ public interface SendBLService {
 	 * @return
 	 */
 	public OrderBillPO inquireSendMesg(String id);
+	/**
+	 * 获得未审批订单
+	 * @return
+	 */
+	public ArrayList<OrderBillPO> getUnmarkingBills();
 	
 }

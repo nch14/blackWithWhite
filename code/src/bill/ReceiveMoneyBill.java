@@ -12,6 +12,7 @@ public class ReceiveMoneyBill {
 	public String[] date;
 	public double money;
 	public String transactor;//收款的快递员
+	public String bussinessHallCode;//收款单的营业厅编号
 	public ArrayList<String> list=new ArrayList<String>();
 	
 	/**
