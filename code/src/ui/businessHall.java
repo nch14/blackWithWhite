@@ -49,12 +49,16 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Timer;
 
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
 import bill.DriverPO;
+import bill.TruckPO;
+import bl.staff.Impl.DriverManage;
 import bl.staff.Impl.DriverManageCotroller;
+import bl.staff.Impl.TruckManage;
 import bl.staff.Impl.TruckManageController;
 
 public class businessHall {
@@ -815,6 +819,12 @@ public class businessHall {
 		desktopPane.setBackground(Color.WHITE);
 		tabbedPane.addTab("司机信息管理", null, desktopPane, null);
 		
+		final JLabel textPane_38 = new JLabel();
+		textPane_38.setText("营业厅业务员：");
+		textPane_38.setBounds(280, 0, 700, 21);
+		desktopPane.add(textPane_38);
+		textPane_38.setText(df.format(new Date()));
+		
 		JTabbedPane tabbedPane_1 = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane_1.setBounds(55, 40, 856, 509);
 		desktopPane.add(tabbedPane_1);
@@ -853,8 +863,22 @@ public class businessHall {
 		button.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				DriverPO dp;
 				DriverManageCotroller dmc=new DriverManageCotroller();
-				dmc.getDriver(textField.getText());
+				dp=dmc.getDriver(textField.getText());
+				if(dp==null){
+					textPane_38.setText("未查找到任何司机信息！");
+					Timer time=new Timer();
+					
+				}else{
+					table_4.setValueAt(dp.ID, 0, 0);
+					table_4.setValueAt(dp.name, 0, 1);
+					table_4.setValueAt(dp.isBoy, 0, 2);
+					table_4.setValueAt(dp.IDNumber, 0, 3);
+					table_4.setValueAt(dp.birthday, 0, 4);
+					table_4.setValueAt(dp.validData, 0, 5);
+					table_4.setValueAt(dp.tel, 0, 6);
+				}
 			}
 		});
 		button.setBounds(485, 95, 93, 23);
@@ -1065,8 +1089,20 @@ public class businessHall {
 		button_3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				DriverPO dp;
 				DriverManageCotroller dmc=new DriverManageCotroller();
-				dmc.getDriver(textField_39.getText());
+				dp=dmc.getDriver(textField.getText());
+				if(dp==null){
+					textPane_38.setText("未查找到任何司机信息！");
+				}else{
+					table_4.setValueAt(dp.ID, 0, 0);
+					table_4.setValueAt(dp.name, 0, 1);
+					table_4.setValueAt(dp.isBoy, 0, 2);
+					table_4.setValueAt(dp.IDNumber, 0, 3);
+					table_4.setValueAt(dp.birthday, 0, 4);
+					table_4.setValueAt(dp.validData, 0, 5);
+					table_4.setValueAt(dp.tel, 0, 6);
+				}
 			}
 		});
 		button_3.setBounds(485, 95, 93, 23);
@@ -1118,8 +1154,20 @@ public class businessHall {
 		button_18.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				DriverPO dp;
 				DriverManageCotroller dmc=new DriverManageCotroller();
-				dmc.getDriver(textField_40.getText());
+				dp=dmc.getDriver(textField.getText());
+				if(dp==null){
+					textPane_38.setText("未查找到任何司机信息！");
+				}else{
+					table_4.setValueAt(dp.ID, 0, 0);
+					table_4.setValueAt(dp.name, 0, 1);
+					table_4.setValueAt(dp.isBoy, 0, 2);
+					table_4.setValueAt(dp.IDNumber, 0, 3);
+					table_4.setValueAt(dp.birthday, 0, 4);
+					table_4.setValueAt(dp.validData, 0, 5);
+					table_4.setValueAt(dp.tel, 0, 6);
+				}
 			}
 		});
 		button_18.setBounds(485, 95, 93, 23);
@@ -1152,16 +1200,16 @@ public class businessHall {
 		button_19.setBounds(580, 330, 121, 23);
 		desktopPane_9.add(button_19);
 		
-		JLabel textPane_38 = new JLabel();
-		textPane_38.setText("营业厅业务员：");
-		textPane_38.setBounds(280, 0, 700, 21);
-		desktopPane.add(textPane_38);
-		textPane_38.setText(df.format(new Date()));
-		
 		//车辆信息管理的界面
 		JDesktopPane desktopPane_5 = new JDesktopPane();
 		desktopPane_5.setBackground(Color.WHITE);
 		tabbedPane.addTab("车辆信息管理", null, desktopPane_5, null);
+		
+		final JLabel textPane_39 = new JLabel();
+		textPane_39.setText("营业厅业务员：");
+		textPane_39.setBounds(280, 0, 700, 21);
+		desktopPane_5.add(textPane_39);
+		textPane_39.setText(df.format(new Date()));
 		
 		JTabbedPane tabbedPane_2 = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane_2.setBounds(55, 40, 856, 504);
@@ -1186,8 +1234,16 @@ public class businessHall {
 		button_20.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				TruckPO truck;
 				TruckManageController tmc=new TruckManageController();
-				tmc.getTruck(textField_41.getText());
+				truck=tmc.getTruck(textField_41.getText());
+				if(truck==null){
+					textPane_39.setText("未查找到任何车辆信息！");
+				}else{
+					table_8.setValueAt(truck.vehicleCode, 0, 0);
+					table_8.setValueAt(truck.licensePlate, 0, 1);
+					table_8.setValueAt(truck.serviceTime, 0, 2);
+				}
 			}
 		});
 		button_20.setBounds(485, 90, 93, 23);
@@ -1352,8 +1408,16 @@ public class businessHall {
 		button_23.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				TruckPO truck;
 				TruckManageController tmc=new TruckManageController();
-				tmc.getTruck(textField_47.getText());
+				truck=tmc.getTruck(textField_41.getText());
+				if(truck==null){
+					textPane_39.setText("未查找到任何车辆信息！");
+				}else{
+					table_8.setValueAt(truck.vehicleCode, 0, 0);
+					table_8.setValueAt(truck.licensePlate, 0, 1);
+					table_8.setValueAt(truck.serviceTime, 0, 2);
+				}
 			}
 		});
 		button_23.setBounds(485, 90, 93, 23);
@@ -1404,8 +1468,16 @@ public class businessHall {
 		button_25.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				TruckPO truck;
 				TruckManageController tmc=new TruckManageController();
-				tmc.getTruck(textField_48.getText());
+				truck=tmc.getTruck(textField_41.getText());
+				if(truck==null){
+					textPane_39.setText("未查找到任何车辆信息！");
+				}else{
+					table_8.setValueAt(truck.vehicleCode, 0, 0);
+					table_8.setValueAt(truck.licensePlate, 0, 1);
+					table_8.setValueAt(truck.serviceTime, 0, 2);
+				}
 			}
 		});
 		button_25.setBounds(485, 90, 93, 23);
@@ -1437,12 +1509,6 @@ public class businessHall {
 		});
 		button_26.setBounds(580, 330, 121, 23);
 		desktopPane_13.add(button_26);
-		
-		JLabel textPane_39 = new JLabel();
-		textPane_39.setText("营业厅业务员：");
-		textPane_39.setBounds(280, 0, 700, 21);
-		desktopPane_5.add(textPane_39);
-		textPane_39.setText(df.format(new Date()));
 	}
 }
 
