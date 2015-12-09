@@ -82,10 +82,6 @@ public class courier {
 				try {
 					courier window = new courier();
 					window.frame.setVisible(true);
-					MyRunnable mr = new MyRunnable(); 
-					Thread t1 = new Thread(mr);//定义第一个线程  
-					//启动  
-					t1.start();//启动第一个线程
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

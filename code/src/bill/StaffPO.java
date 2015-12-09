@@ -8,7 +8,7 @@ public class StaffPO {
 	public String pos;
 	public String ID;
 	public int birthyear;
-	public String sex;
+	public boolean sex;
 	public String SalaryModel;
 	public String authority;
  
@@ -19,7 +19,7 @@ public class StaffPO {
 		this.pos=staff.pos;
 		this.ID=staff.ID;
 		this.birthyear=Integer.parseInt(TimeHelper.getTime().substring(0, 4))-staff.age;
-		this.sex=staff.sex;
+		this.sex=staff.isBoy;
 	}
 	
 	public void changePosition(String newPosition,String newDepartment){
