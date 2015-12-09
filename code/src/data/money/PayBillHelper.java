@@ -3,7 +3,7 @@ package data.money;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import bill.PaymentBill;
+import po.bills.PaymentBill;
 import remoteInterface.Client_Helper;
 
 public interface PayBillHelper extends Client_Helper {

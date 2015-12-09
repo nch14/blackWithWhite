@@ -1,9 +1,11 @@
 package bl.report.impl;
 import java.util.ArrayList;
 import java.util.Calendar;
-import bill.PaymentBill;
+
 import bl.money.Impl.PaidController;
 import bl.money.Impl.PayController;
+import po.bills.PaymentBill;
+import po.bills.ReceiveMoneyBill;
 import tools.ExcelHelper;
 import vo.ProfitSheetVO;
 import bill.*;

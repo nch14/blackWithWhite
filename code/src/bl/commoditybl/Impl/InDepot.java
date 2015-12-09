@@ -3,8 +3,8 @@ package bl.commoditybl.Impl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import bill.StockBill_In;
 import data.commodity.Commodity_In;
+import po.bills.StockBill_In;
 import tools.DepartmentHelper;
 
 public class InDepot {

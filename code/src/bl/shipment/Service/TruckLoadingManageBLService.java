@@ -1,6 +1,6 @@
 package bl.shipment.Service;
 
-import bill.BusShipmentBill_Shop;
+import po.bills.BusShipmentBill_Shop;
 
 /**
  * 车辆装车管理(从营业厅出发

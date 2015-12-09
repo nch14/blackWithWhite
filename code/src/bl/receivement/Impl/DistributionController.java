@@ -1,9 +1,9 @@
 package bl.receivement.Impl;
 
-import bill.AllocateBill;
-import bill.ArrivementBill;
-import bill.ArrivementBill_Shop;
 import bl.receivement.Service.DistributionBLService;
+import po.bills.AllocateBill;
+import po.bills.ArrivementBill;
+import po.bills.ArrivementBill_Shop;
 
 public class DistributionController implements DistributionBLService{
 	Distribution distribution;

@@ -2,8 +2,8 @@ package bl.money.Service;
 
 import java.util.ArrayList;
 
-import bill.PaymentBill;
-import bill.ReceiveMoneyBill;
+import po.bills.PaymentBill;
+import po.bills.ReceiveMoneyBill;
 
 /**
  *  ’øÓµ•ÃÓ–¥

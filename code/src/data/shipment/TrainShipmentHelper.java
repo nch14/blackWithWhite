@@ -3,8 +3,8 @@ package data.shipment;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import bill.TransportBill_Plane;
-import bill.TransportBill_Train;
+import po.bills.TransportBill_Plane;
+import po.bills.TransportBill_Train;
 import remoteInterface.Client_Helper;
 
 public interface TrainShipmentHelper extends Client_Helper{

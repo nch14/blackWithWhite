@@ -3,7 +3,7 @@ package data.shipment;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import bill.TransportBill_Plane;
+import po.bills.TransportBill_Plane;
 import remoteInterface.Client_Helper;
 
 public interface PlaneShipmentHelper extends Client_Helper{

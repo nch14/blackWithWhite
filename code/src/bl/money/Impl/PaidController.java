@@ -2,8 +2,8 @@ package bl.money.Impl;
 
 import java.util.ArrayList;
 
-import bill.ReceiveMoneyBill;
 import bl.money.Service.PaidBLService;
+import po.bills.ReceiveMoneyBill;
 
 public class PaidController implements PaidBLService {
 	Paid paid;

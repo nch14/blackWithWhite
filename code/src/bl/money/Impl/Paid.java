@@ -3,8 +3,8 @@ package bl.money.Impl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import bill.ReceiveMoneyBill;
 import data.money.PaidBill;
+import po.bills.ReceiveMoneyBill;
 /**
  * 填写收款单的领域对象
  * @author 倪辰皓

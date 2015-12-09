@@ -1,8 +1,9 @@
 package vo;
 
 import java.util.ArrayList;
-import bill.PaymentBill;
-import bill.ReceiveMoneyBill;
+
+import po.bills.PaymentBill;
+import po.bills.ReceiveMoneyBill;
 import tools.TimeHelper;
 
 public class ProfitSheetVO {

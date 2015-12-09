@@ -1,7 +1,7 @@
 package bl.shipment.Impl;
 
-import bill.TransportBill_Plane;
 import data.shipment.PlaneShipment;
+import po.bills.TransportBill_Plane;
 import tools.MoneyHelper;
 
 public class AirTransport {

@@ -5,7 +5,7 @@ import remoteInterface.Client_Helper;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import bill.StockBill_Out;
+import po.bills.StockBill_Out;
 public interface Commodity_Out_Manage extends Client_Helper {
 	
 	public boolean insert(StockBill_Out bill,String ID) throws RemoteException;

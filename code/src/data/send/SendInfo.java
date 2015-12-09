@@ -6,8 +6,8 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import bill.OrderBillPO;
 import data.Iphelper.Iphelper;
+import po.bills.OrderBillPO;
 
 public class SendInfo implements SendInfoHelper{
 	OrderBillPO a;

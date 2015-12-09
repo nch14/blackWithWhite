@@ -2,7 +2,7 @@ package data.shipment;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import bill.BusShipmentBill_Shop;
+import po.bills.BusShipmentBill_Shop;
 import remoteInterface.Client_Helper;
 
 public interface BusTransBill_ShopHelper extends Client_Helper{

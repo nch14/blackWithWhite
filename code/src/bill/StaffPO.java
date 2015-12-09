@@ -16,7 +16,7 @@ public class StaffPO {
 		this.name=staff.name;
 		this.passwords=staff.passwords;
 		this.department=staff.department;
-		this.pos=staff.pos;
+		this.pos=staff.position;
 		this.ID=staff.ID;
 		this.birthyear=Integer.parseInt(TimeHelper.getTime().substring(0, 4))-staff.age;
 		this.sex=staff.isBoy;

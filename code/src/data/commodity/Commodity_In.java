@@ -8,8 +8,8 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import bill.StockBill_In;
 import data.Iphelper.Iphelper;
+import po.bills.StockBill_In;
 
 public class Commodity_In implements Commodity_In_Manage{
 	boolean result;

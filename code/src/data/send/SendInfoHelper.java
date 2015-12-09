@@ -3,7 +3,7 @@ package data.send;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import bill.OrderBillPO;
+import po.bills.OrderBillPO;
 import remoteInterface.Client_Helper;
 
 public interface SendInfoHelper extends Client_Helper {

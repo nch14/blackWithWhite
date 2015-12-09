@@ -3,7 +3,7 @@ package data.staff;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import bill.DriverPO;
+import po.DriverPO;
 import remoteInterface.Client_Helper;
 
 public interface DriverInfoHelper extends Client_Helper{

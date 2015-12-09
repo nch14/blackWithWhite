@@ -2,8 +2,8 @@ package vo;
 
 import java.util.ArrayList;
 
-import bill.PaymentBill;
-import bill.ReceiveMoneyBill;
+import po.bills.PaymentBill;
+import po.bills.ReceiveMoneyBill;
 /**
  * pay 为付款单链表
  * paid为收款单链表

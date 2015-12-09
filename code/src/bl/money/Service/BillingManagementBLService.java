@@ -1,6 +1,6 @@
 package bl.money.Service;
 
-import bill.ReceiveMoneyBill;
+import po.bills.ReceiveMoneyBill;
 
 /**
  * Ω·À„π‹¿Ì

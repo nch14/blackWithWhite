@@ -7,8 +7,8 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import bill.ArrivementBill_Shop;
 import data.Iphelper.Iphelper;
+import po.bills.ArrivementBill_Shop;
 
 public class Arrive_Shop implements Arrive_ShopHelper{
 	ArrivementBill_Shop a;

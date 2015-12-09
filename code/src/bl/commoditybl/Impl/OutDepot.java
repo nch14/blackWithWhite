@@ -2,8 +2,8 @@ package bl.commoditybl.Impl;
 
 import java.util.ArrayList;
 
-import bill.StockBill_Out;
 import data.commodity.Commodity_Out;
+import po.bills.StockBill_Out;
 import tools.DepartmentHelper;
 
 public class OutDepot {

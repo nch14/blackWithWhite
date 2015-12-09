@@ -1,6 +1,6 @@
 package bl.shipment.Service;
 
-import bill.ArrivementBill_Center;
+import po.bills.ArrivementBill_Center;
 
 /**
  * 中转接受

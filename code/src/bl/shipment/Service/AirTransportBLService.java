@@ -1,6 +1,6 @@
 package bl.shipment.Service;
 
-import bill.TransportBill_Plane;
+import po.bills.TransportBill_Plane;
 
 /**
  * ×´Ì¬£ºÒÑÍê³É

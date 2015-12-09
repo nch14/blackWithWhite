@@ -1,7 +1,7 @@
 package bl.shipment.Impl;
 
-import bill.TransportBill_Plane;
 import bl.shipment.Service.AirTransportBLService;
+import po.bills.TransportBill_Plane;
 
 public class AirTransportController implements AirTransportBLService {
 	AirTransport airTransport;

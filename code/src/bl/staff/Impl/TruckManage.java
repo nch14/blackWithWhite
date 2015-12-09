@@ -3,9 +3,9 @@ package bl.staff.Impl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import bill.DriverPO;
 import bill.TruckPO;
 import data.staff.BusInfo;
+import po.DriverPO;
 
 public class TruckManage {
 	BusInfo truckInfo;

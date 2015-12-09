@@ -1,8 +1,8 @@
 package bl.receivement.Service;
 
-import bill.AllocateBill;
-import bill.ArrivementBill;
-import bill.ArrivementBill_Shop;
+import po.bills.AllocateBill;
+import po.bills.ArrivementBill;
+import po.bills.ArrivementBill_Shop;
 
 /**
  * 接收与派件

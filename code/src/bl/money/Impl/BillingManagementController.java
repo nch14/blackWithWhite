@@ -1,7 +1,7 @@
 package bl.money.Impl;
 
-import bill.ReceiveMoneyBill;
 import bl.money.Service.BillingManagementBLService;
+import po.bills.ReceiveMoneyBill;
 
 public class BillingManagementController implements BillingManagementBLService {
 	BillingManagement billingManagement;

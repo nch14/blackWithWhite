@@ -7,8 +7,8 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import bill.BusShipmentBill_Center;
 import data.Iphelper.Iphelper;
+import po.bills.BusShipmentBill_Center;
 
 public class BusTransBill_Center implements BusTransBill_CenterHelper{
 	BusShipmentBill_Center a;

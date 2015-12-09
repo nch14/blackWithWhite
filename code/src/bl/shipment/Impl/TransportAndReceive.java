@@ -1,7 +1,7 @@
 package bl.shipment.Impl;
 
-import bill.ArrivementBill_Center;
 import data.shipment.Arrive_Center;
+import po.bills.ArrivementBill_Center;
 
 public class TransportAndReceive {
 	Arrive_Center arrive_center;

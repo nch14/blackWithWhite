@@ -2,8 +2,8 @@ package bl.commoditybl.Impl;
 
 import java.util.ArrayList;
 
-import bill.StockBill_In;
 import bl.commoditybl.Service.InDepotBLService;
+import po.bills.StockBill_In;
 
 public class InDepotController implements InDepotBLService {
 	InDepot inDepot;

@@ -1,4 +1,4 @@
-package bill;
+package po.bills;
 
 import java.io.Serializable;
 

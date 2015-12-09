@@ -15,8 +15,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import bill.StockBill_In;
-import bill.StockBill_Out;
 import bl.commoditybl.Impl.AreaAdjustController;
 import bl.commoditybl.Impl.InDepotController;
 import bl.commoditybl.Impl.InitDepotAreaController;
@@ -27,6 +25,8 @@ import bl.commoditybl.Service.InDepotBLService;
 import bl.commoditybl.Service.InitDepotAreaBLService;
 import bl.commoditybl.Service.InventoryBLService;
 import bl.commoditybl.Service.OutDepotBLService;
+import po.bills.StockBill_In;
+import po.bills.StockBill_Out;
 
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;

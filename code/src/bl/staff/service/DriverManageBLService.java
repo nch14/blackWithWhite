@@ -2,8 +2,8 @@ package bl.staff.service;
 
 import java.util.ArrayList;
 
-import bill.DriverPO;
 import bill.TruckPO;
+import po.DriverPO;
 
 public interface DriverManageBLService {
 	/**

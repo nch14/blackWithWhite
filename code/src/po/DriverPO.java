@@ -1,4 +1,4 @@
-package bill;
+package po;
 /**
  * 不检查数据格式是否正确
  * @author nch

@@ -1,9 +1,9 @@
 package bl.shipment.Impl;
 
-import bill.BusShipmentBill_Center;
-import bill.TransportBill_Truck;
 import data.shipment.BusShipment;
 import data.shipment.BusTransBill_Center;
+import po.bills.BusShipmentBill_Center;
+import po.bills.TransportBill_Truck;
 import tools.MoneyHelper;
 
 public class TruckTransportManage {

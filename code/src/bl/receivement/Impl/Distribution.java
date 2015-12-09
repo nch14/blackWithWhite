@@ -1,10 +1,10 @@
 package bl.receivement.Impl;
 
-import bill.AllocateBill;
-import bill.ArrivementBill_Shop;
 import bl.information.Impl.InformationController;
 import data.shipment.Allocate;
 import data.shipment.Arrive_Shop;
+import po.bills.AllocateBill;
+import po.bills.ArrivementBill_Shop;
 import tools.DepartmentHelper;
 import tools.TimeHelper;
 

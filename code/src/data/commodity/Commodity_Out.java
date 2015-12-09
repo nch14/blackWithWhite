@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import bill.*;
 import data.Iphelper.Iphelper;
+import po.bills.StockBill_Out;
  
 public class Commodity_Out implements Commodity_Out_Manage{
 	boolean result;

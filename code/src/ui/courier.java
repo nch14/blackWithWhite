@@ -19,12 +19,12 @@ import javax.swing.JTable;
 import javax.swing.JCheckBox;
 import javax.swing.table.DefaultTableModel;
 
-import bill.OrderBillPO;
 import bl.send.Impl.PredictTimeAndMonthController;
 import bl.send.Impl.Send;
 import bl.send.Impl.SendController;
 import bl.send.Service.PredictTimeAndMontyBLService;
 import bl.send.Service.SendBLService;
+import po.bills.OrderBillPO;
 
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
