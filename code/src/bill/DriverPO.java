@@ -7,11 +7,11 @@ package bill;
 public class DriverPO {
 	public String ID;
 	public String name;
-	String IDNumber;
-	String birthday;
-	boolean isBoy;
-	String tel;
-	String validData;
+	public String IDNumber;
+	public String birthday;
+	public boolean isBoy;
+	public String tel;
+	public String validData;
 	
 
 	public DriverPO(String ID,String name,String IDNumber,String birthday,

@@ -6,6 +6,7 @@ import java.rmi.RemoteException;
 import bill.StaffPO;
 import bl.staff.service.LoginService;
 import data.staff.MemberInfo;
+import tools.DepartmentHelper;
 import vo.StaffVO;
 
 public class LoginController implements LoginService{
@@ -23,8 +24,9 @@ public class LoginController implements LoginService{
 				return null;
 			if(!passwords.equals(staff.passwords))
 				return null;
-			StaffVO staffToShow=new StaffVO(staff);
-			return staffToShow;
+			StaffVO thisUser=new StaffVO(staff);
+			DepartmentHelper helper=new DepartmentHelper(thisUser);
+			return thisUser;
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

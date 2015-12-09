@@ -7,7 +7,7 @@ package bill;
 public class TruckPO {
 	public String vehicleCode;
 	public String licensePlate;
-	String serviceTime;	
+	public String serviceTime;	
 
 	public TruckPO(String vehicleCode,String licensePlate,String serviceTime){
 		this.vehicleCode=vehicleCode;
