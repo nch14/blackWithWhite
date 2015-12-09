@@ -1,7 +1,7 @@
 package bl.shipment.Impl;
 
+import bill.BusShipmentBill_Shop;
 import bl.shipment.Service.TruckLoadingManageBLService;
-import po.bills.BusShipmentBill_Shop;
 
 public class TruckLoadingManageController implements TruckLoadingManageBLService {
 	TruckLoadingManage truckLoadingManage;

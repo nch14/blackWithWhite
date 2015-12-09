@@ -6,8 +6,8 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bill.ReceiveMoneyBill;
 import data.Iphelper.Iphelper;
-import po.bills.ReceiveMoneyBill;
 
 public class PaidBill implements PaidBillHelper{
 	boolean result;

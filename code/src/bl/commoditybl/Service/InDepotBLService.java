@@ -3,7 +3,7 @@ package bl.commoditybl.Service;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import po.bills.StockBill_In;
+import bill.StockBill_In;
 
 /**
  * »Îø‚π‹¿Ì

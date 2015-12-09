@@ -1,11 +1,7 @@
-package po.bills;
+package bill;
 
 import java.util.ArrayList;
-/**
- * 派件单
- * @author 倪辰皓
- *
- */
+
 public class AllocateBill {
 	public String ID;//单据的ID
 	public boolean judged;

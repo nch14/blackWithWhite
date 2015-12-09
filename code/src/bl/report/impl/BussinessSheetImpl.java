@@ -2,10 +2,10 @@ package bl.report.impl;
 
 import java.util.ArrayList;
 
+import bill.PaymentBill;
+import bill.ReceiveMoneyBill;
 import bl.money.Impl.PaidController;
 import bl.money.Impl.PayController;
-import po.bills.PaymentBill;
-import po.bills.ReceiveMoneyBill;
 import tools.ExcelHelper;
 import vo.BussinessSheetVO;
 

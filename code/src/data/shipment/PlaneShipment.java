@@ -7,8 +7,8 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bill.TransportBill_Plane;
 import data.Iphelper.Iphelper;
-import po.bills.TransportBill_Plane;
 
 public class PlaneShipment implements PlaneShipmentHelper{
 	TransportBill_Plane a;

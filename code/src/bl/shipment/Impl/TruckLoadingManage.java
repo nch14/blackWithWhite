@@ -1,7 +1,7 @@
 package bl.shipment.Impl;
 
+import bill.BusShipmentBill_Shop;
 import data.shipment.BusTransBill_Shop;
-import po.bills.BusShipmentBill_Shop;
 import tools.MoneyHelper;
 
 public class TruckLoadingManage {

@@ -3,9 +3,9 @@ package bl.money.Impl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bill.PaymentBill;
+import bill.ReceiveMoneyBill;
 import data.money.PayBill;
-import po.bills.PaymentBill;
-import po.bills.ReceiveMoneyBill;
 
 /**
  * 填写付款单的领域对象

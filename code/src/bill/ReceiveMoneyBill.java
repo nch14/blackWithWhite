@@ -1,4 +1,4 @@
-package po.bills;
+package bill;
 
 import java.util.ArrayList;
 /**

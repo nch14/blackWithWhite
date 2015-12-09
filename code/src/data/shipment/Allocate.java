@@ -6,8 +6,8 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bill.AllocateBill;
 import data.Iphelper.Iphelper;
-import po.bills.AllocateBill;
 
 public class Allocate implements AllocateHelper{
 	AllocateBill a;

@@ -2,7 +2,7 @@ package bl.commoditybl.Service;
 
 import java.util.ArrayList;
 
-import po.bills.StockBill_Out;
+import bill.StockBill_Out;
 /**
  * ³ö¿â
  * @author Äß³½ð©

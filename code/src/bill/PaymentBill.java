@@ -1,4 +1,4 @@
-package po.bills;
+package bill;
 /**
  * ¸¶¿îµ¥
  * @author Äß³½ð©

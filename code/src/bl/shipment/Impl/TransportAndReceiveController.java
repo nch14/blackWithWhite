@@ -1,7 +1,7 @@
 package bl.shipment.Impl;
 
+import bill.ArrivementBill_Center;
 import bl.shipment.Service.TransportAndReceiveBLService;
-import po.bills.ArrivementBill_Center;
 
 public class TransportAndReceiveController implements TransportAndReceiveBLService {
 	TransportAndReceive transportAndReceive;

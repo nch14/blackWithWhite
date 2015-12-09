@@ -7,8 +7,8 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bill.TransportBill_Truck;
 import data.Iphelper.Iphelper;
-import po.bills.TransportBill_Truck;
 
 public class BusShipment implements BusShipmentHelper{
 	TransportBill_Truck a;

@@ -2,8 +2,8 @@ package bl.commoditybl.Impl;
 
 import java.util.ArrayList;
 
+import bill.StockBill_Out;
 import bl.commoditybl.Service.OutDepotBLService;
-import po.bills.StockBill_Out;
 
 /**
  * Created by Äß³½ð© on 2015/12/5.

@@ -10,8 +10,8 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
-import po.bills.PaymentBill;
-import po.bills.ReceiveMoneyBill;
+import bill.PaymentBill;
+import bill.ReceiveMoneyBill;
 import vo.BussinessSheetVO;
 import vo.ProfitSheetVO;
 

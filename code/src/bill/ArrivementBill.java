@@ -1,8 +1,6 @@
-package po.bills;
+package bill;
 
 import java.util.ArrayList;
-
-import bill.State;
 
 public class ArrivementBill {
 	
@@ -21,6 +19,9 @@ public class ArrivementBill {
 		}	
 		return back;	
 	}
+
+	
+	
 	class struct{
 		public String id;
 		State st;

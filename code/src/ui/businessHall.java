@@ -54,12 +54,12 @@ import java.util.Timer;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
+import bill.DriverPO;
 import bill.TruckPO;
 import bl.staff.Impl.DriverManage;
 import bl.staff.Impl.DriverManageCotroller;
 import bl.staff.Impl.TruckManage;
 import bl.staff.Impl.TruckManageController;
-import po.DriverPO;
 
 public class businessHall {
 

@@ -2,7 +2,7 @@ package bl.send.Service;
 
 import java.util.ArrayList;
 
-import po.bills.OrderBillPO;
+import bill.OrderBillPO;
 
 public interface SendBLService {
 	

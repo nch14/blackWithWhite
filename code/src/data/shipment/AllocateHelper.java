@@ -2,7 +2,7 @@ package data.shipment;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import po.bills.AllocateBill;
+import bill.AllocateBill;
 import remoteInterface.Client_Helper;
 
 public interface AllocateHelper extends Client_Helper {

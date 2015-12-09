@@ -1,7 +1,7 @@
 package bl.shipment.Service;
 
-import po.bills.BusShipmentBill_Center;
-import po.bills.TransportBill_Truck;
+import bill.BusShipmentBill_Center;
+import bill.TransportBill_Truck;
 
 /**
  * 汽车装运管理

@@ -1,7 +1,7 @@
 package bl.shipment.Impl;
 
+import bill.TransportBill_Train;
 import bl.shipment.Service.TrainTransportBLService;
-import po.bills.TransportBill_Train;
 import tools.MoneyHelper;
 
 public class TrainTransportController implements TrainTransportBLService{

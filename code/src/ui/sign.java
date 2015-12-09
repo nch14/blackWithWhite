@@ -99,11 +99,11 @@ public class sign {
 			if(staff==null){
 				 label_2.setText("登录失败");
 			}
-			else if(staff.position=="中转中心仓库管理人员"){
+			else if(staff.pos=="中转中心仓库管理人员"){
 				frame.dispose();
 				 commodity man=new commodity();
 				 man.main();
-			}else if(staff.position=="快递员"){
+			}else if(staff.pos=="快递员"){
 				frame.dispose();
 				 courier.main();
 			}

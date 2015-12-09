@@ -1,6 +1,6 @@
 package bl.shipment.Service;
 
-import po.bills.TransportBill_Train;
+import bill.TransportBill_Train;
 
 /**
  * 飞机装运管理

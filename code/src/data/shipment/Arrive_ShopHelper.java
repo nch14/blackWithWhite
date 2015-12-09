@@ -3,7 +3,7 @@ package data.shipment;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import po.bills.ArrivementBill_Shop;
+import bill.ArrivementBill_Shop;
 import remoteInterface.Client_Helper;
 
 public interface Arrive_ShopHelper extends Client_Helper {

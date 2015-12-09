@@ -1,4 +1,4 @@
-package po.bills;
+package bill;
 
 public class TransportBill_Plane extends TransportBill {
 	String planeID;

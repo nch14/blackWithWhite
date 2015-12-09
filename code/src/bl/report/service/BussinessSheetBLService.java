@@ -1,7 +1,5 @@
 package bl.report.service;
 
-import java.rmi.RemoteException;
-
 import vo.BussinessSheetVO;
 
 public interface BussinessSheetBLService {
@@ -12,7 +10,7 @@ public interface BussinessSheetBLService {
 	 * @param end Ω· ¯ ±º‰
 	 * @return
 	 */
-	public BussinessSheetVO show (String start,String end) throws RemoteException ;
+	public BussinessSheetVO show (String start,String end);
 	
 	
 	/**

@@ -2,8 +2,8 @@ package bl.money.Service;
 
 import java.util.ArrayList;
 
-import po.bills.PaymentBill;
-import po.bills.ReceiveMoneyBill;
+import bill.PaymentBill;
+import bill.ReceiveMoneyBill;
 
 /**
  * 填写付款单（付款单的创建）

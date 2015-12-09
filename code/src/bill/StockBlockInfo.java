@@ -2,9 +2,8 @@ package bill;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-
-import po.bills.StockBill_Out;
-import po.bills.StockBill_Out.Info;
+import bill.StockBill_Out;
+import bill.StockBill_Out.Info;
 
 public class StockBlockInfo implements Serializable{
 	//HashMap<Integer,Row> base=new HashMap<Integer,Row>();

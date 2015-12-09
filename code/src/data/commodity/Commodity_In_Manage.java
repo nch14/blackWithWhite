@@ -6,7 +6,7 @@ import remoteInterface.Client_Helper;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import po.bills.StockBill_In;
+import bill.StockBill_In;
 public interface Commodity_In_Manage extends Client_Helper {
 	/**
 	 * 插入入库单,ID为中转中心编号

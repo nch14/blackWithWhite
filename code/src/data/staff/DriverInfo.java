@@ -7,8 +7,8 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bill.DriverPO;
 import data.Iphelper.Iphelper;
-import po.DriverPO;
 
 public class DriverInfo implements DriverInfoHelper{
 

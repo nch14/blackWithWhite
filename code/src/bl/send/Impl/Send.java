@@ -1,11 +1,11 @@
 package bl.send.Impl;
 
 import data.send.SendInfo;
-import po.bills.OrderBillPO;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import bill.OrderBillPO;
 import bl.information.Impl.InformationController;
 
 public class Send {
