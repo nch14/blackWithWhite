@@ -23,8 +23,14 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
 
+import bl.report.impl.BussinessSheetController;
+import bl.report.impl.ProfitSheetController;
+import bl.report.service.BussinessSheetBLService;
+import bl.report.service.ProfitSheetBLService;
 import bl.staff.Impl.StaffManageController;
 import bl.staff.service.StaffManageBLService;
+import vo.BussinessSheetVO;
+import vo.ProfitSheetVO;
 import vo.StaffVO;
 
 import javax.swing.JLabel;
@@ -34,7 +40,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Date;
 import java.text.SimpleDateFormat;
-
+import java.lang.Thread;
 
 public class manager {
 
@@ -65,16 +71,23 @@ public class manager {
 	private JTable table_6;
 	private JTextField textField_15;
 	private JTextField textField_16;
-
+	BussinessSheetBLService bussinesssheet = new BussinessSheetController();
+	
+	ProfitSheetBLService profitsheet = new ProfitSheetController();
+	
 	/**
 	 * Launch the application.
 	 */
-	public void main() {
+	public static void main() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					manager window = new manager();
 					window.frame.setVisible(true);
+					
+					Thread t1 = new Thread();//定义第一个线程  
+					//启动  
+					t1.start();//启动第一个线程
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -112,7 +125,6 @@ public class manager {
 		label_18.setBounds(282, 0, 436, 21);
 		desktopPane.add(label_18);
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-		label_18.setText(df.format(new Date()));df.format(new Date());// new Date()为获取当前系统时间
 		
 		JTabbedPane tabbedPane_1 = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane_1.setBounds(46, 36, 883, 536);
@@ -166,8 +178,7 @@ public class manager {
 		));
 		table.getColumnModel().getColumn(0).setPreferredWidth(15);
 		scrollPane.setViewportView(table);
-		table.getColumnModel().getColumn(0).setCellEditor(new MyRender());//设置编辑器	
-		table.getColumnModel().getColumn(0).setCellRenderer(new MyRender() );
+		
 		
 		JCheckBox checkBox = new JCheckBox("");
 		checkBox.setBounds(154, 479, 21, 23);
@@ -238,8 +249,6 @@ public class manager {
 			}
 		));
 		scrollPane1.setViewportView(table);
-		table.getColumnModel().getColumn(0).setCellEditor(new MyRender());//设置编辑器	
-		table.getColumnModel().getColumn(0).setCellRenderer(new MyRender() );
 		
 		JCheckBox checkBox1 = new JCheckBox("");
 		checkBox.setBounds(154, 479, 21, 23);
@@ -305,8 +314,6 @@ public class manager {
 		));
 		table_7.getColumnModel().getColumn(4).setPreferredWidth(84);
 		scrollPane2.setViewportView(table_7);
-		table_7.getColumnModel().getColumn(0).setCellEditor(new MyRender());//设置编辑器	
-		table_7.getColumnModel().getColumn(0).setCellRenderer(new MyRender() );
 		
 		JCheckBox checkBox2 = new JCheckBox("");
 		checkBox2.setBounds(154, 479, 21, 23);
@@ -371,8 +378,6 @@ public class manager {
 			}
 		));
 		scrollPane3.setViewportView(table);
-		table.getColumnModel().getColumn(0).setCellEditor(new MyRender());//设置编辑器	
-		table.getColumnModel().getColumn(0).setCellRenderer(new MyRender() );
 		
 		JCheckBox checkBox3 = new JCheckBox("");
 		checkBox.setBounds(154, 479, 21, 23);
@@ -437,8 +442,6 @@ public class manager {
 			}
 		));
 		scrollPane4.setViewportView(table);
-		table.getColumnModel().getColumn(0).setCellEditor(new MyRender());//设置编辑器	
-		table.getColumnModel().getColumn(0).setCellRenderer(new MyRender() );
 		
 		JCheckBox checkBox4 = new JCheckBox("");
 		checkBox4.setBounds(154, 479, 21, 23);
@@ -504,8 +507,6 @@ public class manager {
 		));
 		table_8.getColumnModel().getColumn(4).setPreferredWidth(82);
 		scrollPane5.setViewportView(table_8);
-		table_8.getColumnModel().getColumn(0).setCellEditor(new MyRender());//设置编辑器	
-		table_8.getColumnModel().getColumn(0).setCellRenderer(new MyRender() );
 		
 		JCheckBox checkBox5 = new JCheckBox("");
 		checkBox5.setBounds(154, 479, 21, 23);
@@ -570,8 +571,6 @@ public class manager {
 			}
 		));
 		scrollPane6.setViewportView(table);
-		table.getColumnModel().getColumn(0).setCellEditor(new MyRender());//设置编辑器	
-		table.getColumnModel().getColumn(0).setCellRenderer(new MyRender() );
 		
 		JCheckBox checkBox6 = new JCheckBox("");
 		checkBox6.setBounds(154, 479, 21, 23);
@@ -636,8 +635,6 @@ public class manager {
 			}
 		));
 		scrollPane7.setViewportView(table);
-		table.getColumnModel().getColumn(0).setCellEditor(new MyRender());//设置编辑器	
-		table.getColumnModel().getColumn(0).setCellRenderer(new MyRender() );
 		
 		JCheckBox checkBox7 = new JCheckBox("");
 		checkBox7.setBounds(154, 479, 21, 23);
@@ -702,8 +699,6 @@ public class manager {
 			}
 		));
 		scrollPane8.setViewportView(table);
-		table.getColumnModel().getColumn(0).setCellEditor(new MyRender());//设置编辑器	
-		table.getColumnModel().getColumn(0).setCellRenderer(new MyRender() );
 		
 		JCheckBox checkBox8 = new JCheckBox("");
 		checkBox8.setBounds(154, 479, 21, 23);
@@ -768,8 +763,6 @@ public class manager {
 			}
 		));
 		scrollPane9.setViewportView(table);
-		table.getColumnModel().getColumn(0).setCellEditor(new MyRender());//设置编辑器	
-		table.getColumnModel().getColumn(0).setCellRenderer(new MyRender() );
 		
 		JCheckBox checkBox9 = new JCheckBox("");
 		checkBox9.setBounds(154, 479, 21, 23);
@@ -794,7 +787,6 @@ public class manager {
 		JLabel label_19 = new JLabel();
 		label_19.setBounds(282, 0, 436, 21);
 		desktopPane_1.add(label_19);
-		label_19.setText(df.format(new Date()));df.format(new Date());
 		
 		JTabbedPane tabbedPane_2 = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane_2.setBounds(46, 36, 881, 536);
@@ -840,16 +832,25 @@ public class manager {
 		comboBox_1.setBounds(612, 23, 200, 21);
 		desktopPane_13.add(comboBox_1);
 		
+		JComboBox comboBox_5 = new JComboBox();
+		comboBox_5.setModel(new DefaultComboBoxModel(new String[] {"\u7537", "\u5973"}));
+		comboBox_5.setBounds(320, 23, 38, 21);
+		desktopPane_13.add(comboBox_5);
+		
+		/*
+		 * 雇佣新员工添加
+		 */
 		JButton button_3 = new JButton("\u6DFB\u52A0");
 		button_3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				for(int i=0;i<table_1.getRowCount();i++){
-					if(table_1.getValueAt(i, 1)==null&&table_1.getValueAt(i, 2)==null&&table_1.getValueAt(i, 3)==null&&table_1.getValueAt(i, 4)==null){
+					if(table_1.getValueAt(i, 1)==null&&table_1.getValueAt(i, 2)==null){
 						table_1.setValueAt(textField_3.getText(), i, 1);
 						table_1.setValueAt(textField_4.getText(), i, 2);
-						table_1.setValueAt(comboBox.getSelectedItem(), i, 3);
-						table_1.setValueAt(comboBox_1.getSelectedItem(), i, 4);
+						table_1.setValueAt(comboBox_5.getSelectedItem(), i, 3);
+						table_1.setValueAt(comboBox.getSelectedItem(), i, 4);
+						table_1.setValueAt(comboBox_1.getSelectedItem(), i, 5);
 						textField_3.setText(null);
 						textField_4.setText(null);
 						comboBox.setToolTipText("快递员");
@@ -869,45 +870,55 @@ public class manager {
 		table_1 = new JTable();
 		table_1.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
+				{null, null, null, null, null,null},
+				{null, null, null, null, null,null},
+				{null, null, null, null, null,null},
+				{null, null, null, null, null,null},
+				{null, null, null, null, null,null},
+				{null, null, null, null, null,null},
+				{null, null, null, null, null,null},
+				{null, null, null, null, null,null},
+				{null, null, null, null, null,null},
+				{null, null, null, null, null,null},
+				{null, null, null, null, null,null},
+				{null, null, null, null, null,null},
+				{null, null, null, null, null,null},
+				{null, null, null, null, null,null},
+				{null, null, null, null, null,null},
+				{null, null, null, null, null,null},
+				{null, null, null, null, null,null},
+				{null, null, null, null, null,null},
+				{null, null, null, null, null,null},
+				{null, null, null, null, null,null},
 			},
 			new String[] {
-				"New column", "用户ID", "姓名", "年龄", "职位", "所属部门"
+				"\u7528\u6237ID", "\u59D3\u540D", "\u5E74\u9F84", "6027\u522B","\u804C\u4F4D", "\u6240\u5C5E\u90E8\u95E8"
 			}
 		));
 		scrollPane_1.setViewportView(table_1);
-		table_1.getColumnModel().getColumn(0).setCellEditor(new MyRender());//设置编辑器	
-		table_1.getColumnModel().getColumn(0).setCellRenderer(new MyRender() );
 		
-		JCheckBox checkBox_1 = new JCheckBox("");
-		checkBox_1.setBounds(70, 467, 21, 23);
-		desktopPane_13.add(checkBox_1);
-		
+		/*
+		 * 雇佣新员工信息撤销
+		 */
 		JButton button_4 = new JButton("\u64A4\u9500");
-		button_4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+		button_4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				for(int i=table_1.getRowCount()-1;i>=0;i--){
+					if(table_1.getValueAt(i, 1)!=null&&table_1.getValueAt(i, 2)!=null){
+						table_1.setValueAt(null, i, 0);
+						table_1.setValueAt(null, i, 1);
+						table_1.setValueAt(null, i, 2);
+						table_1.setValueAt(null, i, 3);
+						table_1.setValueAt(null, i, 4);
+						table_1.setValueAt(null, i, 5);
+						
+					}
+				}
 			}
 		});
-		button_4.setBounds(97, 467, 93, 23);
+		
+		button_4.setBounds(74, 467, 93, 23);
 		desktopPane_13.add(button_4);
 		
 		/*
@@ -924,9 +935,10 @@ public class manager {
 				staff[i]=staffvo;
 				}
 				StaffManageBLService addnewstaff = new StaffManageController();
-				addnewstaff.addNewStaff(staff);
-				if(addnewstaff.addNewStaff(staff)==true){
+				boolean istrue=addnewstaff.addNewStaff(staff);
+				if(istrue==true){
 					for(int i=0;i<table_2.getRowCount();i++){
+						table_2.setValueAt(null, i, 0);	
 						table_2.setValueAt(null, i, 1);
 						table_2.setValueAt(null, i, 2);
 						table_2.setValueAt(null, i, 3);
@@ -945,10 +957,7 @@ public class manager {
 		label_21.setBounds(286, 26, 54, 15);
 		desktopPane_13.add(label_21);
 		
-		JComboBox comboBox_5 = new JComboBox();
-		comboBox_5.setModel(new DefaultComboBoxModel(new String[] {"\u7537", "\u5973"}));
-		comboBox_5.setBounds(320, 23, 38, 21);
-		desktopPane_13.add(comboBox_5);
+		
 		
 		JDesktopPane desktopPane_14 = new JDesktopPane();
 		desktopPane_14.setBackground(Color.WHITE);
@@ -963,10 +972,33 @@ public class manager {
 		desktopPane_14.add(textField_5);
 		textField_5.setColumns(10);
 		
-		JButton button_6 = new JButton("\u63D0\u4EA4");
+		/*
+		 * 解雇员工信息查询
+		 */
+		JButton button_6 = new JButton("\u67E5\u8BE2");
 		button_6.setBounds(550, 65, 93, 23);
 		desktopPane_14.add(button_6);
-		
+        button_6.addMouseListener(new MouseAdapter() {
+			
+			public void mouseClicked(MouseEvent e) {
+				StaffManageBLService getstaff = new StaffManageController();
+				StaffVO staff;
+				staff=getstaff.getStaff(textField_5.getText());
+				if(staff==null){
+			    	
+			    }else{
+			    	for(int i=0;i<table_2.getRowCount();i++){
+			    		if(table_2.getValueAt(i, 0)==null){
+			    			table_2.setValueAt(staff.ID, i, 0);
+			    			table_2.setValueAt(staff.name, i, 1);
+			    			table_2.setValueAt(staff.age, i, 2);
+			    			table_2.setValueAt(staff.pos, i, 3);
+			    			table_2.setValueAt(staff.department, i, 4);
+			    		}
+			    	}
+			    }
+			}
+			});
 		JScrollPane scrollPane_2 = new JScrollPane();
 		scrollPane_2.setBounds(77, 115, 675, 334);
 		desktopPane_14.add(scrollPane_2);
@@ -974,43 +1006,58 @@ public class manager {
 		table_2 = new JTable();
 		table_2.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
+				{ null, null, null, null, null},
+				{ null, null, null, null, null},
+				{ null, null, null, null, null},
+				{ null, null, null, null, null},
+				{ null, null, null, null, null},
+				{ null, null, null, null, null},
+				{ null, null, null, null, null},
+				{ null, null, null, null, null},
+				{ null, null, null, null, null},
+				{ null, null, null, null, null},
+				{ null, null, null, null, null},
+				{ null, null, null, null, null},
+				{ null, null, null, null, null},
+				{ null, null, null, null, null},
+				{ null, null, null, null, null},
+				{ null, null, null, null, null},
+				{ null, null, null, null, null},
+				{ null, null, null, null, null},
+				{ null, null, null, null, null},
+				{ null, null, null, null, null},
+				{ null, null, null, null, null},
 			},
 			new String[] {
-				"New column", "用户ID", "姓名", "年龄", "职位", "所属部门"
+				 "用户ID", "姓名", "年龄", "职位", "所属部门"
 			}
 		));
 		scrollPane_2.setViewportView(table_2);
-		table_2.getColumnModel().getColumn(0).setCellEditor(new MyRender());//设置编辑器	
-		table_2.getColumnModel().getColumn(0).setCellRenderer(new MyRender() );
 		
 		JCheckBox checkBox_2 = new JCheckBox("");
 		checkBox_2.setBounds(77, 465, 21, 23);
 		desktopPane_14.add(checkBox_2);
 		
+		/*
+		 * 解雇员工信息撤销
+		 */
 		JButton button_7 = new JButton("\u64A4\u9500");
 		button_7.setBounds(104, 465, 93, 23);
 		desktopPane_14.add(button_7);
+		button_7.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				for(int i=table_2.getRowCount()-1;i>=0;i--){
+					if(table_2.getValueAt(i, 0)!=null&&table_2.getValueAt(i, 1)!=null){
+						table_2.setValueAt(null, i, 0);
+						table_2.setValueAt(null, i, 1);
+						table_2.setValueAt(null, i, 2);
+						table_2.setValueAt(null, i, 3);
+						table_2.setValueAt(null, i, 4);
+					}
+				}
+			}
+		});
 		
 		/*
 		 * 解雇员工信息提交
@@ -1019,13 +1066,13 @@ public class manager {
 		button_8.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				String[] staff=null;
+				String[] staff=new String[table_2.getRowCount()];
 				for(int i=0;i<table_2.getRowCount();i++){
-					staff[i]=table_2.getValueAt(i, 1).toString();
+					staff[i]=table_2.getValueAt(i, 0).toString();
 				}
 				StaffManageBLService deletestaff = new StaffManageController();
-				deletestaff.deleteStaff(staff);
-				if(deletestaff.deleteStaff(staff)==true){
+				boolean istrue=deletestaff.deleteStaff(staff);
+				if(istrue){
 					for(int i=0;i<table_2.getRowCount();i++){
 						table_2.setValueAt(null, i, 1);
 						table_2.setValueAt(null, i, 2);
@@ -1071,7 +1118,33 @@ public class manager {
 		comboBox_3.setBounds(563, 48, 200, 21);
 		desktopPane_15.add(comboBox_3);
 		
+		/*
+		 * 人事调动信息查询
+		 */
 		JButton button_9 = new JButton("\u6DFB\u52A0");
+		button_9.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				StaffManageBLService getstaff = new StaffManageController();
+				StaffVO staff;
+				staff=getstaff.getStaff(textField_6.getText());
+				if(staff==null){
+			    	
+			    }else{
+			    	for(int i=0;i<table_3.getRowCount();i++){
+			    		if(table_3.getValueAt(i, 0)==null){
+			    			table_3.setValueAt(staff.ID, i, 0);
+			    			table_3.setValueAt(staff.name, i, 1);
+			    			table_3.setValueAt(staff.age, i, 2);
+			    			table_3.setValueAt(staff.pos, i, 3);
+			    			table_3.setValueAt(comboBox_2.getSelectedItem(), i, 4);
+			    			table_3.setValueAt(staff.department, i, 5);
+			    			table_3.setValueAt(comboBox_3.getSelectedItem(), i, 6);
+			    		}
+			    	}
+			    }
+			}
+		});
 		button_9.setBounds(706, 79, 93, 23);
 		desktopPane_15.add(button_9);
 		
@@ -1082,41 +1155,54 @@ public class manager {
 		table_3 = new JTable();
 		table_3.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null},
 			},
 			new String[] {
-				"New column", "用户ID", "姓名", "年龄", "原职位", "原所属部门", "新职位", "新所属部门"
+				"\u7528\u6237ID", "\u59D3\u540D", "\u5E74\u9F84", "\u539F\u804C\u4F4D", "\u539F\u6240\u5C5E\u90E8\u95E8", "\u65B0\u804C\u4F4D", "\u65B0\u6240\u5C5E\u90E8\u95E8"
 			}
 		));
 		scrollPane_3.setViewportView(table_3);
-		table_3.getColumnModel().getColumn(0).setCellEditor(new MyRender());//设置编辑器	
-		table_3.getColumnModel().getColumn(0).setCellRenderer(new MyRender() );
 		
-		JCheckBox chckbxNewCheckBox = new JCheckBox("");
-		chckbxNewCheckBox.setBounds(98, 466, 21, 23);
-		desktopPane_15.add(chckbxNewCheckBox);
-		
+		/*
+		 * 人事调动信息撤销
+		 */
 		JButton button_10 = new JButton("\u64A4\u9500");
-		button_10.setBounds(125, 466, 93, 23);
+		button_10.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				for(int i=table_3.getRowCount()-1;i>=0;i--){
+					if(table_3.getValueAt(i, 0)!=null&&table_3.getValueAt(i, 1)!=null){
+						table_3.setValueAt(null, i, 0);
+						table_3.setValueAt(null, i, 1);
+						table_3.setValueAt(null, i, 2);
+						table_3.setValueAt(null, i, 3);
+						table_3.setValueAt(null, i, 4);
+						table_3.setValueAt(null, i, 5);
+						table_3.setValueAt(null, i, 6);
+					}
+				}
+			}
+		});
+		button_10.setBounds(77, 466, 93, 23);
 		desktopPane_15.add(button_10);
 		
 		/*
@@ -1126,25 +1212,25 @@ public class manager {
 		button_11.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				String[] ID = null;
-				String[] newPosition = null;
-				String[] newDepartment = null;
+				String[] ID = new String[table_3.getRowCount()];
+				String[] newPosition = new String[table_3.getRowCount()];
+				String[] newDepartment = new String[table_3.getRowCount()];
 				for(int i=0;i<table_3.getRowCount();i++){
 					ID[i]=table_3.getValueAt(i, 1).toString();
 					newPosition[i]=table_3.getValueAt(i, 6).toString();
 					newDepartment[i]=table_3.getValueAt(i, 7).toString();
 				}
 				StaffManageBLService changeposition = new StaffManageController();
-				changeposition.changePosition(ID, newPosition, newDepartment);
-				if(changeposition.changePosition(ID, newPosition, newDepartment)==true){
+				boolean istrue=changeposition.changePosition(ID, newPosition, newDepartment);
+				if(istrue){
 					for(int i=0;i<table_3.getRowCount();i++){
+						table_3.setValueAt(null, i, 0);
 						table_3.setValueAt(null, i, 1);
 						table_3.setValueAt(null, i, 2);
 						table_3.setValueAt(null, i, 3);
 						table_3.setValueAt(null, i, 4);
 						table_3.setValueAt(null, i, 5);
 						table_3.setValueAt(null, i, 6);
-						table_3.setValueAt(null, i, 7);
 					}
 				}else{
 					
@@ -1176,7 +1262,32 @@ public class manager {
 		comboBox_4.setBounds(537, 46, 99, 21);
 		desktopPane_16.add(comboBox_4);
 		
+		/*
+		 * 薪水策略信息查询
+		 */
 		JButton button_12 = new JButton("\u6DFB\u52A0");
+		button_12.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				StaffManageBLService getstaff = new StaffManageController();
+				StaffVO staff;
+				staff=getstaff.getStaff(textField_7.getText());
+				if(staff==null){
+			    	
+			    }else{
+			    	for(int i=0;i<table_4.getRowCount();i++){
+			    		if(table_4.getValueAt(i, 0)==null){
+			    			table_4.setValueAt(staff.ID, i, 0);
+			    			table_4.setValueAt(staff.name, i, 1);
+			    			table_4.setValueAt(staff.age, i, 2);
+			    			table_4.setValueAt(staff.pos, i, 3);
+			    			table_4.setValueAt(staff.SalaryModel, i, 4);
+			    			table_4.setValueAt(comboBox_4.getSelectedItem(), i, 5);
+			    		}
+			    	}
+			    }
+			}
+		});
 		button_12.setBounds(670, 76, 93, 23);
 		desktopPane_16.add(button_12);
 		
@@ -1187,41 +1298,53 @@ public class manager {
 		table_4 = new JTable();
 		table_4.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
 			},
 			new String[] {
-				"New column", "用户ID", "姓名", "年龄", "职位", "原薪水策略", "现薪水策略"
+				"\u7528\u6237ID", "\u59D3\u540D", "\u5E74\u9F84", "\u804C\u4F4D", "\u539F\u85AA\u6C34\u7B56\u7565", "\u73B0\u85AA\u6C34\u7B56\u7565"
 			}
 		));
 		scrollPane_4.setViewportView(table_4);
-		table_4.getColumnModel().getColumn(0).setCellEditor(new MyRender());//设置编辑器	
-		table_4.getColumnModel().getColumn(0).setCellRenderer(new MyRender() );
 		
-		JCheckBox chckbxNewCheckBox_1 = new JCheckBox("");
-		chckbxNewCheckBox_1.setBounds(110, 463, 21, 23);
-		desktopPane_16.add(chckbxNewCheckBox_1);
-		
+		/*
+		 * 薪水策略撤销
+		 */
 		JButton button_13 = new JButton("\u64A4\u9500");
-		button_13.setBounds(137, 463, 93, 23);
+		button_13.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				for(int i=table_4.getRowCount()-1;i>=0;i--){
+					if(table_4.getValueAt(i, 0)!=null&&table_4.getValueAt(i, 1)!=null){
+						table_4.setValueAt(null, i, 0);
+						table_4.setValueAt(null, i, 1);
+						table_4.setValueAt(null, i, 2);
+						table_4.setValueAt(null, i, 3);
+						table_4.setValueAt(null, i, 4);
+						table_4.setValueAt(null, i, 5);
+					}
+				}
+			}
+		});
+		button_13.setBounds(77, 463, 93, 23);
 		desktopPane_16.add(button_13);
 		
 		/*
@@ -1233,15 +1356,15 @@ public class manager {
 		button_11.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				String[] ID = null;
-				String[] salaryModel = null;
+				String[] ID = new String[table_4.getRowCount()];
+				String[] salaryModel = new String[table_4.getRowCount()];
 				for(int i=0;i<table_4.getRowCount();i++){
 					ID[i]=table_4.getValueAt(i, 1).toString();
 					salaryModel[i]=table_4.getValueAt(i, 6).toString();
 				}
 				StaffManageBLService changeSalarymodel = new StaffManageController();
-				changeSalarymodel.changesalarymodel(ID, salaryModel);
-				if(changeSalarymodel.changesalarymodel(ID, salaryModel)==true){
+				boolean istrue=changeSalarymodel.changesalarymodel(ID, salaryModel);
+				if(istrue==true){
 					for(int i=0;i<table_4.getRowCount();i++){
 						table_4.setValueAt(null, i, 1);
 						table_4.setValueAt(null, i, 2);
@@ -1263,7 +1386,6 @@ public class manager {
 		JLabel label_20 = new JLabel();
 		label_20.setBounds(282, 0, 436, 21);
 		desktopPane_2.add(label_20);
-		label_20.setText(df.format(new Date()));df.format(new Date());
 		
 		JTabbedPane tabbedPane_3 = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane_3.setBounds(46, 36, 881, 536);
@@ -1290,7 +1412,12 @@ public class manager {
 		desktopPane_17.add(btnNewButton);
 		 btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+
+				ProfitSheetVO profitSheet = profitsheet.show();
+				table_5.setValueAt(profitSheet.totalGet, 0, 0);
+				table_5.setValueAt(profitSheet.totalPay, 0, 1);
+				table_5.setValueAt(profitSheet.profit, 0, 2);
+				table_5.setValueAt(profitSheet.time, 0, 3);
 			}
 		});
 		
@@ -1330,6 +1457,27 @@ public class manager {
 		JLabel label_17 = new JLabel("\u65E5");
 		label_17.setBounds(506, 98, 54, 15);
 		desktopPane_17.add(label_17);
+		
+		/*
+		 * 导出成本收益表
+		 */
+		JButton button_17 = new JButton("\u5BFC\u51FA");
+		button_17.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				boolean istrue=profitsheet.export();
+				if(istrue){
+					table_5.setValueAt(null, 0, 0);
+					table_5.setValueAt(null, 0, 1);
+					table_5.setValueAt(null, 0, 2);
+					table_5.setValueAt(null, 0, 3);
+				}else{
+					
+				}
+			}
+		});
+		button_17.setBounds(636, 360, 93, 23);
+		desktopPane_17.add(button_17);
 		
 		JDesktopPane desktopPane_18 = new JDesktopPane();
 		desktopPane_18.setBackground(Color.WHITE);
@@ -1397,7 +1545,69 @@ public class manager {
 		label_14.setBounds(404, 112, 54, 15);
 		desktopPane_18.add(label_14);
 		
+		/*
+		 * 查看经营情况表
+		 */
 		JButton button_15 = new JButton("\u67E5\u8BE2");
+		button_15.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				String start = null;
+				String end = null;
+				if(textField_9.getText().length()!=4&&textField_12.getText().length()!=4){
+					
+				}else{
+					start+=textField_9.getText();
+					end+=textField_12.getText();
+					if(textField_10.getText().length()==2){
+						start+=textField_10.getText();
+					}else if(textField_10.getText().length()==1){
+						start+="0"+textField_10.getText();
+					}else{
+						
+					}
+					if(textField_11.getText().length()==2){
+						start+=textField_11.getText();
+					}else if(textField_11.getText().length()==1){
+						start+="0"+textField_11.getText();
+					}else{
+						
+					}
+					if(textField_13.getText().length()==2){
+						end+=textField_13.getText();
+					}else if(textField_13.getText().length()==1){
+						end+="0"+textField_13.getText();
+					}else{
+						
+					}
+					if(textField_14.getText().length()==2){
+						end+=textField_14.getText();
+					}else if(textField_14.getText().length()==1){
+						end+="0"+textField_14.getText();
+					}else{
+						
+					}
+				}
+				BussinessSheetVO bussinessvo;
+				bussinessvo=bussinesssheet.show(start, end);
+				if(bussinessvo==null){
+					
+				}else{
+					for(int i=0;i<table_6.getRowCount();i++){
+						table_6.setValueAt(bussinessvo.paid.get(i).ID, i, 0);
+						table_6.setValueAt(bussinessvo.paid.get(i).getDate(), i, 1);
+						table_6.setValueAt(bussinessvo.paid.get(i).transactor, i, 2);
+						table_6.setValueAt(bussinessvo.paid.get(i).money, i, 3);
+						table_6.setValueAt(bussinessvo.paid.get(i).bussinessHallCode, i, 4);
+						table_6.setValueAt(bussinessvo.pay.get(i).ID, i, 5);
+						table_6.setValueAt(bussinessvo.pay.get(i).getDate(), i, 6);
+						table_6.setValueAt(bussinessvo.pay.get(i).payer, i, 7);
+						table_6.setValueAt(bussinessvo.pay.get(i).money, i, 8);
+						table_6.setValueAt(bussinessvo.pay.get(i).type, i, 9);
+					}
+				}
+			}
+		});
 		button_15.setBounds(564, 161, 93, 23);
 		desktopPane_18.add(button_15);
 		
@@ -1408,65 +1618,78 @@ public class manager {
 		table_6 = new JTable();
 		table_6.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null, null, null},
 			},
 			new String[] {
-				"\u6536\u6B3E\u5355\u7F16\u53F7", "\u6536\u6B3E\u65E5\u671F", "\u6536\u6B3E\u91D1\u989D", "\u4ED8\u6B3E\u5355\u7F16\u53F7", "\u4ED8\u6B3E\u65E5\u671F", "\u4ED8\u6B3E\u91D1\u989D"
+				"\u6536\u6B3E\u5355\u7F16\u53F7", "\u6536\u6B3E\u65E5\u671F", "\u6536\u6B3E\u4EBA", "\u6536\u6B3E\u91D1\u989D", "\u6536\u6B3E\u6761\u76EE", "\u4ED8\u6B3E\u5355\u7F16\u53F7", "\u4ED8\u6B3E\u65E5\u671F", "\u4ED8\u6B3E\u4EBA", "\u4ED8\u6B3E\u91D1\u989D", "\u4ED8\u6B3E\u6761\u76EE"
 			}
 		));
+		table_6.getColumnModel().getColumn(0).setPreferredWidth(85);
+		table_6.getColumnModel().getColumn(5).setPreferredWidth(85);
 		scrollPane_6.setViewportView(table_6);
 		
+		/*
+		 * 导出经营情况表
+		 */
 		JButton button_16 = new JButton("\u5BFC\u51FA");
+		button_16.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				boolean istrue=bussinesssheet.export();
+				if(istrue==true){
+					for(int i=0;i<table_6.getRowCount();i++){
+						table_6.setValueAt(null, i, 0);
+						table_6.setValueAt(null, i, 1);
+						table_6.setValueAt(null, i, 2);
+						table_6.setValueAt(null, i, 3);
+						table_6.setValueAt(null, i, 4);
+						table_6.setValueAt(null, i, 5);
+						table_6.setValueAt(null, i, 6);
+						table_6.setValueAt(null, i, 7);
+						table_6.setValueAt(null, i, 8);
+						table_6.setValueAt(null, i, 9);
+					}
+				}else{
+					
+				}
+			}
+		});
 		button_16.setBounds(733, 474, 93, 23);
 		desktopPane_18.add(button_16);
-	}
-}
-class MyRender extends AbstractCellEditor implements TableCellRenderer,ActionListener, TableCellEditor{	
-	private static final long serialVersionUID = 1L;	
-	private JCheckBox button =null;	
-	
-	public MyRender(){		
-		button = new JCheckBox("");
-		}
-	@Override
-	public Object getCellEditorValue() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public Component getTableCellEditorComponent(JTable arg0, Object arg1, boolean arg2, int arg3, int arg4) {
-		// TODO Auto-generated method stub
-		return button;
 		
-	}
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public Component getTableCellRendererComponent(JTable arg0, Object arg1, boolean arg2, boolean arg3, int arg4,
-			int arg5) {
-		// TODO Auto-generated method stub
-		return button;
+		new Thread() {        
+			public void run() {            
+				try {                
+					while (true) {                    
+						label_18.setText(df.format(new Date()));//显示当前时间      
+						label_19.setText(df.format(new Date()));//显示当前时间
+						label_20.setText(df.format(new Date()));//显示当前时间
+						
+						Thread.sleep(1000);//暂停一秒                
+						}            
+					} catch (Exception e) {            
+						
+					}        
+				}    
+			}.start();
 	}
 }

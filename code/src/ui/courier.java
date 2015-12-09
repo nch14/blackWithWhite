@@ -20,11 +20,14 @@ import javax.swing.JCheckBox;
 import javax.swing.table.DefaultTableModel;
 
 import bill.OrderBillPO;
+import bl.receivement.Impl.TransportFinishedController;
+import bl.receivement.Service.TransportFinishedBLService;
 import bl.send.Impl.PredictTimeAndMonthController;
 import bl.send.Impl.Send;
 import bl.send.Impl.SendController;
 import bl.send.Service.PredictTimeAndMontyBLService;
 import bl.send.Service.SendBLService;
+import vo.ReceiveInformationVO;
 
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
@@ -79,6 +82,10 @@ public class courier {
 				try {
 					courier window = new courier();
 					window.frame.setVisible(true);
+					MyRunnable mr = new MyRunnable(); 
+					Thread t1 = new Thread(mr);//定义第一个线程  
+					//启动  
+					t1.start();//启动第一个线程
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -114,14 +121,22 @@ public class courier {
 		label_29.setBounds(282, 0, 436, 21);
 		desktopPane.add(label_29);
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-		label_29.setText(df.format(new Date()));df.format(new Date());// new Date()为获取当前系统时间
+		
 		
 		textField_27 = new JTextField();
 		textField_27.setBounds(307, 163, 211, 21);
 		desktopPane.add(textField_27);
 		textField_27.setColumns(10);
 		
+		/*
+		 * 订单查询
+		 */
 		JButton button_6 = new JButton("\u67E5\u8BE2");
+		button_6.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		button_6.setBounds(576, 162, 93, 23);
 		desktopPane.add(button_6);
 		
@@ -132,7 +147,15 @@ public class courier {
 		JLabel label_30 = new JLabel();
 		label_30.setBounds(282, 0, 436, 21);
 		desktopPane_2.add(label_30);
-		label_30.setText(df.format(new Date()));df.format(new Date());
+		
+		
+		JLabel label_24 = new JLabel("");
+		label_24.setBounds(310, 223, 54, 15);
+		desktopPane_2.add(label_24);
+		
+		JLabel label_25 = new JLabel("");
+		label_25.setBounds(310, 266, 54, 15);
+		desktopPane_2.add(label_25);
 		
 		textField_7 = new JTextField();
 		textField_7.setBounds(212, 135, 307, 22);
@@ -144,7 +167,13 @@ public class courier {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				PredictTimeAndMontyBLService predictTimeAndMonthController=new PredictTimeAndMonthController();
-				predictTimeAndMonthController.moneyAndTime(textField_7.getText());
+				String[] timeandmoney=predictTimeAndMonthController.moneyAndTime(textField_7.getText());
+				if( timeandmoney==null){
+					
+				}else{
+					label_24.setText(timeandmoney[0]);
+					label_25.setText(timeandmoney[1]);
+				}
 			}
 		});
 		button_3.setBounds(580, 134, 93, 23);
@@ -157,14 +186,6 @@ public class courier {
 		JLabel label_23 = new JLabel("\u9884\u8BA1\u65F6\u95F4\uFF1A");
 		label_23.setBounds(212, 266, 72, 15);
 		desktopPane_2.add(label_23);
-		
-		JLabel label_24 = new JLabel("");
-		label_24.setBounds(310, 223, 54, 15);
-		desktopPane_2.add(label_24);
-		
-		JLabel label_25 = new JLabel("");
-		label_25.setBounds(310, 266, 54, 15);
-		desktopPane_2.add(label_25);
 		
 		JLabel label_33 = new JLabel("");
 		label_33.setBounds(310, 223, 54, 15);
@@ -181,7 +202,7 @@ public class courier {
 		JLabel label_31 = new JLabel();
 		label_31.setBounds(282, 0, 436, 21);
 		desktopPane_3.add(label_31);
-		label_31.setText(df.format(new Date()));df.format(new Date());
+		
 		
 		JLabel label = new JLabel("\u8BA2\u5355\u7F16\u53F7\uFF1A");
 		label.setBounds(157, 87, 66, 15);
@@ -210,15 +231,32 @@ public class courier {
 		desktopPane_3.add(textField_6);
 		textField_6.setColumns(10);
 		
+		/*
+		 * 收件信息添加
+		 */
 		JButton button = new JButton("\u6DFB\u52A0");
 		button.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				for(int i=0;i<table_1.getRowCount();i++){
-					if(table_1.getValueAt(i, 1)==null&&table_1.getValueAt(i, 2)==null&&table_1.getValueAt(i, 3)==null){
-						table_1.setValueAt(textField_4.getText(), i, 1);
-						table_1.setValueAt(textField_5.getText(), i, 2);
-						table_1.setValueAt(textField_6.getText(), i, 3);
+					if(table_1.getValueAt(i, 0)==null&&table_1.getValueAt(i, 1)==null&&table_1.getValueAt(i, 2)==null){
+						String month=textField_28.getText();
+						String day=textField_29.getText();
+						if(month.length()==1){
+							month="0"+month;
+						}
+						if(day.length()==1){
+							day="0"+day;
+						}
+						String date=textField_6.getText()+month+day;
+						table_1.setValueAt(textField_4.getText(), i, 0);
+						table_1.setValueAt(textField_5.getText(), i, 1);
+						table_1.setValueAt(date, i, 2);
+						textField_4.setText(null);
+						textField_5.setText(null);
+						textField_6.setText(null);
+						textField_28.setText(null);
+						textField_29.setText(null);
 						break;
 					}
 				}
@@ -234,45 +272,81 @@ public class courier {
 		table_1 = new JTable();
 		table_1.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
 			},
 			new String[] {
-				"New column", "\u8BA2\u5355\u7F16\u53F7", "\u6536\u4EF6\u4EBA", "\u6536\u4EF6\u65E5\u671F"
+				"\u8BA2\u5355\u7F16\u53F7", "\u6536\u4EF6\u4EBA", "\u6536\u4EF6\u65E5\u671F"
 			}
 		));
 		scrollPane.setViewportView(table_1);
 		
-		
-		
-		JCheckBox checkBox = new JCheckBox("");
-		checkBox.setBounds(157, 536, 22, 23);
-		desktopPane_3.add(checkBox);
-		
+		/*
+		 * 收件信息撤销
+		 */
 		JButton button_1 = new JButton("\u64A4\u9500");
-		button_1.setBounds(186, 536, 93, 23);
+		button_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				for(int i=table_1.getRowCount()-1;i>=0;i--){
+					if(table_1.getValueAt(i, 0)!=null&&table_1.getValueAt(i, 1)!=null&&table_1.getValueAt(i, 2)!=null){
+						table_1.setValueAt(null, i, 0);
+						table_1.setValueAt(null, i, 1);
+						table_1.setValueAt(null, i, 2);
+					}
+				}
+			}
+		});
+		button_1.setBounds(157, 531, 93, 23);
 		desktopPane_3.add(button_1);
 		
+		/*
+		 * 收件信息提交
+		 */
 		JButton button_2 = new JButton("\u63D0\u4EA4");
-		button_2.setBounds(732, 536, 93, 23);
+		button_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ReceiveInformationVO[] receive = new ReceiveInformationVO[table_1.getRowCount()];
+				for(int i=0;i<table_1.getRowCount();i++){
+					receive[i].ID=(String) table_1.getValueAt(i, 0);
+					receive[i].nameOfReceiver=(String) table_1.getValueAt(i, 1);
+					receive[i].time[0]= table_1.getValueAt(i, 2).toString().substring(0, 3);
+					receive[i].time[1]= table_1.getValueAt(i, 2).toString().substring(4, 5);
+					receive[i].time[2]= table_1.getValueAt(i, 2).toString().substring(6, 7);
+				}
+				TransportFinishedBLService finish= new TransportFinishedController();
+				boolean istrue=finish.billFilled(receive);
+				if(istrue){
+					for(int i=0; i<table_1.getRowCount();i++){
+						table_1.setValueAt(null, i, 0);
+						table_1.setValueAt(null, i, 1);
+						table_1.setValueAt(null, i, 2);
+					}
+				}else{
+					
+				}
+			}
+		});
+		button_2.setBounds(755, 531, 93, 23);
 		desktopPane_3.add(button_2);
 		
 		JLabel label_26 = new JLabel("\u5E74");
@@ -289,12 +363,12 @@ public class courier {
 		desktopPane_3.add(label_27);
 		
 		textField_29 = new JTextField();
-		textField_29.setBounds(718, 84, 66, 21);
+		textField_29.setBounds(718, 84, 34, 21);
 		desktopPane_3.add(textField_29);
 		textField_29.setColumns(10);
 		
 		JLabel label_28 = new JLabel("\u65E5");
-		label_28.setBounds(794, 87, 54, 15);
+		label_28.setBounds(763, 87, 54, 15);
 		desktopPane_3.add(label_28);
 		
 		JDesktopPane desktopPane_1 = new JDesktopPane();
@@ -304,7 +378,7 @@ public class courier {
 		JLabel label_32 = new JLabel();
 		label_32.setBounds(282, 0, 436, 21);
 		desktopPane_1.add(label_32);
-		label_32.setText(df.format(new Date()));
+		
 		
 		JLabel label_3 = new JLabel("\u5BC4\u4EF6\u4EBA\u4FE1\u606F");
 		label_3.setBounds(99, 73, 68, 15);
@@ -533,12 +607,50 @@ public class courier {
 					    Double.parseDouble(lblNewLabel_3.getText()));
 				SendBLService send = new SendController();
 				send.push(order);
-				
+				if(send.push(order)==false){
+					
+				}else{
+					textField_9.setText(null);
+					textField_10.setText(null);
+					textField_11.setText(null);
+					textField_12.setText(null);
+					textField_13.setText(null);
+					textField_14.setText(null);
+					textField_15.setText(null);
+					textField_16.setText(null);
+					textField_17.setText(null);
+					textField_18.setText(null);
+					textField_19.setText(null);
+					textField_20.setText(null);
+					textField_21.setText(null);
+					textField_22.setText(null);
+					textField_23.setText(null);
+					textField_24.setText(null);
+					textField_25.setText(null);
+					comboBox.setSelectedIndex(0);
+					comboBox_1.setSelectedIndex(0);
+					textField_26.setText(null);
+				}
 			}
 		});
 		button_5.setBounds(740, 507, 68, 23);
 		desktopPane_1.add(button_5);
 		
+		new Thread() {        
+			public void run() {            
+				try {                
+					while (true) {                    
+						label_29.setText(df.format(new Date()));//显示当前时间      
+						label_30.setText(df.format(new Date()));//显示当前时间
+						label_21.setText(df.format(new Date()));//显示当前时间
+						label_32.setText(df.format(new Date()));//显示当前时间
+						Thread.sleep(1000);//暂停一秒                
+						}            
+					} catch (Exception e) {            
+						
+					}        
+				}    
+			}.start();
 		
 	}
 }

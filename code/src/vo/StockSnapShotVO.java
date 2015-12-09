@@ -8,15 +8,15 @@ import java.util.ArrayList;
  *
  */
 public class StockSnapShotVO {
-	ArrayList<Info> list;
+	public ArrayList<Info> list;
 	
-	class Info{
-		String ID;
-		String[] date;
-		String destination;
-		String zoneID;
-		String rowID;
-		String frameID;
-		String positionID;
+	public class Info{
+		public String ID;
+		public String[] date;
+		public String destination;
+		public String zoneID;
+		public String rowID;
+		public String frameID;
+		public String positionID;
 	}
 }

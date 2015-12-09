@@ -3,8 +3,8 @@ import java.io.Serializable;
 
 public class TransMesgPO implements Serializable{
 	public String id;
-	String time;
-	String location;
+	public String time;
+	public String location;
 	
 	public TransMesgPO(String identifier){
 		id=identifier;

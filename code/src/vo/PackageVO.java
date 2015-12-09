@@ -10,7 +10,7 @@ import bill.TransMesgPO;
  */
 public class PackageVO {
 	private String ID;//¼Ä¼þµ¥ºÅ
-	private ArrayList<TransMesgPO> state;
+	public ArrayList<TransMesgPO> state;
 	
 	public PackageVO(String ID){
 		this.ID=ID;

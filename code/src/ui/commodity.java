@@ -16,6 +16,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import bill.StockBill_In;
+import bill.StockBill_In.Info;
 import bill.StockBill_Out;
 import bl.commoditybl.Impl.AreaAdjustController;
 import bl.commoditybl.Impl.InDepotController;
@@ -27,6 +28,7 @@ import bl.commoditybl.Service.InDepotBLService;
 import bl.commoditybl.Service.InitDepotAreaBLService;
 import bl.commoditybl.Service.InventoryBLService;
 import bl.commoditybl.Service.OutDepotBLService;
+import vo.StockSnapShotVO;
 
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
@@ -47,7 +49,6 @@ public class commodity {
 	private JTextField textField_5;
 	private JTextField textField_6;
 	private JTable table_1;
-	private JTextField textField_12;
 	private JTable table_2;
 	private JTextField textField_13;
 	private JTable table_3;
@@ -60,17 +61,16 @@ public class commodity {
 	private JTextField textField_22;
 	private JTextField textField_23;
 	private JTable table_4;
-	private JTextField textField_24;
-	private JTextField textField_25;
 	private JTextField textField_26;
 	private JTextField textField_27;
 	private JTextField textField_28;
 	private JTextField textField_29;
-
+	 
+	InventoryBLService inventory= new InventoryController();
 	/**
 	 * Launch the application.
 	 */
-	public void main() {
+	public static void main() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -102,6 +102,8 @@ public class commodity {
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		frame.getContentPane().add(tabbedPane, BorderLayout.CENTER);
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+		
 		
 		JDesktopPane desktopPane = new JDesktopPane();
 		desktopPane.setBackground(Color.WHITE);
@@ -133,17 +135,20 @@ public class commodity {
 		textField_2.setBounds(419, 162, 206, 21);
 		desktopPane.add(textField_2);
 		textField_2.setColumns(10);
-		
+
+		/*
+		 * 入库添加
+		 */
 		JButton button = new JButton("\u6DFB\u52A0");
 		button.setBounds(670, 197, 93, 23);
 		desktopPane.add(button);
 		button.addMouseListener(new MouseAdapter(){
 		public void mouseClicked(MouseEvent e){
 			for(int i=0;i<table.getRowCount();i++){
-				if(table.getValueAt(i, 1)==null&&table.getValueAt(i, 2)==null&&table.getValueAt(i, 3)==null){
-					table.setValueAt(textField.getText(), i, 1);
-					table.setValueAt(textField_1.getText()+"/"+textField_28.getText()+"/"+textField_29.getText(), i, 2);
-					table.setValueAt(textField_2.getText(), i, 3);
+				if(table.getValueAt(i, 0)==null&&table.getValueAt(i, 1)==null&&table.getValueAt(i, 2)==null){
+					table.setValueAt(textField.getText(), i, 0);
+					table.setValueAt(textField_1.getText()+"/"+textField_28.getText()+"/"+textField_29.getText(), i, 1);
+					table.setValueAt(textField_2.getText(), i, 2);
 					textField.setText(null);
 					textField_1.setText(null);
 					textField_2.setText(null);
@@ -161,45 +166,47 @@ public class commodity {
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
+				{null, null, null, null, null, null, null, null},
 			},
 			new String[] {
-				"New column", "\u8BA2\u5355\u53F7", "\u5165\u5E93\u65E5\u671F", "\u76EE\u7684\u5730", "\u533A\u53F7", "\u6392\u53F7", "\u67B6\u53F7", "\u4F4D\u53F7", "\u662F\u5426\u53D1\u751F\u5E93\u5B58\u62A5\u8B66"
+				"\u8BA2\u5355\u53F7", "\u5165\u5E93\u65E5\u671F", "\u76EE\u7684\u5730", "\u533A\u53F7", "\u6392\u53F7", "\u67B6\u53F7", "\u4F4D\u53F7", "\u662F\u5426\u53D1\u751F\u5E93\u5B58\u62A5\u8B66"
 			}
 		));
-		table.getColumnModel().getColumn(3).setPreferredWidth(78);
+		table.getColumnModel().getColumn(2).setPreferredWidth(78);
+		table.getColumnModel().getColumn(3).setPreferredWidth(70);
 		table.getColumnModel().getColumn(4).setPreferredWidth(70);
 		table.getColumnModel().getColumn(5).setPreferredWidth(70);
 		table.getColumnModel().getColumn(6).setPreferredWidth(70);
-		table.getColumnModel().getColumn(7).setPreferredWidth(70);
-		table.getColumnModel().getColumn(8).setPreferredWidth(106);
+		table.getColumnModel().getColumn(7).setPreferredWidth(106);
 		scrollPane.setViewportView(table);
-		
+		/*
+		 * 入库提交
+		 */
 		JButton button_1 = new JButton("\u63D0\u4EA4");
 		button_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				String[] ID = null;
-				String[][] date = null;
-				String[] destination = null;
+				String[] ID = new String[table.getRowCount()];
+				String[][] date =new String[table.getRowCount()][];
+				String[] destination= new String[table.getRowCount()] ;
 				for(int i=0;i<table.getRowCount();i++){
 					ID[i]=(String) table.getValueAt(i, 1);
 					date[i]=(String[]) table.getValueAt(i, 2);
@@ -217,8 +224,7 @@ public class commodity {
 		JLabel label_3 = new JLabel();
 		label_3.setBounds(282, 0, 436, 21);
 		desktopPane.add(label_3);
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-		label_3.setText(df.format(new Date()));
+		
 		
 		JLabel label_27 = new JLabel("\u5E74");
 		label_27.setBounds(464, 122, 54, 15);
@@ -242,13 +248,43 @@ public class commodity {
 		label_29.setBounds(601, 122, 54, 15);
 		desktopPane.add(label_29);
 		
-		JCheckBox checkBox_2 = new JCheckBox("");
-		checkBox_2.setBounds(172, 528, 21, 23);
-		desktopPane.add(checkBox_2);
-		
+		/*
+		 * 入库撤销
+		 */
 		JButton button_11 = new JButton("\u64A4\u9500");
-		button_11.setBounds(199, 528, 93, 23);
-		desktopPane.add(button_11);df.format(new Date());// new Date()为获取当前系统时间
+		button_11.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				for(int i=table.getRowCount()-1;i>=0;i--){
+					if(table.getValueAt(i, 0)!=null&&table.getValueAt(i, 1)!=null&&table.getValueAt(i, 2)!=null){
+						table.setValueAt(null, i, 0);
+						table.setValueAt(null, i, 1);
+						table.setValueAt(null, i, 2);
+						break;
+					}
+				}
+			}
+		});
+		button_11.setBounds(172, 521, 93, 23);
+		desktopPane.add(button_11);
+		JButton button_12 = new JButton("\u6E05\u7A7A");
+		button_12.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				for(int i=0;i<table.getRowCount();i++){
+					table.setValueAt(null, i, 0);
+					table.setValueAt(null, i, 1);
+					table.setValueAt(null, i, 2);
+					table.setValueAt(null, i, 3);
+					table.setValueAt(null, i, 4);
+					table.setValueAt(null, i, 5);
+					table.setValueAt(null, i, 6);
+					table.setValueAt(null, i, 7);
+				}
+			}
+		});
+		button_12.setBounds(886, 549, 93, 23);
+		desktopPane.add(button_12);
 		
 		JDesktopPane desktopPane_4 = new JDesktopPane();
 		desktopPane_4.setBackground(Color.WHITE);
@@ -299,20 +335,38 @@ public class commodity {
 		desktopPane_4.add(textField_6);
 		textField_6.setColumns(10);
 		
+		/*
+		 * 出库确认
+		 */
 		JButton button_2 = new JButton("\u786E\u8BA4");
 		button_2.setBounds(731, 149, 93, 23);
 		desktopPane_4.add(button_2);
 		button_2.addMouseListener(new MouseAdapter(){
 			public void mouseClicked(MouseEvent e){
 				for(int i=0;i<table_1.getRowCount();i++){
-					if(table_1.getValueAt(i, 1)==null&&table_1.getValueAt(i, 2)==null&&table_1.getValueAt(i, 3)==null&&table_1.getValueAt(i, 4)==null){
-						String str=textField_4.getText()+"/"+textField_26.getText()+"/"+textField_27.getText();
-						table_1.setValueAt(textField_3.getText(), i, 1);
-						table_1.setValueAt(str, i, 2);
-						table_1.setValueAt(comboBox.getSelectedItem(), i, 3);
-						table_1.setValueAt(textField_6.getText(), i, 4);
-						table_1.setValueAt(textField_5.getText(), i, 5);
-						
+					
+					if(table_1.getValueAt(i, 0)==null&&table_1.getValueAt(i, 1)==null&&table_1.getValueAt(i, 2)==null&&table_1.getValueAt(i, 3)==null){
+								String month=textField_26.getText();
+								String day=textField_27.getText();
+								if(month.length()==1){
+									month="0"+month;
+								}
+								if(day.length()==1){
+									day="0"+day;
+								}
+								String date=textField_4.getText()+month+day;
+						table_1.setValueAt(textField_3.getText(), i, 0);
+						table_1.setValueAt(date, i, 1);
+						table_1.setValueAt(comboBox.getSelectedItem(), i, 2);
+						table_1.setValueAt(textField_6.getText(), i, 3);
+						table_1.setValueAt(textField_5.getText(), i, 4);
+						textField_4.setText(null);
+						textField_26.setText(null);
+						textField_27.setText(null);
+						textField_3.setText(null);
+						comboBox.setSelectedIndex(0);
+						textField_6.setText(null);
+						textField_5.setText(null);
 						break;
 					}
 				}
@@ -326,28 +380,28 @@ public class commodity {
 		table_1 = new JTable();
 		table_1.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
 			},
 			new String[] {
-				"New column", "\u8BA2\u5355\u53F7", "\u51FA\u5E93\u65E5\u671F", "\u88C5\u8FD0\u5F62\u5F0F", "\u8D27\u8FD0\u7F16\u53F7", "\u76EE\u7684\u5730"
+				"\u8BA2\u5355\u53F7", "\u51FA\u5E93\u65E5\u671F", "\u88C5\u8FD0\u5F62\u5F0F", "\u8D27\u8FD0\u7F16\u53F7", "\u76EE\u7684\u5730"
 			}
 		));
 		scrollPane_1.setViewportView(table_1);
@@ -355,17 +409,39 @@ public class commodity {
 		JLabel label_8 = new JLabel();
 		label_8.setBounds(282, 0, 436, 21);
 		desktopPane_4.add(label_8);
-		label_8.setText(df.format(new Date()));
 		
+		
+		/*
+		 * 出库提交
+		 */
 		JButton button_3 = new JButton("\u63D0\u4EA4");
 		button_3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				StockBill_Out stock_out= new StockBill_Out();
 				OutDepotBLService outdepot= new OutDepotController();
+				for(int i=0;i<table_1.getRowCount();i++){
+					StockBill_Out.Info element =stock_out.new Info();
+					element.ID=(String) table_1.getValueAt(i, 0);
+					element.date[0]= table_1.getValueAt(i, 1).toString().substring(0, 3);
+					element.date[1]= table_1.getValueAt(i, 1).toString().substring(4, 5);
+					element.date[2]= table_1.getValueAt(i, 1).toString().substring(6, 7);
+					element.form= table_1.getValueAt(i, 2).toString();
+				    element.ListID=table_1.getValueAt(i, 3).toString();
+				    element.destination=table_1.getValueAt(i, 4).toString();
+					stock_out.list.set(i, element);
+				}
 				outdepot.outDepot(stock_out);
 				if(outdepot.outDepot(stock_out)==false){
-					label_8.setText("提交失败");
+					
+				}else{
+					for(int i=table_1.getRowCount()-1;i>=0;i--){	
+							table_1.setValueAt(null, i, 0);
+							table_1.setValueAt(null, i, 1);
+							table_1.setValueAt(null, i, 2);
+							table_1.setValueAt(null, i, 3);
+							table_1.setValueAt(null, i, 4);
+					}
 				}
 			}
 		});
@@ -394,12 +470,26 @@ public class commodity {
 		label_26.setBounds(609, 56, 54, 15);
 		desktopPane_4.add(label_26);
 		
-		JCheckBox checkBox_1 = new JCheckBox("");
-		checkBox_1.setBounds(172, 517, 21, 23);
-		desktopPane_4.add(checkBox_1);
-		
+		/*
+		 * 出库撤销
+		 */
 		JButton button_10 = new JButton("\u64A4\u9500");
-		button_10.setBounds(199, 517, 93, 23);
+		button_10.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				for(int i=table_1.getRowCount()-1;i>=0;i--){
+					if(table_1.getValueAt(i, 0)!=null&&table_1.getValueAt(i, 1)!=null&&table_1.getValueAt(i, 2)!=null&&table_1.getValueAt(i, 3)!=null){
+						table_1.setValueAt(null, i, 0);
+						table_1.setValueAt(null, i, 1);
+						table_1.setValueAt(null, i, 2);
+						table_1.setValueAt(null, i, 3);
+						table_1.setValueAt(null, i, 4);
+						break;
+					}
+				}
+			}
+		});
+		button_10.setBounds(172, 537, 93, 23);
 		desktopPane_4.add(button_10);df.format(new Date());
 		
 		JDesktopPane desktopPane_2 = new JDesktopPane();
@@ -409,26 +499,33 @@ public class commodity {
 		JLabel label_9 = new JLabel();
 		label_9.setBounds(282, 0, 436, 21);
 		desktopPane_2.add(label_9);
-		label_9.setText(df.format(new Date()));df.format(new Date());
 		
-		JLabel label_10 = new JLabel("\u65E5\u671F\uFF1A");
-		label_10.setBounds(330, 82, 54, 15);
-		desktopPane_2.add(label_10);
 		
-		textField_12 = new JTextField();
-		textField_12.setBounds(394, 79, 34, 21);
-		desktopPane_2.add(textField_12);
-		textField_12.setColumns(10);
-		
+		/*
+		 * 库存盘点查询
+		 */
 		JButton button_4 = new JButton("\u67E5\u8BE2");
 		button_4.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				InventoryBLService inventory= new InventoryController();
-				inventory.getStockSnapShot();
+				
+				StockSnapShotVO stocksnapshot=inventory.getStockSnapShot();
+				if(stocksnapshot==null){
+					
+				}else{
+				    for(int i=0;i<table_2.getRowCount();i++){
+					    table_2.setValueAt(stocksnapshot.list.get(i).ID, i, 0);
+					    table_2.setValueAt(stocksnapshot.list.get(i).date[0]+stocksnapshot.list.get(i).date[2]+stocksnapshot.list.get(i).date[3], i, 1);
+					    table_2.setValueAt(stocksnapshot.list.get(i).destination, i, 2);
+					    table_2.setValueAt(stocksnapshot.list.get(i).zoneID, i, 3);
+					    table_2.setValueAt(stocksnapshot.list.get(i).rowID, i, 4);
+					    table_2.setValueAt(stocksnapshot.list.get(i).frameID, i, 5);
+					    table_2.setValueAt(stocksnapshot.list.get(i).positionID, i, 6);
+				    }
+				}
 			}
 		});
-		button_4.setBounds(625, 148, 93, 23);
+		button_4.setBounds(416, 117, 93, 23);
 		desktopPane_2.add(button_4);
 		
 		JScrollPane scrollPane_2 = new JScrollPane();
@@ -464,38 +561,32 @@ public class commodity {
 		));
 		scrollPane_2.setViewportView(table_2);
 		
+		/*
+		 * 库存盘点导出
+		 */
 		JButton button_5 = new JButton("\u5BFC\u51FA");
 		button_5.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				InventoryBLService inventory= new InventoryController();
-				inventory.export();
+				boolean istrue=inventory.export();
+				if(istrue==false){
+					
+				}else{
+					for(int i=0; i<table_2.getRowCount();i++){
+						table_2.setValueAt(null, i, 0);
+						table_2.setValueAt(null, i, 1);
+						table_2.setValueAt(null, i, 2);
+						table_2.setValueAt(null, i, 3);
+						table_2.setValueAt(null, i, 4);
+						table_2.setValueAt(null, i, 5);
+						table_2.setValueAt(null, i, 6);
+					}
+				}
 			}
 		});
 		button_5.setBounds(795, 536, 93, 23);
 		desktopPane_2.add(button_5);
-		
-		JLabel label_21 = new JLabel("\u5E74");
-		label_21.setBounds(438, 82, 54, 15);
-		desktopPane_2.add(label_21);
-		
-		textField_24 = new JTextField();
-		textField_24.setBounds(458, 79, 34, 21);
-		desktopPane_2.add(textField_24);
-		textField_24.setColumns(10);
-		
-		JLabel label_22 = new JLabel("\u6708");
-		label_22.setBounds(502, 82, 54, 15);
-		desktopPane_2.add(label_22);
-		
-		textField_25 = new JTextField();
-		textField_25.setBounds(525, 79, 34, 21);
-		desktopPane_2.add(textField_25);
-		textField_25.setColumns(10);
-		
-		JLabel label_23 = new JLabel("\u65E5");
-		label_23.setBounds(566, 82, 54, 15);
-		desktopPane_2.add(label_23);
 		
 		JDesktopPane desktopPane_3 = new JDesktopPane();
 		desktopPane_3.setBackground(Color.WHITE);
@@ -504,7 +595,7 @@ public class commodity {
 		JLabel label_33 = new JLabel();
 		label_33.setBounds(282, 0, 436, 21);
 		desktopPane_3.add(label_33);
-		label_33.setText(df.format(new Date()));df.format(new Date());
+		
 		
 		JLabel label_12 = new JLabel("\u6392\u53F7");
 		label_12.setBounds(328, 88, 54, 15);
@@ -530,36 +621,39 @@ public class commodity {
 		table_3 = new JTable();
 		table_3.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
 			},
 			new String[] {
-				"New column", "\u67B6\u53F7", "\u539F\u5206\u533A", "\u73B0\u5206\u533A"
+				"\u6392\u53F7", "\u539F\u5206\u533A", "\u73B0\u5206\u533A"
 			}
 		));
 		scrollPane_3.setViewportView(table_3);
 		
+		/*
+		 * 库区调整提交
+		 */
 		JButton button_6 = new JButton("\u63D0\u4EA4");
 		button_6.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				int[] rows=null;
+				int[] rows= new int[table_3.getRowCount()];
 				for(int i=0;i<table_3.getRowCount();i++){
 					rows[i]=(int) table_3.getValueAt(i, 0);
 					
@@ -567,6 +661,15 @@ public class commodity {
 				String type=(String) table_3.getValueAt(0, 1);
 				AreaAdjustBLService areaadjust = new AreaAdjustController();
 				areaadjust.areaAdjust(rows, type);
+				if(areaadjust.areaAdjust(rows, type)==false){
+					
+				}else{
+					for(int i=0; i<table_3.getRowCount();i++){
+						table_3.setValueAt(null, i, 0);
+						table_3.setValueAt(null, i, 1);
+						table_3.setValueAt(null, i, 2);
+					}
+				}
 			}
 		});
 		button_6.setBounds(631, 493, 93, 23);
@@ -582,6 +685,9 @@ public class commodity {
 		comboBox_2.setBounds(383, 156, 66, 21);
 		desktopPane_3.add(comboBox_2);
 		
+		/*
+		 * 库区调整添加
+		 */
 		JButton btnNewButton = new JButton("\u786E\u8BA4");
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
@@ -599,19 +705,27 @@ public class commodity {
 				}
 			}
 		});
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
 		btnNewButton.setBounds(524, 186, 93, 23);
 		desktopPane_3.add(btnNewButton);
 		
-		JCheckBox checkBox = new JCheckBox("");
-		checkBox.setBounds(243, 460, 21, 23);
-		desktopPane_3.add(checkBox);
-		
+		/*
+		 * 库区调整撤销
+		 */
 		JButton button_9 = new JButton("\u64A4\u9500");
-		button_9.setBounds(270, 460, 93, 23);
+		button_9.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				for(int i=table_3.getRowCount()-1;i>=0;i--){
+					if(table_3.getValueAt(i, 0)!=null&&table_3.getValueAt(i, 1)!=null
+							&&table_3.getValueAt(i, 2)!=null){
+						table_3.setValueAt(null, i, 0);
+						table_3.setValueAt(null, i, 1);
+						table_3.setValueAt(null, i, 2);
+					}
+				}
+			}
+		});
+		button_9.setBounds(236, 493, 93, 23);
 		desktopPane_3.add(button_9);
 		
 		JDesktopPane desktopPane_1 = new JDesktopPane();
@@ -621,7 +735,7 @@ public class commodity {
 		JLabel label_34 = new JLabel();
 		label_34.setBounds(282, 0, 436, 21);
 		desktopPane_1.add(label_34);
-		label_34.setText(df.format(new Date()));df.format(new Date());
+	
 		
 		JLabel lblNewLabel = new JLabel("\u822A\u8FD0\u533A");
 		lblNewLabel.setBounds(327, 90, 54, 15);
@@ -766,7 +880,15 @@ public class commodity {
 					}
 				}
 				InitDepotAreaBLService initdepotarea = new InitDepotAreaController();
-				initdepotarea.init(motorTransport, trainTransport, airTransport, balnkSpace);
+				 boolean istrue=initdepotarea.init(motorTransport, trainTransport, airTransport, balnkSpace);
+				if(istrue==false){
+					
+				}else{
+					for(int i=0;i<table_4.getRowCount();i++){
+						table.setValueAt(null, i, 0);
+						table.setValueAt(null, i, 0);
+					}
+				}
 			}
 		});
 		button_7.setBounds(714, 479, 93, 23);
@@ -779,10 +901,44 @@ public class commodity {
 		button_8.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
+				for(int i =Integer.parseInt(textField_16.getText())-1;i<Integer.parseInt(textField_20.getText());i++){
+					table_4.setValueAt(i+1, i, 0);
+					table_4.setValueAt("航运区", i,1);
+				}
+				for(int i =Integer.parseInt(textField_17.getText())-1;i<Integer.parseInt(textField_21.getText());i++){
+					table_4.setValueAt(i+1, i, 0);
+					table_4.setValueAt("铁运区", i,1);
+				}
+				for(int i =Integer.parseInt(textField_18.getText())-1;i<Integer.parseInt(textField_22.getText());i++){
+					table_4.setValueAt(i+1, i, 0);
+					table_4.setValueAt("汽运区", i,1);
+				}
+				for(int i =Integer.parseInt(textField_19.getText())-1;i<Integer.parseInt(textField_23.getText());i++){
+					table_4.setValueAt(i+1, i, 0);
+					table_4.setValueAt("机动区", i,1);
+				}
 				
 			}
 		});
 		button_8.setBounds(617, 186, 93, 23);
 		desktopPane_1.add(button_8);
+		
+		new Thread() {        
+			public void run() {            
+				try {                
+					while (true) {                    
+						label_3.setText(df.format(new Date()));//显示当前时间      
+						label_8.setText(df.format(new Date()));//显示当前时间
+						label_9.setText(df.format(new Date()));//显示当前时间
+						label_33.setText(df.format(new Date()));//显示当前时间
+						label_34.setText(df.format(new Date()));//显示当前时间
+						Thread.sleep(1000);//暂停一秒                
+						}            
+					} catch (Exception e) {            
+						
+					}        
+				}    
+			}.start();
 	}
+	
 }

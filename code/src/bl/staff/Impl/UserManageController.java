@@ -28,7 +28,7 @@ public class UserManageController implements UserManageBLService {
 	}
 
 
-	@Override
+	
 	public ArrayList<StaffVO> getAllStaff(String src) {
 		// TODO Auto-generated method stub
 		return userManage.getAllStaff(src);

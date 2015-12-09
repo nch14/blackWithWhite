@@ -15,6 +15,7 @@ public class StaffVO {
 	public int age;
 	public String sex;
 	public String SalaryModel;
+	public String authority;
 	public StaffVO(String ID1,String name1,String age1,String pos1,String department1){
 		this.ID=ID1;
 		this.name=name1;
@@ -30,6 +31,7 @@ public class StaffVO {
 		ID=staffPO.ID;
 		sex=staffPO.sex;
 		age=Integer.parseInt(TimeHelper.getTime().substring(0, 4))-staffPO.birthyear;
+		authority=staffPO.authority;
 /*		String year=staffPO.birthday.substring(0,4);
 		String month=staffPO.birthday.substring(4,6);
 		String day=staffPO.birthday.substring(6,8);

@@ -92,6 +92,9 @@ public class sign {
 		label_2.setBounds(458, 520, 167, 15);
 		frame.getContentPane().add(label_2);
 		
+		/*
+		 * 用户名及密码判断
+		 */
 		button.addMouseListener(new MouseAdapter(){
 		public void mouseClicked(MouseEvent e){
 			LoginService login = new LoginController();
@@ -100,16 +103,30 @@ public class sign {
 				 label_2.setText("登录失败");
 			}
 			else if(staff.pos=="中转中心仓库管理人员"){
-				frame.dispose();
-				 commodity man=new commodity();
-				 man.main();
+			    frame.dispose();
+			    commodity.main();
 			}else if(staff.pos=="快递员"){
 				frame.dispose();
-				 courier.main();
+				courier.main();
+			}else if(staff.pos=="财务人员"){
+				frame.dispose();
+			    account.main();
+			}else if(staff.pos=="总经理"){
+				 frame.dispose();
+					manager.main();
+			}else if(staff.pos=="管理员"){
+				frame.dispose();
+				administrator.main();
+			}else if(staff.pos=="中转中心业务员"){
+				frame.dispose();
+				transitCenterClerk.main();
+			}else if(staff.pos=="营业厅业务员"){
+				frame.dispose();
+				businessHall.main();
+			}else{
+				label_2.setText("登录失败");
 			}
-			
-
-			 }
+		  }
 		});
 	}
 }
