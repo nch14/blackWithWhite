@@ -31,6 +31,7 @@ package ui;
 
 
 
+
  import javax.swing.JFrame;
 import javax.swing.JDesktopPane;
 
@@ -64,12 +65,14 @@ import data.money.AccountManage;
 import vo.BussinessSheetVO;
 import vo.ProfitSheetVO;
 import bill.Account;
+import bill.MoneyPO;
 import bill.PaymentBill;
 import bill.ReceiveMoneyBill;
 import bl.judgement.Impl.MarkingBillsController;
 import bl.money.Impl.AccountManageController;
 import bl.money.Impl.BillingManagementController;
 import bl.money.Impl.PaidController;
+import bl.money.Impl.PayController;
 import bl.report.impl.BussinessSheetController;
 import bl.report.impl.ProfitSheetController;
 
@@ -532,16 +535,18 @@ public class account {
 			public void mouseClicked(MouseEvent e) {
 				ArrayList<PaymentBill> pay;
 				ArrayList<ReceiveMoneyBill> receive;
-				BussinessSheetVO business;
-				BussinessSheetController bsc=new BussinessSheetController();
-				business=bsc.show(textField_11.getText()+textField_10.getText()+textField_13.getText(),
-						textField_12.getText()+textField_14.getText()+textField_15.getText());
-				if(business==null){
+				String[] startDate={textField_11.getText()+textField_10.getText()+textField_13.getText()};
+				String[] endDate={textField_12.getText()+textField_14.getText()+textField_15.getText()};
+				PaidController paidment=new  PaidController();
+				PayController payment=new PayController();
+				receive=paidment.getPaidmentBill(startDate, endDate);
+				pay=payment.getPaymentBill(startDate, endDate);
+				if(receive==null&&pay==null){
 					desktopPane_5.setToolTipText("未查找到经营情况表信息！");
 				}else{
-					for(int i=0;i<table_2.getRowCount();i++){
-					     table_2.setValueAt(business.paid,i,0);
-					     table_2.setValueAt(business.pay, i, 1);
+					for(int i=0;i<pay.size()+receive.size();i++){
+					     table_2.setValueAt(pay.get(i),i/table_2.getColumnCount(),i%table_2.getColumnCount());
+					     table_2.setValueAt(receive.get(i), 2*i/table_2.getColumnCount(), 2*i/table_2.getColumnCount());
 					}
 				}
 			}
