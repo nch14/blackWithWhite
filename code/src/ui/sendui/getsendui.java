@@ -15,6 +15,8 @@ import javax.swing.JLabel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
+import ui.receivementui.transportfinishedui;
+
 public class getsendui {
 
 	private JFrame frame;
@@ -81,6 +83,15 @@ public class getsendui {
 		});
 		button_6.setBounds(576, 162, 93, 23);
 		desktopPane.add(button_6);
+		
+		predicttimeandmoneyui t = new predicttimeandmoneyui();
+		tabbedPane.addTab("报价和时间管理", null, t, null);
+		
+		transportfinishedui t1 = new transportfinishedui();
+		tabbedPane.addTab("收件信息输入", null, t1, null);
+		
+		sendui t2 = new sendui();
+		tabbedPane.addTab("寄件信息输入", null, t2, null);
 		
 		new Thread() {        
 			public void run() {            
