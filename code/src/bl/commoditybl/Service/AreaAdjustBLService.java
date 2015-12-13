@@ -12,5 +12,5 @@ public interface AreaAdjustBLService {
 	 * @param type 仅可选填：汽运区，航运去，铁运区，机动区
 	 * @return
 	 */
-	public boolean areaAdjust(int[] rows,String type);
+	public boolean areaAdjust(int row,String type);
 }

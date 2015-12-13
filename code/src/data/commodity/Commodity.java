@@ -56,4 +56,17 @@ public class Commodity implements CommodityManage{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public boolean initialCommodity(String ID,int bus, int train, int plane) throws RemoteException {
+		// TODO Auto-generated method stub
+		try {
+			CommodityManage x=(CommodityManage) Naming.lookup(getURL());
+			result=x.initialCommodity(ID,bus, train, plane);
+		} catch (ClassNotFoundException | NotBoundException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
 }
