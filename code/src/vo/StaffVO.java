@@ -12,7 +12,7 @@ public class StaffVO {
 	public int age;
 	public boolean isBoy;
 	public String SalaryModel;
-	boolean topAuthority;
+	String topAuthority;
 
 	public StaffVO(String name,String age,String pos,String department,boolean isBoy){
 		this.name=name;
