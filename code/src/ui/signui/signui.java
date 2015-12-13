@@ -102,27 +102,28 @@ public class signui {
 			LoginService login = new LoginController();
 			StaffVO staff=login.validUser(textField.getText(),textField_1.getText());
 			if(staff==null){
+				System.out.println("null");
 				 label_2.setText("登录失败");
 			}
-			else if(staff.pos=="中转中心仓库管理人员"){
+			else if(staff.pos.equals("中转中心仓库管理人员")){
 			    frame.dispose();
 			    indepotui.main();
-			}else if(staff.pos=="快递员"){
+			}else if(staff.pos.equals("快递员")){
 				frame.dispose();
 				getsendui.main();
-			}else if(staff.pos=="财务人员"){
+			}else if(staff.pos.equals("财务人员")){
 				frame.dispose();
 			    //account.main();
-			}else if(staff.pos=="总经理"){
+			}else if(staff.pos.equals("总经理")){
 				 frame.dispose();
 					//manager.main();
-			}else if(staff.pos=="管理员"){
+			}else if(staff.pos.equals("管理员")){
 				frame.dispose();
 			/*	administrator.main();*/
-			}else if(staff.pos=="中转中心业务员"){
+			}else if(staff.pos.equals("中转中心业务员")){
 				frame.dispose();
 				/*transitCenterClerk.main();*/
-			}else if(staff.pos=="营业厅业务员"){
+			}else if(staff.pos.equals("营业厅业务员")){
 				frame.dispose();
 				/*businessHall.main();*/
 			}else{
