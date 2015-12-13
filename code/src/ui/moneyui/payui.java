@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.swing.DefaultComboBoxModel;
@@ -16,6 +17,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+
+import bill.PaymentBill;
+import bl.money.Impl.PayController;
+import bl.money.Service.PayBLService;
 
 public class payui extends JDesktopPane{
 	
@@ -39,6 +44,13 @@ public class payui extends JDesktopPane{
 	private void initialize() {
 		//财务支出的界面
 				this.setBackground(Color.WHITE);
+				
+				SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				final JLabel textPane_1 = new JLabel();
+				textPane_1.setText("财务人员：");
+				textPane_1.setBounds(280, 0, 700, 21);
+				this.add(textPane_1);
+				textPane_1.setText(df.format(new Date()));
 				
 				JLabel textPane = new JLabel();
 				textPane.setText("付款日期(年/月/日）");
@@ -190,16 +202,41 @@ public class payui extends JDesktopPane{
 				button_1.setBounds(173, 549, 93, 23);
 				this.add(button_1);
 				
+				//提交付款单的事件监听
 				JButton button_2 = new JButton("提交");
+				button_2.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseClicked(MouseEvent e) {
+						PaymentBill[] paymentBill;
+							String[] time={(String) table.getValueAt(0, 1)};
+						for(int i=0;i<table.getRowCount();i++){
+							paymentBill = new PaymentBill[table.getRowCount()];
+							paymentBill[i].ID=(String) table.getValueAt(i, 0);
+							paymentBill[i].date=(String[]) table.getValueAt(i, 1);
+							paymentBill[i].money=(double) table.getValueAt(i, 2);
+							paymentBill[i].payer=(String) table.getValueAt(i, 3);
+							paymentBill[i].type=(String) table.getValueAt(i, 5);
+							paymentBill[i].remarks=(String) table.getValueAt(i, 6);
+						}
+						PayBLService pay=new PayController();
+						ArrayList<PaymentBill> payment = pay.getPaymentBill(time);
+						if(payment==null){
+							textPane_1.setText("提交失败！");
+						}else{
+							for(int n=0;n<table.getRowCount();n++){
+								table.setValueAt(null, n, 0);
+								table.setValueAt(null, n, 1);
+								table.setValueAt(null, n, 2);
+								table.setValueAt(null, n, 3);
+								table.setValueAt(null, n, 4);
+								table.setValueAt(null, n, 5);
+								table.setValueAt(null, n, 6);
+							}
+						}
+					}
+				});
 				button_2.setBounds(705, 549, 93, 23);
 				this.add(button_2);
-				
-				SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				JLabel textPane_1 = new JLabel();
-				textPane_1.setText("财务人员：");
-				textPane_1.setBounds(280, 0, 700, 21);
-				this.add(textPane_1);
-				textPane_1.setText(df.format(new Date()));
 				
 				textField = new JTextField();
 				textField.setBounds(333, 31, 31, 21);

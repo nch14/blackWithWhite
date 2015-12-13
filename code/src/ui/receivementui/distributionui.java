@@ -14,6 +14,13 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
+import vo.ReceiveInformationVO;
+import bill.AllocateBill;
+import bl.receivement.Impl.DistributionController;
+import bl.receivement.Impl.TransportFinishedController;
+import bl.receivement.Service.DistributionBLService;
+import bl.receivement.Service.TransportFinishedBLService;
+
 public class distributionui extends JDesktopPane{
 	
 	
@@ -33,6 +40,13 @@ public class distributionui extends JDesktopPane{
 	 */
 	private void initialize() {
 		this.setBackground(Color.WHITE);
+		
+		final JLabel textPane_36 = new JLabel();
+		textPane_36.setText("营业厅业务员：");
+		textPane_36.setBounds(280, 0, 700, 21);
+		this.add(textPane_36);
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+		textPane_36.setText(df.format(new Date()));
 
 		JLabel textPane_12 = new JLabel();
 		textPane_12.setText("到达日期（年/月/日）");
@@ -142,7 +156,28 @@ public class distributionui extends JDesktopPane{
 		button_8.setBounds(200, 522, 93, 23);
 		this.add(button_8);
 		
+		//提交派件单的事件监听
 		JButton button_9 = new JButton("提交");
+		button_9.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				AllocateBill[] receive = new AllocateBill[table_1.getRowCount()];
+				for(int i=0;i<table_1.getRowCount();i++){
+					receive[i].ID=(String) table_1.getValueAt(i, 0);
+				}
+				DistributionBLService distribution=new DistributionController();
+				boolean istrue=distribution.distribution(receive);
+				if(istrue==true){
+					for(int i=0;i<table_1.getRowCount();i++){
+						table_1.setValueAt(null, i, 0);
+						table_1.setValueAt(null, i, 1);
+						table_1.setValueAt(null, i, 2);
+					}
+				}else{
+					textPane_36.setText("提交失败！");
+				}
+			}
+		});
 		button_9.setBounds(693, 522, 93, 23);
 		this.add(button_9);
 		
@@ -156,13 +191,6 @@ public class distributionui extends JDesktopPane{
 		textField_49.setBounds(376, 46, 30, 21);
 		this.add(textField_49);
 		textField_49.setColumns(10);
-		
-		JLabel textPane_36 = new JLabel();
-		textPane_36.setText("营业厅业务员：");
-		textPane_36.setBounds(280, 0, 700, 21);
-		this.add(textPane_36);
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-		textPane_36.setText(df.format(new Date()));
 	}
 
 }

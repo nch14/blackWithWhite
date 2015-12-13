@@ -1,4 +1,4 @@
-package ui.moneyui;
+ package ui.moneyui;
 
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
@@ -19,6 +19,7 @@ import javax.swing.table.DefaultTableModel;
 
 import bill.Account;
 import bl.money.Impl.AccountManageController;
+import bl.money.Service.AccountManageBLService;
 
 public class accountmanageui extends JDesktopPane{
 	
@@ -44,6 +45,12 @@ public class accountmanageui extends JDesktopPane{
 		
 		this.setBackground(Color.WHITE);
 		
+		final JLabel textPane_2 = new JLabel();
+		textPane_2.setText("\u8D22\u52A1\u4EBA\u5458\uFF1A");
+		textPane_2.setBounds(280, 0, 700, 21);
+		this.add(textPane_2);
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+		textPane_2.setText(df.format(new Date()));
 		
 		JTabbedPane tabbedPane_2 = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane_2.setBounds(91, 80, 753, 465);
@@ -162,7 +169,28 @@ public class accountmanageui extends JDesktopPane{
 		button_7.setBounds(122, 392, 93, 23);
 		desktopPane_6.add(button_7);
 		
+		//提交账户信息的事件监听
 		JButton button_8 = new JButton("提交");
+		button_8.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				String account = null;
+				for(int i=0;i<table_3.getRowCount();i++){
+					account=table_3.getValueAt(i, 0).toString();
+				}
+				AccountManageBLService accountManage=new AccountManageController();
+			    ArrayList<Account> arrayList=accountManage.getAccount(account);
+			    if(arrayList==null){
+			    	textPane_2.setText("提交失败！");
+			    }else{
+			    	for(int i=0;i<table_3.getRowCount();i++){
+			    		table_3.setValueAt(null, i, 0);
+			    		table_3.setValueAt(null, i, 1);
+			    		table_3.setValueAt(null, i, 2);
+			    	}
+			    }
+			}
+		});
 		button_8.setBounds(547, 392, 93, 23);
 		desktopPane_6.add(button_8);
 		
@@ -186,7 +214,7 @@ public class accountmanageui extends JDesktopPane{
 				AccountManageController amc=new AccountManageController();
 				account = amc.getAccount(textField_21.getText());
 				if(account==null){
-					desktopPane_7.setToolTipText("未查找到任何账户信息！");
+					textPane_2.setText("未查找到任何账户信息！");
 				}else{
 					for(int i=0;i<account.size();i++){
 					    table_4.setValueAt(account.get(i), i/table_4.getColumnCount(), i%table_4.getColumnCount());
@@ -282,7 +310,7 @@ public class accountmanageui extends JDesktopPane{
 				AccountManageController amc=new AccountManageController();
 				account = amc.getAccount(textField_21.getText());
 				if(account==null){
-					desktopPane_7.setToolTipText("未查找到任何账户信息！");
+					textPane_2.setText("未查找到任何账户信息！");
 				}else{
 					for(int i=0;i<account.size();i++){
 					    table_4.setValueAt(account.get(i), i/table_4.getColumnCount(), i%table_4.getColumnCount());
@@ -354,9 +382,9 @@ public class accountmanageui extends JDesktopPane{
 		button_13.setBounds(136, 393, 93, 23);
 		desktopPane_8.add(button_13);
 		
-		JButton button_14 = new JButton("提交");
+		/*JButton button_14 = new JButton("提交");
 		button_14.setBounds(496, 393, 93, 23);
-		desktopPane_8.add(button_14);
+		desktopPane_8.add(button_14);*/
 		
 		JDesktopPane desktopPane_9 = new JDesktopPane();
 		desktopPane_9.setBackground(Color.WHITE);
@@ -377,7 +405,7 @@ public class accountmanageui extends JDesktopPane{
 				AccountManageController amc=new AccountManageController();
 				account = amc.getAccount(textField_21.getText());
 				if(account==null){
-					desktopPane_7.setToolTipText("未查找到任何账户信息！");
+					textPane_2.setText("未查找到任何账户信息！");
 				}else{
 					for(int i=0;i<account.size();i++){
 					    table_4.setValueAt(account.get(i), i/table_4.getColumnCount(), i%table_4.getColumnCount());
@@ -436,12 +464,6 @@ public class accountmanageui extends JDesktopPane{
 		button_16.setBounds(496, 388, 93, 23);
 		desktopPane_9.add(button_16);
 		
-		JLabel textPane_2 = new JLabel();
-		textPane_2.setText("\u8D22\u52A1\u4EBA\u5458\uFF1A");
-		textPane_2.setBounds(280, 0, 700, 21);
-		this.add(textPane_2);
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-		textPane_2.setText(df.format(new Date()));
 	}
 
 }
