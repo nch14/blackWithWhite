@@ -54,24 +54,13 @@ public class StockBlockInfo implements Serializable{
 	int numOfZone_Plane=7;
 	int numOfZone_Buffer=4;
 	
-	ArrayList<Row> bus;
-	ArrayList<Row> train;
-	ArrayList<Row> plane;
-	ArrayList<Row> buffer;
+	ArrayList<Row> bus=new ArrayList<Row>();
+	ArrayList<Row> train=new ArrayList<Row>();
+	ArrayList<Row> plane=new ArrayList<Row>();
+	ArrayList<Row> buffer=new ArrayList<Row>();
 	
 	public StockBlockInfo(){
-		for(int i=0;i<numOfZone_Bus;++i){
-			bus.add(new Row(Integer.toString(i)));
-		}
-		for(int i=numOfZone_Bus;i<numOfZone_Bus+numOfZone_Train;++i){
-			train.add(new Row(Integer.toString(i)));
-		}
-		for(int i=numOfZone_Bus+numOfZone_Train;i<numOfZone_Bus+numOfZone_Train+numOfZone_Plane;++i){
-			plane.add(new Row(Integer.toString(i)));
-		}
-		for(int i=numOfZone_Bus+numOfZone_Train+numOfZone_Plane;i<25;++i){
-			buffer.add(new Row(Integer.toString(i)));
-		}
+		
 	}
 	
 	/**
@@ -93,6 +82,19 @@ public class StockBlockInfo implements Serializable{
 		}
 		else
 			return true;
+	}
+	
+	boolean check(StockBill_In s){
+		int busNum=0,trainNum=0,planeNum=0;
+		for(bill.StockBill_In.Info i:s.list){
+			if(i.form.equals("bus"))
+				busNum++;
+			else if(i.form.equals("train"))
+				trainNum++;
+			else if(i.form.equals("plane"))
+				planeNum++;
+		}
+		return check(bus,busNum)&&check(train,trainNum)&&check(plane,planeNum);
 	}
 	
 	/**
@@ -186,6 +188,7 @@ public class StockBlockInfo implements Serializable{
 	 * @return
 	 */
 	public String[] getPosition(String s,String ID){
+		
 		String[] result=new String[4];
 		if(s.equals("bus")){
 			result=getpos(this.bus,ID);
@@ -202,6 +205,29 @@ public class StockBlockInfo implements Serializable{
 		return result;
 	}
 	
+	public StockBill_In getPosition(StockBill_In s){
+		
+		if(!check(s))
+			return null;
+		int length=s.getLength();
+		String[] ids=new String[length];
+		String[] zone=new String[length];
+		String[] row=new String[length];
+		String[] col=new String[length];
+		String[] pos=new String[length];
+		
+		String[] temp;
+		for(int i=0;i<length;++i){
+			temp=this.getPosition(s.list.get(i).form, ids[i]);
+			zone[i]=temp[0];
+			row[i]=temp[1];
+			col[i]=temp[2];
+			pos[i]=temp[3];
+		}
+		s.allocate(zone, row, col, pos);
+		return s;
+	}
+		
 	void free(String ID,String form){
 		if(form.equals("bus")){
 			for(Row j:bus){
@@ -237,4 +263,22 @@ public class StockBlockInfo implements Serializable{
 		return true;
 	}
 	
+	public boolean initialCommodity(int bus,int train,int plane){
+		if(bus+train+plane>25){
+			return false;
+		}
+		for(int i=0;i<bus;++i){
+			this.bus.add(new Row(Integer.toString(i)));
+		}
+		for(int i=bus;i<bus+train;++i){
+			this.train.add(new Row(Integer.toString(i)));
+		}
+		for(int i=bus+train;i<bus+train+plane;++i){
+			this.plane.add(new Row(Integer.toString(i)));
+		}
+		for(int i=bus+train+plane;i<25;++i){
+			this.buffer.add(new Row(Integer.toString(i)));
+		}
+		return true;
+	}
 }
