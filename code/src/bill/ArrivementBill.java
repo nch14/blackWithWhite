@@ -10,9 +10,7 @@ public class ArrivementBill {
 	String placeOfDeparture;
 	public ArrayList<struct> bill=new  ArrayList<struct>();
 	
-	public ArrivementBill(){
-		judged=false;
-	}
+	public ArrivementBill(){}
 	
 	public ArrayList<String> showAllID(){
 		ArrayList<String> back=new ArrayList<String>();
@@ -27,7 +25,7 @@ public class ArrivementBill {
 	class struct{
 		public String id;
 		State st;
-		public struct(String s,State t){
+		struct(String s,State t){
 			id=s;
 			st=t;
 		}

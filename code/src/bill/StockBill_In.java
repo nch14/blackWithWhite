@@ -54,7 +54,7 @@ public class StockBill_In {
 		private String frameID;//¼ÜºÅ
 		private String positionID;//Î»ºÅ
 		
-		public Info(String ID,String[]date,String destination){
+		Info(String ID,String[]date,String destination){
 			this.ID=ID;
 			this.destination=destination;
 			this.date=date;

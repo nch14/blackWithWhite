@@ -14,11 +14,4 @@ public class StockBill_Out {
 	}
 	public ArrayList<Info> list;
 	public String ID;
-	
-	public StockBill_Out(){}
-	
-	public StockBill_Out(String ID){
-		this.ID=ID;
-		this.list=new ArrayList<Info>();
-	}
 }

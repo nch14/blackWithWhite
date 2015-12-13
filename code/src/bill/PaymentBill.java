@@ -23,16 +23,4 @@ public class PaymentBill {
 		result+=date[0]+date[1]+date[2];
 		return result;	
 	}
-	
-	public PaymentBill(String ID,String[] time,double money,String payer,String type,
-			String remarks){
-		this.ID=ID;
-		this.date=time;
-		this.money=money;
-		this.payer=payer;
-		this.type=type;
-		this.remarks=remarks;
-	}
-	
-	public PaymentBill(){}
 }

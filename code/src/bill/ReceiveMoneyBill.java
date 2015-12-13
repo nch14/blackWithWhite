@@ -25,15 +25,4 @@ public class ReceiveMoneyBill {
 		result+=date[0]+date[1]+date[2];
 		return result;	
 	}
-	
-	public ReceiveMoneyBill(String ID,String[] time,double money,String transactor
-			,String bussinessHallCode){
-		this.ID=ID;
-		this.date=time;
-		this.money=money;
-		this.transactor=transactor;
-		this.bussinessHallCode=bussinessHallCode;
-	}
-	
-	public ReceiveMoneyBill(){}
 }
