@@ -1,6 +1,10 @@
 package bill;
 
 public class BusShipmentBill_Shop extends BusShipmentBill{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4224701028156219373L;
 	String ID;
 	
 	public BusShipmentBill_Shop(String[] time,String busshipID,String destination,String busID

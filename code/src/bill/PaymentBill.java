@@ -1,10 +1,17 @@
 package bill;
+
+import java.io.Serializable;
+
 /**
  * ¸¶¿îµ¥
  * @author Äß³½ð©
  *
  */
-public class PaymentBill {
+public class PaymentBill implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4681791988514899600L;
 	public boolean judged;
 	public static String billtype="PaymentBill";
 	public String ID;

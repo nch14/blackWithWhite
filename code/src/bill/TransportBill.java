@@ -1,8 +1,13 @@
 package bill;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class TransportBill {
+public class TransportBill implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5236873291717999704L;
 	String[] date;
 	public boolean judged;
 	public String transBillID;

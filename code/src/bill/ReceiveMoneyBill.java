@@ -1,12 +1,17 @@
 package bill;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 /**
  * ÊÕ¿îµ¥
  * @author Äß³½ð©
  *
  */
-public class ReceiveMoneyBill {
+public class ReceiveMoneyBill implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4485009681134619444L;
 	public static String billtype="ReceiveMoney";
 	public String ID;
 	public boolean judged;

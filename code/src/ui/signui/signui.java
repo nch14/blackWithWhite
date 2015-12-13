@@ -9,6 +9,7 @@ import javax.swing.JTextField;
 import bl.staff.Impl.LoginController;
 import bl.staff.service.LoginService;
 import ui.commodityui.indepotui;
+import ui.sendui.getsendui;
 import vo.StaffVO;
 
 import javax.swing.ImageIcon;
@@ -108,13 +109,13 @@ public class signui {
 			    indepotui.main();
 			}else if(staff.pos=="快递员"){
 				frame.dispose();
-				courier.main();
+				getsendui.main();
 			}else if(staff.pos=="财务人员"){
 				frame.dispose();
-			    account.main();
+			    //account.main();
 			}else if(staff.pos=="总经理"){
 				 frame.dispose();
-					manager.main();
+					//manager.main();
 			}else if(staff.pos=="管理员"){
 				frame.dispose();
 			/*	administrator.main();*/

@@ -1,8 +1,9 @@
 package bill;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class BusShipmentBill {
+public class BusShipmentBill implements Serializable{
 	String[] date;//ÈÕÆÚ
 	public String busshipID;//ÆûÔË±àºÅ
 	public boolean judged;

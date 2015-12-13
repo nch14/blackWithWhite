@@ -1,10 +1,17 @@
 package bill;
+
+import java.io.Serializable;
+
 /**
  * 不检查数据格式是否正确
  * @author nch
  *
  */
-public class DriverPO {
+public class DriverPO implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6130985348395924086L;
 	public String ID;
 	public String name;
 	public String IDNumber;

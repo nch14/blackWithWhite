@@ -1,8 +1,13 @@
 package bill;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class StockBill_Out {
+public class StockBill_Out implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5561537289245015410L;
 	public static String billtype="StockBill_Out";
 	public boolean judged;
 	public class Info{

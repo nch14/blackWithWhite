@@ -6,6 +6,11 @@ import bill.StockBill_Out;
 import bill.StockBill_Out.Info;
 
 public class StockBlockInfo implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4983807107972385969L;
+
 	//HashMap<Integer,Row> base=new HashMap<Integer,Row>();
 	class Position implements Serializable{
 		public String id;
