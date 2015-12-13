@@ -19,6 +19,13 @@ import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.table.DefaultTableModel;
 
+import bill.TransportBill_Plane;
+import bill.TransportBill_Train;
+import bl.shipment.Impl.AirTransportController;
+import bl.shipment.Impl.TrainTransportController;
+import bl.shipment.Service.AirTransportBLService;
+import bl.shipment.Service.TrainTransportBLService;
+
 public class traintransportui extends JDesktopPane{
 	
 	
@@ -42,7 +49,14 @@ public class traintransportui extends JDesktopPane{
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		//火车装运管理的界面
+		       //火车装运管理的界面
+		       final JLabel textPane_4 = new JLabel();
+		       textPane_4.setText("\u4E2D\u8F6C\u4E2D\u5FC3\u4E1A\u52A1\u5458");
+		       textPane_4.setBounds(280, 0, 700, 21);
+		       this.add(textPane_4);
+		       SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+	           textPane_4.setText(df.format(new Date()));
+		
 				this.setBackground(Color.WHITE);
 				
 				JScrollPane scrollPane_1 = new JScrollPane();
@@ -222,14 +236,27 @@ public class traintransportui extends JDesktopPane{
 				this.add(textField_24);
 				textField_24.setColumns(10);
 				
-				JLabel textPane_4 = new JLabel();
-				textPane_4.setText("\u4E2D\u8F6C\u4E2D\u5FC3\u4E1A\u52A1\u5458");
-				textPane_4.setBounds(280, 0, 700, 21);
-				this.add(textPane_4);
-				SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-				textPane_4.setText(df.format(new Date()));
-				
-				JButton button_5 = new JButton("\u63D0\u4EA4");
+				//提交火车装运单的事件监听
+				JButton button_5 = new JButton("提交");
+				button_5.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseClicked(MouseEvent e) {
+						TransportBill_Train train = null;
+						for(int i=0;i<table_2.getRowCount();i++){
+						     train.transBillID=table_2.getValueAt(i, 0).toString();
+						}
+						TrainTransportBLService trainTransport=new TrainTransportController();
+						double trainBill=trainTransport.submitBills(train);
+						if(trainBill==0){
+							textPane_4.setText("提交失败！");
+						}else{
+							for(int i=0;i<table_2.getRowCount();i++){
+								table_2.setValueAt(null, i, 0);
+								table_2.setValueAt(null, i, 1);
+							}
+						}
+					}
+				});
 				button_5.setBounds(750, 540, 93, 23);
 				this.add(button_5);
 	}

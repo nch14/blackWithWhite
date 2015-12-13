@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Timer;
 
@@ -18,6 +19,7 @@ import javax.swing.table.DefaultTableModel;
 
 import bill.DriverPO;
 import bl.staff.Impl.DriverManageCotroller;
+import bl.staff.service.DriverManageBLService;
 
 public class drivermanageui extends JDesktopPane{
 	
@@ -102,7 +104,6 @@ public class drivermanageui extends JDesktopPane{
 				dp=dmc.getDriver(textField.getText());
 				if(dp==null){
 					textPane_38.setText("未查找到任何司机信息！");
-					Timer time=new Timer();
 					
 				}else{
 					table_4.setValueAt(dp.ID, 0, 0);
@@ -279,8 +280,35 @@ public class drivermanageui extends JDesktopPane{
 		scrollPane_5.setViewportView(table_5);
 		
 		JButton button_2 = new JButton("提交");
+		button_2.addMouseListener(new MouseAdapter(){
+			public void mouseClicked(MouseEvent e){
+				DriverPO[] driver = null;
+				boolean isBoy=true;
+				for(int i=0;i<table_5.getRowCount();i++){
+					DriverPO driverPo=new DriverPO(table_5.getValueAt(i, 0).toString(), table_5.getValueAt(i, 1).toString(),table_5.getValueAt(i, 2).toString(),
+							 table_5.getValueAt(i, 3).toString(), table_5.getValueAt(i, 4).equals(isBoy), table_5.getValueAt(i, 5).toString(), (String) table_5.getValueAt(i, 6));
+					driver[i]=driverPo;
+				}
+				DriverManageBLService driverManage=new DriverManageCotroller();
+				boolean istrue=driverManage.addNewDiver(driver);
+				if(istrue=true){
+					for(int i=0;i<table_5.getRowCount();i++){
+						table_5.setValueAt(null, i, 0);
+						table_5.setValueAt(null, i, 1);
+						table_5.setValueAt(null, i, 2);
+						table_5.setValueAt(null, i, 3);
+						table_5.setValueAt(null, i, 4);
+						table_5.setValueAt(null, i, 5);
+						table_5.setValueAt(null, i, 6);
+					}
+				}else{
+					textPane_38.setText("提交失败！");
+				}
+			}
+		});
 		button_2.setBounds(670, 435, 93, 23);
 		desktopPane_7.add(button_2);
+		
 		//撤消司机信息table中一行的事件监听
 		JButton button_27 = new JButton("撤消");
 		button_27.addMouseListener(new MouseAdapter() {
@@ -363,7 +391,24 @@ public class drivermanageui extends JDesktopPane{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				DriverManageCotroller dmc=new DriverManageCotroller();
-				dmc.deleteDriver(null);
+				String[] driverID = null;
+				for(int i=0;i<table_4.getRowCount();i++){
+					driverID=(String[]) table_4.getValueAt(i, 0);
+				}
+				Boolean istrue=dmc.deleteDriver(driverID);
+				if(istrue==true){
+					for(int j=0;j<table_4.getRowCount();j++){
+						table_4.setValueAt(null, j, 0);
+						table_4.setValueAt(null, j, 1);
+						table_4.setValueAt(null, j, 2);
+						table_4.setValueAt(null, j, 3);
+						table_4.setValueAt(null, j, 4);
+						table_4.setValueAt(null, j, 5);
+						table_4.setValueAt(null, j, 6);
+					}
+				}else{
+					textPane_38.setText("删除失败！");
+				}
 			}
 		});
 		button_17.setBounds(580, 330, 121, 23);
@@ -427,8 +472,26 @@ public class drivermanageui extends JDesktopPane{
 		button_19.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				String[] name={(String) table_7.getValueAt(0, 1)};
+				String[] ID={(String) table_7.getValueAt(0, 0)};
+				String[] IDCardNumber={(String) table_7.getValueAt(0, 3)};
+				String[] birthday={(String) table_7.getValueAt(0, 4)};
+				boolean[] isBoy={(Boolean) table_7.getValueAt(0, 2)};
+				String[] TelNumber={(String) table_7.getValueAt(0, 6)};
+				String[] ValiDate={(String) table_7.getValueAt(0, 5)};
 				DriverManageCotroller dmc=new DriverManageCotroller();
-				dmc.ChangeDriverInfo(null, null, null, null, null, null, null);
+				boolean istrue=dmc.ChangeDriverInfo(name, ID, IDCardNumber, birthday, isBoy, TelNumber, ValiDate);
+				if(istrue==true){
+					table_7.setValueAt(e, 0, 0);
+					table_7.setValueAt(e, 0, 1);
+					table_7.setValueAt(e, 0, 2);
+					table_7.setValueAt(e, 0, 3);
+					table_7.setValueAt(e, 0, 4);
+					table_7.setValueAt(e, 0, 5);
+					table_7.setValueAt(e, 0, 6);
+				}else{
+					textPane_38.setText("修改司机信息失败！");
+				}
 			}
 		});
 		button_19.setBounds(580, 330, 121, 23);

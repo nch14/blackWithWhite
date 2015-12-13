@@ -20,6 +20,10 @@ import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.table.DefaultTableModel;
 
+import bill.ArrivementBill_Center;
+import bl.shipment.Impl.TransportAndReceiveController;
+import bl.shipment.Service.TransportAndReceiveBLService;
+
 public class transportandreceiveui extends JDesktopPane{
 	
 	private JTextPane textPane;
@@ -82,6 +86,13 @@ public class transportandreceiveui extends JDesktopPane{
 	JScrollPane scrollPane_3 = new JScrollPane();
 	scrollPane_3.setBounds(150, 210, 700, 320);
 	this.add(scrollPane_3);
+	
+	final JLabel textPane_14 = new JLabel();
+	textPane_14.setText("\u4E2D\u8F6C\u4E2D\u5FC3\u4E1A\u52A1\u5458");
+	textPane_14.setBounds(280, 0, 700, 21);
+	this.add(textPane_14);
+	SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+	textPane_14.setText(df.format(new Date()));
 	
 	table_4 = new JTable();
 	table_4.setModel(new DefaultTableModel(
@@ -219,6 +230,20 @@ public class transportandreceiveui extends JDesktopPane{
 	JButton button_9 = new JButton("提交");
 	button_9.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
+			ArrivementBill_Center arrivement=null;
+			for(int i=0;i<table_4.getRowCount();i++){
+				arrivement.ID=table_4.getValueAt(i, 0).toString();
+			}
+			TransportAndReceiveBLService transport=new TransportAndReceiveController();
+			boolean istrue=transport.submitBills(arrivement);
+			if(istrue=true){
+				for(int i=0;i<table_4.getRowCount();i++){
+					table_4.setValueAt(null, i, 0);
+					table_4.setValueAt(null, i, 1);
+				}
+			}else{
+				textPane_14.setText("提交失败！");
+			}
 		}
 	});
 	button_9.setBounds(750, 540, 93, 23);
@@ -238,13 +263,6 @@ public class transportandreceiveui extends JDesktopPane{
 	textField_2.setBounds(353, 49, 30, 21);
 	this.add(textField_2);
 	textField_2.setColumns(10);
-	
-	JLabel textPane_14 = new JLabel();
-	textPane_14.setText("\u4E2D\u8F6C\u4E2D\u5FC3\u4E1A\u52A1\u5458");
-	textPane_14.setBounds(280, 0, 700, 21);
-	this.add(textPane_14);
-	SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-	textPane_14.setText(df.format(new Date()));
 	
 	}
 

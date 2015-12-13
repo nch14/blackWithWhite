@@ -18,6 +18,10 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
+import bill.TransportBill_Truck;
+import bl.shipment.Impl.TruckTransportManageController;
+import bl.shipment.Service.TruckTransportManageBLService;
+
 public class trucktransportmanageui extends JDesktopPane{
 	
 	
@@ -52,6 +56,13 @@ public class trucktransportmanageui extends JDesktopPane{
 				JScrollPane scrollPane_2 = new JScrollPane();
 				scrollPane_2.setBounds(150, 210, 700, 320);
 				this.add(scrollPane_2);
+				
+				final JLabel textPane_5 = new JLabel();
+				textPane_5.setText("\u4E2D\u8F6C\u4E2D\u5FC3\u4E1A\u52A1\u5458");
+				textPane_5.setBounds(280, 0, 700, 21);
+				this.add(textPane_5);
+				SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+				textPane_5.setText(df.format(new Date()));
 				
 				table_3 = new JTable();
 				table_3.setModel(new DefaultTableModel(
@@ -228,6 +239,20 @@ public class trucktransportmanageui extends JDesktopPane{
 				JButton button_11 = new JButton("提交");
 				button_11.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						TransportBill_Truck truck = null;
+						for(int i=0;i<table_3.getRowCount();i++){
+							truck.transBillID=table_3.getValueAt(i, 0).toString();
+						}
+						TruckTransportManageBLService truckTransport=new TruckTransportManageController();
+						double truckBill=truckTransport.submitBills(truck);
+						if(truckBill==0){
+							textPane_5.setText("提交失败！");
+						}else{
+							for(int i=0;i<table_3.getRowCount();i++){
+								table_3.setValueAt(null, i, 0);
+								table_3.setValueAt(null, i, 1);
+							}
+						}
 					}
 				});
 				button_11.setBounds(750, 540, 93, 23);
@@ -243,12 +268,6 @@ public class trucktransportmanageui extends JDesktopPane{
 				this.add(textField_14);
 				textField_14.setColumns(10);
 				
-				JLabel textPane_5 = new JLabel();
-				textPane_5.setText("\u4E2D\u8F6C\u4E2D\u5FC3\u4E1A\u52A1\u5458");
-				textPane_5.setBounds(280, 0, 700, 21);
-				this.add(textPane_5);
-				SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-				textPane_5.setText(df.format(new Date()));
 	}
 
 }

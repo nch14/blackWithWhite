@@ -17,6 +17,14 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
+import vo.ReceiveInformationVO;
+import bill.AllocateBill;
+import bill.ArrivementBill_Shop;
+import bl.receivement.Impl.DistributionController;
+import bl.receivement.Impl.TransportFinishedController;
+import bl.receivement.Service.DistributionBLService;
+import bl.receivement.Service.TransportFinishedBLService;
+
 public class receiveui extends JDesktopPane{
 	
 	private JTextField textField_8;
@@ -36,6 +44,13 @@ public class receiveui extends JDesktopPane{
 	private void initialize() {
 		//营业厅到达单的界面
 				this.setBackground(Color.WHITE);
+				
+				final JLabel textPane_35 = new JLabel();
+				textPane_35.setText("营业厅业务员：");
+				textPane_35.setBounds(280, 0, 700, 21);
+				this.add(textPane_35);
+				SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+				textPane_35.setText(df.format(new Date()));
 				
 				JLabel textPane_8 = new JLabel();
 				textPane_8.setText("到达日期");
@@ -162,7 +177,29 @@ public class receiveui extends JDesktopPane{
 				button_5.setBounds(259, 528, 93, 23);
 				this.add(button_5);
 				
+				//提交营业厅到达单的事件监听
 				JButton button_6 = new JButton("提交");
+				button_6.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseClicked(MouseEvent e) {
+						AllocateBill[] arrivement = new AllocateBill[table.getRowCount()];
+						for(int i=0;i<table.getRowCount();i++){
+							arrivement[i].ID=table.getValueAt(i, 0).toString();
+						}
+						DistributionBLService distribution=new DistributionController();
+						boolean istrue=distribution.distribution(arrivement);
+						if(istrue=true){
+							for(int i=0;i<table.getRowCount();i++){
+								table.setValueAt(null, i, 0);
+								table.setValueAt(null, i, 1);
+								table.setValueAt(null, i, 2);
+								table.setValueAt(null, i, 3);
+							}
+						}else{
+							textPane_35.setText("提交失败！");
+						}
+					}
+				});
 				button_6.setBounds(708, 528, 93, 23);
 				this.add(button_6);
 				
@@ -175,13 +212,6 @@ public class receiveui extends JDesktopPane{
 				textField_21.setBounds(380, 58, 30, 21);
 				this.add(textField_21);
 				textField_21.setColumns(10);
-				
-				JLabel textPane_35 = new JLabel();
-				textPane_35.setText("营业厅业务员：");
-				textPane_35.setBounds(280, 0, 700, 21);
-				this.add(textPane_35);
-				SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-				textPane_35.setText(df.format(new Date()));
 		
 	}
 

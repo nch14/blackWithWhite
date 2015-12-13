@@ -17,6 +17,7 @@ import javax.swing.table.DefaultTableModel;
 
 import bill.TruckPO;
 import bl.staff.Impl.TruckManageController;
+import bl.staff.service.TruckManageBLService;
 
 public class truckmanageui extends JDesktopPane{
 	
@@ -212,6 +213,28 @@ public class truckmanageui extends JDesktopPane{
 				scrollPane_9.setViewportView(table_9);
 				
 				JButton button_22 = new JButton("提交");
+				button_22.addMouseListener(new MouseAdapter(){
+					public void mouseClicked(MouseEvent e){
+						TruckPO[] truck = null;
+						boolean isBoy=true;
+						for(int i=0;i<table_9.getRowCount();i++){
+							TruckPO truckPo=new TruckPO(table_9.getValueAt(i, 0).toString(), table_9.getValueAt(i, 1).toString(),
+									table_9.getValueAt(i, 2).toString());
+							truck[i]=truckPo;
+						}
+						TruckManageBLService truckManage=new TruckManageController();
+						boolean istrue=truckManage.addNewTruck(truck);
+						if(istrue=true){
+							for(int i=0;i<table_9.getRowCount();i++){
+								table_9.setValueAt(null, i, 0);
+								table_9.setValueAt(null, i, 1);
+								table_9.setValueAt(null, i, 2);
+							}
+						}else{
+							textPane_39.setText("提交失败！");
+						}
+					}
+				});
 				button_22.setBounds(590, 430, 93, 23);
 				desktopPane_11.add(button_22);
 				//撤消车辆信息table中一行的事件监听
@@ -285,8 +308,16 @@ public class truckmanageui extends JDesktopPane{
 				button_24.addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent e) {
+						String[] id=(String[]) table_10.getValueAt(0, 0);
 						TruckManageController tmc=new TruckManageController();
-						tmc.deleteTruck(null);
+						boolean istrue=tmc.deleteTruck(id);
+						if(istrue==true){
+							table_10.setValueAt(null, 0, 0);
+							table_10.setValueAt(null, 0, 1);
+							table_10.setValueAt(null, 0, 2);
+						}else{
+							textPane_39.setText("删除车辆信息失败！");
+						}
 					}
 				});
 				button_24.setBounds(580, 330, 121, 23);
@@ -345,8 +376,18 @@ public class truckmanageui extends JDesktopPane{
 				button_26.addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent e) {
+						String[] id=(String[]) table_10.getValueAt(0, 0);
+						String[] licensePlate=(String[]) table_10.getValueAt(0, 1);
+						String[] inTime=(String[]) table_10.getValueAt(0, 2);
 						TruckManageController tmc=new TruckManageController();
-						tmc.ChangeTruckInfo(null, null, null);
+						boolean istrue=tmc.ChangeTruckInfo(id, licensePlate, inTime);
+						if(istrue=true){
+							table_10.setValueAt(e, 0, 0);
+							table_10.setValueAt(e, 0, 1);
+							table_10.setValueAt(e, 0, 2);
+						}else{
+							textPane_39.setText("修改司机信息失败！");
+						}
 					}
 				});
 				button_26.setBounds(580, 330, 121, 23);

@@ -24,6 +24,10 @@ import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.table.DefaultTableModel;
 
+import bill.TransportBill_Plane;
+import bl.shipment.Impl.AirTransportController;
+import bl.shipment.Service.AirTransportBLService;
+
 public class airtransportui {
 
 	private JFrame frame;
@@ -80,6 +84,14 @@ public class airtransportui {
 		
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		frame.getContentPane().add(tabbedPane, BorderLayout.CENTER);
+		
+		final JLabel textPane_1 = new JLabel();
+		textPane_1.setText("\u4E2D\u8F6C\u4E2D\u5FC3\u4E1A\u52A1\u5458");
+		textPane_1.setBounds(280, 0, 700, 21);
+		desktopPane.add(textPane_1);
+		SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		textPane_1.setText(df.format(new Date()));
+		
 		//飞机装运管理的界面
 		desktopPane = new JDesktopPane();
 		desktopPane.setBackground(Color.WHITE);
@@ -257,7 +269,20 @@ public class airtransportui {
 		button_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				AccessibleContext flight=table_1.getAccessibleContext();
+				TransportBill_Plane plane = null;
+				for(int i=0;i<table_1.getRowCount();i++){
+				     plane.transBillID=table_1.getValueAt(i, 0).toString();
+				}
+				AirTransportBLService airTransport=new AirTransportController();
+				double airBill=airTransport.submitBills(plane);
+				if(airBill==0){
+					textPane_1.setText("提交失败！");
+				}else{
+					for(int i=0;i<table_1.getRowCount();i++){
+						table_1.setValueAt(null, i, 0);
+						table_1.setValueAt(null, i, 1);
+					}
+				}
 			}
 		});
 		
@@ -273,13 +298,6 @@ public class airtransportui {
 		textField_36.setBounds(352, 49, 30, 21);
 		desktopPane.add(textField_36);
 		textField_36.setColumns(10);
-		
-		JLabel textPane_1 = new JLabel();
-		textPane_1.setText("\u4E2D\u8F6C\u4E2D\u5FC3\u4E1A\u52A1\u5458");
-		textPane_1.setBounds(280, 0, 700, 21);
-		desktopPane.add(textPane_1);
-		SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		textPane_1.setText(df.format(new Date()));
 		
 		traintransportui t = new traintransportui();
 		tabbedPane.addTab("火车装运", null, t, null);

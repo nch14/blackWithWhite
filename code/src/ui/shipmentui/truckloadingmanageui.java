@@ -25,6 +25,13 @@ import ui.receivementui.receiveui;
 import ui.staffui.drivermanageui;
 import ui.staffui.truckmanageui;
 
+import javax.swing.UIManager;
+
+import bill.BusShipmentBill_Shop;
+import bill.TransportBill;
+import bl.shipment.Impl.TruckLoadingManageController;
+import bl.shipment.Service.TruckLoadingManageBLService;
+
 public class truckloadingmanageui {
 
 	private JFrame frame;
@@ -79,6 +86,14 @@ public class truckloadingmanageui {
 		JDesktopPane desktopPane_4 =new JDesktopPane();
 		desktopPane_4.setBackground(Color.WHITE);
 		tabbedPane.addTab("车辆装车管理", null, desktopPane_4, null);
+		
+		final JLabel textPane_34 = new JLabel();
+		textPane_34.setBackground(Color.WHITE);
+		textPane_34.setText("营业厅业务员：");
+		textPane_34.setBounds(280, 0, 700, 21);
+		desktopPane_4.add(textPane_34);
+		SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		textPane_34.setText(df.format(new Date()));
 		
 		JLabel textPane_19 = new JLabel();
 		textPane_19.setBackground(Color.WHITE);
@@ -158,7 +173,7 @@ public class truckloadingmanageui {
 		textField_35.setColumns(10);
 		
 		final JButton button_13 = new JButton("添加");
-		button_13.setBackground(Color.GRAY);
+		button_13.setBackground(UIManager.getColor("Button.background"));
 		//添加装车单的事件监听
 		button_13.addMouseListener(new MouseAdapter() {
 			@Override
@@ -233,7 +248,7 @@ public class truckloadingmanageui {
 		scrollPane_3.setViewportView(table_3);
 		//撤消装车单table中一行的事件监听
 		JButton button_14 = new JButton("撤消");
-		button_14.setBackground(Color.GRAY);
+		button_14.setBackground(UIManager.getColor("Button.background"));
 		button_14.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -259,11 +274,30 @@ public class truckloadingmanageui {
 		
 		//提交一个table的事件监听
 		JButton button_16 = new JButton("提交");
-		button_16.setBackground(Color.GRAY);
+		button_16.setBackground(UIManager.getColor("Button.background"));
 		button_16.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+				BusShipmentBill_Shop busShip=null;
+				for(int i=0;i<table_3.getRowCount();i++){
+					busShip.busshipID=table_3.getValueAt(i, 0).toString();
+				}
+				TruckLoadingManageBLService truckLoading=new TruckLoadingManageController();
+				double loadingBill=truckLoading.submitBills(busShip);
+				if(loadingBill==0){
+					textPane_34.setText("提交失败！");
+				}else{
+					for(int i=0;i<table_3.getRowCount();i++){
+						table_3.setValueAt(null, i, 0);
+						table_3.setValueAt(null, i, 1);
+						table_3.setValueAt(null, i, 2);
+						table_3.setValueAt(null, i, 3);
+						table_3.setValueAt(null, i, 4);
+						table_3.setValueAt(null, i, 5);
+						table_3.setValueAt(null, i, 6);
+						table_3.setValueAt(null, i, 7);
+					}
+				}
 			}
 		});
 		button_16.setBounds(757, 536, 93, 23);
@@ -289,14 +323,6 @@ public class truckloadingmanageui {
 		textField_15.setBounds(375, 30, 30, 21);
 		desktopPane_4.add(textField_15);
 		textField_15.setColumns(10);
-		
-		JLabel textPane_34 = new JLabel();
-		textPane_34.setBackground(Color.WHITE);
-		textPane_34.setText("营业厅业务员：");
-		textPane_34.setBounds(280, 0, 700, 21);
-		desktopPane_4.add(textPane_34);
-		SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		textPane_34.setText(df.format(new Date()));
 		
 		receiveui t = new receiveui();
 		tabbedPane.addTab("营业厅到达单", null, t, null);

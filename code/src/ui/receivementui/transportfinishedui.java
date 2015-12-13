@@ -33,7 +33,7 @@ public class transportfinishedui extends JDesktopPane{
 		
 		this.setBackground(Color.WHITE);
 		
-		JLabel label_31 = new JLabel();
+		final JLabel label_31 = new JLabel();
 		label_31.setBounds(282, 0, 436, 21);
 		this.add(label_31);
 		
@@ -42,7 +42,7 @@ public class transportfinishedui extends JDesktopPane{
 		label.setBounds(157, 87, 66, 15);
 		this.add(label);
 		
-		JTextField textField_4 = new JTextField();
+		final JTextField textField_4 = new JTextField();
 		textField_4.setBounds(223, 84, 66, 21);
 		this.add(textField_4);
 		textField_4.setColumns(10);
@@ -51,7 +51,7 @@ public class transportfinishedui extends JDesktopPane{
 		label_1.setBounds(353, 87, 54, 15);
 		this.add(label_1);
 		
-		JTextField textField_5 = new JTextField();
+		final JTextField textField_5 = new JTextField();
 		textField_5.setBounds(404, 84, 66, 21);
 		this.add(textField_5);
 		textField_5.setColumns(10);
@@ -60,7 +60,7 @@ public class transportfinishedui extends JDesktopPane{
 		label_2.setBounds(519, 87, 74, 15);
 		this.add(label_2);
 		
-		JTextField textField_6 = new JTextField();
+		final JTextField textField_6 = new JTextField();
 		textField_6.setBounds(594, 82, 34, 21);
 		this.add(textField_6);
 		textField_6.setColumns(10);
