@@ -85,17 +85,20 @@ public class airtransportui {
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		frame.getContentPane().add(tabbedPane, BorderLayout.CENTER);
 		
-		final JLabel textPane_1 = new JLabel();
-		textPane_1.setText("\u4E2D\u8F6C\u4E2D\u5FC3\u4E1A\u52A1\u5458");
-		textPane_1.setBounds(280, 0, 700, 21);
-		desktopPane.add(textPane_1);
-		SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		textPane_1.setText(df.format(new Date()));
+		
 		
 		//飞机装运管理的界面
 		desktopPane = new JDesktopPane();
 		desktopPane.setBackground(Color.WHITE);
 		tabbedPane.addTab("飞机装运", null, desktopPane, null);
+		
+		JLabel textPane_1 = new JLabel();
+		textPane_1.setText("\u4E2D\u8F6C\u4E2D\u5FC3\u4E1A\u52A1\u5458");
+		textPane_1.setBounds(280, 0, 700, 21);
+		desktopPane.add(textPane_1);
+		
+		SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		textPane_1.setText(df.format(new Date()));
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(150, 210, 700, 320);
