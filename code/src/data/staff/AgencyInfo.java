@@ -27,6 +27,7 @@ public class AgencyInfo implements AgencyInfoHelper{
 		// TODO Auto-generated method stub
 		boolean result=false;
 		try {
+			System.out.println("rmi "+getURL());
 			AgencyInfoHelper x=(AgencyInfoHelper)Naming.lookup(getURL());
 			result=x.push(c);
 		} catch (ClassNotFoundException | NotBoundException | IOException e) {
