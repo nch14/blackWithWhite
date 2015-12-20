@@ -23,16 +23,33 @@ public class TransportCenter implements Serializable{
 	}
 	
 	public boolean addBussinessHall(){
-		return false;
 		
+		return false;
 	}
 	
 	public boolean deleteBussinessHall(){
+		
 		return false;
 		
 	}
 	
 	public ArrayList<BussinessHall> getBussinessHall(){
 		return bussinessHall;
+	}
+	/**
+	 * 本方法仅供系统初始化调用。任何人不得调用。
+	 * @param names 名称
+	 * @return
+	 */
+	public void addBussinessHall(String[] names){
+		
+		for(int i=0;i<names.length;i++){
+			if(i<10){
+				this.bussinessHall.add(new BussinessHall(names[i],this.ID+"0"+i));
+			}else{
+				this.bussinessHall.add(new BussinessHall(names[i],this.ID+i));
+			}
+		}
+		
 	}
 }

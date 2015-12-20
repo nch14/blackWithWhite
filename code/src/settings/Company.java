@@ -7,6 +7,13 @@ public class Company implements Serializable {
 	public static ArrayList<City> citys;
 	public static ArrayList<Distance> distance;
 	
+	/**
+	 * 该方法不得调用！
+	 */
+	public Company(){
+		citys=new ArrayList<City>();
+		distance=new ArrayList<Distance>();
+	}
 	public int getDistance(City city1,City city2){
 		Distance findDistance;
 		for(int i=0;i<distance.size();i++){

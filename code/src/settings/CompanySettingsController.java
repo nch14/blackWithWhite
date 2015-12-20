@@ -10,7 +10,7 @@ import java.rmi.RemoteException;
 import data.staff.AgencyInfo;
 
 public class CompanySettingsController {
-	static Company ourCompany;
+	public static Company ourCompany;
 	
 	/**
 	 * 将服务器的公司设置同步到本地
