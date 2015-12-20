@@ -184,7 +184,12 @@ public class indepotui {
 				}
 				StockBill_In stock_in=new StockBill_In(ID,date,destination);
 				InDepotBLService indepot= new InDepotController();
-				indepot.inDepot(stock_in);
+				StockBill_In stock=indepot.inDepot(stock_in);
+				if(stock.equals(null)){
+					
+				}else{
+					
+				}
 			}
 		});
 		button_1.setBounds(780, 549, 93, 23);
@@ -236,6 +241,7 @@ public class indepotui {
 		});
 		button_11.setBounds(172, 521, 93, 23);
 		desktopPane.add(button_11);
+		
 		JButton button_12 = new JButton("\u6E05\u7A7A");
 		button_12.addMouseListener(new MouseAdapter() {
 			@Override

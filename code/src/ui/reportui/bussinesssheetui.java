@@ -142,7 +142,7 @@ public class bussinesssheetui extends JDesktopPane{
 				}
 				BussinessSheetVO bussinessvo;
 				bussinessvo=bussinesssheet.show(start, end);
-				if(bussinessvo==null){
+				if(bussinessvo.equals(null)){
 					
 				}else{
 					for(int i=0;i<table_6.getRowCount();i++){

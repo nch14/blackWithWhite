@@ -46,7 +46,7 @@ public class inventoryui extends JDesktopPane{
 			public void mouseClicked(MouseEvent arg0) {
 				
 				StockSnapShotVO stocksnapshot=inventory.getStockSnapShot();
-				if(stocksnapshot==null){
+				if(stocksnapshot.equals(null)){
 					
 				}else{
 				    for(int i=0;i<table_2.getRowCount();i++){

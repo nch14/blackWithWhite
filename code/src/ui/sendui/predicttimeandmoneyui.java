@@ -51,7 +51,7 @@ public class predicttimeandmoneyui extends JDesktopPane{
 			public void mouseClicked(MouseEvent e) {
 				PredictTimeAndMontyBLService predictTimeAndMonthController=new PredictTimeAndMonthController();
 				String[] timeandmoney=predictTimeAndMonthController.moneyAndTime(textField_7.getText());
-				if( timeandmoney==null){
+				if( timeandmoney.equals(null)){
 					
 				}else{
 					label_24.setText(timeandmoney[0]);

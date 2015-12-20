@@ -100,8 +100,8 @@ public class areaadjustui extends JDesktopPane{
 				}
 				String type=(String) table_3.getValueAt(0, 1);
 				AreaAdjustBLService areaadjust = new AreaAdjustController();
-				areaadjust.areaAdjust(rows, type);
-				if(areaadjust.areaAdjust(rows, type)==false){
+				boolean istrue=areaadjust.areaAdjust(rows, type);
+				if(istrue==false){
 					
 				}else{
 					for(int i=0; i<table_3.getRowCount();i++){

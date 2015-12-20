@@ -245,7 +245,7 @@ public class staffmanageui extends JDesktopPane{
 				StaffManageBLService getstaff = new StaffManageController();
 				StaffVO staff;
 				staff=getstaff.getStaff(textField_5.getText());
-				if(staff==null){
+				if(staff.equals(null)){
 			    	
 			    }else{
 			    	for(int i=0;i<table_2.getRowCount();i++){
@@ -389,7 +389,7 @@ public class staffmanageui extends JDesktopPane{
 				StaffManageBLService getstaff = new StaffManageController();
 				StaffVO staff;
 				staff=getstaff.getStaff(textField_6.getText());
-				if(staff==null){
+				if(staff.equals(null)){
 			    	
 			    }else{
 			    	for(int i=0;i<table_3.getRowCount();i++){
@@ -533,7 +533,7 @@ public class staffmanageui extends JDesktopPane{
 				StaffManageBLService getstaff = new StaffManageController();
 				StaffVO staff;
 				staff=getstaff.getStaff(textField_7.getText());
-				if(staff==null){
+				if(staff.equals(null)){
 			    	
 			    }else{
 			    	for(int i=0;i<table_4.getRowCount();i++){

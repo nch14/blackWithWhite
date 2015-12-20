@@ -264,8 +264,8 @@ public class sendui extends JDesktopPane{
 						comboBox_1.getSelectedItem().toString(),textField_26.getText(),df.format(new Date()),
 					    Double.parseDouble(lblNewLabel_3.getText()));
 				SendBLService send = new SendController();
-				send.push(order);
-				if(send.push(order)==false){
+				boolean istrue=send.push(order);
+				if(istrue==false){
 					
 				}else{
 					textField_9.setText(null);
