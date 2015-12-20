@@ -1,6 +1,8 @@
 package settings;
 
-public class BussinessHall {
+import java.io.Serializable;
+
+public class BussinessHall implements Serializable {
 
 	public String name;//营业厅名称
 	String ID;//营业厅编号
