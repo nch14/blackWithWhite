@@ -22,6 +22,7 @@ import javax.swing.table.DefaultTableModel;
 
 import bill.ReceiveMoneyBill;
 import bl.money.Impl.BillingManagementController;
+import settings.BussinessHall;
 import ui.reportui.profitsheetui;
 
 public class billingmanagementui {
@@ -89,8 +90,10 @@ public class billingmanagementui {
 		desktopPane.add(textField_8);
 		textField_8.setColumns(10);
 		
+		BussinessHall bussinessHall = new BussinessHall();
+		
 		final JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"请选择营业厅", "江苏省南京市仙林营业厅"}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {bussinessHall.name}));
 		comboBox.setBounds(534, 43, 183, 21);
 		desktopPane.add(comboBox);
 		
