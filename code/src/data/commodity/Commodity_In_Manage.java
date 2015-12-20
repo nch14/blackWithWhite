@@ -3,8 +3,6 @@ package data.commodity;
 
 import remoteInterface.Client_Helper;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
@@ -15,30 +13,24 @@ public interface Commodity_In_Manage extends Client_Helper {
 	 * @param bill
 	 * @return 若空间不够，返回null
 	 * @throws RemoteException
-	 * @throws IOException 
-	 * @throws FileNotFoundException 
 	 */
-	public StockBill_In insert(StockBill_In bill,String ID) throws RemoteException, FileNotFoundException, IOException;
+	public StockBill_In insert(StockBill_In bill,String ID) throws RemoteException;
 	
 	/**
 	 * 删除一个入库单
 	 * @param bill
 	 * @return 
 	 * @throws RemoteException
-	 * @throws IOException 
-	 * @throws FileNotFoundException 
 	 */
-	public boolean delete(String id) throws RemoteException, FileNotFoundException, IOException;
+	public boolean delete(String id) throws RemoteException;
 	
 	/**
 	 * 修改一个入库单
 	 * @param bill
 	 * @return 
 	 * @throws RemoteException
-	 * @throws IOException 
-	 * @throws FileNotFoundException 
 	 */
-	public boolean change(StockBill_In bill) throws RemoteException, FileNotFoundException, IOException;
+	public boolean change(StockBill_In bill) throws RemoteException;
 	
 	/**
 	 * 取得一个入库单
