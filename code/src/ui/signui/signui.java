@@ -9,6 +9,7 @@ import javax.swing.JTextField;
 import bl.staff.Impl.LoginController;
 import bl.staff.service.LoginService;
 import ui.commodityui.indepotui;
+import ui.judgementui.judgementui;
 import ui.sendui.getsendui;
 import vo.StaffVO;
 
@@ -116,7 +117,7 @@ public class signui {
 			    //account.main();
 			}else if(staff.pos.equals("总经理")){
 				 frame.dispose();
-					//manager.main();
+				judgementui.main();
 			}else if(staff.pos.equals("管理员")){
 				frame.dispose();
 			/*	administrator.main();*/
