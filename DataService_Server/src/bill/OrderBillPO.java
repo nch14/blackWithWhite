@@ -3,6 +3,10 @@ package bill;
 import java.io.Serializable;
 
 public class OrderBillPO implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4684078436648542786L;
 	public static String billType="OrderBill";
 	public String ID;
 	public boolean judged;
@@ -61,7 +65,7 @@ public class OrderBillPO implements Serializable{
 		this.size[0]=Double.parseDouble(length);
 		this.size[1]=Double.parseDouble(width);
 		this.size[2]=Double.parseDouble(height);
-		this.nameOfOrder=nameOfOrder;
+		this.nameOfOrder=nameOfOrder1;
 		this.volume=volume1 ;
 		this.moneyForCover=Double.parseDouble(moneyForCover1);
 		this.speedLevel=speedLevel1;

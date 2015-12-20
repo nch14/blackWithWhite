@@ -31,22 +31,43 @@ public class Commodity_OutImpl extends UnicastRemoteObject implements Commodity_
 		FileHelper.write(dir, database);
 	}
 	@Override
-	public boolean insert(StockBill_Out bill,String id) {
+	public synchronized boolean insert(StockBill_Out bill,String id) {
 		// TODO Auto-generated method stub
 		CommodityManageImpl.freePosition(bill, id);
-		return database.add(bill);
+		boolean bool=database.add(bill);
+		try {
+			this.save();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bool;
 	}
 
 	@Override
-	public boolean delete(String id) {
+	public synchronized boolean delete(String id) {
 		// TODO Auto-generated method stub
-		return database.delete(id);
+		boolean bool=database.delete(id);
+		try {
+			this.save();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bool;
 	}
 
 	@Override
-	public boolean change(StockBill_Out bill) {
+	public synchronized boolean change(StockBill_Out bill) {
 		// TODO Auto-generated method stub
-		return database.change(bill);
+		boolean bool=database.change(bill);
+		try {
+			this.save();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bool;
 	}
 
 	@Override
@@ -58,7 +79,8 @@ public class Commodity_OutImpl extends UnicastRemoteObject implements Commodity_
 	@Override
 	public boolean init() {
 		// TODO Auto-generated method stub
-		return false;
+		database=new Database_StockBill_Out();
+		return true;
 	}
 
 	@Override
@@ -68,7 +90,7 @@ public class Commodity_OutImpl extends UnicastRemoteObject implements Commodity_
 	}
 
 	@Override
-	public ArrayList<StockBill_Out> getUnjudged() throws RemoteException {
+	public synchronized ArrayList<StockBill_Out> getUnjudged() throws RemoteException {
 		// TODO Auto-generated method stub
 		return database.getUnjudged();
 	}

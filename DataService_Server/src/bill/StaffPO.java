@@ -1,14 +1,20 @@
 package bill;
+import java.io.Serializable;
+
 import tools.TimeHelper;
 import vo.StaffVO;
-public class StaffPO {
+public class StaffPO implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3264604823154715722L;
 	public String name;
 	public String passwords;
 	public String department;
 	public String pos;
 	public String ID;
 	public int birthyear;
-	public String sex;
+	public boolean sex;
 	public String SalaryModel;
 	public String authority;
  
@@ -19,7 +25,7 @@ public class StaffPO {
 		this.pos=staff.pos;
 		this.ID=staff.ID;
 		this.birthyear=Integer.parseInt(TimeHelper.getTime().substring(0, 4))-staff.age;
-		this.sex=staff.sex;
+		this.sex=staff.isBoy;
 	}
 	
 	public void changePosition(String newPosition,String newDepartment){
@@ -32,4 +38,6 @@ public class StaffPO {
 		this.birthyear=Integer.parseInt(TimeHelper.getTime().substring(0, 4))-age;
 		this.authority=authority;
 	}
+	
+	public StaffPO(){}
 }

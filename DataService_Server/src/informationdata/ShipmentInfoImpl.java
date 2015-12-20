@@ -39,13 +39,21 @@ public class ShipmentInfoImpl extends UnicastRemoteObject implements ShipmentInf
 	@Override
 	public boolean refreshTransMesg(TransMesgPO po) {
 		// TODO Auto-generated method stub
-		return database.refresh(po);
+		boolean result=database.refresh(po);
+		try {
+			save();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 	@Override
 	public boolean init() {
 		// TODO Auto-generated method stub
-		return false;
+		database=new Database_imformation();
+		return true;
 	}
 
 	@Override

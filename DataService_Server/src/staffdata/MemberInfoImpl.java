@@ -16,7 +16,7 @@ public class MemberInfoImpl extends UnicastRemoteObject implements MemberInfoHel
 	public static boolean ready=false;
 	private static String dir="ser/MemberInfo.ser";
 	
-	protected MemberInfoImpl() throws FileNotFoundException, ClassNotFoundException, IOException {
+	public MemberInfoImpl() throws FileNotFoundException, ClassNotFoundException, IOException {
 		super();
 		if(!ready){
 			ready=true;
@@ -35,21 +35,42 @@ public class MemberInfoImpl extends UnicastRemoteObject implements MemberInfoHel
 	}
 
 	@Override
-	public boolean insert(StaffPO po) throws RemoteException {
+	public synchronized boolean insert(StaffPO po) throws RemoteException {
 		// TODO Auto-generated method stub
-		return database.add(po);
+		boolean bool=database.add(po);
+		try {
+			save();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bool;
 	}
 
 	@Override
-	public boolean delete(String id) throws RemoteException {
+	public synchronized boolean delete(String id) throws RemoteException {
 		// TODO Auto-generated method stub
-		return database.delete(id);
+		boolean bool=database.delete(id);
+		try {
+			save();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bool;
 	}
 
 	@Override
-	public boolean change(StaffPO po) throws RemoteException {
+	public synchronized boolean change(StaffPO po) throws RemoteException {
 		// TODO Auto-generated method stub
-		return database.change(po);
+		boolean bool=database.change(po);
+		try {
+			save();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bool;
 	}
 
 	@Override
@@ -61,7 +82,8 @@ public class MemberInfoImpl extends UnicastRemoteObject implements MemberInfoHel
 	@Override
 	public boolean init() throws RemoteException {
 		// TODO Auto-generated method stub
-		return false;
+		database=new Database_MemberInfo();
+		return true;
 	}
 
 	@Override

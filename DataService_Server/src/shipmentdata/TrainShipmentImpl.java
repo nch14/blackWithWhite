@@ -31,9 +31,16 @@ public class TrainShipmentImpl extends UnicastRemoteObject implements TrainShipm
 	}
 
 	@Override
-	public boolean insert(TransportBill_Train bill) {
+	public synchronized boolean insert(TransportBill_Train bill) {
 		// TODO Auto-generated method stub
-		return database.add(bill);
+		boolean bool=database.add(bill);
+		try {
+			save();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bool;
 	}
 
 	@Override
@@ -43,21 +50,36 @@ public class TrainShipmentImpl extends UnicastRemoteObject implements TrainShipm
 	}
 
 	@Override
-	public boolean change(TransportBill_Train bill) {
+	public synchronized boolean change(TransportBill_Train bill) {
 		// TODO Auto-generated method stub
-		return database.change(bill);
+		boolean bool=database.change(bill);
+		try {
+			save();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bool;
 	}
 
 	@Override
-	public boolean delete(String id) {
+	public synchronized boolean delete(String id) {
 		// TODO Auto-generated method stub
-		return database.delete(id);
+		boolean bool=database.delete(id);
+		try {
+			save();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bool;
 	}
 
 	@Override
 	public boolean init() {
 		// TODO Auto-generated method stub
-		return false;
+		database=new Database_TransportBill();
+		return true;
 	}
 
 	@Override

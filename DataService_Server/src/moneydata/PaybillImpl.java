@@ -32,25 +32,47 @@ public class PaybillImpl extends UnicastRemoteObject implements PayBillHelper {
 	@Override
 	public boolean init() {
 		// TODO Auto-generated method stub
-		return false;
+		database=new Database_Payment();
+		return true;
 	}
 
 	@Override
-	public boolean insert(PaymentBill bill) {
+	public synchronized boolean insert(PaymentBill bill) {
 		// TODO Auto-generated method stub
-		return database.insert(bill);
+		boolean bool=database.insert(bill);
+		try {
+			save();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bool;
 	}
 
 	@Override
-	public boolean delete(String id) {
+	public synchronized boolean delete(String id) {
 		// TODO Auto-generated method stub
-		return database.delete(id);
+		boolean bool=database.delete(id);
+		try {
+			save();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bool;
 	}
 
 	@Override
-	public boolean change(PaymentBill bill) {
+	public synchronized boolean change(PaymentBill bill) {
 		// TODO Auto-generated method stub
-		return database.change(bill);
+		boolean bool=database.change(bill);
+		try {
+			save();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bool;
 	}
 
 	@Override

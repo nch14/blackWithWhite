@@ -36,21 +36,42 @@ public class BusInfoImpl extends UnicastRemoteObject implements BusInfoHelper {
 	}
 
 	@Override
-	public boolean insert(TruckPO po) throws RemoteException {
+	public synchronized boolean insert(TruckPO po) throws RemoteException {
 		// TODO Auto-generated method stub
-		return database.add(po);
+		boolean bool=database.add(po);
+		try {
+			save();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bool;
 	}
 
 	@Override
-	public boolean change(TruckPO po) throws RemoteException {
+	public synchronized boolean change(TruckPO po) throws RemoteException {
 		// TODO Auto-generated method stub
-		return database.change(po);
+		boolean bool=database.change(po);
+		try {
+			save();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bool;
 	}
 
 	@Override
-	public boolean delete(String id) throws RemoteException {
+	public synchronized boolean delete(String id) throws RemoteException {
 		// TODO Auto-generated method stub
-		return database.delete(id);
+		boolean bool=database.delete(id);
+		try {
+			save();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bool;
 	}
 
 	@Override
@@ -62,7 +83,8 @@ public class BusInfoImpl extends UnicastRemoteObject implements BusInfoHelper {
 	@Override
 	public boolean init() throws RemoteException {
 		// TODO Auto-generated method stub
-		return false;
+		database=new Database_BusInfo();
+		return true;
 	}
 
 	@Override

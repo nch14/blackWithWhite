@@ -29,38 +29,62 @@ public class AccountManageImpl extends UnicastRemoteObject implements AccountMan
 	@Override
 	public boolean init() {
 		// TODO Auto-generated method stub
-		return false;
+		array=new ArrayList<Account>();
+		return true;
 	}
 
 	@Override
-	public boolean insert(Account account) {
+	public synchronized boolean insert(Account account) {
 		// TODO Auto-generated method stub
-		return array.add(account);
+		boolean bool=array.add(account);
+		try {
+			save();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bool;
 	}
 
 	@Override
-	public boolean delete(String id) {
+	public synchronized boolean delete(String id) {
 		// TODO Auto-generated method stub
+		boolean bool=false;
 		for(Account a:array){
 			if(a.getID().equals(id)){
 				array.remove(a);
-				return true;
+				bool=true;
+				break;
 			}			
 		}
-		return false;
+		try {
+			save();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bool;
 	}
 
 	@Override
-	public boolean change(Account account) {
+	public synchronized boolean change(Account account) {
 		// TODO Auto-generated method stub
+		boolean bool=false;
 		for(Account a:array){
 			if(a.getID().equals(account.getID())){
 				array.remove(a);
 				array.add(account);
-				return true;
+				bool=true;
+				break;
 			}
 		}
-		return false;
+		try {
+			save();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bool;
 	}
 
 	@Override

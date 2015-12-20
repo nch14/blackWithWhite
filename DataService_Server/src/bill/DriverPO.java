@@ -1,17 +1,24 @@
 package bill;
+
+import java.io.Serializable;
+
 /**
  * 不检查数据格式是否正确
  * @author nch
  *
  */
-public class DriverPO {
+public class DriverPO implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6130985348395924086L;
 	public String ID;
 	public String name;
-	String IDNumber;
-	String birthday;
-	boolean isBoy;
-	String tel;
-	String validData;
+	public String IDNumber;
+	public String birthday;
+	public boolean isBoy;
+	public String tel;
+	public String validData;
 	
 
 	public DriverPO(String ID,String name,String IDNumber,String birthday,

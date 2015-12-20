@@ -37,9 +37,16 @@ public class BusShipmentImpl extends UnicastRemoteObject implements BusShipmentH
 	}
 
 	@Override
-	public boolean insert(TransportBill_Truck bill) throws RemoteException {
+	public synchronized boolean insert(TransportBill_Truck bill) throws RemoteException {
 		// TODO Auto-generated method stub
-		return database.add(bill);
+		boolean bool=database.add(bill);
+		try {
+			save();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bool;
 	}
 
 	@Override
@@ -49,21 +56,36 @@ public class BusShipmentImpl extends UnicastRemoteObject implements BusShipmentH
 	}
 
 	@Override
-	public boolean change(TransportBill_Truck bill) throws RemoteException {
+	public synchronized boolean change(TransportBill_Truck bill) throws RemoteException {
 		// TODO Auto-generated method stub
-		return database.change(bill);
+		boolean bool=database.change(bill);
+		try {
+			save();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bool;
 	}
 
 	@Override
-	public boolean delete(String id) throws RemoteException {
+	public synchronized boolean delete(String id) throws RemoteException {
 		// TODO Auto-generated method stub
-		return database.delete(id);
+		boolean bool=database.delete(id);
+		try {
+			save();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bool;
 	}
 
 	@Override
 	public boolean init() throws RemoteException {
 		// TODO Auto-generated method stub
-		return false;
+		database=new Database_TransportBill();
+		return true;
 	}
 
 	@Override

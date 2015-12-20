@@ -1,13 +1,20 @@
 package bill;
+
+import java.io.Serializable;
+
 /**
  * 未进行格式检查
  * @author nch
  *
  */
-public class TruckPO {
+public class TruckPO implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4652056148887406177L;
 	public String vehicleCode;
 	public String licensePlate;
-	String serviceTime;	
+	public String serviceTime;	
 
 	public TruckPO(String vehicleCode,String licensePlate,String serviceTime){
 		this.vehicleCode=vehicleCode;

@@ -21,11 +21,11 @@ public class CommodityManageImpl extends UnicastRemoteObject implements Commodit
 	
 	public static boolean ready1=false;
 	public static boolean ready2=false;
-	public static boolean ready3=false;
+	//public static boolean ready3=false;
 	
 	final static String dir1="ser/StockBlockInfo.ser";
 	final static String dir2="ser/StockFillment.ser";
-	final static String dir3="ser/StockOverview.ser";
+	//final static String dir3="ser/StockOverview.ser";
 	
 	protected CommodityManageImpl() throws FileNotFoundException, ClassNotFoundException, IOException{
 		super();
@@ -57,9 +57,16 @@ public class CommodityManageImpl extends UnicastRemoteObject implements Commodit
 	}
 
 	@Override
-	public boolean adjustCommodity(String ID,String num, String block) throws RemoteException {
+	public synchronized boolean adjustCommodity(String ID,String num, String block) throws RemoteException {
 		// TODO Auto-generated method stub
-		return database_StockBlockInfo.get(ID).adjust(num, block);
+		boolean bool=database_StockBlockInfo.get(ID).adjust(num, block);
+		try {
+			this.save();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bool;
 	}
 
 	@Override
@@ -75,12 +82,39 @@ public class CommodityManageImpl extends UnicastRemoteObject implements Commodit
 		return block;
 	}
 
-	public static StockBill_In addPosition(StockBill_In t,String s){
-		return database_StockBlockInfo.getPosition(t, s);
+	public synchronized static StockBill_In addPosition(StockBill_In t,String s){
+		StockBill_In bool=database_StockBlockInfo.getPosition(t, s);
+		try {
+			save();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bool;
 	}
 	
 	public static boolean freePosition(StockBill_Out t,String s){
-		return database_StockBlockInfo.free(t, s);
+		boolean bool=database_StockBlockInfo.free(t, s);
+		try {
+			save();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bool;
+	}
+
+	@Override
+	public synchronized boolean initialCommodity(String ID, int bus, int train, int plane) throws RemoteException {
+		// TODO Auto-generated method stub
+		boolean bool=database_StockBlockInfo.initialCommodity(ID, bus, train, plane);
+		try {
+			save();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bool;
 	}
 	
 	

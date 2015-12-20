@@ -1,8 +1,9 @@
 package bill;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ArrivementBill {
+public class ArrivementBill implements Serializable{
 	
 	public String ID;//µ¥¾ÝµÄID
 	public boolean judged;
@@ -10,7 +11,9 @@ public class ArrivementBill {
 	String placeOfDeparture;
 	public ArrayList<struct> bill=new  ArrayList<struct>();
 	
-	public ArrivementBill(){}
+	public ArrivementBill(){
+		judged=false;
+	}
 	
 	public ArrayList<String> showAllID(){
 		ArrayList<String> back=new ArrayList<String>();
@@ -25,7 +28,7 @@ public class ArrivementBill {
 	class struct{
 		public String id;
 		State st;
-		struct(String s,State t){
+		public struct(String s,State t){
 			id=s;
 			st=t;
 		}

@@ -35,6 +35,12 @@ public class AgencyImpl implements AgencyInfoHelper {
 	public boolean push(Company c) throws RemoteException {
 		// TODO Auto-generated method stub
 		array.add(c);
+		try {
+			save();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return true;
 	}
 

@@ -4,6 +4,11 @@ import java.io.Serializable;
 
 
 public class ShipmentBillPO implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -807772043543209941L;
+
 	public static String billtype="ShipmentBill";
 	
 /*

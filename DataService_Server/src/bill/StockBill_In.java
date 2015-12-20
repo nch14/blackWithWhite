@@ -1,7 +1,12 @@
 package bill;
 
+import java.io.Serializable;
 import java.util.ArrayList;
-public class StockBill_In {
+public class StockBill_In implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 345001898270272103L;
 	public static String billtype="StockBill_In";
 	public String ID;
 	public boolean judged;
@@ -54,7 +59,7 @@ public class StockBill_In {
 		private String frameID;//¼ÜºÅ
 		private String positionID;//Î»ºÅ
 		
-		Info(String ID,String[]date,String destination){
+		public Info(String ID,String[]date,String destination){
 			this.ID=ID;
 			this.destination=destination;
 			this.date=date;

@@ -2,8 +2,6 @@ package receivementdata;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-
-import bill.ReceiveBill;
 import data.receivement.ReceiceInfoHelper;
 import vo.ReceiveInformationVO;
 

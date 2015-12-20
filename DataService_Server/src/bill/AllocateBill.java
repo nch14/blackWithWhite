@@ -1,8 +1,14 @@
 package bill;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class AllocateBill {
+public class AllocateBill implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4864493447844671634L;
 	public String ID;//µ¥¾ÝµÄID
 	public boolean judged;
 	String[] date;
