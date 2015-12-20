@@ -10,5 +10,25 @@ public class City implements Serializable{
 	ArrayList<TransportCenter> transportCenter;//下辖中转中心
 	
 	
+	public City(String name,String ID){
+		this.name=name;
+		this.ID=ID;
+		this.transportCenter=new ArrayList<TransportCenter>();
+		
+		//如果增加自由增删中转中心功能，以下代码请修改
+		TransportCenter aTransportCenter=new TransportCenter(this.name+"中转中心", ID+"1");
+		this.transportCenter.add(aTransportCenter);
+	}
+	
+	/**
+	 * 增加中转中心。
+	 * 该功能尚未添加
+	 * @param aTransportCenter
+	 * @return
+	 */
+	public boolean addTransportCenter(TransportCenter aTransportCenter){
+		return false;
+	}
+	
 	
 }
