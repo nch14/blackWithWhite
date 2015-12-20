@@ -90,10 +90,10 @@ public class billingmanagementui {
 		desktopPane.add(textField_8);
 		textField_8.setColumns(10);
 		
-		BussinessHall bussinessHall = new BussinessHall();
+/*		BussinessHall bussinessHall = new BussinessHall();*/
 		
 		final JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {bussinessHall.name}));
+		//comboBox.setModel(new DefaultComboBoxModel(new String[] {bussinessHall.name}));
 		comboBox.setBounds(534, 43, 183, 21);
 		desktopPane.add(comboBox);
 		
