@@ -10,39 +10,6 @@ public class StockBlockInfo implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 4983807107972385969L;
-
-	//HashMap<Integer,Row> base=new HashMap<Integer,Row>();
-	class Position implements Serializable{
-		public String id;
-		public boolean empty;
-	}
-	
-	class Row implements Serializable{
-		public String num;
-		Position array[];
-		
-		public Row(String s){
-			array=new Position[400];
-			num=s;
-		}
-		public boolean empty(){
-			boolean result=true;
-			for(int i=0;i<400;++i){
-				if(array[i].empty!=true)
-					result=false;
-			}
-			return result;
-		}
-		
-		public boolean full(){
-			boolean result=true;
-			for(int i=0;i<400;++i){
-				if(array[i].empty=true)
-					result=false;
-			}
-			return result;
-		}
-	}
 	/**
 	 * ²Ö¿âÊôÐÔ
 	 */

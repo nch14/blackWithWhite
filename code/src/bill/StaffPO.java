@@ -14,7 +14,7 @@ public class StaffPO implements Serializable{
 	public String pos;
 	public String ID;
 	public int birthyear;
-	public String sex;
+	public boolean sex;
 	public String SalaryModel;
 	public String authority;
  

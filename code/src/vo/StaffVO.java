@@ -10,11 +10,11 @@ public class StaffVO {
 	public String pos;//ְλ
 	public String ID;
 	public int age;
-	public String isBoy;
+	public boolean isBoy;
 	public String SalaryModel;
 	String topAuthority;
 
-	public StaffVO(String name,String age,String pos,String department,String isBoy){
+	public StaffVO(String name,String age,String pos,String department,boolean isBoy){
 		this.name=name;
 		this.age=Integer.parseInt(age);
 		this.pos=pos;
