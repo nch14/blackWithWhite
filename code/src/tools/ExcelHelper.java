@@ -122,7 +122,7 @@ public class ExcelHelper {
 		
 		// 第六步，将文件存到指定位置  
 		try{  
-			FileOutputStream fout = new FileOutputStream("E:/经营情况表/"+time+"经营情况表.xls");  
+			FileOutputStream fout = new FileOutputStream("D:/物流信息管理系统/经营情况表/"+time+"经营情况表.xls");  
 			wb.write(fout);  
 			fout.close();  
 		}catch (Exception e){  
@@ -175,7 +175,7 @@ public class ExcelHelper {
 		
 		// 第六步，将文件存到指定位置  
 		try{  
-			FileOutputStream fout = new FileOutputStream("E:/成本收益表/"+time+"成本收益表.xls");  
+			FileOutputStream fout = new FileOutputStream("D:/物流信息管理系统/成本收益表/"+time+"成本收益表.xls");  
 			wb.write(fout);  
 			fout.close();  
 		}catch (Exception e){  
@@ -259,7 +259,7 @@ public class ExcelHelper {
 			cell.setCellValue(thisTime);
 			cell.setCellStyle(style); 	
 			try{  
-				FileOutputStream fout = new FileOutputStream("E:/库存快照/"+thisTime+"库存快照.xls");  
+				FileOutputStream fout = new FileOutputStream("D:/物流信息管理系统/库存快照/"+thisTime+"库存快照.xls");  
 				wb.write(fout);  
 				fout.close();  
 			}catch (Exception e){  

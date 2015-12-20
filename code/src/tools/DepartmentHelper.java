@@ -1,8 +1,5 @@
 package tools;
 
-import java.util.ArrayList;
-
-import bill.StaffPO;
 import vo.StaffVO;
 
 /**
@@ -11,7 +8,14 @@ import vo.StaffVO;
  *
  */
 public class DepartmentHelper {
-	private static String thisDepartment;//存放当前操作的部门
+	/**
+	 * 当前登录的用户所隶属的部门
+	 */
+	private static String thisDepartment;
+	/**
+	 * 当前登陆的用户所隶属的部门代号
+	 */
+	private static String thisDepartmentID;
 	private static StaffVO staff;//存放当前登录的人的信息
 
 	
