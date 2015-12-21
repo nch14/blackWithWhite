@@ -21,7 +21,7 @@ public class Distribution {
 			InformationController IC=new InformationController();
 			for(int j=0;j<bills.length;j++)	{
 				for(int i=0;i<bills[j].list.size();i++){
-					result=result&&IC.refreshMesg(bills[j].list.get(i),bills[j].numID, TimeHelper.getTime());
+					result=result&&IC.refreshMesg(bills[j].list.get(i),"货物正在由代号为"+bills[j].numID+"的派送员进行派送", TimeHelper.getTime());
 				}
 			}
 		} catch (Exception e) {
@@ -40,7 +40,7 @@ public class Distribution {
 		//更新物流动态
 		InformationController IC=new InformationController();
 		for(int i=0;i<arrive.showAllID().size();i++){
-			result=result&&IC.refreshMesg(arrive.showAllID().get(i), DepartmentHelper.getDepartment(), TimeHelper.getTime());
+			result=result&&IC.refreshMesg(arrive.showAllID().get(i), "货物已到达"+DepartmentHelper.getDepartment(), TimeHelper.getTime());
 		}
 		return result;
 	}

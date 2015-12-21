@@ -25,6 +25,18 @@ public class Company implements Serializable {
 		}
 		return 0;
 	}	
+	
+	public static int getDistance(String city1,String city2){
+		Distance findDistance;
+		for(int i=0;i<distance.size();i++){
+			findDistance=distance.get(i);
+			if(findDistance.getCity1().name.equals(city1)&&findDistance.getCity2().name.equals(city2))
+				return findDistance.getDistance();
+			if(findDistance.getCity1().name.equals(city2)&&findDistance.getCity2().name.equals(city1))
+				return findDistance.getDistance();
+		}
+		return 0;
+	}	
 	public boolean addCity(City city,ArrayList<Integer> distances){
 		Distance thisdistance;
 		for(int i=0;i<citys.size();i++){
