@@ -110,6 +110,7 @@ public class informationui {
 					}
 				));
 				scrollPane.setViewportView(table);
+				
 				for(int i=0;i<pac.state.size();i++){
 					table.setValueAt(pac.state.get(i).time, i, 0);
 					table.setValueAt(pac.state.get(i).location, i, 1);
