@@ -16,7 +16,7 @@ public interface PayBLService {
 	 * @param bills
 	 * @return
 	 */
-	public boolean addPaymentBill(PaymentBill[] bills);
+	public boolean addPaymentBill(ArrayList<PaymentBill> bills);
 	
 	/**
 	 * 获得指定时间区间内的付款单

@@ -1,7 +1,8 @@
 package bl.receivement.Service;
 
+import java.util.ArrayList;
+
 import bill.AllocateBill;
-import bill.ArrivementBill;
 import bill.ArrivementBill_Shop;
 
 /**
@@ -25,5 +26,5 @@ public interface DistributionBLService {
 	 * @param ID  IDs
 	 * @return
 	 */
-	public boolean distribution(AllocateBill[] bills);
+	public boolean distribution(ArrayList<AllocateBill> bills);
 }

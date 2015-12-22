@@ -12,15 +12,19 @@ public class DriverManageCotroller implements DriverManageBLService {
 		driverManage=new DriverManage();
 	}
 	@Override
-	public boolean addNewDiver(DriverPO[] drivers) {
+	public boolean addNewDiver(ArrayList<DriverPO> drivers) {
 		// TODO Auto-generated method stub
-		return driverManage.addNewDiver(drivers);
+		int length=drivers.size();
+		DriverPO[] driver=(DriverPO[])drivers.toArray(new DriverPO[length]);
+		return driverManage.addNewDiver(driver);
 	}
 
 	@Override
-	public boolean deleteDriver(String[] ID) {
+	public boolean deleteDriver(ArrayList<String> ID) {
 		// TODO Auto-generated method stub
-		return driverManage.deleteDriver(ID);
+		int length=ID.size();
+		String[] id=(String[])ID.toArray(new String[length]);
+		return driverManage.deleteDriver(id);
 	}
 
 	@Override

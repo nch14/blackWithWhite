@@ -1,8 +1,5 @@
 package bl.information.Impl;
 
-import java.util.ArrayList;
-
-import bill.TransMesgPO;
 import bl.information.Service.InformationBLService;
 import vo.PackageVO;
 

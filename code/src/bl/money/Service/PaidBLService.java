@@ -17,7 +17,7 @@ public interface PaidBLService {
 	 * @param bills
 	 * @return
 	 */
-	public boolean addPaidmentBill(ReceiveMoneyBill[] bills);
+	public boolean addPaidmentBill(ArrayList<ReceiveMoneyBill> bills);
 	
 	
 	/**
