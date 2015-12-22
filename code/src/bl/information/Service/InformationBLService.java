@@ -1,7 +1,5 @@
 package bl.information.Service;
 
-import java.util.ArrayList;
-
 import vo.PackageVO;
 
 public interface InformationBLService {

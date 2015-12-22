@@ -3,6 +3,7 @@ package bl.money.Impl;
 import java.util.ArrayList;
 
 import bill.PaymentBill;
+import bill.ReceiveMoneyBill;
 import bl.money.Service.PayBLService;
 
 public class PayController implements PayBLService {
@@ -11,9 +12,11 @@ public class PayController implements PayBLService {
 		pay=new Pay();
 	}
 	@Override
-	public boolean addPaymentBill(PaymentBill[] bills) {
+	public boolean addPaymentBill(ArrayList<PaymentBill> bills) {
 		// TODO Auto-generated method stub
-		return pay.addPaymentBill(bills);
+		int length=bills.size();
+		PaymentBill[] bill=(PaymentBill[])bills.toArray(new PaymentBill[length]);
+		return pay.addPaymentBill(bill);
 	}
 	@Override
 	public ArrayList<PaymentBill> getPaymentBill(String[] start, String[] end) {

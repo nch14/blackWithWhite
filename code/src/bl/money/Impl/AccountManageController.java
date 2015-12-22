@@ -11,21 +11,29 @@ public class AccountManageController implements AccountManageBLService {
 	public AccountManageController(){
 		accoutManagement=new AccountManagement();
 	}
-	public boolean adddAccount(Account[] accounts) {
+	public boolean adddAccount(ArrayList<Account> accounts) {
 		// TODO Auto-generated method stub
-		return accoutManagement.adddAccount(accounts);
+		int length=accounts.size();
+		Account[] account=(Account[])accounts.toArray(new Account[length]);
+		return accoutManagement.adddAccount(account);
 	}
 
 	@Override
-	public boolean delateAccount(String[] ID) {
+	public boolean delateAccount(ArrayList<String> ID) {
 		// TODO Auto-generated method stub
-		return accoutManagement.delateAccount(ID);
+		int length=ID.size();
+		String[] IDS=(String[])ID.toArray(new String[length]);
+		return accoutManagement.delateAccount(IDS);
 	}
 
 	@Override
-	public boolean changeAccountInfo(String[] ID, String[] name) {
+	public boolean changeAccountInfo(ArrayList<String> ID, ArrayList<String> name) {
 		// TODO Auto-generated method stub
-		return accoutManagement.changeAccountInfo(ID, name);
+		int length=ID.size();
+		String[] IDs=(String[])ID.toArray(new String[length]);
+		length=name.size();
+		String[] names=(String[])name.toArray(new String[length]);
+		return accoutManagement.changeAccountInfo(IDs, names);
 	}
 
 	@Override
@@ -33,5 +41,6 @@ public class AccountManageController implements AccountManageBLService {
 		// TODO Auto-generated method stub
 		return accoutManagement.getAccount(KeyWord_ID);
 	}
+
 
 }

@@ -50,6 +50,7 @@ public class CompanySettingsController {
 	            oos.writeObject(ourCompany); 
 	            oos.flush();  //»º³åÁ÷ 
 	            oos.close(); //¹Ø±ÕÁ÷
+	            System.out.println("wancheng");
 	            return true;
 	        } catch (FileNotFoundException e){        
 	            e.printStackTrace();
@@ -82,4 +83,23 @@ public class CompanySettingsController {
 	        return true;
 	}
 	
+	public static String DeapartmentSearch(String name){
+		int citySize=Company.citys.size();
+		for(int i=0;i<citySize;i++){
+			City city=Company.citys.get(i);
+			
+			for(int k=0;k<city.transportCenter.size();k++){
+				TransportCenter transportCenter=city.transportCenter.get(0);
+				if(name==transportCenter.getName())
+					return transportCenter.getID();
+				
+				for(int j=0;j<transportCenter.getBussinessHall().size();j++){
+					BussinessHall bussinessHall=transportCenter.getBussinessHall().get(i);
+					if(name==bussinessHall.name)
+						return bussinessHall.ID;
+				}
+			}
+		}
+		return "fail";
+	}
 }

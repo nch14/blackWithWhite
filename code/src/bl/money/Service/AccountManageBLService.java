@@ -16,18 +16,18 @@ public interface AccountManageBLService {
 	 * @param accounts 账户
 	 * @return
 	 */
-	public boolean adddAccount(Account[] accounts);
+	public boolean adddAccount(ArrayList<Account> accounts);
 	/**
 	 * 删除账户
 	 * @return
 	 */
-	public boolean delateAccount(String[] ID);
+	public boolean delateAccount(ArrayList<String> ID);
 	
 	/**
 	 * @param name 账户名称
 	 * @return
 	 */
-	public boolean changeAccountInfo(String[] ID, String[] name);
+	public boolean changeAccountInfo(ArrayList<String> ID, ArrayList<String> name);
 	
 	/**
 	 * 查找账户

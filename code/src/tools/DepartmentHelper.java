@@ -1,5 +1,6 @@
 package tools;
 
+import settings.CompanySettingsController;
 import vo.StaffVO;
 
 /**
@@ -16,16 +17,21 @@ public class DepartmentHelper {
 	 * 当前登陆的用户所隶属的部门代号
 	 */
 	private static String thisDepartmentID;
-	private static StaffVO staff;//存放当前登录的人的信息
+	private static StaffVO thisStaff;//存放当前登录的人的信息
 
 	
 	public DepartmentHelper(StaffVO staff){
-		this.staff=staff;
+		this.thisStaff=staff;
 		thisDepartment=staff.department;
+		this.thisDepartmentID=CompanySettingsController.DeapartmentSearch(thisDepartment);
+		if(this.thisDepartmentID.equals("fail")){
+			System.out.println("在登记此用户的部门信息时出错！！！该部门可能不存在");
+		}
+			
 	}
 	
 	public static StaffVO getStaff(){
-		return staff;
+		return thisStaff;
 	}
 	
 	public static String getDepartment(){

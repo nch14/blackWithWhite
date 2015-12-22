@@ -3,7 +3,6 @@ package bl.staff.service;
 import java.util.ArrayList;
 
 import bill.DriverPO;
-import bill.TruckPO;
 
 public interface DriverManageBLService {
 	/**
@@ -11,13 +10,13 @@ public interface DriverManageBLService {
 	 * @param trucks
 	 * @return
 	 */
-	public boolean addNewDiver (DriverPO[] drivers);
+	public boolean addNewDiver (ArrayList<DriverPO> drivers);
 	/**
 	 * 删除司机
 	 * @param ID
 	 * @return
 	 */
-	public boolean deleteDriver(String ID[]);
+	public boolean deleteDriver(ArrayList<String> ID);
 	/**
 	 * 更改司机信息
 	 * @param name

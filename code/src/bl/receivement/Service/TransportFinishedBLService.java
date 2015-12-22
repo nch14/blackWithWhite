@@ -1,5 +1,7 @@
 package bl.receivement.Service;
 
+import java.util.ArrayList;
+
 import vo.ReceiveInformationVO;
 
 /**
@@ -16,5 +18,5 @@ public interface TransportFinishedBLService {
 	 * @param date 收件日期
 	 * @return 
 	 */
-	public boolean billFilled(ReceiveInformationVO[] info);
+	public boolean billFilled(ArrayList<ReceiveInformationVO> info);
 }

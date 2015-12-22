@@ -11,9 +11,11 @@ public class PaidController implements PaidBLService {
 		paid=new Paid();
 	} 
 	@Override
-	public boolean addPaidmentBill(ReceiveMoneyBill[] bills) {
+	public boolean addPaidmentBill(ArrayList<ReceiveMoneyBill> bills) {
 		// TODO Auto-generated method stub
-		return paid.addPaidmentBill(bills);
+		int length=bills.size();
+		ReceiveMoneyBill[] bill=(ReceiveMoneyBill[])bills.toArray(new ReceiveMoneyBill[length]);
+		return paid.addPaidmentBill(bill);
 	}
 
 	@Override

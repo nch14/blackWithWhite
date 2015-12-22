@@ -1,6 +1,8 @@
 package settings;
 
-public class Department {
+import java.io.Serializable;
+
+public class Department implements Serializable {
 	String name;
 	String id;
 }

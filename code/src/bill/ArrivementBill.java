@@ -3,6 +3,8 @@ package bill;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import enumHelper.State;
+
 public class ArrivementBill implements Serializable{
 	
 	public String ID;//µ¥¾ÝµÄID

@@ -1,7 +1,8 @@
 package bl.receivement.Impl;
 
+import java.util.ArrayList;
+
 import bill.AllocateBill;
-import bill.ArrivementBill;
 import bill.ArrivementBill_Shop;
 import bl.receivement.Service.DistributionBLService;
 
@@ -12,7 +13,7 @@ public class DistributionController implements DistributionBLService{
 		distribution=new Distribution();
 	}
 	
-	public boolean distribution(AllocateBill[] bills) {
+	public boolean distribution(ArrayList<AllocateBill> bills) {
 		// TODO Auto-generated method stub
 		return distribution.distribution(bills);
 	}
@@ -22,6 +23,8 @@ public class DistributionController implements DistributionBLService{
 		// TODO Auto-generated method stub
 		return distribution.receive(arrive);
 	}
+
+
 
 
 
