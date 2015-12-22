@@ -44,6 +44,7 @@ public class staffmanageui extends JDesktopPane{
 	private void initialize() {
 		
 		this.setBackground(Color.WHITE);
+		table_1 = new JTable();
 		
 		JLabel label_19 = new JLabel();
 		label_19.setBounds(282, 0, 436, 21);
@@ -128,7 +129,7 @@ public class staffmanageui extends JDesktopPane{
 		scrollPane_1.setBounds(70, 111, 767, 342);
 		desktopPane_13.add(scrollPane_1);
 		
-		table_1 = new JTable();
+//		table_1 = new JTable();
 		table_1.setModel(new DefaultTableModel(
 			new Object[][] {
 				{null, null, null, null, null,null},
@@ -153,7 +154,7 @@ public class staffmanageui extends JDesktopPane{
 				{null, null, null, null, null,null},
 			},
 			new String[] {
-				"\u7528\u6237ID", "\u59D3\u540D", "\u5E74\u9F84", "6027\u522B","\u804C\u4F4D", "\u6240\u5C5E\u90E8\u95E8"
+				"\u7528\u6237ID", "\u59D3\u540D", "\u5E74\u9F84", "\u6027\u522B","\u804C\u4F4D", "\u6240\u5C5E\u90E8\u95E8"
 			}
 		));
 		scrollPane_1.setViewportView(table_1);
@@ -189,11 +190,24 @@ public class staffmanageui extends JDesktopPane{
 		button_5.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				StaffVO[] staff=null;
-				for(int i=0;i<table_1.getRowCount();i++){
-				StaffVO staffvo= new StaffVO(table_1.getValueAt(i, 1).toString(),table_1.getValueAt(i, 2).toString(),
-						table_1.getValueAt(i, 3).toString(),table_1.getValueAt(i, 4).toString(),table_1.getValueAt(i, 5).toString());
-				staff[i]=staffvo;
+				StaffVO[] staff=new StaffVO[20];
+				boolean isboy=false;
+				int count=0;
+				while(table_1.getValueAt(count,1)!=null){
+					++count;
+				}
+				for(int i=0;i<count;i++){
+					//System.out.println(table_1.getValueAt(i, 3));
+					if(table_1.getValueAt(i, 3).equals("ÄÐ")){
+						isboy=true;
+					}
+					else{
+						isboy=false;
+					}
+					StaffVO staffvo= new StaffVO(table_1.getValueAt(i, 1).toString(),table_1.getValueAt(i, 2).toString(),
+						table_1.getValueAt(i, 4).toString(),table_1.getValueAt(i, 5).toString(),isboy);
+					staff[i]=staffvo;
+					System.out.println(staff[i].name+" "+staff[i].department);
 				}
 				StaffManageBLService addnewstaff = new StaffManageController();
 				boolean istrue=addnewstaff.addNewStaff(staff);
@@ -204,7 +218,7 @@ public class staffmanageui extends JDesktopPane{
 						table_2.setValueAt(null, i, 2);
 						table_2.setValueAt(null, i, 3);
 						table_2.setValueAt(null, i, 4);
-						table_2.setValueAt(null, i, 5);
+//						table_2.setValueAt(null, i, 5);
 					}
 				}else{
 					

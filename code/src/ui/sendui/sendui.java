@@ -262,12 +262,13 @@ public class sendui extends JDesktopPane{
 						textField_20.getText(),textField_21.getText(),textField_22.getText(),textField_23.getText(),
 						textField_24.getText(),textField_25.getText(),comboBox.getSelectedItem().toString(),
 						comboBox_1.getSelectedItem().toString(),textField_26.getText(),df.format(new Date()),
-					    Double.parseDouble(lblNewLabel_3.getText()));
+					    Double.parseDouble(lblNewLabel_3.getText()),textField_8.getText());
 				SendBLService send = new SendController();
 				boolean istrue=send.push(order);
 				if(istrue==false){
 					
 				}else{
+					textField_9.setText(null);
 					textField_9.setText(null);
 					textField_10.setText(null);
 					textField_11.setText(null);
