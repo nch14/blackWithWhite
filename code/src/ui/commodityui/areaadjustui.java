@@ -37,29 +37,29 @@ public class areaadjustui extends JDesktopPane{
 		this.add(label_33);
 		
 		
-		JLabel label_12 = new JLabel("\u6392\u53F7");
-		label_12.setBounds(328, 88, 54, 15);
-		this.add(label_12);
+		JLabel labelofrownumber = new JLabel("排号");
+		labelofrownumber.setBounds(328, 88, 54, 15);
+		this.add(labelofrownumber);
 		
-		JTextField textField_13 = new JTextField();
-		textField_13.setBounds(383, 85, 66, 21);
-		this.add(textField_13);
-		textField_13.setColumns(10);
+		JTextField textFieldofrownumber = new JTextField();
+		textFieldofrownumber.setBounds(383, 85, 66, 21);
+		this.add(textFieldofrownumber);
+		textFieldofrownumber.setColumns(10);
 		
-		JLabel label_13 = new JLabel("\u539F\u5206\u533A");
-		label_13.setBounds(328, 122, 54, 15);
-		this.add(label_13);
+		JLabel labeloforiginalarea = new JLabel("原分区");
+		labeloforiginalarea.setBounds(328, 122, 54, 15);
+		this.add(labeloforiginalarea);
 		
-		JLabel label_14 = new JLabel("\u73B0\u5206\u533A");
-		label_14.setBounds(328, 159, 54, 15);
-		this.add(label_14);
+		JLabel labelofnewarea = new JLabel("现分区");
+		labelofnewarea.setBounds(328, 159, 54, 15);
+		this.add(labelofnewarea);
 		
 		JScrollPane scrollPane_3 = new JScrollPane();
 		scrollPane_3.setBounds(236, 230, 467, 212);
 		this.add(scrollPane_3);
 		
-		JTable table_3 = new JTable();
-		table_3.setModel(new DefaultTableModel(
+		JTable tableofareaadjust = new JTable();
+		tableofareaadjust.setModel(new DefaultTableModel(
 			new Object[][] {
 				{null, null, null},
 				{null, null, null},
@@ -81,92 +81,92 @@ public class areaadjustui extends JDesktopPane{
 				{null, null, null},
 			},
 			new String[] {
-				"\u6392\u53F7", "\u539F\u5206\u533A", "\u73B0\u5206\u533A"
+				"排号", "原分区", "现分区"
 			}
 		));
-		scrollPane_3.setViewportView(table_3);
+		scrollPane_3.setViewportView(tableofareaadjust);
 		
 		/*
 		 * 库区调整提交
 		 */
-		JButton button_6 = new JButton("\u63D0\u4EA4");
-		button_6.addMouseListener(new MouseAdapter() {
+		JButton buttonofsubmit = new JButton("提交");
+		buttonofsubmit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				int[] rows= new int[table_3.getRowCount()];
-				for(int i=0;i<table_3.getRowCount();i++){
-					rows[i]=(int) table_3.getValueAt(i, 0);
+				int[] rows= new int[tableofareaadjust.getRowCount()];
+				for(int i=0;i<tableofareaadjust.getRowCount();i++){
+					rows[i]=(int) tableofareaadjust.getValueAt(i, 0);
 					
 				}
-				String type=(String) table_3.getValueAt(0, 1);
+				String type=(String) tableofareaadjust.getValueAt(0, 1);
 				AreaAdjustBLService areaadjust = new AreaAdjustController();
 				boolean istrue=areaadjust.areaAdjust(rows, type);
 				if(istrue==false){
 					
 				}else{
-					for(int i=0; i<table_3.getRowCount();i++){
-						table_3.setValueAt(null, i, 0);
-						table_3.setValueAt(null, i, 1);
-						table_3.setValueAt(null, i, 2);
+					for(int i=0; i<tableofareaadjust.getRowCount();i++){
+						tableofareaadjust.setValueAt(null, i, 0);
+						tableofareaadjust.setValueAt(null, i, 1);
+						tableofareaadjust.setValueAt(null, i, 2);
 					}
 				}
 			}
 		});
-		button_6.setBounds(631, 493, 93, 23);
-		this.add(button_6);
+		buttonofsubmit.setBounds(631, 493, 93, 23);
+		this.add(buttonofsubmit);
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"\u673A\u52A8\u533A", "\u822A\u8FD0\u533A", "\u94C1\u8FD0\u533A", "\u6C7D\u8FD0\u533A"}));
-		comboBox_1.setBounds(383, 119, 66, 21);
-		this.add(comboBox_1);
+		JComboBox comboBoxoforiginalarea = new JComboBox();
+		comboBoxoforiginalarea.setModel(new DefaultComboBoxModel(new String[] {"\u673A\u52A8\u533A", "\u822A\u8FD0\u533A", "\u94C1\u8FD0\u533A", "\u6C7D\u8FD0\u533A"}));
+		comboBoxoforiginalarea.setBounds(383, 119, 66, 21);
+		this.add(comboBoxoforiginalarea);
 		
-		JComboBox comboBox_2 = new JComboBox();
-		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"\u673A\u52A8\u533A", "\u822A\u8FD0\u533A", "\u94C1\u8FD0\u533A", "\u6C7D\u8FD0\u533A"}));
-		comboBox_2.setBounds(383, 156, 66, 21);
-		this.add(comboBox_2);
+		JComboBox comboBoxofnewarea = new JComboBox();
+		comboBoxofnewarea.setModel(new DefaultComboBoxModel(new String[] {"\u673A\u52A8\u533A", "\u822A\u8FD0\u533A", "\u94C1\u8FD0\u533A", "\u6C7D\u8FD0\u533A"}));
+		comboBoxofnewarea.setBounds(383, 156, 66, 21);
+		this.add(comboBoxofnewarea);
 		
 		/*
 		 * 库区调整添加
 		 */
-		JButton btnNewButton = new JButton("\u786E\u8BA4");
-		btnNewButton.addMouseListener(new MouseAdapter() {
+		JButton buttonofack = new JButton("确认");
+		buttonofack.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				for(int i=0;i<table_3.getRowCount();i++){
-					if(table_3.getValueAt(i, 1)==null&&table_3.getValueAt(i, 2)==null&&table_3.getValueAt(i, 3)==null){
-						table_3.setValueAt(textField_13.getText(), i, 1);
-						table_3.setValueAt(comboBox_1.getSelectedItem(), i, 2);
-						table_3.setValueAt(comboBox_2.getSelectedItem(), i, 3);
-						textField_13.setText(null);
-						comboBox_1.setSelectedIndex(0);
-						comboBox_2.setSelectedIndex(0);
+				for(int i=0;i<tableofareaadjust.getRowCount();i++){
+					if(tableofareaadjust.getValueAt(i, 1)==null&&tableofareaadjust.getValueAt(i, 2)==null&&tableofareaadjust.getValueAt(i, 3)==null){
+						tableofareaadjust.setValueAt(textFieldofrownumber.getText(), i, 1);
+						tableofareaadjust.setValueAt(comboBoxoforiginalarea.getSelectedItem(), i, 2);
+						tableofareaadjust.setValueAt(comboBoxofnewarea.getSelectedItem(), i, 3);
+						textFieldofrownumber.setText(null);
+						comboBoxoforiginalarea.setSelectedIndex(0);
+						comboBoxofnewarea.setSelectedIndex(0);
 						break;
 					}
 				}
 			}
 		});
-		btnNewButton.setBounds(524, 186, 93, 23);
-		this.add(btnNewButton);
+		buttonofack.setBounds(524, 186, 93, 23);
+		this.add(buttonofack);
 		
 		/*
 		 * 库区调整撤销
 		 */
-		JButton button_9 = new JButton("\u64A4\u9500");
-		button_9.addMouseListener(new MouseAdapter() {
+		JButton buttonofcancel = new JButton("撤销");
+		buttonofcancel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				for(int i=table_3.getRowCount()-1;i>=0;i--){
-					if(table_3.getValueAt(i, 0)!=null&&table_3.getValueAt(i, 1)!=null
-							&&table_3.getValueAt(i, 2)!=null){
-						table_3.setValueAt(null, i, 0);
-						table_3.setValueAt(null, i, 1);
-						table_3.setValueAt(null, i, 2);
+				for(int i=tableofareaadjust.getRowCount()-1;i>=0;i--){
+					if(tableofareaadjust.getValueAt(i, 0)!=null&&tableofareaadjust.getValueAt(i, 1)!=null
+							&&tableofareaadjust.getValueAt(i, 2)!=null){
+						tableofareaadjust.setValueAt(null, i, 0);
+						tableofareaadjust.setValueAt(null, i, 1);
+						tableofareaadjust.setValueAt(null, i, 2);
 					}
 				}
 			}
 		});
-		button_9.setBounds(236, 493, 93, 23);
-		this.add(button_9);
+		buttonofcancel.setBounds(236, 493, 93, 23);
+		this.add(buttonofcancel);
 		
 		new Thread() {        
 			public void run() {            

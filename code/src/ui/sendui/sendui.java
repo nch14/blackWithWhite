@@ -37,263 +37,263 @@ public class sendui extends JDesktopPane{
 		this.add(label_32);
 		
 		
-		JLabel label_3 = new JLabel("\u5BC4\u4EF6\u4EBA\u4FE1\u606F");
-		label_3.setBounds(99, 73, 68, 15);
-		this.add(label_3);
+		JLabel labelofsenderinfo = new JLabel("寄件人信息");
+		labelofsenderinfo.setBounds(99, 73, 68, 15);
+		this.add(labelofsenderinfo);
 		
-		JLabel label_4 = new JLabel("\u8BA2\u5355\u6761\u5F62\u7801\u53F7");
-		label_4.setBounds(672, 73, 83, 15);
-		this.add(label_4);
+		JLabel labelofordernumber = new JLabel("订单条形码号");
+		labelofordernumber.setBounds(672, 73, 83, 15);
+		this.add(labelofordernumber);
 		
-		JTextField textField_8 = new JTextField();
-		textField_8.setColumns(10);
-		textField_8.setBounds(654, 98, 121, 21);
-		this.add(textField_8);
+		JTextField textFieldofordernumber = new JTextField();
+		textFieldofordernumber.setColumns(10);
+		textFieldofordernumber.setBounds(654, 98, 121, 21);
+		this.add(textFieldofordernumber);
 		
-		JLabel lblNewLabel = new JLabel("\u59D3\u540D");
-		lblNewLabel.setBounds(162, 243, 54, 15);
-		this.add(lblNewLabel);
+		JLabel labelofsendername = new JLabel("姓名");
+		labelofsendername.setBounds(162, 243, 54, 15);
+		this.add(labelofsendername);
 		
-		JTextField textField_9 = new JTextField();
-		textField_9.setBounds(200, 98, 66, 21);
-		this.add(textField_9);
-		textField_9.setColumns(10);
+		JTextField textFieldofsendername = new JTextField();
+		textFieldofsendername.setBounds(200, 98, 66, 21);
+		this.add(textFieldofsendername);
+		textFieldofsendername.setColumns(10);
+
+		JLabel labelofsenderphone = new JLabel("电话");
+		labelofsenderphone.setBounds(300, 101, 54, 15);
+		this.add(labelofsenderphone);
 		
-		JLabel label_5 = new JLabel("\u7535\u8BDD");
-		label_5.setBounds(300, 101, 54, 15);
-		this.add(label_5);
+		JTextField textFieldofsenderphone = new JTextField();
+		textFieldofsenderphone.setBounds(341, 98, 92, 21);
+		this.add(textFieldofsenderphone);
+		textFieldofsenderphone.setColumns(10);
 		
-		JTextField textField_10 = new JTextField();
-		textField_10.setBounds(341, 98, 92, 21);
-		this.add(textField_10);
-		textField_10.setColumns(10);
+		JLabel labelofsendermobile = new JLabel("手机");
+		labelofsendermobile.setBounds(458, 101, 54, 15);
+		this.add(labelofsendermobile);
 		
-		JLabel label_6 = new JLabel("\u624B\u673A");
-		label_6.setBounds(458, 101, 54, 15);
-		this.add(label_6);
+		JTextField textFieldofsendermobile = new JTextField();
+		textFieldofsendermobile.setBounds(493, 98, 83, 21);
+		this.add(textFieldofsendermobile);
+		textFieldofsendermobile.setColumns(10);
 		
-		JTextField textField_11 = new JTextField();
-		textField_11.setBounds(493, 98, 83, 21);
-		this.add(textField_11);
-		textField_11.setColumns(10);
+		JLabel labelofsenderunit = new JLabel("单位");
+		labelofsenderunit.setBounds(162, 140, 54, 15);
+		this.add(labelofsenderunit);
 		
-		JLabel label_7 = new JLabel("\u6536\u4EF6\u4EBA\u4FE1\u606F");
-		label_7.setBounds(99, 214, 68, 15);
-		this.add(label_7);
+		JTextField textFieldofsenderunit = new JTextField();
+		textFieldofsenderunit.setBounds(200, 137, 376, 21);
+		this.add(textFieldofsenderunit);
+		textFieldofsenderunit.setColumns(10);
 		
-		JLabel label_8 = new JLabel("\u5355\u4F4D");
-		label_8.setBounds(162, 140, 54, 15);
-		this.add(label_8);
+		JLabel labelofsenderaddress = new JLabel("地址");
+		labelofsenderaddress.setBounds(162, 183, 54, 15);
+		this.add(labelofsenderaddress);
 		
-		JTextField textField_12 = new JTextField();
-		textField_12.setBounds(200, 137, 376, 21);
-		this.add(textField_12);
-		textField_12.setColumns(10);
+		JTextField textFieldofsenderaddress = new JTextField();
+		textFieldofsenderaddress.setBounds(200, 180, 376, 21);
+		this.add(textFieldofsenderaddress);
+		textFieldofsenderaddress.setColumns(10);
 		
-		JLabel lblNewLabel_1 = new JLabel("\u5730\u5740");
-		lblNewLabel_1.setBounds(162, 183, 54, 15);
-		this.add(lblNewLabel_1);
+		JLabel labelofconsigneeinfo = new JLabel("收件人信息");
+		labelofconsigneeinfo.setBounds(99, 214, 68, 15);
+		this.add(labelofconsigneeinfo);
 		
-		JTextField textField_13 = new JTextField();
-		textField_13.setBounds(200, 180, 376, 21);
-		this.add(textField_13);
-		textField_13.setColumns(10);
+		JLabel labelofconsigneename = new JLabel("姓名");
+		labelofconsigneename.setBounds(162, 101, 54, 15);
+		this.add(labelofconsigneename);
 		
-		JLabel label_9 = new JLabel("\u59D3\u540D");
-		label_9.setBounds(162, 101, 54, 15);
-		this.add(label_9);
+		JTextField textFieldofconsigneename = new JTextField();
+		textFieldofconsigneename.setColumns(10);
+		textFieldofconsigneename.setBounds(200, 240, 66, 21);
+		this.add(textFieldofconsigneename);
 		
-		JTextField textField_14 = new JTextField();
-		textField_14.setColumns(10);
-		textField_14.setBounds(200, 240, 66, 21);
-		this.add(textField_14);
+		JLabel labelofconsigneephone = new JLabel("电话");
+		labelofconsigneephone.setBounds(300, 243, 54, 15);
+		this.add(labelofconsigneephone);
 		
-		JLabel label_10 = new JLabel("\u7535\u8BDD");
-		label_10.setBounds(300, 243, 54, 15);
-		this.add(label_10);
+		JTextField textFieldofconsigneephone = new JTextField();
+		textFieldofconsigneephone.setColumns(10);
+		textFieldofconsigneephone.setBounds(341, 240, 92, 21);
+		this.add(textFieldofconsigneephone);
 		
-		JTextField textField_15 = new JTextField();
-		textField_15.setColumns(10);
-		textField_15.setBounds(341, 240, 92, 21);
-		this.add(textField_15);
+		JLabel labelofconsigneemobile = new JLabel("手机");
+		labelofconsigneemobile.setBounds(458, 243, 54, 15);
+		this.add(labelofconsigneemobile);
 		
-		JLabel label_11 = new JLabel("\u624B\u673A");
-		label_11.setBounds(458, 243, 54, 15);
-		this.add(label_11);
+		JTextField textFieldofconsigneemobile = new JTextField();
+		textFieldofconsigneemobile.setColumns(10);
+		textFieldofconsigneemobile.setBounds(493, 240, 83, 21);
+		this.add(textFieldofconsigneemobile);
 		
-		JTextField textField_16 = new JTextField();
-		textField_16.setColumns(10);
-		textField_16.setBounds(493, 240, 83, 21);
-		this.add(textField_16);
+		JLabel labelofconsigneeunit = new JLabel("单位");
+		labelofconsigneeunit.setBounds(162, 278, 54, 15);
+		this.add(labelofconsigneeunit);
 		
-		JLabel label_12 = new JLabel("\u5355\u4F4D");
-		label_12.setBounds(162, 278, 54, 15);
-		this.add(label_12);
+		JTextField textFieldofconsigneeunit = new JTextField();
+		textFieldofconsigneeunit.setColumns(10);
+		textFieldofconsigneeunit.setBounds(200, 275, 376, 21);
+		this.add(textFieldofconsigneeunit);
 		
-		JTextField textField_17 = new JTextField();
-		textField_17.setColumns(10);
-		textField_17.setBounds(200, 275, 376, 21);
-		this.add(textField_17);
+		JTextField textFieldofconsigneeaddress = new JTextField();
+		textFieldofconsigneeaddress.setColumns(10);
+		textFieldofconsigneeaddress.setBounds(200, 318, 376, 21);
+		this.add(textFieldofconsigneeaddress);
 		
-		JTextField textField_18 = new JTextField();
-		textField_18.setColumns(10);
-		textField_18.setBounds(200, 318, 376, 21);
-		this.add(textField_18);
+		JLabel labelofconsigneeaddress = new JLabel("地址");
+		labelofconsigneeaddress.setBounds(162, 321, 54, 15);
+		this.add(labelofconsigneeaddress);
 		
-		JLabel label_13 = new JLabel("\u5730\u5740");
-		label_13.setBounds(162, 321, 54, 15);
-		this.add(label_13);
+		JLabel labelofcargoinfo = new JLabel("货物信息");
+		labelofcargoinfo.setBounds(113, 355, 54, 15);
+		this.add(labelofcargoinfo);
 		
-		JLabel label_14 = new JLabel("\u8D27\u7269\u4FE1\u606F");
-		label_14.setBounds(113, 355, 54, 15);
-		this.add(label_14);
+		JLabel labelofnumber = new JLabel("原件数（个）");
+		labelofnumber.setBounds(162, 380, 83, 15);
+		this.add(labelofnumber);
 		
-		JLabel label_15 = new JLabel("\u539F\u4EF6\u6570\uFF08\u4E2A\uFF09");
-		label_15.setBounds(162, 380, 83, 15);
-		this.add(label_15);
+		JTextField textFieldofnumber = new JTextField();
+		textFieldofnumber.setBounds(246, 377, 66, 21);
+		this.add(textFieldofnumber);
+		textFieldofnumber.setColumns(10);
 		
-		JTextField textField_19 = new JTextField();
-		textField_19.setBounds(246, 377, 66, 21);
-		this.add(textField_19);
-		textField_19.setColumns(10);
+		JLabel labelofweight = new JLabel("实际重量（kg）");
+		labelofweight.setBounds(379, 380, 92, 15);
+		this.add(labelofweight);
 		
-		JLabel lblkg = new JLabel("\u5B9E\u9645\u91CD\u91CF\uFF08kg\uFF09");
-		lblkg.setBounds(379, 380, 92, 15);
-		this.add(lblkg);
+		JTextField textFieldofweight = new JTextField();
+		textFieldofweight.setBounds(493, 377, 66, 21);
+		this.add(textFieldofweight);
+		textFieldofweight.setColumns(10);
 		
-		JTextField textField_20 = new JTextField();
-		textField_20.setBounds(493, 377, 66, 21);
-		this.add(textField_20);
-		textField_20.setColumns(10);
+		JLabel labelofsize = new JLabel("尺寸（长*宽*高）");
+		labelofsize.setBounds(162, 413, 104, 15);
+		this.add(labelofsize);
 		
-		JLabel label_16 = new JLabel("\u5C3A\u5BF8\uFF08\u957F*\u5BBD*\u9AD8\uFF09");
-		label_16.setBounds(162, 413, 104, 15);
-		this.add(label_16);
+		JTextField textFieldoflength = new JTextField();
+		textFieldoflength.setBounds(256, 410, 34, 21);
+		this.add(textFieldoflength);
+		textFieldoflength.setColumns(10);
 		
-		JTextField textField_21 = new JTextField();
-		textField_21.setBounds(256, 410, 34, 21);
-		this.add(textField_21);
-		textField_21.setColumns(10);
+		JTextField textFieldofwidth = new JTextField();
+		textFieldofwidth.setColumns(10);
+		textFieldofwidth.setBounds(300, 410, 34, 21);
+		this.add(textFieldofwidth);
 		
-		JTextField textField_22 = new JTextField();
-		textField_22.setColumns(10);
-		textField_22.setBounds(300, 410, 34, 21);
-		this.add(textField_22);
+		JTextField textFieldofheight = new JTextField();
+		textFieldofheight.setColumns(10);
+		textFieldofheight.setBounds(345, 410, 34, 21);
+		this.add(textFieldofheight);
 		
-		JTextField textField_23 = new JTextField();
-		textField_23.setColumns(10);
-		textField_23.setBounds(345, 410, 34, 21);
-		this.add(textField_23);
+		JLabel labelofcargoname = new JLabel("内件品名");
+		labelofcargoname.setBounds(162, 447, 54, 15);
+		this.add(labelofcargoname);
 		
-		JLabel label_17 = new JLabel("\u5185\u4EF6\u54C1\u540D");
-		label_17.setBounds(162, 447, 54, 15);
-		this.add(label_17);
+		JTextField textFieldofcargoname = new JTextField();
+		textFieldofcargoname.setBounds(226, 444, 66, 21);
+		this.add(textFieldofcargoname);
+		textFieldofcargoname.setColumns(10);
 		
-		JTextField textField_24 = new JTextField();
-		textField_24.setBounds(226, 444, 66, 21);
-		this.add(textField_24);
-		textField_24.setColumns(10);
+		JLabel labelofvolume = new JLabel("体积（L）");
+		labelofvolume.setBounds(379, 447, 68, 15);
+		this.add(labelofvolume);
 		
-		JLabel lbll = new JLabel("\u4F53\u79EF\uFF08L\uFF09");
-		lbll.setBounds(379, 447, 68, 15);
-		this.add(lbll);
+		JTextField textFieldofvolume = new JTextField();
+		textFieldofvolume.setBounds(493, 444, 66, 21);
+		this.add(textFieldofvolume);
+		textFieldofvolume.setColumns(10);
 		
-		JTextField textField_25 = new JTextField();
-		textField_25.setBounds(493, 444, 66, 21);
-		this.add(textField_25);
-		textField_25.setColumns(10);
+		JLabel labeloforderinfo = new JLabel("快递信息");
+		labeloforderinfo.setBounds(113, 486, 54, 15);
+		this.add(labeloforderinfo);
 		
-		JLabel label_18 = new JLabel("\u5FEB\u9012\u4FE1\u606F");
-		label_18.setBounds(113, 486, 54, 15);
-		this.add(label_18);
+		JLabel labelofpackingexpense = new JLabel("包装费");
+		labelofpackingexpense.setBounds(162, 511, 54, 15);
+		this.add(labelofpackingexpense);
 		
-		JLabel label_19 = new JLabel("\u5305\u88C5\u8D39");
-		label_19.setBounds(162, 511, 54, 15);
-		this.add(label_19);
+		JComboBox comboBoxofpackingexpense = new JComboBox();
+		comboBoxofpackingexpense.setModel(new DefaultComboBoxModel(new String[] {"\u7EB8\u7BB1\uFF085\u5143\uFF09"}));
+		comboBoxofpackingexpense.setBounds(226, 508, 108, 21);
+		this.add(comboBoxofpackingexpense);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"\u7EB8\u7BB1\uFF085\u5143\uFF09"}));
-		comboBox.setBounds(226, 508, 108, 21);
-		this.add(comboBox);
+		JLabel labelofordertype = new JLabel("快递类型");
+		labelofordertype.setBounds(379, 511, 54, 15);
+		this.add(labelofordertype);
 		
-		JLabel label_20 = new JLabel("\u5FEB\u9012\u7C7B\u578B");
-		label_20.setBounds(379, 511, 54, 15);
-		this.add(label_20);
+		JComboBox comboBoxofordertype = new JComboBox();
+		comboBoxofordertype.setBounds(493, 508, 66, 21);
+		this.add(comboBoxofordertype);
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(493, 508, 66, 21);
-		this.add(comboBox_1);
+		JLabel labelofkind = new JLabel("种类");
+		labelofkind.setBounds(162, 546, 54, 15);
+		this.add(labelofkind);
 		
-		JLabel label_21 = new JLabel("\u79CD\u7C7B");
-		label_21.setBounds(162, 546, 54, 15);
-		this.add(label_21);
+		JTextField textFieldofkind = new JTextField();
+		textFieldofkind.setBounds(226, 543, 66, 21);
+		this.add(textFieldofkind);
+		textFieldofkind.setColumns(10);
 		
-		JTextField textField_26 = new JTextField();
-		textField_26.setBounds(226, 543, 66, 21);
-		this.add(textField_26);
-		textField_26.setColumns(10);
+		JLabel labelofexpense = new JLabel("费用合计：");
+		labelofexpense.setBounds(654, 486, 68, 15);
+		this.add(labelofexpense);
 		
-		JLabel lblNewLabel_2 = new JLabel("\u8D39\u7528\u5408\u8BA1\uFF1A");
-		lblNewLabel_2.setBounds(654, 486, 68, 15);
-		this.add(lblNewLabel_2);
-		
-		JButton button_4 = new JButton("\u786E\u8BA4");
-		button_4.addMouseListener(new MouseAdapter() {
+		JButton buttonofack = new JButton("确认");
+		buttonofack.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
 			}
 		});
-		button_4.setBounds(654, 507, 68, 23);
-		this.add(button_4);
+		buttonofack.setBounds(654, 507, 68, 23);
+		this.add(buttonofack);
 		
-		JLabel lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setBounds(738, 486, 54, 15);
-		this.add(lblNewLabel_3);
+		JLabel labeloftotalexpense = new JLabel("");
+		labeloftotalexpense.setBounds(738, 486, 54, 15);
+		this.add(labeloftotalexpense);
 		
-		JButton button_5 = new JButton("\u63D0\u4EA4");
-		button_5.addMouseListener(new MouseAdapter() {
+		JButton buttonofsubmit = new JButton("提交");
+		buttonofsubmit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");//设置日期格式
-				OrderBillPO order = new OrderBillPO(textField_9.getText(),textField_10.getText(),textField_11.getText(),
-						textField_12.getText(),textField_13.getText(),textField_14.getText(),textField_15.getText(),
-						textField_16.getText(),textField_17.getText(),textField_18.getText(),textField_19.getText(),
-						textField_20.getText(),textField_21.getText(),textField_22.getText(),textField_23.getText(),
-						textField_24.getText(),textField_25.getText(),comboBox.getSelectedItem().toString(),
-						comboBox_1.getSelectedItem().toString(),textField_26.getText(),df.format(new Date()),
-					    Double.parseDouble(lblNewLabel_3.getText()),textField_8.getText());
+				OrderBillPO order = new OrderBillPO(textFieldofconsigneename.getText(),textFieldofsenderphone.getText(),textFieldofsendermobile.getText(),
+						textFieldofsenderunit.getText(),textFieldofsenderaddress.getText(),textFieldofconsigneename.getText(),textFieldofconsigneephone.getText(),
+						textFieldofconsigneemobile.getText(),textFieldofconsigneeunit.getText(),textFieldofconsigneeaddress.getText(),textFieldofnumber.getText(),
+						textFieldofweight.getText(),textFieldoflength.getText(),textFieldofwidth.getText(),textFieldofheight.getText(),
+						textFieldofcargoname.getText(),textFieldofvolume.getText(),comboBoxofpackingexpense.getSelectedItem().toString(),
+						comboBoxofordertype.getSelectedItem().toString(),textFieldofkind.getText(),df.format(new Date()),
+					    Double.parseDouble(labeloftotalexpense.getText()),textFieldofordernumber.getText());
 				SendBLService send = new SendController();
 				boolean istrue=send.push(order);
 				if(istrue==false){
 					
 				}else{
-					textField_9.setText(null);
-					textField_9.setText(null);
-					textField_10.setText(null);
-					textField_11.setText(null);
-					textField_12.setText(null);
-					textField_13.setText(null);
-					textField_14.setText(null);
-					textField_15.setText(null);
-					textField_16.setText(null);
-					textField_17.setText(null);
-					textField_18.setText(null);
-					textField_19.setText(null);
-					textField_20.setText(null);
-					textField_21.setText(null);
-					textField_22.setText(null);
-					textField_23.setText(null);
-					textField_24.setText(null);
-					textField_25.setText(null);
-					comboBox.setSelectedIndex(0);
-					comboBox_1.setSelectedIndex(0);
-					textField_26.setText(null);
+					textFieldofconsigneename.setText(null);
+					textFieldofconsigneename.setText(null);
+					textFieldofsenderphone.setText(null);
+					textFieldofsendermobile.setText(null);
+					textFieldofsenderunit.setText(null);
+					textFieldofsenderaddress.setText(null);
+					textFieldofconsigneename.setText(null);
+					textFieldofconsigneephone.setText(null);
+					textFieldofconsigneemobile.setText(null);
+					textFieldofconsigneeunit.setText(null);
+					textFieldofconsigneeaddress.setText(null);
+					textFieldofnumber.setText(null);
+					textFieldofweight.setText(null);
+					textFieldoflength.setText(null);
+					textFieldofwidth.setText(null);
+					textFieldofheight.setText(null);
+					textFieldofcargoname.setText(null);
+					textFieldofvolume.setText(null);
+					comboBoxofpackingexpense.setSelectedIndex(0);
+					comboBoxofordertype.setSelectedIndex(0);
+					textFieldofkind.setText(null);
 				}
 			}
 		});
-		button_5.setBounds(740, 507, 68, 23);
-		this.add(button_5);
+		buttonofsubmit.setBounds(740, 507, 68, 23);
+		this.add(buttonofsubmit);
 		
 		new Thread() {        
 			public void run() {            

@@ -34,87 +34,87 @@ public class outdepotui extends JDesktopPane{
 		this.setBackground(Color.WHITE);
 		
 		
-		JLabel label_11 = new JLabel("\u8BA2\u5355\u53F7");
-		label_11.setBounds(172, 56, 54, 15);
-		this.add(label_11);
+		JLabel labelofordernumber = new JLabel("订单号");
+		labelofordernumber.setBounds(172, 56, 54, 15);
+		this.add(labelofordernumber);
 		
-		JTextField textField_3 = new JTextField();
-		textField_3.setBounds(236, 53, 93, 21);
-		this.add(textField_3);
-		textField_3.setColumns(10);
+		JTextField textFieldofordernumber = new JTextField();
+		textFieldofordernumber.setBounds(236, 53, 93, 21);
+		this.add(textFieldofordernumber);
+		textFieldofordernumber.setColumns(10);
 		
-		JLabel label_4 = new JLabel("\u51FA\u5E93\u65E5\u671F");
-		label_4.setBounds(370, 56, 54, 15);
-		this.add(label_4);
+		JLabel labelofdate = new JLabel("出库日期");
+		labelofdate.setBounds(370, 56, 54, 15);
+		this.add(labelofdate);
 		
-		JTextField textField_4 = new JTextField();
-		textField_4.setBounds(434, 53, 34, 21);
-		this.add(textField_4);
-		textField_4.setColumns(10);
+		JTextField textFieldofyear = new JTextField();
+		textFieldofyear.setBounds(434, 53, 34, 21);
+		this.add(textFieldofyear);
+		textFieldofyear.setColumns(10);
 		
-		JLabel label_5 = new JLabel("\u76EE\u7684\u5730");
-		label_5.setBounds(538, 101, 54, 15);
-		this.add(label_5);
+		JLabel labelofdestination = new JLabel("目的地");
+		labelofdestination.setBounds(538, 101, 54, 15);
+		this.add(labelofdestination);
 		
-		JTextField textField_5 = new JTextField();
-		textField_5.setBounds(603, 98, 221, 21);
-		this.add(textField_5);
-		textField_5.setColumns(10);
+		JTextField textFieldofdestination = new JTextField();
+		textFieldofdestination.setBounds(603, 98, 221, 21);
+		this.add(textFieldofdestination);
+		textFieldofdestination.setColumns(10);
 		
-		JLabel label_6 = new JLabel("\u88C5\u8FD0\u5F62\u5F0F");
-		label_6.setBounds(172, 101, 54, 15);
-		this.add(label_6);
+		JLabel labelofshipment = new JLabel("装运形式");
+		labelofshipment.setBounds(172, 101, 54, 15);
+		this.add(labelofshipment);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"\u98DE\u673A", "\u706B\u8F66", "\u6C7D\u8F66"}));
-		comboBox.setBounds(236, 98, 59, 21);
-		this.add(comboBox);
+		JComboBox comboBoxofshipment = new JComboBox();
+		comboBoxofshipment.setModel(new DefaultComboBoxModel(new String[] {"\u98DE\u673A", "\u706B\u8F66", "\u6C7D\u8F66"}));
+		comboBoxofshipment.setBounds(236, 98, 59, 21);
+		this.add(comboBoxofshipment);
 		
-		JLabel label_7 = new JLabel("\u8D27\u8FD0\u7F16\u53F7");
-		label_7.setBounds(370, 101, 54, 15);
-		this.add(label_7);
+		JLabel labeloftransport = new JLabel("货运编号");
+		labeloftransport.setBounds(370, 101, 54, 15);
+		this.add(labeloftransport);
 		
-		JTextField textField_6 = new JTextField();
-		textField_6.setBounds(434, 98, 66, 21);
-		this.add(textField_6);
-		textField_6.setColumns(10);
+		JTextField textFieldoftransport = new JTextField();
+		textFieldoftransport.setBounds(434, 98, 66, 21);
+		this.add(textFieldoftransport);
+		textFieldoftransport.setColumns(10);
 		
 		/*
 		 * 出库确认
 		 */
-		JButton button_2 = new JButton("\u786E\u8BA4");
-		button_2.setBounds(731, 149, 93, 23);
-		this.add(button_2);
-		JTable table_1 = new JTable();
-		JTextField textField_26 = new JTextField();
-		JTextField textField_27 = new JTextField();
-		button_2.addMouseListener(new MouseAdapter(){
+		JButton buttonofack = new JButton("确认");
+		buttonofack.setBounds(731, 149, 93, 23);
+		this.add(buttonofack);
+		JTable tableofoutdepot = new JTable();
+		JTextField textFieldofmonth = new JTextField();
+		JTextField textFieldofday = new JTextField();
+		buttonofack.addMouseListener(new MouseAdapter(){
 			public void mouseClicked(MouseEvent e){
 				
-				for(int i=0;i<table_1.getRowCount();i++){
+				for(int i=0;i<tableofoutdepot.getRowCount();i++){
 					
-					if(table_1.getValueAt(i, 0)==null&&table_1.getValueAt(i, 1)==null&&table_1.getValueAt(i, 2)==null&&table_1.getValueAt(i, 3)==null){
-								String month=textField_26.getText();
-								String day=textField_27.getText();
+					if(tableofoutdepot.getValueAt(i, 0)==null&&tableofoutdepot.getValueAt(i, 1)==null&&tableofoutdepot.getValueAt(i, 2)==null&&tableofoutdepot.getValueAt(i, 3)==null){
+								String month=textFieldofmonth.getText();
+								String day=textFieldofday.getText();
 								if(month.length()==1){
 									month="0"+month;
 								}
 								if(day.length()==1){
 									day="0"+day;
 								}
-								String date=textField_4.getText()+month+day;
-						table_1.setValueAt(textField_3.getText(), i, 0);
-						table_1.setValueAt(date, i, 1);
-						table_1.setValueAt(comboBox.getSelectedItem(), i, 2);
-						table_1.setValueAt(textField_6.getText(), i, 3);
-						table_1.setValueAt(textField_5.getText(), i, 4);
-						textField_4.setText(null);
-						textField_26.setText(null);
-						textField_27.setText(null);
-						textField_3.setText(null);
-						comboBox.setSelectedIndex(0);
-						textField_6.setText(null);
-						textField_5.setText(null);
+								String date=textFieldofyear.getText()+month+day;
+						tableofoutdepot.setValueAt(textFieldofordernumber.getText(), i, 0);
+						tableofoutdepot.setValueAt(date, i, 1);
+						tableofoutdepot.setValueAt(comboBoxofshipment.getSelectedItem(), i, 2);
+						tableofoutdepot.setValueAt(textFieldoftransport.getText(), i, 3);
+						tableofoutdepot.setValueAt(textFieldofdestination.getText(), i, 4);
+						textFieldofyear.setText(null);
+						textFieldofmonth.setText(null);
+						textFieldofday.setText(null);
+						textFieldofordernumber.setText(null);
+						comboBoxofshipment.setSelectedIndex(0);
+						textFieldoftransport.setText(null);
+						textFieldofdestination.setText(null);
 						break;
 					}
 				}
@@ -126,7 +126,7 @@ public class outdepotui extends JDesktopPane{
 		this.add(scrollPane_1);
 		
 		
-		table_1.setModel(new DefaultTableModel(
+		tableofoutdepot.setModel(new DefaultTableModel(
 			new Object[][] {
 				{null, null, null, null, null},
 				{null, null, null, null, null},
@@ -149,10 +149,10 @@ public class outdepotui extends JDesktopPane{
 				{null, null, null, null, null},
 			},
 			new String[] {
-				"\u8BA2\u5355\u53F7", "\u51FA\u5E93\u65E5\u671F", "\u88C5\u8FD0\u5F62\u5F0F", "\u8D27\u8FD0\u7F16\u53F7", "\u76EE\u7684\u5730"
+				"订单号", "出库日期", "装运形式", "货运编号", "目的地"
 			}
 		));
-		scrollPane_1.setViewportView(table_1);
+		scrollPane_1.setViewportView(tableofoutdepot);
 		
 		JLabel label_8 = new JLabel();
 		label_8.setBounds(282, 0, 436, 21);
@@ -162,83 +162,83 @@ public class outdepotui extends JDesktopPane{
 		/*
 		 * 出库提交
 		 */
-		JButton button_3 = new JButton("\u63D0\u4EA4");
-		button_3.addMouseListener(new MouseAdapter() {
+		JButton buttonofsubmit = new JButton("提交");
+		buttonofsubmit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				StockBill_Out stock_out= new StockBill_Out();
 				OutDepotBLService outdepot= new OutDepotController();
-				for(int i=0;i<table_1.getRowCount();i++){
+				for(int i=0;i<tableofoutdepot.getRowCount();i++){
 					StockBill_Out.Info element =stock_out.new Info();
-					element.ID=(String) table_1.getValueAt(i, 0);
-					element.date[0]= table_1.getValueAt(i, 1).toString().substring(0, 3);
-					element.date[1]= table_1.getValueAt(i, 1).toString().substring(4, 5);
-					element.date[2]= table_1.getValueAt(i, 1).toString().substring(6, 7);
-					element.form= table_1.getValueAt(i, 2).toString();
-				    element.ListID=table_1.getValueAt(i, 3).toString();
-				    element.destination=table_1.getValueAt(i, 4).toString();
+					element.ID=(String) tableofoutdepot.getValueAt(i, 0);
+					element.date[0]= tableofoutdepot.getValueAt(i, 1).toString().substring(0, 3);
+					element.date[1]= tableofoutdepot.getValueAt(i, 1).toString().substring(4, 5);
+					element.date[2]= tableofoutdepot.getValueAt(i, 1).toString().substring(6, 7);
+					element.form= tableofoutdepot.getValueAt(i, 2).toString();
+				    element.ListID=tableofoutdepot.getValueAt(i, 3).toString();
+				    element.destination=tableofoutdepot.getValueAt(i, 4).toString();
 					stock_out.list.set(i, element);
 				}
 				boolean istrue=outdepot.outDepot(stock_out);
 				if(istrue==false){
 					
 				}else{
-					for(int i=table_1.getRowCount()-1;i>=0;i--){	
-							table_1.setValueAt(null, i, 0);
-							table_1.setValueAt(null, i, 1);
-							table_1.setValueAt(null, i, 2);
-							table_1.setValueAt(null, i, 3);
-							table_1.setValueAt(null, i, 4);
+					for(int i=tableofoutdepot.getRowCount()-1;i>=0;i--){	
+							tableofoutdepot.setValueAt(null, i, 0);
+							tableofoutdepot.setValueAt(null, i, 1);
+							tableofoutdepot.setValueAt(null, i, 2);
+							tableofoutdepot.setValueAt(null, i, 3);
+							tableofoutdepot.setValueAt(null, i, 4);
 					}
 				}
 			}
 		});
-		button_3.setBounds(816, 537, 93, 23);
-		this.add(button_3);
+		buttonofsubmit.setBounds(816, 537, 93, 23);
+		this.add(buttonofsubmit);
 		
-		JLabel label_24 = new JLabel("\u5E74");
-		label_24.setBounds(478, 56, 54, 15);
-		this.add(label_24);
-		
-		
-		textField_26.setBounds(499, 53, 34, 21);
-		this.add(textField_26);
-		textField_26.setColumns(10);
-		
-		JLabel label_25 = new JLabel("\u6708");
-		label_25.setBounds(542, 56, 54, 15);
-		this.add(label_25);
+		JLabel labelofyear = new JLabel("年");
+		labelofyear.setBounds(478, 56, 54, 15);
+		this.add(labelofyear);
 		
 		
-		textField_27.setBounds(565, 53, 34, 21);
-		this.add(textField_27);
-		textField_27.setColumns(10);
+		textFieldofmonth.setBounds(499, 53, 34, 21);
+		this.add(textFieldofmonth);
+		textFieldofmonth.setColumns(10);
 		
-		JLabel label_26 = new JLabel("\u65E5");
-		label_26.setBounds(609, 56, 54, 15);
-		this.add(label_26);
+		JLabel labelofmonth = new JLabel("月");
+		labelofmonth.setBounds(542, 56, 54, 15);
+		this.add(labelofmonth);
+		
+		
+		textFieldofday.setBounds(565, 53, 34, 21);
+		this.add(textFieldofday);
+		textFieldofday.setColumns(10);
+		
+		JLabel labelofday = new JLabel("日");
+		labelofday.setBounds(609, 56, 54, 15);
+		this.add(labelofday);
 		
 		/*
 		 * 出库撤销
 		 */
-		JButton button_10 = new JButton("\u64A4\u9500");
-		button_10.addMouseListener(new MouseAdapter() {
+		JButton buttonofcancel = new JButton("撤销");
+		buttonofcancel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				for(int i=table_1.getRowCount()-1;i>=0;i--){
-					if(table_1.getValueAt(i, 0)!=null&&table_1.getValueAt(i, 1)!=null&&table_1.getValueAt(i, 2)!=null&&table_1.getValueAt(i, 3)!=null){
-						table_1.setValueAt(null, i, 0);
-						table_1.setValueAt(null, i, 1);
-						table_1.setValueAt(null, i, 2);
-						table_1.setValueAt(null, i, 3);
-						table_1.setValueAt(null, i, 4);
+				for(int i=tableofoutdepot.getRowCount()-1;i>=0;i--){
+					if(tableofoutdepot.getValueAt(i, 0)!=null&&tableofoutdepot.getValueAt(i, 1)!=null&&tableofoutdepot.getValueAt(i, 2)!=null&&tableofoutdepot.getValueAt(i, 3)!=null){
+						tableofoutdepot.setValueAt(null, i, 0);
+						tableofoutdepot.setValueAt(null, i, 1);
+						tableofoutdepot.setValueAt(null, i, 2);
+						tableofoutdepot.setValueAt(null, i, 3);
+						tableofoutdepot.setValueAt(null, i, 4);
 						break;
 					}
 				}
 			}
 		});
-		button_10.setBounds(172, 537, 93, 23);
-		this.add(button_10);
+		buttonofcancel.setBounds(172, 537, 93, 23);
+		this.add(buttonofcancel);
 	
 	
 	new Thread() {        

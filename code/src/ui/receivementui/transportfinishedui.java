@@ -20,8 +20,8 @@ import vo.ReceiveInformationVO;
 
 public class transportfinishedui extends JDesktopPane{
 	private JTable table_1;
-	private JTextField textField_29;
-	private JTextField textField_28;
+	private JTextField textFieldofday;
+	private JTextField textFieldofmonth;
 	public transportfinishedui() {
 		initialize();
 	}
@@ -38,32 +38,32 @@ public class transportfinishedui extends JDesktopPane{
 		this.add(label_31);
 		
 		
-		JLabel label = new JLabel("\u8BA2\u5355\u7F16\u53F7\uFF1A");
-		label.setBounds(157, 87, 66, 15);
-		this.add(label);
+		JLabel labelofordernumber = new JLabel("订单编号");
+		labelofordernumber.setBounds(157, 87, 66, 15);
+		this.add(labelofordernumber);
 		
-		final JTextField textField_4 = new JTextField();
-		textField_4.setBounds(223, 84, 66, 21);
-		this.add(textField_4);
-		textField_4.setColumns(10);
+		final JTextField textFieldofordernumber = new JTextField();
+		textFieldofordernumber.setBounds(223, 84, 66, 21);
+		this.add(textFieldofordernumber);
+		textFieldofordernumber.setColumns(10);
 		
-		JLabel label_1 = new JLabel("\u6536\u4EF6\u4EBA\uFF1A");
-		label_1.setBounds(353, 87, 54, 15);
-		this.add(label_1);
+		JLabel labelofconsignee = new JLabel("收件人");
+		labelofconsignee.setBounds(353, 87, 54, 15);
+		this.add(labelofconsignee);
 		
-		final JTextField textField_5 = new JTextField();
-		textField_5.setBounds(404, 84, 66, 21);
-		this.add(textField_5);
-		textField_5.setColumns(10);
+		final JTextField textFieldofconsignee = new JTextField();
+		textFieldofconsignee.setBounds(404, 84, 66, 21);
+		this.add(textFieldofconsignee);
+		textFieldofconsignee.setColumns(10);
 		
-		JLabel label_2 = new JLabel("\u6536\u4EF6\u65E5\u671F\uFF1A");
-		label_2.setBounds(519, 87, 74, 15);
-		this.add(label_2);
+		JLabel labelofdate = new JLabel("收件日期");
+		labelofdate.setBounds(519, 87, 74, 15);
+		this.add(labelofdate);
 		
-		final JTextField textField_6 = new JTextField();
-		textField_6.setBounds(594, 82, 34, 21);
-		this.add(textField_6);
-		textField_6.setColumns(10);
+		final JTextField textFieldofyear = new JTextField();
+		textFieldofyear.setBounds(594, 82, 34, 21);
+		this.add(textFieldofyear);
+		textFieldofyear.setColumns(10);
 		
 		/*
 		 * 收件信息添加
@@ -74,23 +74,23 @@ public class transportfinishedui extends JDesktopPane{
 			public void mouseClicked(MouseEvent arg0) {
 				for(int i=0;i<table_1.getRowCount();i++){
 					if(table_1.getValueAt(i, 0)==null&&table_1.getValueAt(i, 1)==null&&table_1.getValueAt(i, 2)==null){
-						String month=textField_28.getText();
-						String day=textField_29.getText();
+						String month=textFieldofmonth.getText();
+						String day=textFieldofday.getText();
 						if(month.length()==1){
 							month="0"+month;
 						}
 						if(day.length()==1){
 							day="0"+day;
 						}
-						String date=textField_6.getText()+month+day;
-						table_1.setValueAt(textField_4.getText(), i, 0);
-						table_1.setValueAt(textField_5.getText(), i, 1);
+						String date=textFieldofyear.getText()+month+day;
+						table_1.setValueAt(textFieldofordernumber.getText(), i, 0);
+						table_1.setValueAt(textFieldofconsignee.getText(), i, 1);
 						table_1.setValueAt(date, i, 2);
-						textField_4.setText(null);
-						textField_5.setText(null);
-						textField_6.setText(null);
-						textField_28.setText(null);
-						textField_29.setText(null);
+						textFieldofordernumber.setText(null);
+						textFieldofconsignee.setText(null);
+						textFieldofyear.setText(null);
+						textFieldofmonth.setText(null);
+						textFieldofday.setText(null);
 						break;
 					}
 				}
@@ -128,7 +128,7 @@ public class transportfinishedui extends JDesktopPane{
 				{null, null, null},
 			},
 			new String[] {
-				"\u8BA2\u5355\u7F16\u53F7", "\u6536\u4EF6\u4EBA", "\u6536\u4EF6\u65E5\u671F"
+				"订单编号", "收件人", "收件日期"
 			}
 		));
 		scrollPane.setViewportView(table_1);
@@ -183,27 +183,27 @@ public class transportfinishedui extends JDesktopPane{
 		button_2.setBounds(755, 531, 93, 23);
 		this.add(button_2);
 		
-		JLabel label_26 = new JLabel("\u5E74");
-		label_26.setBounds(638, 87, 54, 15);
-		this.add(label_26);
+		JLabel labelofyear = new JLabel("年");
+		labelofyear.setBounds(638, 87, 54, 15);
+		this.add(labelofyear);
 		
-		textField_28 = new JTextField();
-		textField_28.setBounds(658, 84, 34, 21);
-		this.add(textField_28);
-		textField_28.setColumns(10);
+		textFieldofmonth = new JTextField();
+		textFieldofmonth.setBounds(658, 84, 34, 21);
+		this.add(textFieldofmonth);
+		textFieldofmonth.setColumns(10);
 		
-		JLabel label_27 = new JLabel("\u6708");
-		label_27.setBounds(699, 87, 54, 15);
-		this.add(label_27);
+		JLabel labelofmonth = new JLabel("月");
+		labelofmonth.setBounds(699, 87, 54, 15);
+		this.add(labelofmonth);
 		
-		textField_29 = new JTextField();
-		textField_29.setBounds(718, 84, 34, 21);
-		this.add(textField_29);
-		textField_29.setColumns(10);
+		textFieldofday = new JTextField();
+		textFieldofday.setBounds(718, 84, 34, 21);
+		this.add(textFieldofday);
+		textFieldofday.setColumns(10);
 		
-		JLabel label_28 = new JLabel("\u65E5");
-		label_28.setBounds(763, 87, 54, 15);
-		this.add(label_28);
+		JLabel labelofday = new JLabel("日");
+		labelofday.setBounds(763, 87, 54, 15);
+		this.add(labelofday);
 		
 		new Thread() {        
 			public void run() {            

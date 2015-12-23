@@ -40,100 +40,100 @@ public class initdepotui extends JDesktopPane{
 		this.add(label_34);
 	
 		
-		JLabel lblNewLabel = new JLabel("\u822A\u8FD0\u533A");
-		lblNewLabel.setBounds(327, 90, 54, 15);
-		this.add(lblNewLabel);
+		JLabel labelofairarea = new JLabel("航运区");
+		labelofairarea.setBounds(327, 90, 54, 15);
+		this.add(labelofairarea);
 		
-		JLabel lblNewLabel_1 = new JLabel("\u94C1\u8FD0\u533A");
-		lblNewLabel_1.setBounds(327, 115, 54, 15);
-		this.add(lblNewLabel_1);
+		JLabel labeloftrainarea = new JLabel("铁运区");
+		labeloftrainarea.setBounds(327, 115, 54, 15);
+		this.add(labeloftrainarea);
 		
-		JLabel lblNewLabel_2 = new JLabel("\u6C7D\u8FD0\u533A");
-		lblNewLabel_2.setBounds(327, 140, 54, 15);
-		this.add(lblNewLabel_2);
+		JLabel labeloftruckarea = new JLabel("汽运区");
+		labeloftruckarea.setBounds(327, 140, 54, 15);
+		this.add(labeloftruckarea);
 		
-		JLabel label_15 = new JLabel("\u673A\u52A8\u533A");
-		label_15.setBounds(327, 165, 54, 15);
-		this.add(label_15);
+		JLabel labelofmanoeuveringarea = new JLabel("机动区");
+		labelofmanoeuveringarea.setBounds(327, 165, 54, 15);
+		this.add(labelofmanoeuveringarea);
 		
-		JTextField textField_16 = new JTextField();
-		textField_16.setBounds(385, 87, 66, 21);
-		this.add(textField_16);
-		textField_16.setColumns(10);
+		JTextField textFieldofairrownumber_1 = new JTextField();
+		textFieldofairrownumber_1.setBounds(385, 87, 66, 21);
+		this.add(textFieldofairrownumber_1);
+		textFieldofairrownumber_1.setColumns(10);
 		
-		JTextField textField_17 = new JTextField();
-		textField_17.setBounds(385, 112, 66, 21);
-		this.add(textField_17);
-		textField_17.setColumns(10);
+		JTextField textFieldoftrainrownumber_1 = new JTextField();
+		textFieldoftrainrownumber_1.setBounds(385, 112, 66, 21);
+		this.add(textFieldoftrainrownumber_1);
+		textFieldoftrainrownumber_1.setColumns(10);
 		
-		JTextField textField_18 = new JTextField();
-		textField_18.setBounds(385, 137, 66, 21);
-		this.add(textField_18);
-		textField_18.setColumns(10);
+		JTextField textFieldoftruckrownumber_1 = new JTextField();
+		textFieldoftruckrownumber_1.setBounds(385, 137, 66, 21);
+		this.add(textFieldoftruckrownumber_1);
+		textFieldoftruckrownumber_1.setColumns(10);
 		
-		 JTextField textField_19 = new JTextField();
-		textField_19.setBounds(385, 162, 66, 21);
-		this.add(textField_19);
-		textField_19.setColumns(10);
+		 JTextField textFieldofmanoeuveringrownumber_1 = new JTextField();
+		textFieldofmanoeuveringrownumber_1.setBounds(385, 162, 66, 21);
+		this.add(textFieldofmanoeuveringrownumber_1);
+		textFieldofmanoeuveringrownumber_1.setColumns(10);
 		
-		JLabel label_30 = new JLabel("\u6392 \u5230");
-		label_30.setBounds(461, 90, 54, 15);
-		this.add(label_30);
+		JLabel labelofairrownumber_1 = new JLabel("排 到");
+		labelofairrownumber_1.setBounds(461, 90, 54, 15);
+		this.add(labelofairrownumber_1);
 		
-		JLabel label_31 = new JLabel("\u6392 \u5230");
-		label_31.setBounds(461, 115, 54, 15);
-		this.add(label_31);
+		JLabel labeloftrainrownumber_1 = new JLabel("排 到");
+		labeloftrainrownumber_1.setBounds(461, 115, 54, 15);
+		this.add(labeloftrainrownumber_1);
 		
-		JLabel label_32 = new JLabel("\u6392 \u5230");
-		label_32.setBounds(461, 140, 54, 15);
-		this.add(label_32);
+		JLabel labeloftruckrownumber_1 = new JLabel("排 到");
+		labeloftruckrownumber_1.setBounds(461, 140, 54, 15);
+		this.add(labeloftruckrownumber_1);
 		
-		JLabel label_16 = new JLabel("\u6392 \u5230");
-		label_16.setBounds(461, 165, 54, 15);
-		this.add(label_16);
+		JLabel labelofmanoeuveringrownumber_1 = new JLabel("排 到");
+		labelofmanoeuveringrownumber_1.setBounds(461, 165, 54, 15);
+		this.add(labelofmanoeuveringrownumber_1);
 		
-		JTextField textField_20 = new JTextField();
-		textField_20.setBounds(503, 87, 66, 21);
-		this.add(textField_20);
-		textField_20.setColumns(10);
+		JTextField textFieldofairrownumber_2 = new JTextField();
+		textFieldofairrownumber_2.setBounds(503, 87, 66, 21);
+		this.add(textFieldofairrownumber_2);
+		textFieldofairrownumber_2.setColumns(10);
 		
-		JTextField textField_21 = new JTextField();
-		textField_21.setColumns(10);
-		textField_21.setBounds(503, 112, 66, 21);
-		this.add(textField_21);
+		JTextField textFieldoftrainrownumber_2 = new JTextField();
+		textFieldoftrainrownumber_2.setColumns(10);
+		textFieldoftrainrownumber_2.setBounds(503, 112, 66, 21);
+		this.add(textFieldoftrainrownumber_2);
 		
-		JTextField textField_22 = new JTextField();
-		textField_22.setColumns(10);
-		textField_22.setBounds(503, 137, 66, 21);
-		this.add(textField_22);
+		JTextField textFieldoftrucknumber_2 = new JTextField();
+		textFieldoftrucknumber_2.setColumns(10);
+		textFieldoftrucknumber_2.setBounds(503, 137, 66, 21);
+		this.add(textFieldoftrucknumber_2);
 		
-		JTextField textField_23 = new JTextField();
-		textField_23.setColumns(10);
-		textField_23.setBounds(503, 162, 66, 21);
-		this.add(textField_23);
+		JTextField textFieldofmanoeuveringrownumber_2 = new JTextField();
+		textFieldofmanoeuveringrownumber_2.setColumns(10);
+		textFieldofmanoeuveringrownumber_2.setBounds(503, 162, 66, 21);
+		this.add(textFieldofmanoeuveringrownumber_2);
 		
-		JLabel label_17 = new JLabel("\u6392");
-		label_17.setBounds(579, 90, 54, 15);
-		this.add(label_17);
+		JLabel labelofairrownumber_2 = new JLabel("排");
+		labelofairrownumber_2.setBounds(579, 90, 54, 15);
+		this.add(labelofairrownumber_2);
 		
-		JLabel label_18 = new JLabel("\u6392");
-		label_18.setBounds(579, 115, 54, 15);
-		this.add(label_18);
+		JLabel labeloftrainrownumber_2 = new JLabel("排");
+		labeloftrainrownumber_2.setBounds(579, 115, 54, 15);
+		this.add(labeloftrainrownumber_2);
 		
-		JLabel label_19 = new JLabel("\u6392");
-		label_19.setBounds(579, 140, 54, 15);
-		this.add(label_19);
+		JLabel labeloftruckrownumber_2 = new JLabel("排");
+		labeloftruckrownumber_2.setBounds(579, 140, 54, 15);
+		this.add(labeloftruckrownumber_2);
 		
-		JLabel label_20 = new JLabel("\u6392");
-		label_20.setBounds(579, 165, 54, 15);
-		this.add(label_20);
+		JLabel labelofmanoeuveringrownumber_2 = new JLabel("排");
+		labelofmanoeuveringrownumber_2.setBounds(579, 165, 54, 15);
+		this.add(labelofmanoeuveringrownumber_2);
 		
 		JScrollPane scrollPane_4 = new JScrollPane();
 		scrollPane_4.setBounds(236, 230, 467, 212);
 		this.add(scrollPane_4);
 		
-		JTable table_4 = new JTable();
-		table_4.setModel(new DefaultTableModel(
+		JTable tableofinitdepot = new JTable();
+		tableofinitdepot.setModel(new DefaultTableModel(
 			new Object[][] {
 				{null, null},
 				{null, null},
@@ -155,31 +155,31 @@ public class initdepotui extends JDesktopPane{
 				{null, null},
 			},
 			new String[] {
-				"\u6392\u53F7", "\u5206\u533A"
+				"排号", "分区"
 			}
 		));
-		scrollPane_4.setViewportView(table_4);
+		scrollPane_4.setViewportView(tableofinitdepot);
 		
 		/*
 		 * 将库区初始化信息提交
 		 */
-		JButton button_7 = new JButton("\u63D0\u4EA4");
-		button_7.addMouseListener(new MouseAdapter() {
+		JButton buttonofsubmit = new JButton("提交");
+		buttonofsubmit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				int[] motorTransport=null;
 				int[] trainTransport=null;
 				int[] airTransport=null;
 				int[] balnkSpace=null;
-				for(int i=0;i<table_4.getRowCount();i++){
-					if(table_4.getValueAt(i, 1)=="航运区"){
-						airTransport[i]=(int)table_4.getValueAt(i, 0);
-					}else if(table_4.getValueAt(i, 1)=="铁运区"){
-						trainTransport[i]=(int)table_4.getValueAt(i, 0);
-					}else if(table_4.getValueAt(i, 1)=="汽运区"){
-						motorTransport[i]=(int)table_4.getValueAt(i, 0);
-					}else if(table_4.getValueAt(i, 1)=="机动区"){
-						balnkSpace[i]=(int)table_4.getValueAt(i, 0);
+				for(int i=0;i<tableofinitdepot.getRowCount();i++){
+					if(tableofinitdepot.getValueAt(i, 1)=="航运区"){
+						airTransport[i]=(int)tableofinitdepot.getValueAt(i, 0);
+					}else if(tableofinitdepot.getValueAt(i, 1)=="铁运区"){
+						trainTransport[i]=(int)tableofinitdepot.getValueAt(i, 0);
+					}else if(tableofinitdepot.getValueAt(i, 1)=="汽运区"){
+						motorTransport[i]=(int)tableofinitdepot.getValueAt(i, 0);
+					}else if(tableofinitdepot.getValueAt(i, 1)=="机动区"){
+						balnkSpace[i]=(int)tableofinitdepot.getValueAt(i, 0);
 					}
 				}
 				InitDepotAreaBLService initdepotarea = new InitDepotAreaController();
@@ -187,44 +187,44 @@ public class initdepotui extends JDesktopPane{
 				if(istrue==false){
 					
 				}else{
-					for(int i=0;i<table_4.getRowCount();i++){
-						table_4.setValueAt(null, i, 0);
-						table_4.setValueAt(null, i, 1);
+					for(int i=0;i<tableofinitdepot.getRowCount();i++){
+						tableofinitdepot.setValueAt(null, i, 0);
+						tableofinitdepot.setValueAt(null, i, 1);
 					}
 				}
 			}
 		});
-		button_7.setBounds(714, 479, 93, 23);
-		this.add(button_7);
+		buttonofsubmit.setBounds(714, 479, 93, 23);
+		this.add(buttonofsubmit);
 	
 		/*
 		 * 将库区初始化信息加入table
 		 */
-		JButton button_8 = new JButton("\u786E\u8BA4");
-		button_8.addMouseListener(new MouseAdapter() {
+		JButton buttonofadd = new JButton("添加");
+		buttonofadd.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				for(int i =Integer.parseInt(textField_16.getText())-1;i<Integer.parseInt(textField_20.getText());i++){
-					table_4.setValueAt(i+1, i, 0);
-					table_4.setValueAt("航运区", i,1);
+				for(int i =Integer.parseInt(textFieldofairrownumber_1.getText())-1;i<Integer.parseInt(textFieldofairrownumber_2.getText());i++){
+					tableofinitdepot.setValueAt(i+1, i, 0);
+					tableofinitdepot.setValueAt("航运区", i,1);
 				}
-				for(int i =Integer.parseInt(textField_17.getText())-1;i<Integer.parseInt(textField_21.getText());i++){
-					table_4.setValueAt(i+1, i, 0);
-					table_4.setValueAt("铁运区", i,1);
+				for(int i =Integer.parseInt(textFieldoftrainrownumber_1.getText())-1;i<Integer.parseInt(textFieldoftrainrownumber_2.getText());i++){
+					tableofinitdepot.setValueAt(i+1, i, 0);
+					tableofinitdepot.setValueAt("铁运区", i,1);
 				}
-				for(int i =Integer.parseInt(textField_18.getText())-1;i<Integer.parseInt(textField_22.getText());i++){
-					table_4.setValueAt(i+1, i, 0);
-					table_4.setValueAt("汽运区", i,1);
+				for(int i =Integer.parseInt(textFieldoftruckrownumber_1.getText())-1;i<Integer.parseInt(textFieldoftrucknumber_2.getText());i++){
+					tableofinitdepot.setValueAt(i+1, i, 0);
+					tableofinitdepot.setValueAt("汽运区", i,1);
 				}
-				for(int i =Integer.parseInt(textField_19.getText())-1;i<Integer.parseInt(textField_23.getText());i++){
-					table_4.setValueAt(i+1, i, 0);
-					table_4.setValueAt("机动区", i,1);
+				for(int i =Integer.parseInt(textFieldofmanoeuveringrownumber_1.getText())-1;i<Integer.parseInt(textFieldofmanoeuveringrownumber_2.getText());i++){
+					tableofinitdepot.setValueAt(i+1, i, 0);
+					tableofinitdepot.setValueAt("机动区", i,1);
 				}
 				
 			}
 		});
-		button_8.setBounds(617, 186, 93, 23);
-		this.add(button_8);
+		buttonofadd.setBounds(617, 186, 93, 23);
+		this.add(buttonofadd);
 		
 		new Thread() {        
 			public void run() {            

@@ -67,22 +67,22 @@ public class getsendui {
 		
 		
 		
-		JTextField textField_27 = new JTextField();
-		textField_27.setBounds(307, 163, 211, 21);
-		desktopPane.add(textField_27);
-		textField_27.setColumns(10);
+		JTextField textFieldofordernumber = new JTextField();
+		textFieldofordernumber.setBounds(307, 163, 211, 21);
+		desktopPane.add(textFieldofordernumber);
+		textFieldofordernumber.setColumns(10);
 		
 		/*
 		 * 订单查询
 		 */
-		JButton button_6 = new JButton("\u67E5\u8BE2");
-		button_6.addMouseListener(new MouseAdapter() {
+		JButton buttonofquery = new JButton("查询");
+		buttonofquery.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 			}
 		});
-		button_6.setBounds(576, 162, 93, 23);
-		desktopPane.add(button_6);
+		buttonofquery.setBounds(576, 162, 93, 23);
+		desktopPane.add(buttonofquery);
 		
 		predicttimeandmoneyui t = new predicttimeandmoneyui();
 		tabbedPane.addTab("报价和时间管理", null, t, null);

@@ -18,7 +18,7 @@ import vo.BussinessSheetVO;
 
 public class bussinesssheetui extends JDesktopPane{
 	
-	JTable table_6;
+	JTable tableofbussinesssheet;
 	BussinessSheetBLService bussinesssheet = new BussinessSheetController();
 
 	/**
@@ -35,107 +35,107 @@ public class bussinesssheetui extends JDesktopPane{
 		
 		this.setBackground(Color.WHITE);
 		
-		JLabel label_7 = new JLabel("\u5F00\u59CB\u65E5\u671F");
-		label_7.setBounds(190, 62, 54, 15);
-		this.add(label_7);
+		JLabel labelofstartdate = new JLabel("开始日期");
+		labelofstartdate.setBounds(190, 62, 54, 15);
+		this.add(labelofstartdate);
 		
-		JLabel label_8 = new JLabel("\u7ED3\u675F\u65E5\u671F");
-		label_8.setBounds(190, 112, 54, 15);
-		this.add(label_8);
+		JLabel labelofenddate = new JLabel("结束日期");
+		labelofenddate.setBounds(190, 112, 54, 15);
+		this.add(labelofenddate);
 		
-		JTextField textField_9 = new JTextField();
-		textField_9.setBounds(250, 59, 36, 21);
-		this.add(textField_9);
-		textField_9.setColumns(10);
+		JTextField textFieldofstartyear = new JTextField();
+		textFieldofstartyear.setBounds(250, 59, 36, 21);
+		this.add(textFieldofstartyear);
+		textFieldofstartyear.setColumns(10);
 		
-		JTextField textField_10 = new JTextField();
-		textField_10.setColumns(10);
-		textField_10.setBounds(250, 109, 36, 21);
-		this.add(textField_10);
+		JTextField textFieldofendyear = new JTextField();
+		textFieldofendyear.setColumns(10);
+		textFieldofendyear.setBounds(250, 109, 36, 21);
+		this.add(textFieldofendyear);
 		
-		JLabel label_9 = new JLabel("\u5E74");
-		label_9.setBounds(296, 62, 54, 15);
-		this.add(label_9);
+		JLabel labelofstartyear = new JLabel("年");
+		labelofstartyear.setBounds(296, 62, 54, 15);
+		this.add(labelofstartyear);
 		
-		JLabel label_10 = new JLabel("\u5E74");
-		label_10.setBounds(296, 112, 54, 15);
-		this.add(label_10);
+		JLabel labelofendyear = new JLabel("年");
+		labelofendyear.setBounds(296, 112, 54, 15);
+		this.add(labelofendyear);
 		
-		JTextField textField_11 = new JTextField();
-		textField_11.setBounds(317, 109, 23, 21);
-		this.add(textField_11);
-		textField_11.setColumns(10);
+		JTextField textFieldofstartmonth = new JTextField();
+		textFieldofstartmonth.setBounds(317, 109, 23, 21);
+		this.add(textFieldofstartmonth);
+		textFieldofstartmonth.setColumns(10);
 		
-		JTextField textField_12 = new JTextField();
-		textField_12.setColumns(10);
-		textField_12.setBounds(317, 59, 23, 21);
-		this.add(textField_12);
+		JTextField textFieldofendmonth = new JTextField();
+		textFieldofendmonth.setColumns(10);
+		textFieldofendmonth.setBounds(317, 59, 23, 21);
+		this.add(textFieldofendmonth);
 		
-		JTextField textField_13 = new JTextField();
-		textField_13.setColumns(10);
-		textField_13.setBounds(371, 59, 23, 21);
-		this.add(textField_13);
+		JTextField textFieldofstartday = new JTextField();
+		textFieldofstartday.setColumns(10);
+		textFieldofstartday.setBounds(371, 59, 23, 21);
+		this.add(textFieldofstartday);
 		
-		JTextField textField_14 = new JTextField();
-		textField_14.setColumns(10);
-		textField_14.setBounds(371, 109, 23, 21);
-		this.add(textField_14);
+		JTextField textFieldofendday = new JTextField();
+		textFieldofendday.setColumns(10);
+		textFieldofendday.setBounds(371, 109, 23, 21);
+		this.add(textFieldofendday);
 		
-		JLabel label_11 = new JLabel("\u6708");
-		label_11.setBounds(350, 62, 54, 15);
-		this.add(label_11);
+		JLabel labelofstartmonth = new JLabel("月");
+		labelofstartmonth.setBounds(350, 62, 54, 15);
+		this.add(labelofstartmonth);
 		
-		JLabel label_12 = new JLabel("\u6708");
-		label_12.setBounds(350, 112, 54, 15);
-		this.add(label_12);
+		JLabel labelofendmonth = new JLabel("月");
+		labelofendmonth.setBounds(350, 112, 54, 15);
+		this.add(labelofendmonth);
 		
-		JLabel label_13 = new JLabel("\u65E5");
-		label_13.setBounds(404, 62, 54, 15);
-		this.add(label_13);
+		JLabel labelofstartday = new JLabel("日");
+		labelofstartday.setBounds(404, 62, 54, 15);
+		this.add(labelofstartday);
 		
-		JLabel label_14 = new JLabel("\u65E5");
-		label_14.setBounds(404, 112, 54, 15);
-		this.add(label_14);
+		JLabel labelofendday = new JLabel("日");
+		labelofendday.setBounds(404, 112, 54, 15);
+		this.add(labelofendday);
 		
 		/*
 		 * 查看经营情况表
 		 */
-		JButton button_15 = new JButton("\u67E5\u8BE2");
-		button_15.addMouseListener(new MouseAdapter() {
+		JButton buttonofquery = new JButton("查询");
+		buttonofquery.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				String start = null;
 				String end = null;
-				if(textField_9.getText().length()!=4&&textField_12.getText().length()!=4){
+				if(textFieldofstartyear.getText().length()!=4&&textFieldofendmonth.getText().length()!=4){
 					
 				}else{
-					start+=textField_9.getText();
-					end+=textField_12.getText();
-					if(textField_10.getText().length()==2){
-						start+=textField_10.getText();
-					}else if(textField_10.getText().length()==1){
-						start+="0"+textField_10.getText();
+					start+=textFieldofstartyear.getText();
+					end+=textFieldofendmonth.getText();
+					if(textFieldofendyear.getText().length()==2){
+						start+=textFieldofendyear.getText();
+					}else if(textFieldofendyear.getText().length()==1){
+						start+="0"+textFieldofendyear.getText();
 					}else{
 						
 					}
-					if(textField_11.getText().length()==2){
-						start+=textField_11.getText();
-					}else if(textField_11.getText().length()==1){
-						start+="0"+textField_11.getText();
+					if(textFieldofstartmonth.getText().length()==2){
+						start+=textFieldofstartmonth.getText();
+					}else if(textFieldofstartmonth.getText().length()==1){
+						start+="0"+textFieldofstartmonth.getText();
 					}else{
 						
 					}
-					if(textField_13.getText().length()==2){
-						end+=textField_13.getText();
-					}else if(textField_13.getText().length()==1){
-						end+="0"+textField_13.getText();
+					if(textFieldofstartday.getText().length()==2){
+						end+=textFieldofstartday.getText();
+					}else if(textFieldofstartday.getText().length()==1){
+						end+="0"+textFieldofstartday.getText();
 					}else{
 						
 					}
-					if(textField_14.getText().length()==2){
-						end+=textField_14.getText();
-					}else if(textField_14.getText().length()==1){
-						end+="0"+textField_14.getText();
+					if(textFieldofendday.getText().length()==2){
+						end+=textFieldofendday.getText();
+					}else if(textFieldofendday.getText().length()==1){
+						end+="0"+textFieldofendday.getText();
 					}else{
 						
 					}
@@ -145,30 +145,30 @@ public class bussinesssheetui extends JDesktopPane{
 				if(bussinessvo.equals(null)){
 					
 				}else{
-					for(int i=0;i<table_6.getRowCount();i++){
-						table_6.setValueAt(bussinessvo.paid.get(i).ID, i, 0);
-						table_6.setValueAt(bussinessvo.paid.get(i).getDate(), i, 1);
-						table_6.setValueAt(bussinessvo.paid.get(i).transactor, i, 2);
-						table_6.setValueAt(bussinessvo.paid.get(i).money, i, 3);
-						table_6.setValueAt(bussinessvo.paid.get(i).bussinessHallCode, i, 4);
-						table_6.setValueAt(bussinessvo.pay.get(i).ID, i, 5);
-						table_6.setValueAt(bussinessvo.pay.get(i).getDate(), i, 6);
-						table_6.setValueAt(bussinessvo.pay.get(i).payer, i, 7);
-						table_6.setValueAt(bussinessvo.pay.get(i).money, i, 8);
-						table_6.setValueAt(bussinessvo.pay.get(i).type, i, 9);
+					for(int i=0;i<tableofbussinesssheet.getRowCount();i++){
+						tableofbussinesssheet.setValueAt(bussinessvo.paid.get(i).ID, i, 0);
+						tableofbussinesssheet.setValueAt(bussinessvo.paid.get(i).getDate(), i, 1);
+						tableofbussinesssheet.setValueAt(bussinessvo.paid.get(i).transactor, i, 2);
+						tableofbussinesssheet.setValueAt(bussinessvo.paid.get(i).money, i, 3);
+						tableofbussinesssheet.setValueAt(bussinessvo.paid.get(i).bussinessHallCode, i, 4);
+						tableofbussinesssheet.setValueAt(bussinessvo.pay.get(i).ID, i, 5);
+						tableofbussinesssheet.setValueAt(bussinessvo.pay.get(i).getDate(), i, 6);
+						tableofbussinesssheet.setValueAt(bussinessvo.pay.get(i).payer, i, 7);
+						tableofbussinesssheet.setValueAt(bussinessvo.pay.get(i).money, i, 8);
+						tableofbussinesssheet.setValueAt(bussinessvo.pay.get(i).type, i, 9);
 					}
 				}
 			}
 		});
-		button_15.setBounds(564, 161, 93, 23);
-		this.add(button_15);
+		buttonofquery.setBounds(564, 161, 93, 23);
+		this.add(buttonofquery);
 		
 		JScrollPane scrollPane_6 = new JScrollPane();
 		scrollPane_6.setBounds(103, 200, 670, 264);
 		this.add(scrollPane_6);
 		
-		table_6 = new JTable();
-		table_6.setModel(new DefaultTableModel(
+		tableofbussinesssheet = new JTable();
+		tableofbussinesssheet.setModel(new DefaultTableModel(
 			new Object[][] {
 				{null, null, null, null, null, null, null, null, null, null},
 				{null, null, null, null, null, null, null, null, null, null},
@@ -192,41 +192,41 @@ public class bussinesssheetui extends JDesktopPane{
 				{null, null, null, null, null, null, null, null, null, null},
 			},
 			new String[] {
-				"\u6536\u6B3E\u5355\u7F16\u53F7", "\u6536\u6B3E\u65E5\u671F", "\u6536\u6B3E\u4EBA", "\u6536\u6B3E\u91D1\u989D", "\u6536\u6B3E\u6761\u76EE", "\u4ED8\u6B3E\u5355\u7F16\u53F7", "\u4ED8\u6B3E\u65E5\u671F", "\u4ED8\u6B3E\u4EBA", "\u4ED8\u6B3E\u91D1\u989D", "\u4ED8\u6B3E\u6761\u76EE"
+				"收款单编号", "收款日期", "收款人", "收款金额", "收款条目", "付款单编号", "付款日期", "付款人", "付款金额", "付款条目"
 			}
 		));
-		table_6.getColumnModel().getColumn(0).setPreferredWidth(85);
-		table_6.getColumnModel().getColumn(5).setPreferredWidth(85);
-		scrollPane_6.setViewportView(table_6);
+		tableofbussinesssheet.getColumnModel().getColumn(0).setPreferredWidth(85);
+		tableofbussinesssheet.getColumnModel().getColumn(5).setPreferredWidth(85);
+		scrollPane_6.setViewportView(tableofbussinesssheet);
 		
 		/*
 		 * 导出经营情况表
 		 */
-		JButton button_16 = new JButton("\u5BFC\u51FA");
-		button_16.addMouseListener(new MouseAdapter() {
+		JButton buttonofexport = new JButton("导出");
+		buttonofexport.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				boolean istrue=bussinesssheet.export();
 				if(istrue==true){
-					for(int i=0;i<table_6.getRowCount();i++){
-						table_6.setValueAt(null, i, 0);
-						table_6.setValueAt(null, i, 1);
-						table_6.setValueAt(null, i, 2);
-						table_6.setValueAt(null, i, 3);
-						table_6.setValueAt(null, i, 4);
-						table_6.setValueAt(null, i, 5);
-						table_6.setValueAt(null, i, 6);
-						table_6.setValueAt(null, i, 7);
-						table_6.setValueAt(null, i, 8);
-						table_6.setValueAt(null, i, 9);
+					for(int i=0;i<tableofbussinesssheet.getRowCount();i++){
+						tableofbussinesssheet.setValueAt(null, i, 0);
+						tableofbussinesssheet.setValueAt(null, i, 1);
+						tableofbussinesssheet.setValueAt(null, i, 2);
+						tableofbussinesssheet.setValueAt(null, i, 3);
+						tableofbussinesssheet.setValueAt(null, i, 4);
+						tableofbussinesssheet.setValueAt(null, i, 5);
+						tableofbussinesssheet.setValueAt(null, i, 6);
+						tableofbussinesssheet.setValueAt(null, i, 7);
+						tableofbussinesssheet.setValueAt(null, i, 8);
+						tableofbussinesssheet.setValueAt(null, i, 9);
 					}
 				}else{
 					
 				}
 			}
 		});
-		button_16.setBounds(733, 474, 93, 23);
-		this.add(button_16);
+		buttonofexport.setBounds(733, 474, 93, 23);
+		this.add(buttonofexport);
 		
 	}
 }

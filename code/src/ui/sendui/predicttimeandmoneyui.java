@@ -32,51 +32,45 @@ public class predicttimeandmoneyui extends JDesktopPane{
 		this.add(label_30);
 		
 		
-		JLabel label_24 = new JLabel("");
-		label_24.setBounds(310, 223, 54, 15);
-		this.add(label_24);
+		JLabel labelofprice_1 = new JLabel("");
+		labelofprice_1.setBounds(310, 223, 54, 15);
+		this.add(labelofprice_1);
 		
-		JLabel label_25 = new JLabel("");
-		label_25.setBounds(310, 266, 54, 15);
-		this.add(label_25);
+		JLabel labelofestimatedtime_1 = new JLabel("");
+		labelofestimatedtime_1.setBounds(310, 266, 119, 15);
+		this.add(labelofestimatedtime_1);
 		
-		JTextField textField_7 = new JTextField();
-		textField_7.setBounds(212, 135, 307, 22);
-		this.add(textField_7);
-		textField_7.setColumns(10);
+		JTextField textFieldofordernumber = new JTextField();
+		textFieldofordernumber.setBounds(212, 135, 307, 22);
+		this.add(textFieldofordernumber);
+		textFieldofordernumber.setColumns(10);
 		
-		JButton button_3 = new JButton("\u786E\u8BA4");
-		button_3.addMouseListener(new MouseAdapter() {
+		JButton buttonofack = new JButton("确认");
+		buttonofack.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				PredictTimeAndMontyBLService predictTimeAndMonthController=new PredictTimeAndMonthController();
-				String[] timeandmoney=predictTimeAndMonthController.moneyAndTime(textField_7.getText());
+				String[] timeandmoney=predictTimeAndMonthController.moneyAndTime(textFieldofordernumber.getText());
 				if( timeandmoney.equals(null)){
 					
 				}else{
-					label_24.setText(timeandmoney[0]);
-					label_25.setText(timeandmoney[1]);
+					labelofprice_1.setText(timeandmoney[0]);
+					labelofestimatedtime_1.setText(timeandmoney[1]);
 				}
 			}
 		});
-		button_3.setBounds(580, 134, 93, 23);
-		this.add(button_3);
+		buttonofack.setBounds(580, 134, 93, 23);
+		this.add(buttonofack);
 		
-		JLabel label_22 = new JLabel("\u4EF7\u683C\uFF1A");
-		label_22.setBounds(212, 223, 54, 15);
-		this.add(label_22);
+		JLabel labelofprice = new JLabel("价格：");
+		labelofprice.setBounds(212, 223, 54, 15);
+		this.add(labelofprice);
 		
-		JLabel label_23 = new JLabel("\u9884\u8BA1\u65F6\u95F4\uFF1A");
-		label_23.setBounds(212, 266, 72, 15);
-		this.add(label_23);
+		JLabel labelofestimatedtime = new JLabel("预计时间：");
+		labelofestimatedtime.setBounds(212, 266, 72, 15);
+		this.add(labelofestimatedtime);
 		
-		JLabel label_33 = new JLabel("");
-		label_33.setBounds(310, 223, 54, 15);
-		this.add(label_33);
 		
-		JLabel label_34 = new JLabel("");
-		label_34.setBounds(310, 266, 54, 15);
-		this.add(label_34);
 		
 
 		new Thread() {        

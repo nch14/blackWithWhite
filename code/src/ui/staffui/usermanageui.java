@@ -27,8 +27,8 @@ public class usermanageui {
 
 	private JFrame frame;
 	private JTextField textField;
-	private JTextField textField_1;
-	private JTable table;
+	private JTextField textFieldofstaffID;
+	private JTable tableofusermanage;
     UserManageBLService  usermanage = new UserManageController();
     StaffVO staff;
     ArrayList<StaffVO> staff1;
@@ -80,32 +80,32 @@ SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
 		label.setBounds(282, 0, 436, 21);
 		desktopPane.add(label);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(313, 121, 238, 21);
-		desktopPane.add(textField_1);
-		textField_1.setColumns(10);
+		textFieldofstaffID = new JTextField();
+		textFieldofstaffID.setBounds(313, 121, 238, 21);
+		desktopPane.add(textFieldofstaffID);
+		textFieldofstaffID.setColumns(10);
 		
 		/*
 		 * 用户管理查询
 		 */
-		JButton button = new JButton("\u67E5\u8BE2");
-		button.addMouseListener(new MouseAdapter() {
+		JButton buttonofquery = new JButton("查询");
+		buttonofquery.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				if(textField_1.getText()==null){
+				if(textFieldofstaffID.getText()==null){
 					
 				}
 			}
 		});
-		button.setBounds(595, 120, 93, 23);
-		desktopPane.add(button);
+		buttonofquery.setBounds(595, 120, 93, 23);
+		desktopPane.add(buttonofquery);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(161, 229, 658, 288);
 		desktopPane.add(scrollPane);
 		
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
+		tableofusermanage = new JTable();
+		tableofusermanage.setModel(new DefaultTableModel(
 			new Object[][] {
 				{null, null, null, null, null},
 				{null, null, null, null, null},
@@ -129,28 +129,28 @@ SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
 				{null, null, null, null, null},
 			},
 			new String[] {
-				"\u7528\u6237ID", "\u59D3\u540D", "\u5E74\u9F84", "\u6743\u9650", "\u5BC6\u7801"
+				"用户ID", "姓名", "年龄", "权限", "密码"
 			}
 		));
-		scrollPane.setViewportView(table);
+		scrollPane.setViewportView(tableofusermanage);
 		
 		/*
 		 * 改用户
 		 */
-		JButton button_1 = new JButton("\u63D0\u4EA4");
-		button_1.addMouseListener(new MouseAdapter() {
+		JButton buttonofsubmit = new JButton("提交");
+		buttonofsubmit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				for(int i=0; i<table.getRowCount();i++){
-				boolean istrue=usermanage.changeStaffInfo(table.getValueAt(i, 3).toString(), table.getValueAt(i, 4).toString(), 
-						table.getValueAt(i, 2).toString(), table.getValueAt(i, 1).toString());
+				for(int i=0; i<tableofusermanage.getRowCount();i++){
+				boolean istrue=usermanage.changeStaffInfo(tableofusermanage.getValueAt(i, 3).toString(), tableofusermanage.getValueAt(i, 4).toString(), 
+						tableofusermanage.getValueAt(i, 2).toString(), tableofusermanage.getValueAt(i, 1).toString());
 				if(istrue){
-					for(int i1=0;i1<table.getRowCount();i1++){
-						table.setValueAt(null, i1, 0);
-						table.setValueAt(null, i1, 1);
-						table.setValueAt(null, i1, 2);
-						table.setValueAt(null, i1, 3);
-						table.setValueAt(null, i1, 4);
+					for(int i1=0;i1<tableofusermanage.getRowCount();i1++){
+						tableofusermanage.setValueAt(null, i1, 0);
+						tableofusermanage.setValueAt(null, i1, 1);
+						tableofusermanage.setValueAt(null, i1, 2);
+						tableofusermanage.setValueAt(null, i1, 3);
+						tableofusermanage.setValueAt(null, i1, 4);
 					}
 				}else{
 					label.setForeground(Color.RED);
@@ -166,12 +166,13 @@ SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
 				}
 			}
 		});
-		button_1.setBounds(831, 549, 93, 23);
-		desktopPane.add(button_1);
+		buttonofsubmit.setBounds(831, 549, 93, 23);
+		desktopPane.add(buttonofsubmit);
 		
-		JLabel lblid = new JLabel("\u8F93\u5165\u7528\u6237ID\u6216\u59D3\u540D\u5173\u952E\u8BCD");
-		lblid.setBounds(136, 124, 153, 15);
-		desktopPane.add(lblid);
+		JLabel labelofstaffID = new JLabel("输入用户ID或姓名关键词");
+		labelofstaffID.setBounds(136, 124, 153, 15);
+		desktopPane.add(labelofstaffID);
+		
 		new Thread() {        
 			public void run() {            
 				try {                

@@ -28,12 +28,12 @@ import bl.commoditybl.Service.InDepotBLService;
 public class indepotui {
 
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTable table;
-	private JTextField textField_28;
-	private JTextField textField_29;
+	private JTextField textFieldofordernumber;
+	private JTextField textFieldofyear;
+	private JTextField textFieldofdestination;
+	private JTable tableofindepot;
+	private JTextField textFieldofmonth;
+	private JTextField textFieldofday;
 
 	/**
 	 * Launch the application.
@@ -63,7 +63,7 @@ public class indepotui {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setTitle("\u7269\u6D41\u4FE1\u606F\u7BA1\u7406\u7CFB\u7EDF");
+		frame.setTitle("物流信息管理系统");
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 1000, 650);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -75,52 +75,52 @@ public class indepotui {
 		
 		JDesktopPane desktopPane = new JDesktopPane();
 		desktopPane.setBackground(Color.WHITE);
-		tabbedPane.addTab("\u5165\u5E93", null, desktopPane, null);
+		tabbedPane.addTab("入库", null, desktopPane, null);
 		
 		
-		JLabel label = new JLabel("\u8BA2\u5355\u53F7");
-		label.setBounds(331, 79, 54, 15);
-		desktopPane.add(label);
+		JLabel labelofordernumber = new JLabel("订单号");
+		labelofordernumber.setBounds(331, 79, 54, 15);
+		desktopPane.add(labelofordernumber);
 		
-		textField = new JTextField();
-		textField.setBounds(419, 76, 66, 21);
-		desktopPane.add(textField);
-		textField.setColumns(10);
+		textFieldofordernumber= new JTextField();
+		textFieldofordernumber.setBounds(419, 76, 66, 21);
+		desktopPane.add(textFieldofordernumber);
+		textFieldofordernumber.setColumns(10);
 		
-		JLabel label_1 = new JLabel("\u5165\u5E93\u65E5\u671F");
-		label_1.setBounds(331, 122, 54, 15);
-		desktopPane.add(label_1);
+		JLabel labelofindepotdate = new JLabel("入库日期");
+		labelofindepotdate.setBounds(331, 122, 54, 15);
+		desktopPane.add(labelofindepotdate);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(419, 119, 35, 21);
-		desktopPane.add(textField_1);
-		textField_1.setColumns(10);
+		textFieldofyear = new JTextField();
+		textFieldofyear.setBounds(419, 119, 35, 21);
+		desktopPane.add(textFieldofyear);
+		textFieldofyear.setColumns(10);
 		
-		JLabel label_2 = new JLabel("\u76EE\u7684\u5730");
-		label_2.setBounds(331, 165, 54, 15);
-		desktopPane.add(label_2);
+		JLabel labelofdestination = new JLabel("目的地");
+		labelofdestination.setBounds(331, 165, 54, 15);
+		desktopPane.add(labelofdestination);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(419, 162, 206, 21);
-		desktopPane.add(textField_2);
-		textField_2.setColumns(10);
+		textFieldofdestination = new JTextField();
+		textFieldofdestination.setBounds(419, 162, 206, 21);
+		desktopPane.add(textFieldofdestination);
+		textFieldofdestination.setColumns(10);
 
 		/*
 		 * 入库添加
 		 */
-		JButton button = new JButton("\u6DFB\u52A0");
-		button.setBounds(670, 197, 93, 23);
-		desktopPane.add(button);
-		button.addMouseListener(new MouseAdapter(){
+		JButton buttonofadd = new JButton("添加");
+		buttonofadd.setBounds(670, 197, 93, 23);
+		desktopPane.add(buttonofadd);
+		buttonofadd.addMouseListener(new MouseAdapter(){
 		public void mouseClicked(MouseEvent e){
-			for(int i=0;i<table.getRowCount();i++){
-				if(table.getValueAt(i, 0)==null&&table.getValueAt(i, 1)==null&&table.getValueAt(i, 2)==null){
-					table.setValueAt(textField.getText(), i, 0);
-					table.setValueAt(textField_1.getText()+"/"+textField_28.getText()+"/"+textField_29.getText(), i, 1);
-					table.setValueAt(textField_2.getText(), i, 2);
-					textField.setText(null);
-					textField_1.setText(null);
-					textField_2.setText(null);
+			for(int i=0;i<tableofindepot.getRowCount();i++){
+				if(tableofindepot.getValueAt(i, 0)==null&&tableofindepot.getValueAt(i, 1)==null&&tableofindepot.getValueAt(i, 2)==null){
+					tableofindepot.setValueAt(textFieldofordernumber.getText(), i, 0);
+					tableofindepot.setValueAt(textFieldofyear.getText()+"/"+textFieldofmonth.getText()+"/"+textFieldofday.getText(), i, 1);
+					tableofindepot.setValueAt(textFieldofdestination.getText(), i, 2);
+					textFieldofordernumber.setText(null);
+					textFieldofyear.setText(null);
+					textFieldofdestination.setText(null);
 					break;
 				}
 			}
@@ -132,8 +132,8 @@ public class indepotui {
 		scrollPane.setBounds(172, 231, 652, 280);
 		desktopPane.add(scrollPane);
 		
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
+		tableofindepot = new JTable();
+		tableofindepot.setModel(new DefaultTableModel(
 			new Object[][] {
 				{null, null, null, null, null, null, null, null},
 				{null, null, null, null, null, null, null, null},
@@ -156,31 +156,31 @@ public class indepotui {
 				{null, null, null, null, null, null, null, null},
 			},
 			new String[] {
-				"\u8BA2\u5355\u53F7", "\u5165\u5E93\u65E5\u671F", "\u76EE\u7684\u5730", "\u533A\u53F7", "\u6392\u53F7", "\u67B6\u53F7", "\u4F4D\u53F7", "\u662F\u5426\u53D1\u751F\u5E93\u5B58\u62A5\u8B66"
+				"订单号", "入库日期", "目的地", "区号", "排号", "架号", "位号", "是否发生库存报警"
 			}
 		));
-		table.getColumnModel().getColumn(2).setPreferredWidth(78);
-		table.getColumnModel().getColumn(3).setPreferredWidth(70);
-		table.getColumnModel().getColumn(4).setPreferredWidth(70);
-		table.getColumnModel().getColumn(5).setPreferredWidth(70);
-		table.getColumnModel().getColumn(6).setPreferredWidth(70);
-		table.getColumnModel().getColumn(7).setPreferredWidth(106);
-		scrollPane.setViewportView(table);
+		tableofindepot.getColumnModel().getColumn(2).setPreferredWidth(78);
+		tableofindepot.getColumnModel().getColumn(3).setPreferredWidth(70);
+		tableofindepot.getColumnModel().getColumn(4).setPreferredWidth(70);
+		tableofindepot.getColumnModel().getColumn(5).setPreferredWidth(70);
+		tableofindepot.getColumnModel().getColumn(6).setPreferredWidth(70);
+		tableofindepot.getColumnModel().getColumn(7).setPreferredWidth(106);
+		scrollPane.setViewportView(tableofindepot);
 		/*
 		 * 入库提交
 		 */
-		JButton button_1 = new JButton("\u63D0\u4EA4");
-		button_1.addMouseListener(new MouseAdapter() {
+		JButton buttonofsubmit = new JButton("提交");
+		buttonofsubmit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				String[] ID = new String[table.getRowCount()];
-				String[][] date =new String[table.getRowCount()][];
-				String[] destination= new String[table.getRowCount()] ;
-				for(int i=0;i<table.getRowCount();i++){
-					ID[i]=(String) table.getValueAt(i, 1);
-					date[i]=(String[]) table.getValueAt(i, 2);
+				String[] ID = new String[tableofindepot.getRowCount()];
+				String[][] date =new String[tableofindepot.getRowCount()][];
+				String[] destination= new String[tableofindepot.getRowCount()] ;
+				for(int i=0;i<tableofindepot.getRowCount();i++){
+					ID[i]=(String) tableofindepot.getValueAt(i, 1);
+					date[i]=(String[]) tableofindepot.getValueAt(i, 2);
 				//二维数组
-					destination[i]=(String) table.getValueAt(i, 3);
+					destination[i]=(String) tableofindepot.getValueAt(i, 3);
 				}
 				StockBill_In stock_in=new StockBill_In(ID,date,destination);
 				InDepotBLService indepot= new InDepotController();
@@ -192,69 +192,69 @@ public class indepotui {
 				}
 			}
 		});
-		button_1.setBounds(780, 549, 93, 23);
-		desktopPane.add(button_1);
+		buttonofsubmit.setBounds(780, 549, 93, 23);
+		desktopPane.add(buttonofsubmit);
 		
 		JLabel label_3 = new JLabel();
 		label_3.setBounds(282, 0, 436, 21);
 		desktopPane.add(label_3);
 		
 		
-		JLabel label_27 = new JLabel("\u5E74");
-		label_27.setBounds(464, 122, 54, 15);
-		desktopPane.add(label_27);
+		JLabel labelofyear = new JLabel("年");
+		labelofyear.setBounds(464, 122, 54, 15);
+		desktopPane.add(labelofyear);
 		
-		textField_28 = new JTextField();
-		textField_28.setBounds(486, 119, 35, 21);
-		desktopPane.add(textField_28);
-		textField_28.setColumns(10);
+		textFieldofmonth = new JTextField();
+		textFieldofmonth.setBounds(486, 119, 35, 21);
+		desktopPane.add(textFieldofmonth);
+		textFieldofmonth.setColumns(10);
 		
-		JLabel label_28 = new JLabel("\u6708");
-		label_28.setBounds(531, 122, 54, 15);
-		desktopPane.add(label_28);
+		JLabel labelofmonth = new JLabel("月");
+		labelofmonth.setBounds(531, 122, 54, 15);
+		desktopPane.add(labelofmonth);
 		
-		textField_29 = new JTextField();
-		textField_29.setBounds(556, 119, 35, 21);
-		desktopPane.add(textField_29);
-		textField_29.setColumns(10);
+		textFieldofday = new JTextField();
+		textFieldofday.setBounds(556, 119, 35, 21);
+		desktopPane.add(textFieldofday);
+		textFieldofday.setColumns(10);
 		
-		JLabel label_29 = new JLabel("\u65E5");
-		label_29.setBounds(601, 122, 54, 15);
-		desktopPane.add(label_29);
+		JLabel labelofday = new JLabel("日");
+		labelofday.setBounds(601, 122, 54, 15);
+		desktopPane.add(labelofday);
 		
 		/*
 		 * 入库撤销
 		 */
-		JButton button_11 = new JButton("\u64A4\u9500");
-		button_11.addMouseListener(new MouseAdapter() {
+		JButton buttonofcancel = new JButton("撤销");
+		buttonofcancel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				for(int i=table.getRowCount()-1;i>=0;i--){
-					if(table.getValueAt(i, 0)!=null&&table.getValueAt(i, 1)!=null&&table.getValueAt(i, 2)!=null){
-						table.setValueAt(null, i, 0);
-						table.setValueAt(null, i, 1);
-						table.setValueAt(null, i, 2);
+				for(int i=tableofindepot.getRowCount()-1;i>=0;i--){
+					if(tableofindepot.getValueAt(i, 0)!=null&&tableofindepot.getValueAt(i, 1)!=null&&tableofindepot.getValueAt(i, 2)!=null){
+						tableofindepot.setValueAt(null, i, 0);
+						tableofindepot.setValueAt(null, i, 1);
+						tableofindepot.setValueAt(null, i, 2);
 						break;
 					}
 				}
 			}
 		});
-		button_11.setBounds(172, 521, 93, 23);
-		desktopPane.add(button_11);
+		buttonofcancel.setBounds(172, 521, 93, 23);
+		desktopPane.add(buttonofcancel);
 		
 		JButton button_12 = new JButton("\u6E05\u7A7A");
 		button_12.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				for(int i=0;i<table.getRowCount();i++){
-					table.setValueAt(null, i, 0);
-					table.setValueAt(null, i, 1);
-					table.setValueAt(null, i, 2);
-					table.setValueAt(null, i, 3);
-					table.setValueAt(null, i, 4);
-					table.setValueAt(null, i, 5);
-					table.setValueAt(null, i, 6);
-					table.setValueAt(null, i, 7);
+				for(int i=0;i<tableofindepot.getRowCount();i++){
+					tableofindepot.setValueAt(null, i, 0);
+					tableofindepot.setValueAt(null, i, 1);
+					tableofindepot.setValueAt(null, i, 2);
+					tableofindepot.setValueAt(null, i, 3);
+					tableofindepot.setValueAt(null, i, 4);
+					tableofindepot.setValueAt(null, i, 5);
+					tableofindepot.setValueAt(null, i, 6);
+					tableofindepot.setValueAt(null, i, 7);
 				}
 			}
 		});
