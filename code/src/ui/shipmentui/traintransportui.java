@@ -29,17 +29,17 @@ import bl.shipment.Service.TrainTransportBLService;
 public class traintransportui extends JDesktopPane{
 	
 	
-	private JTable table_2;
-	private JTextField textField_12;
-	private JTextField textField_15;
-	private JTextField textField_16;
-	private JTextField textField_17;
-	private JTextField textField_18;
-	private JTextField textField_19;
-	private JTextField textField_20;
-	private JTextField textField_21;
-	private JTextField textField_23;
-	private JTextField textField_24;
+	private JTable trainTable;
+	private JTextField textField_year;
+	private JTextField textField_startplace;
+	private JTextField textField_supervisor;
+	private JTextField textField_transfer_order;
+	private JTextField textField_order_number;
+	private JTextField textField_train_number;
+	private JTextField textField_destination;
+	private JTextField textField_car_number;
+	private JTextField textField_month;
+	private JTextField textField_day;
 	
 	public traintransportui() {
 		initialize();
@@ -50,12 +50,12 @@ public class traintransportui extends JDesktopPane{
 	 */
 	private void initialize() {
 		       //火车装运管理的界面
-		       final JLabel textPane_4 = new JLabel();
-		       textPane_4.setText("\u4E2D\u8F6C\u4E2D\u5FC3\u4E1A\u52A1\u5458");
-		       textPane_4.setBounds(280, 0, 700, 21);
-		       this.add(textPane_4);
+		       final JLabel timeLabel = new JLabel();
+		       timeLabel.setText("中转中心业务员");
+		       timeLabel.setBounds(280, 0, 700, 21);
+		       this.add(timeLabel);
 		       SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-	           textPane_4.setText(df.format(new Date()));
+		       timeLabel.setText(df.format(new Date()));
 		
 				this.setBackground(Color.WHITE);
 				
@@ -63,8 +63,8 @@ public class traintransportui extends JDesktopPane{
 				scrollPane_1.setBounds(150, 210, 700, 320);
 				this.add(scrollPane_1);
 				
-				table_2 = new JTable();
-				table_2.setModel(new DefaultTableModel(
+				trainTable = new JTable();
+				trainTable.setModel(new DefaultTableModel(
 					new Object[][] {
 						{null, null},
 						{null, null},
@@ -101,48 +101,48 @@ public class traintransportui extends JDesktopPane{
 						"订单号", "中转中心中转单编号"
 					}
 				));
-				table_2.getColumnModel().getColumn(0).setPreferredWidth(30);
-				scrollPane_1.setViewportView(table_2);
+				trainTable.getColumnModel().getColumn(0).setPreferredWidth(30);
+				scrollPane_1.setViewportView(trainTable);
 				
 				JLabel textPane_13 = new JLabel();
 				textPane_13.setText("日期（年/月/日）");
 				textPane_13.setBounds(150, 49, 102, 21);
 				this.add(textPane_13);
 				
-				textField_12 = new JTextField();
-				textField_12.setBounds(262, 49, 40, 21);
-				this.add(textField_12);
-				textField_12.setColumns(10);
+				textField_year = new JTextField();
+				textField_year.setBounds(262, 49, 40, 21);
+				this.add(textField_year);
+				textField_year.setColumns(10);
 				
 				JLabel textPane_17 = new JLabel();
 				textPane_17.setText("出发地");
 				textPane_17.setBounds(150, 80, 45, 21);
 				this.add(textPane_17);
 				
-				textField_15 = new JTextField();
-				textField_15.setBounds(200, 80, 200, 21);
-				this.add(textField_15);
-				textField_15.setColumns(10);
+				textField_startplace = new JTextField();
+				textField_startplace.setBounds(200, 80, 200, 21);
+				this.add(textField_startplace);
+				textField_startplace.setColumns(10);
 				
 				JLabel textPane_18 = new JLabel();
 				textPane_18.setText("监装员");
 				textPane_18.setBounds(150, 110, 45, 21);
 				this.add(textPane_18);
 				
-				textField_16 = new JTextField();
-				textField_16.setBounds(200, 110, 200, 21);
-				this.add(textField_16);
-				textField_16.setColumns(10);
+				textField_supervisor = new JTextField();
+				textField_supervisor.setBounds(200, 110, 200, 21);
+				this.add(textField_supervisor);
+				textField_supervisor.setColumns(10);
 				
 				JLabel textPane_19 = new JLabel();
 				textPane_19.setText("中转中心中转单编号");
 				textPane_19.setBounds(150, 142, 126, 21);
 				this.add(textPane_19);
 				
-				textField_17 = new JTextField();
-				textField_17.setBounds(276, 142, 212, 21);
-				this.add(textField_17);
-				textField_17.setColumns(10);
+				textField_transfer_order = new JTextField();
+				textField_transfer_order.setBounds(276, 142, 212, 21);
+				this.add(textField_transfer_order);
+				textField_transfer_order.setColumns(10);
 				
 				JLabel textPane_20 = new JLabel();
 				textPane_20.setText("本货柜货物登记");
@@ -154,10 +154,10 @@ public class traintransportui extends JDesktopPane{
 				textPane_21.setBounds(290, 180, 45, 21);
 				this.add(textPane_21);
 				
-				textField_18 = new JTextField();
-				textField_18.setBounds(345, 179, 143, 21);
-				this.add(textField_18);
-				textField_18.setColumns(10);
+				textField_order_number = new JTextField();
+				textField_order_number.setBounds(345, 179, 143, 21);
+				this.add(textField_order_number);
+				textField_order_number.setColumns(10);
 				
 				JLabel textPane_22 = new JLabel();
 				textPane_22.setText("车次号");
@@ -174,29 +174,29 @@ public class traintransportui extends JDesktopPane{
 				textPane_24.setBounds(504, 110, 45, 21);
 				this.add(textPane_24);
 				
-				textField_19 = new JTextField();
-				textField_19.setBounds(559, 49, 196, 21);
-				this.add(textField_19);
-				textField_19.setColumns(10);
+				textField_train_number = new JTextField();
+				textField_train_number.setBounds(559, 49, 196, 21);
+				this.add(textField_train_number);
+				textField_train_number.setColumns(10);
 				
-				textField_20 = new JTextField();
-				textField_20.setBounds(559, 80, 196, 21);
-				this.add(textField_20);
-				textField_20.setColumns(10);
+				textField_destination = new JTextField();
+				textField_destination.setBounds(559, 80, 196, 21);
+				this.add(textField_destination);
+				textField_destination.setColumns(10);
 				
-				textField_21 = new JTextField();
-				textField_21.setBounds(559, 110, 196, 21);
-				this.add(textField_21);
-				textField_21.setColumns(10);
+				textField_car_number = new JTextField();
+				textField_car_number.setBounds(559, 110, 196, 21);
+				this.add(textField_car_number);
+				textField_car_number.setColumns(10);
 				//添加火车装运单号的事件监听
 				JButton button_3 = new JButton("添加");
 				button_3.addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent e) {
-						for(int i=0;i<table_2.getRowCount();i++){
-							if(table_2.getValueAt(i, 0)==null&&table_2.getValueAt(i, 1)==null){
-								table_2.setValueAt(textField_18.getText(), i, 0);
-								table_2.setValueAt(textField_17.getText(), i, 1);
+						for(int i=0;i<trainTable.getRowCount();i++){
+							if(trainTable.getValueAt(i, 0)==null&&trainTable.getValueAt(i, 1)==null){
+								trainTable.setValueAt(textField_order_number.getText(), i, 0);
+								trainTable.setValueAt(textField_transfer_order.getText(), i, 1);
 								break;
 							}
 						}
@@ -214,10 +214,10 @@ public class traintransportui extends JDesktopPane{
 				button_4.addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent e) {
-						for(int i=table_2.getRowCount()-1;i>=0;i--){
-							if(table_2.getValueAt(i, 0)!=null||table_2.getValueAt(i, 1)!=null){
-								table_2.setValueAt(null, i, 0);
-								table_2.setValueAt(null, i, 1);
+						for(int i=trainTable.getRowCount()-1;i>=0;i--){
+							if(trainTable.getValueAt(i, 0)!=null||trainTable.getValueAt(i, 1)!=null){
+								trainTable.setValueAt(null, i, 0);
+								trainTable.setValueAt(null, i, 1);
 								break;
 							}
 						}
@@ -226,15 +226,15 @@ public class traintransportui extends JDesktopPane{
 				button_4.setBounds(200, 540, 93, 23);
 				this.add(button_4);
 				
-				textField_23 = new JTextField();
-				textField_23.setBounds(312, 49, 30, 21);
-				this.add(textField_23);
-				textField_23.setColumns(10);
+				textField_month = new JTextField();
+				textField_month.setBounds(312, 49, 30, 21);
+				this.add(textField_month);
+				textField_month.setColumns(10);
 				
-				textField_24 = new JTextField();
-				textField_24.setBounds(352, 49, 30, 21);
-				this.add(textField_24);
-				textField_24.setColumns(10);
+				textField_day = new JTextField();
+				textField_day.setBounds(352, 49, 30, 21);
+				this.add(textField_day);
+				textField_day.setColumns(10);
 				
 				//提交火车装运单的事件监听
 				JButton button_5 = new JButton("提交");
@@ -242,17 +242,17 @@ public class traintransportui extends JDesktopPane{
 					@Override
 					public void mouseClicked(MouseEvent e) {
 						TransportBill_Train train = null;
-						for(int i=0;i<table_2.getRowCount();i++){
-						     train.transBillID=table_2.getValueAt(i, 0).toString();
+						for(int i=0;i<trainTable.getRowCount();i++){
+						     train.transBillID=trainTable.getValueAt(i, 0).toString();
 						}
 						TrainTransportBLService trainTransport=new TrainTransportController();
 						double trainBill=trainTransport.submitBills(train);
 						if(trainBill==0){
-							textPane_4.setText("提交失败！");
+							timeLabel.setText("提交失败！");
 						}else{
-							for(int i=0;i<table_2.getRowCount();i++){
-								table_2.setValueAt(null, i, 0);
-								table_2.setValueAt(null, i, 1);
+							for(int i=0;i<trainTable.getRowCount();i++){
+								trainTable.setValueAt(null, i, 0);
+								trainTable.setValueAt(null, i, 1);
 							}
 						}
 					}

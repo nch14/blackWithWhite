@@ -34,18 +34,18 @@ import bl.shipment.Service.TruckLoadingManageBLService;
 
 public class truckloadingmanageui {
 
-	private JFrame frame;
-	private JTextField textField_27;
-	private JTextField textField_30;
-	private JTextField textField_31;
-	private JTextField textField_32;
-	private JTextField textField_33;
-	private JTextField textField_34;
-	private JTextField textField_35;
-	private JTable table_3;
-	private JTextField textField_9;
-	private JTextField textField_10;
-	private JTextField textField_15;
+	private JFrame frame_truckloading;
+	private JTextField textField_year;
+	private JTextField textField_truck_number;
+	private JTextField textField_businessHall;
+	private JTextField textField_destination;
+	private JTextField textField_supercargo;
+	private JTextField textField_supervisor;
+	private JTextField textField_order_number;
+	private JTable table_loading_list;
+	private JTextField textField_car_number;
+	private JTextField textField_month;
+	private JTextField textField_day;
 
 	/**
 	 * Launch the application.
@@ -55,7 +55,7 @@ public class truckloadingmanageui {
 			public void run() {
 				try {
 					truckloadingmanageui window = new truckloadingmanageui();
-					window.frame.setVisible(true);
+					window.frame_truckloading.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -74,14 +74,14 @@ public class truckloadingmanageui {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setResizable(false);
+		frame_truckloading = new JFrame();
+		frame_truckloading.setResizable(false);
 		//frame.setIconImage(new ImageIcon("/星球3.png").getImage());
-		frame.setBounds(200, 80, 1000, 650);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame_truckloading.setBounds(200, 80, 1000, 650);
+		frame_truckloading.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//车辆装车管理界面
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		frame.getContentPane().add(tabbedPane, BorderLayout.CENTER);
+		frame_truckloading.getContentPane().add(tabbedPane, BorderLayout.CENTER);
 		
 		JDesktopPane desktopPane_4 =new JDesktopPane();
 		desktopPane_4.setBackground(Color.WHITE);
@@ -101,10 +101,10 @@ public class truckloadingmanageui {
 		textPane_19.setBounds(150, 30, 126, 21);
 		desktopPane_4.add(textPane_19);
 		
-		textField_27 = new JTextField();
-		textField_27.setBounds(285, 30, 40, 21);
-		desktopPane_4.add(textField_27);
-		textField_27.setColumns(10);
+		textField_year = new JTextField();
+		textField_year.setBounds(285, 30, 40, 21);
+		desktopPane_4.add(textField_year);
+		textField_year.setColumns(10);
 		
 		JLabel textPane_20 = new JLabel();
 		textPane_20.setBackground(Color.WHITE);
@@ -118,15 +118,15 @@ public class truckloadingmanageui {
 		textPane_21.setBounds(150, 93, 75, 21);
 		desktopPane_4.add(textPane_21);
 		
-		textField_30 = new JTextField();
-		textField_30.setBounds(285, 60, 120, 21);
-		desktopPane_4.add(textField_30);
-		textField_30.setColumns(10);
+		textField_truck_number = new JTextField();
+		textField_truck_number.setBounds(285, 60, 120, 21);
+		desktopPane_4.add(textField_truck_number);
+		textField_truck_number.setColumns(10);
 		
-		textField_31 = new JTextField();
-		textField_31.setBounds(285, 93, 120, 21);
-		desktopPane_4.add(textField_31);
-		textField_31.setColumns(10);
+		textField_businessHall = new JTextField();
+		textField_businessHall.setBounds(285, 93, 120, 21);
+		desktopPane_4.add(textField_businessHall);
+		textField_businessHall.setColumns(10);
 		
 		JLabel textPane_22 = new JLabel();
 		textPane_22.setBackground(Color.WHITE);
@@ -146,20 +146,20 @@ public class truckloadingmanageui {
 		textPane_24.setBounds(499, 93, 42, 21);
 		desktopPane_4.add(textPane_24);
 		
-		textField_32 = new JTextField();
-		textField_32.setBounds(551, 31, 155, 21);
-		desktopPane_4.add(textField_32);
-		textField_32.setColumns(10);
+		textField_destination = new JTextField();
+		textField_destination.setBounds(551, 31, 155, 21);
+		desktopPane_4.add(textField_destination);
+		textField_destination.setColumns(10);
 		
-		textField_33 = new JTextField();
-		textField_33.setBounds(551, 62, 155, 21);
-		desktopPane_4.add(textField_33);
-		textField_33.setColumns(10);
+		textField_supercargo = new JTextField();
+		textField_supercargo.setBounds(551, 62, 155, 21);
+		desktopPane_4.add(textField_supercargo);
+		textField_supercargo.setColumns(10);
 		
-		textField_34 = new JTextField();
-		textField_34.setBounds(551, 93, 155, 21);
-		desktopPane_4.add(textField_34);
-		textField_34.setColumns(10);
+		textField_supervisor = new JTextField();
+		textField_supervisor.setBounds(551, 93, 155, 21);
+		desktopPane_4.add(textField_supervisor);
+		textField_supervisor.setColumns(10);
 		
 		JLabel textPane_25 = new JLabel();
 		textPane_25.setBackground(Color.WHITE);
@@ -167,10 +167,10 @@ public class truckloadingmanageui {
 		textPane_25.setBounds(500, 151, 42, 21);
 		desktopPane_4.add(textPane_25);
 		
-		textField_35 = new JTextField();
-		textField_35.setBounds(551, 151, 155, 21);
-		desktopPane_4.add(textField_35);
-		textField_35.setColumns(10);
+		textField_order_number = new JTextField();
+		textField_order_number.setBounds(551, 151, 155, 21);
+		desktopPane_4.add(textField_order_number);
+		textField_order_number.setColumns(10);
 		
 		final JButton button_13 = new JButton("添加");
 		button_13.setBackground(UIManager.getColor("Button.background"));
@@ -178,17 +178,17 @@ public class truckloadingmanageui {
 		button_13.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				for(int i=0;i<table_3.getRowCount();i++){
-					if(table_3.getValueAt(i, 0)==null&&table_3.getValueAt(i, 1)==null&&table_3.getValueAt(i, 2)==null&&table_3.getValueAt(i, 3)==null
-							&&table_3.getValueAt(i, 4)==null&&table_3.getValueAt(i, 5)==null&&table_3.getValueAt(i, 6)==null&&table_3.getValueAt(i, 7)==null){
-				        table_3.setValueAt(textField_35.getText(),i,0);
-				        table_3.setValueAt(textField_27.getText()+textField_10.getText()+textField_15.getText(), i, 1);
-				        table_3.setValueAt(textField_32.getText(), i, 2);
-				        table_3.setValueAt(textField_30.getText(), i, 3);
-		                table_3.setValueAt(textField_9.getText(), i, 4);
-				        table_3.setValueAt(textField_33.getText(), i, 5);
-				        table_3.setValueAt(textField_31.getText(), i, 6);
-				        table_3.setValueAt(textField_34.getText(), i, 7);
+				for(int i=0;i<table_loading_list.getRowCount();i++){
+					if(table_loading_list.getValueAt(i, 0)==null&&table_loading_list.getValueAt(i, 1)==null&&table_loading_list.getValueAt(i, 2)==null&&table_loading_list.getValueAt(i, 3)==null
+							&&table_loading_list.getValueAt(i, 4)==null&&table_loading_list.getValueAt(i, 5)==null&&table_loading_list.getValueAt(i, 6)==null&&table_loading_list.getValueAt(i, 7)==null){
+				        table_loading_list.setValueAt(textField_order_number.getText(),i,0);
+				        table_loading_list.setValueAt(textField_year.getText()+textField_month.getText()+textField_day.getText(), i, 1);
+				        table_loading_list.setValueAt(textField_destination.getText(), i, 2);
+				        table_loading_list.setValueAt(textField_truck_number.getText(), i, 3);
+		                table_loading_list.setValueAt(textField_car_number.getText(), i, 4);
+				        table_loading_list.setValueAt(textField_supercargo.getText(), i, 5);
+				        table_loading_list.setValueAt(textField_businessHall.getText(), i, 6);
+				        table_loading_list.setValueAt(textField_supervisor.getText(), i, 7);
 				        break;
 					}
 				}
@@ -203,12 +203,12 @@ public class truckloadingmanageui {
 		scrollPane_3.setBounds(150, 190, 700, 325);
 		desktopPane_4.add(scrollPane_3);
 		
-		table_3 = new JTable();
-		table_3.setForeground(Color.BLACK);
-		table_3.setBackground(new Color(255, 255, 255));
-		table_3.setFont(new Font("SimSun", Font.PLAIN, 12));
+		table_loading_list = new JTable();
+		table_loading_list.setForeground(Color.BLACK);
+		table_loading_list.setBackground(new Color(255, 255, 255));
+		table_loading_list.setFont(new Font("SimSun", Font.PLAIN, 12));
 		
-		table_3.setModel(new DefaultTableModel(
+		table_loading_list.setModel(new DefaultTableModel(
 			new Object[][] {
 				{null, null, null, null, null, null, null, null},
 				{null, null, null, null, null, null, null, null},
@@ -245,24 +245,24 @@ public class truckloadingmanageui {
 				"订单号", "装车日期", "到达地", "车辆代号", "汽运编号", "押运员", "营业厅编号", "监装员"
 			}
 		));
-		scrollPane_3.setViewportView(table_3);
+		scrollPane_3.setViewportView(table_loading_list);
 		//撤消装车单table中一行的事件监听
 		JButton button_14 = new JButton("撤消");
 		button_14.setBackground(UIManager.getColor("Button.background"));
 		button_14.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				for(int i=table_3.getRowCount()-1;i>=0;i--){
-					if(table_3.getValueAt(i, 0)!=null||table_3.getValueAt(i, 1)!=null||table_3.getValueAt(i, 2)!=null||table_3.getValueAt(i, 3)!=null||
-							table_3.getValueAt(i, 4)!=null||table_3.getValueAt(i, 5)!=null||table_3.getValueAt(i, 6)!=null||table_3.getValueAt(i, 7)!=null){
-						table_3.setValueAt(null, i, 0);
-						table_3.setValueAt(null, i, 1);
-						table_3.setValueAt(null, i, 2);
-						table_3.setValueAt(null, i, 3);
-						table_3.setValueAt(null, i, 4);
-						table_3.setValueAt(null, i, 5);
-						table_3.setValueAt(null, i, 6);
-						table_3.setValueAt(null, i, 7);
+				for(int i=table_loading_list.getRowCount()-1;i>=0;i--){
+					if(table_loading_list.getValueAt(i, 0)!=null||table_loading_list.getValueAt(i, 1)!=null||table_loading_list.getValueAt(i, 2)!=null||table_loading_list.getValueAt(i, 3)!=null||
+							table_loading_list.getValueAt(i, 4)!=null||table_loading_list.getValueAt(i, 5)!=null||table_loading_list.getValueAt(i, 6)!=null||table_loading_list.getValueAt(i, 7)!=null){
+						table_loading_list.setValueAt(null, i, 0);
+						table_loading_list.setValueAt(null, i, 1);
+						table_loading_list.setValueAt(null, i, 2);
+						table_loading_list.setValueAt(null, i, 3);
+						table_loading_list.setValueAt(null, i, 4);
+						table_loading_list.setValueAt(null, i, 5);
+						table_loading_list.setValueAt(null, i, 6);
+						table_loading_list.setValueAt(null, i, 7);
 						break;
 					}
 				}
@@ -279,23 +279,23 @@ public class truckloadingmanageui {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				BusShipmentBill_Shop busShip=null;
-				for(int i=0;i<table_3.getRowCount();i++){
-					busShip.busshipID=table_3.getValueAt(i, 0).toString();
+				for(int i=0;i<table_loading_list.getRowCount();i++){
+					busShip.busshipID=table_loading_list.getValueAt(i, 0).toString();
 				}
 				TruckLoadingManageBLService truckLoading=new TruckLoadingManageController();
 				double loadingBill=truckLoading.submitBills(busShip);
 				if(loadingBill==0){
 					textPane_34.setText("提交失败！");
 				}else{
-					for(int i=0;i<table_3.getRowCount();i++){
-						table_3.setValueAt(null, i, 0);
-						table_3.setValueAt(null, i, 1);
-						table_3.setValueAt(null, i, 2);
-						table_3.setValueAt(null, i, 3);
-						table_3.setValueAt(null, i, 4);
-						table_3.setValueAt(null, i, 5);
-						table_3.setValueAt(null, i, 6);
-						table_3.setValueAt(null, i, 7);
+					for(int i=0;i<table_loading_list.getRowCount();i++){
+						table_loading_list.setValueAt(null, i, 0);
+						table_loading_list.setValueAt(null, i, 1);
+						table_loading_list.setValueAt(null, i, 2);
+						table_loading_list.setValueAt(null, i, 3);
+						table_loading_list.setValueAt(null, i, 4);
+						table_loading_list.setValueAt(null, i, 5);
+						table_loading_list.setValueAt(null, i, 6);
+						table_loading_list.setValueAt(null, i, 7);
 					}
 				}
 			}
@@ -309,20 +309,20 @@ public class truckloadingmanageui {
 		textPane_42.setBounds(150, 124, 54, 21);
 		desktopPane_4.add(textPane_42);
 		
-		textField_9 = new JTextField();
-		textField_9.setBounds(285, 128, 120, 21);
-		desktopPane_4.add(textField_9);
-		textField_9.setColumns(10);
+		textField_car_number = new JTextField();
+		textField_car_number.setBounds(285, 128, 120, 21);
+		desktopPane_4.add(textField_car_number);
+		textField_car_number.setColumns(10);
 		
-		textField_10 = new JTextField();
-		textField_10.setBounds(335, 30, 30, 21);
-		desktopPane_4.add(textField_10);
-		textField_10.setColumns(10);
+		textField_month = new JTextField();
+		textField_month.setBounds(335, 30, 30, 21);
+		desktopPane_4.add(textField_month);
+		textField_month.setColumns(10);
 		
-		textField_15 = new JTextField();
-		textField_15.setBounds(375, 30, 30, 21);
-		desktopPane_4.add(textField_15);
-		textField_15.setColumns(10);
+		textField_day = new JTextField();
+		textField_day.setBounds(375, 30, 30, 21);
+		desktopPane_4.add(textField_day);
+		textField_day.setColumns(10);
 		
 		receiveui t = new receiveui();
 		tabbedPane.addTab("营业厅到达单", null, t, null);

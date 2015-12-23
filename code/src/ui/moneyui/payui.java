@@ -25,14 +25,14 @@ import bl.money.Service.PayBLService;
 public class payui extends JDesktopPane{
 	
 	
-	private JTextField textField_1;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
-	private JTable table;
-	private JTextField textField;
-	private JTextField textField_9;
+	private JTextField textField_year;
+	private JTextField textField_money;
+	private JTextField textField_payer;
+	private JTextField textField_entry;
+	private JTextField textField_remarks;
+	private JTable table_billsOfPayment;
+	private JTextField textField_month;
+	private JTextField textField_day;
 	
 	public payui() {
 		initialize();
@@ -57,30 +57,30 @@ public class payui extends JDesktopPane{
 				textPane.setBounds(150, 31, 121, 21);
 				this.add(textPane);
 				
-				textField_1 = new JTextField();
-				textField_1.setBounds(281, 31, 42, 21);
-				this.add(textField_1);
-				textField_1.setColumns(10);
+				textField_year = new JTextField();
+				textField_year.setBounds(281, 31, 42, 21);
+				this.add(textField_year);
+				textField_year.setColumns(10);
 				
 				JLabel textPane_4 = new JLabel();
 				textPane_4.setText("付款金额");
 				textPane_4.setBounds(472, 31, 54, 21);
 				this.add(textPane_4);
 				
-				textField_4 = new JTextField();
-				textField_4.setBounds(536, 31, 66, 21);
-				this.add(textField_4);
-				textField_4.setColumns(10);
+				textField_money = new JTextField();
+				textField_money.setBounds(536, 31, 66, 21);
+				this.add(textField_money);
+				textField_money.setColumns(10);
 				
 				JLabel textPane_5 = new JLabel();
 				textPane_5.setText("付款人");
 				textPane_5.setBounds(653, 31, 42, 21);
 				this.add(textPane_5);
 				
-				textField_5 = new JTextField();
-				textField_5.setBounds(705, 31, 128, 21);
-				this.add(textField_5);
-				textField_5.setColumns(10);
+				textField_payer = new JTextField();
+				textField_payer.setBounds(705, 31, 128, 21);
+				this.add(textField_payer);
+				textField_payer.setColumns(10);
 				
 				JLabel textPane_6 = new JLabel();
 				textPane_6.setText("付款账号");
@@ -92,20 +92,20 @@ public class payui extends JDesktopPane{
 				textPane_7.setBounds(482, 62, 31, 21);
 				this.add(textPane_7);
 				
-				textField_6 = new JTextField();
-				textField_6.setBounds(536, 62, 66, 21);
-				this.add(textField_6);
-				textField_6.setColumns(10);
+				textField_entry = new JTextField();
+				textField_entry.setBounds(536, 62, 66, 21);
+				this.add(textField_entry);
+				textField_entry.setColumns(10);
 				
 				JLabel textPane_8 = new JLabel();
 				textPane_8.setText("备注");
 				textPane_8.setBounds(663, 62, 31, 21);
 				this.add(textPane_8);
 				
-				textField_7 = new JTextField();
-				textField_7.setBounds(705, 62, 128, 21);
-				this.add(textField_7);
-				textField_7.setColumns(10);
+				textField_remarks = new JTextField();
+				textField_remarks.setBounds(705, 62, 128, 21);
+				this.add(textField_remarks);
+				textField_remarks.setColumns(10);
 				
 				final JComboBox comboBox_1 = new JComboBox();
 				comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"中国农业银行", "中国工商银行", "中国建设银行", "南京银行"}));
@@ -117,16 +117,16 @@ public class payui extends JDesktopPane{
 				button.addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent e) {
-						for(int i=0;i<table.getRowCount();i++){
-							if(table.getValueAt(i, 0)==null&&table.getValueAt(i, 1)==null&&table.getValueAt(i, 2)==null&&table.getValueAt(i, 3)==null&&table.getValueAt(i, 4)==null
-									&&table.getValueAt(i, 5)==null&&table.getValueAt(i, 6)==null){
-						           table.setValueAt(i+1, i, 0);
-						           table.setValueAt(textField_1.getText()+textField.getText()+textField_9.getText(), i, 1);
-						           table.setValueAt(textField_4.getText(), i, 2);
-						           table.setValueAt(textField_5.getText(), i, 3);
-						           table.setValueAt(comboBox_1.getSelectedItem(), i, 4);
-						           table.setValueAt(textField_6.getText(), i, 5);
-						           table.setValueAt(textField_7.getText(), i, 6);
+						for(int i=0;i<table_billsOfPayment.getRowCount();i++){
+							if(table_billsOfPayment.getValueAt(i, 0)==null&&table_billsOfPayment.getValueAt(i, 1)==null&&table_billsOfPayment.getValueAt(i, 2)==null&&table_billsOfPayment.getValueAt(i, 3)==null&&table_billsOfPayment.getValueAt(i, 4)==null
+									&&table_billsOfPayment.getValueAt(i, 5)==null&&table_billsOfPayment.getValueAt(i, 6)==null){
+						           table_billsOfPayment.setValueAt(i+1, i, 0);
+						           table_billsOfPayment.setValueAt(textField_year.getText()+textField_month.getText()+textField_day.getText(), i, 1);
+						           table_billsOfPayment.setValueAt(textField_money.getText(), i, 2);
+						           table_billsOfPayment.setValueAt(textField_payer.getText(), i, 3);
+						           table_billsOfPayment.setValueAt(comboBox_1.getSelectedItem(), i, 4);
+						           table_billsOfPayment.setValueAt(textField_entry.getText(), i, 5);
+						           table_billsOfPayment.setValueAt(textField_remarks.getText(), i, 6);
 						           break;
 							}
 						}
@@ -139,8 +139,8 @@ public class payui extends JDesktopPane{
 				scrollPane.setBounds(150, 155, 700, 375);
 				this.add(scrollPane);
 				
-				table = new JTable();
-				table.setModel(new DefaultTableModel(
+				table_billsOfPayment = new JTable();
+				table_billsOfPayment.setModel(new DefaultTableModel(
 					new Object[][] {
 						{null, null, null, null, null, null, null, null},
 						{null, null, null, null, null, null, null, null},
@@ -177,23 +177,23 @@ public class payui extends JDesktopPane{
 						"付款单ID", "付款日期", "付款金额", "付款人", "付款账户", "条目", "备注"
 					}
 				));
-				scrollPane.setViewportView(table);
+				scrollPane.setViewportView(table_billsOfPayment);
 				
 				//撤消付款单table中一行的事件监听
 				JButton button_1 = new JButton("撤消");
 				button_1.addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent e) {
-						for(int i =table.getRowCount()-1;i>=0;i--){
-							if(table.getValueAt(i, 0)!=null||table.getValueAt(i, 1)!=null||table.getValueAt(i, 2)!=null||table.getValueAt(i, 3)!=null||
-									table.getValueAt(i, 4)!=null||table.getValueAt(i, 5)!=null||table.getValueAt(i, 6)!=null){
-								table.setValueAt(null, i, 0);
-								table.setValueAt(null, i, 1);
-								table.setValueAt(null, i, 2);
-								table.setValueAt(null, i, 3);
-								table.setValueAt(null, i, 4);
-								table.setValueAt(null, i, 5);
-								table.setValueAt(null, i, 6);
+						for(int i =table_billsOfPayment.getRowCount()-1;i>=0;i--){
+							if(table_billsOfPayment.getValueAt(i, 0)!=null||table_billsOfPayment.getValueAt(i, 1)!=null||table_billsOfPayment.getValueAt(i, 2)!=null||table_billsOfPayment.getValueAt(i, 3)!=null||
+									table_billsOfPayment.getValueAt(i, 4)!=null||table_billsOfPayment.getValueAt(i, 5)!=null||table_billsOfPayment.getValueAt(i, 6)!=null){
+								table_billsOfPayment.setValueAt(null, i, 0);
+								table_billsOfPayment.setValueAt(null, i, 1);
+								table_billsOfPayment.setValueAt(null, i, 2);
+								table_billsOfPayment.setValueAt(null, i, 3);
+								table_billsOfPayment.setValueAt(null, i, 4);
+								table_billsOfPayment.setValueAt(null, i, 5);
+								table_billsOfPayment.setValueAt(null, i, 6);
 								break;
 							}
 						}
@@ -208,29 +208,29 @@ public class payui extends JDesktopPane{
 					@Override
 					public void mouseClicked(MouseEvent e) {
 						PaymentBill[] paymentBill;
-							String[] time={(String) table.getValueAt(0, 1)};
-						for(int i=0;i<table.getRowCount();i++){
-							paymentBill = new PaymentBill[table.getRowCount()];
-							paymentBill[i].ID=(String) table.getValueAt(i, 0);
-							paymentBill[i].date=(String[]) table.getValueAt(i, 1);
-							paymentBill[i].money=(double) table.getValueAt(i, 2);
-							paymentBill[i].payer=(String) table.getValueAt(i, 3);
-							paymentBill[i].type=(String) table.getValueAt(i, 5);
-							paymentBill[i].remarks=(String) table.getValueAt(i, 6);
+							String[] time={(String) table_billsOfPayment.getValueAt(0, 1)};
+						for(int i=0;i<table_billsOfPayment.getRowCount();i++){
+							paymentBill = new PaymentBill[table_billsOfPayment.getRowCount()];
+							paymentBill[i].ID=(String) table_billsOfPayment.getValueAt(i, 0);
+							paymentBill[i].date=(String[]) table_billsOfPayment.getValueAt(i, 1);
+							paymentBill[i].money=(double) table_billsOfPayment.getValueAt(i, 2);
+							paymentBill[i].payer=(String) table_billsOfPayment.getValueAt(i, 3);
+							paymentBill[i].type=(String) table_billsOfPayment.getValueAt(i, 5);
+							paymentBill[i].remarks=(String) table_billsOfPayment.getValueAt(i, 6);
 						}
 						PayBLService pay=new PayController();
 						ArrayList<PaymentBill> payment = pay.getPaymentBill(time);
 						if(payment==null){
 							textPane_1.setText("提交失败！");
 						}else{
-							for(int n=0;n<table.getRowCount();n++){
-								table.setValueAt(null, n, 0);
-								table.setValueAt(null, n, 1);
-								table.setValueAt(null, n, 2);
-								table.setValueAt(null, n, 3);
-								table.setValueAt(null, n, 4);
-								table.setValueAt(null, n, 5);
-								table.setValueAt(null, n, 6);
+							for(int n=0;n<table_billsOfPayment.getRowCount();n++){
+								table_billsOfPayment.setValueAt(null, n, 0);
+								table_billsOfPayment.setValueAt(null, n, 1);
+								table_billsOfPayment.setValueAt(null, n, 2);
+								table_billsOfPayment.setValueAt(null, n, 3);
+								table_billsOfPayment.setValueAt(null, n, 4);
+								table_billsOfPayment.setValueAt(null, n, 5);
+								table_billsOfPayment.setValueAt(null, n, 6);
 							}
 						}
 					}
@@ -238,15 +238,15 @@ public class payui extends JDesktopPane{
 				button_2.setBounds(705, 549, 93, 23);
 				this.add(button_2);
 				
-				textField = new JTextField();
-				textField.setBounds(333, 31, 31, 21);
-				this.add(textField);
-				textField.setColumns(10);
+				textField_month = new JTextField();
+				textField_month.setBounds(333, 31, 31, 21);
+				this.add(textField_month);
+				textField_month.setColumns(10);
 				
-				textField_9 = new JTextField();
-				textField_9.setBounds(374, 31, 31, 21);
-				this.add(textField_9);
-				textField_9.setColumns(10);
+				textField_day = new JTextField();
+				textField_day.setBounds(374, 31, 31, 21);
+				this.add(textField_day);
+				textField_day.setColumns(10);
 	}
 
 }

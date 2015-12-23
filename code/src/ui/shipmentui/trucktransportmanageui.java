@@ -25,19 +25,19 @@ import bl.shipment.Service.TruckTransportManageBLService;
 public class trucktransportmanageui extends JDesktopPane{
 	
 	
-	private JTable table_3;
-	private JTextField textField_26;
-	private JTextField textField_27;
-	private JTextField textField_28;
-	private JTextField textField_29;
-	private JTextField textField_30;
-	private JTextField textField_31;
-	private JTextField textField_32;
+	private JTable table_carTransport;
+	private JTextField textField_departure;
+	private JTextField textField_voucher;
+	private JTextField textField_transfer_order;
+	private JTextField textField_carnumber;
+	private JTextField textField_destination;
+	private JTextField textField_supercargo;
+	private JTextField textField_orderNumber;
 	private JButton button_6;
-	private JComboBox comboBox_1;
-	private JTextField textField_13;
-	private JTextField textField_14;
-	private JTextField textField_22;
+	private JComboBox comboBox_property;
+	private JTextField textField_month;
+	private JTextField textField_day;
+	private JTextField textField_year;
 	
 	
 	
@@ -64,8 +64,8 @@ public class trucktransportmanageui extends JDesktopPane{
 				SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
 				textPane_5.setText(df.format(new Date()));
 				
-				table_3 = new JTable();
-				table_3.setModel(new DefaultTableModel(
+				table_carTransport = new JTable();
+				table_carTransport.setModel(new DefaultTableModel(
 					new Object[][] {
 						{null, null},
 						{null, null},
@@ -102,17 +102,17 @@ public class trucktransportmanageui extends JDesktopPane{
 						"订单号", "中转中心中转单编号"
 					}
 				));
-				scrollPane_2.setViewportView(table_3);
+				scrollPane_2.setViewportView(table_carTransport);
 				
 				JLabel textPane_26 = new JLabel();
 				textPane_26.setText("日期（年/月/日）");
 				textPane_26.setBounds(150, 49, 102, 21);
 				this.add(textPane_26);
 				
-				textField_22 = new JTextField();
-				textField_22.setBounds(262, 49, 40, 21);
-				this.add(textField_22);
-				textField_22.setColumns(10);
+				textField_year = new JTextField();
+				textField_year.setBounds(262, 49, 40, 21);
+				this.add(textField_year);
+				textField_year.setColumns(10);
 				
 				JLabel textPane_30 = new JLabel();
 				textPane_30.setText("出发地");
@@ -129,20 +129,20 @@ public class trucktransportmanageui extends JDesktopPane{
 				textPane_32.setBounds(145, 142, 125, 21);
 				this.add(textPane_32);
 				
-				textField_26 = new JTextField();
-				textField_26.setBounds(205, 80, 200, 21);
-				this.add(textField_26);
-				textField_26.setColumns(10);
+				textField_departure = new JTextField();
+				textField_departure.setBounds(205, 80, 200, 21);
+				this.add(textField_departure);
+				textField_departure.setColumns(10);
 				
-				textField_27 = new JTextField();
-				textField_27.setBounds(205, 110, 200, 21);
-				this.add(textField_27);
-				textField_27.setColumns(10);
+				textField_voucher = new JTextField();
+				textField_voucher.setBounds(205, 110, 200, 21);
+				this.add(textField_voucher);
+				textField_voucher.setColumns(10);
 				
-				textField_28 = new JTextField();
-				textField_28.setBounds(280, 142, 212, 21);
-				this.add(textField_28);
-				textField_28.setColumns(10);
+				textField_transfer_order = new JTextField();
+				textField_transfer_order.setBounds(280, 142, 212, 21);
+				this.add(textField_transfer_order);
+				textField_transfer_order.setColumns(10);
 				
 				JLabel textPane_33 = new JLabel();
 				textPane_33.setText("车次号");
@@ -159,20 +159,20 @@ public class trucktransportmanageui extends JDesktopPane{
 				textPane_35.setBounds(504, 110, 45, 21);
 				this.add(textPane_35);
 				
-				textField_29 = new JTextField();
-				textField_29.setBounds(559, 49, 196, 21);
-				this.add(textField_29);
-				textField_29.setColumns(10);
+				textField_carnumber = new JTextField();
+				textField_carnumber.setBounds(559, 49, 196, 21);
+				this.add(textField_carnumber);
+				textField_carnumber.setColumns(10);
 				
-				textField_30 = new JTextField();
-				textField_30.setBounds(559, 80, 196, 21);
-				this.add(textField_30);
-				textField_30.setColumns(10);
+				textField_destination = new JTextField();
+				textField_destination.setBounds(559, 80, 196, 21);
+				this.add(textField_destination);
+				textField_destination.setColumns(10);
 				
-				textField_31 = new JTextField();
-				textField_31.setBounds(559, 110, 196, 21);
-				this.add(textField_31);
-				textField_31.setColumns(10);
+				textField_supercargo = new JTextField();
+				textField_supercargo.setBounds(559, 110, 196, 21);
+				this.add(textField_supercargo);
+				textField_supercargo.setColumns(10);
 				
 				JLabel textPane_36 = new JLabel();
 				textPane_36.setText("本车货物登记");
@@ -188,19 +188,19 @@ public class trucktransportmanageui extends JDesktopPane{
 				textPane_38.setBounds(290, 180, 45, 21);
 				this.add(textPane_38);
 				
-				textField_32 = new JTextField();
-				textField_32.setBounds(345, 179, 147, 21);
-				this.add(textField_32);
-				textField_32.setColumns(10);
+				textField_orderNumber = new JTextField();
+				textField_orderNumber.setBounds(345, 179, 147, 21);
+				this.add(textField_orderNumber);
+				textField_orderNumber.setColumns(10);
 				//添加汽车装运单的事件监听
 				button_6 = new JButton("添加");
 				button_6.addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent e) {
-						for(int i=0;i<table_3.getRowCount();i++){
-							if(table_3.getValueAt(i, 0)==null&&table_3.getValueAt(i, 1)==null){
-								table_3.setValueAt(textField_32.getText(), i, 0);
-								table_3.setValueAt(textField_28.getText(), i, 1);
+						for(int i=0;i<table_carTransport.getRowCount();i++){
+							if(table_carTransport.getValueAt(i, 0)==null&&table_carTransport.getValueAt(i, 1)==null){
+								table_carTransport.setValueAt(textField_orderNumber.getText(), i, 0);
+								table_carTransport.setValueAt(textField_transfer_order.getText(), i, 1);
 								break;
 							}
 						}
@@ -214,20 +214,20 @@ public class trucktransportmanageui extends JDesktopPane{
 				textPane_40.setBounds(504, 179, 54, 21);
 				this.add(textPane_40);
 				
-				comboBox_1 = new JComboBox();
-				comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"中转单", "装车单"}));
-				comboBox_1.setBounds(569, 179, 65, 21);
-				this.add(comboBox_1);
+				comboBox_property = new JComboBox();
+				comboBox_property.setModel(new DefaultComboBoxModel(new String[] {"中转单", "装车单"}));
+				comboBox_property.setBounds(569, 179, 65, 21);
+				this.add(comboBox_property);
 				
 				//撤消汽车装运单中一行的事件监听
 				JButton button_10 = new JButton("撤消");
 				button_10.addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent e) {
-						for(int i=table_3.getRowCount()-1;i>=0;i--){
-							if(table_3.getValueAt(i, 0)!=null||table_3.getValueAt(i, 1)!=null){
-								table_3.setValueAt(null, i, 0);
-								table_3.setValueAt(null, i, 1);
+						for(int i=table_carTransport.getRowCount()-1;i>=0;i--){
+							if(table_carTransport.getValueAt(i, 0)!=null||table_carTransport.getValueAt(i, 1)!=null){
+								table_carTransport.setValueAt(null, i, 0);
+								table_carTransport.setValueAt(null, i, 1);
 								break;
 							}
 						}
@@ -240,17 +240,17 @@ public class trucktransportmanageui extends JDesktopPane{
 				button_11.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						TransportBill_Truck truck = null;
-						for(int i=0;i<table_3.getRowCount();i++){
-							truck.transBillID=table_3.getValueAt(i, 0).toString();
+						for(int i=0;i<table_carTransport.getRowCount();i++){
+							truck.transBillID=table_carTransport.getValueAt(i, 0).toString();
 						}
 						TruckTransportManageBLService truckTransport=new TruckTransportManageController();
 						double truckBill=truckTransport.submitBills(truck);
 						if(truckBill==0){
 							textPane_5.setText("提交失败！");
 						}else{
-							for(int i=0;i<table_3.getRowCount();i++){
-								table_3.setValueAt(null, i, 0);
-								table_3.setValueAt(null, i, 1);
+							for(int i=0;i<table_carTransport.getRowCount();i++){
+								table_carTransport.setValueAt(null, i, 0);
+								table_carTransport.setValueAt(null, i, 1);
 							}
 						}
 					}
@@ -258,15 +258,15 @@ public class trucktransportmanageui extends JDesktopPane{
 				button_11.setBounds(750, 540, 93, 23);
 				this.add(button_11);
 				
-				textField_13 = new JTextField();
-				textField_13.setBounds(312, 49, 30, 21);
-				this.add(textField_13);
-				textField_13.setColumns(10);
+				textField_month = new JTextField();
+				textField_month.setBounds(312, 49, 30, 21);
+				this.add(textField_month);
+				textField_month.setColumns(10);
 				
-				textField_14 = new JTextField();
-				textField_14.setBounds(352, 49, 30, 21);
-				this.add(textField_14);
-				textField_14.setColumns(10);
+				textField_day = new JTextField();
+				textField_day.setBounds(352, 49, 30, 21);
+				this.add(textField_day);
+				textField_day.setColumns(10);
 				
 	}
 

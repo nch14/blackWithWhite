@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.swing.DefaultComboBoxModel;
@@ -23,15 +24,17 @@ import javax.swing.table.DefaultTableModel;
 import bill.ReceiveMoneyBill;
 import bl.money.Impl.BillingManagementController;
 import settings.BussinessHall;
+import settings.City;
+import settings.TransportCenter;
 import ui.reportui.profitsheetui;
 
 public class billingmanagementui {
 
-	private JFrame frame;
-	private JTextField textField_8;
-	private JTable table_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JFrame frame_money;
+	private JTextField textField_year;
+	private JTable table_receive_voucher;
+	private JTextField textField_month;
+	private JTextField textField_day;
 
 	/**
 	 * Launch the application.
@@ -41,7 +44,7 @@ public class billingmanagementui {
 			public void run() {
 				try {
 					billingmanagementui window = new billingmanagementui();
-					window.frame.setVisible(true);
+					window.frame_money.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -60,13 +63,13 @@ public class billingmanagementui {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setResizable(false);
-		frame.setBounds(200, 80, 1000, 650);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame_money = new JFrame();
+		frame_money.setResizable(false);
+		frame_money.setBounds(200, 80, 1000, 650);
+		frame_money.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		frame.getContentPane().add(tabbedPane, BorderLayout.CENTER);
+		frame_money.getContentPane().add(tabbedPane, BorderLayout.CENTER);
 		
 		//结算管理的界面
 		JDesktopPane desktopPane = new JDesktopPane();
@@ -85,15 +88,18 @@ public class billingmanagementui {
 		textPane_9.setBounds(150, 43, 126, 21);
 		desktopPane.add(textPane_9);
 		
-		textField_8 = new JTextField();
-		textField_8.setBounds(286, 43, 40, 21);
-		desktopPane.add(textField_8);
-		textField_8.setColumns(10);
+		textField_year = new JTextField();
+		textField_year.setBounds(286, 43, 40, 21);
+		desktopPane.add(textField_year);
+		textField_year.setColumns(10);
 		
-/*		BussinessHall bussinessHall = new BussinessHall();*/
+		//TransportCenter transport=new TransportCenter(null, null);
+		ArrayList<City> city = new ArrayList<City>();
+		ArrayList<TransportCenter> transportCenter = null;
+		ArrayList<BussinessHall> bussinessHall = null;
 		
 		final JComboBox comboBox = new JComboBox();
-		//comboBox.setModel(new DefaultComboBoxModel(new String[] {bussinessHall.name}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {" "}));
 		comboBox.setBounds(534, 43, 183, 21);
 		desktopPane.add(comboBox);
 		
@@ -102,7 +108,7 @@ public class billingmanagementui {
 		button_3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				String[] time={textField_8.getText(),textField_2.getText(),textField_3.getText()};
+				String[] time={textField_year.getText(),textField_month.getText(),textField_day.getText()};
 				BillingManagementController bmc=new BillingManagementController();
 				ReceiveMoneyBill[] bills=bmc.getBills(time,(String) comboBox.getSelectedItem());
 				if(bills==null){
@@ -110,13 +116,13 @@ public class billingmanagementui {
 				}else{
 					for(int i=0;i<bills.length;i++){
 						ReceiveMoneyBill bill=bills[i];
-					    table_1.setValueAt(bill.date[0]+bill.date[1]+bill.date[2], i, 0);
-					    table_1.setValueAt(bill.ID, i, 1);
-					    table_1.setValueAt(bill.transactor, i, 2);
-					    table_1.setValueAt(bill.transactor, i, 3);
-					    table_1.setValueAt(bill.list, i, 4);
-					    table_1.setValueAt(bill.money, i, 5);
-					    table_1.setValueAt(bill.bussinessHallCode, i, 6);
+					    table_receive_voucher.setValueAt(bill.date[0]+bill.date[1]+bill.date[2], i, 0);
+					    table_receive_voucher.setValueAt(bill.ID, i, 1);
+					    table_receive_voucher.setValueAt(bill.transactor, i, 2);
+					    table_receive_voucher.setValueAt(bill.transactor, i, 3);
+					    table_receive_voucher.setValueAt(bill.list, i, 4);
+					    table_receive_voucher.setValueAt(bill.money, i, 5);
+					    table_receive_voucher.setValueAt(bill.bussinessHallCode, i, 6);
 					}
 				}
 					
@@ -129,8 +135,8 @@ public class billingmanagementui {
 		scrollPane_1.setBounds(150, 155, 700, 375);
 		desktopPane.add(scrollPane_1);
 		
-		table_1 = new JTable();
-		table_1.setModel(new DefaultTableModel(
+		table_receive_voucher = new JTable();
+		table_receive_voucher.setModel(new DefaultTableModel(
 			new Object[][] {
 				{null, null, null, null, null, null},
 				{null, null, null, null, null, null},
@@ -167,17 +173,17 @@ public class billingmanagementui {
 				"收款日期", "收款单位", "收款人", "收款方", "收款金额", "收款地点"
 			}
 		));
-		scrollPane_1.setViewportView(table_1);
+		scrollPane_1.setViewportView(table_receive_voucher);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(336, 43, 30, 21);
-		desktopPane.add(textField_2);
-		textField_2.setColumns(10);
+		textField_month = new JTextField();
+		textField_month.setBounds(336, 43, 30, 21);
+		desktopPane.add(textField_month);
+		textField_month.setColumns(10);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(376, 43, 30, 21);
-		desktopPane.add(textField_3);
-		textField_3.setColumns(10);
+		textField_day = new JTextField();
+		textField_day.setBounds(376, 43, 30, 21);
+		desktopPane.add(textField_day);
+		textField_day.setColumns(10);
 		
 		payui t = new payui();
 		tabbedPane.addTab("财务支出", null, t, null);

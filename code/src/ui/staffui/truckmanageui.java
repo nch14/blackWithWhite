@@ -21,18 +21,18 @@ import bl.staff.service.TruckManageBLService;
 
 public class truckmanageui extends JDesktopPane{
 	
-	private JTextField textField_41;
-	private JTable table_8;
-	private JTextField textField_42;
-	private JTextField textField_43;
-	private JTextField textField_44;
-	private JTextField textField_45;
-	private JTextField textField_46;
-	private JTable table_9;
-	private JTextField textField_47;
-	private JTable table_10;
-	private JTextField textField_48;
-	private JTable table_11;
+	private JTextField textField_truckID;
+	private JTable table_findTruck;
+	private JTextField textField_carID;
+	private JTextField textField_IDNumber;
+	private JTextField textField_valid_year;
+	private JTextField textField_valid_month;
+	private JTextField textField_valid_day;
+	private JTable table_addCar;
+	//private JTextField textField_47;
+	private JTable table_deleteCar;
+	//private JTextField textField_48;
+	private JTable table_changeCar;
 	
 	public truckmanageui() {
 		initialize();
@@ -67,10 +67,10 @@ public class truckmanageui extends JDesktopPane{
 				textPane_28.setBounds(100, 90, 54, 21);
 				desktopPane_10.add(textPane_28);
 				
-				textField_41 = new JTextField();
-				textField_41.setBounds(170, 90, 130, 21);
-				desktopPane_10.add(textField_41);
-				textField_41.setColumns(10);
+				textField_truckID = new JTextField();
+				textField_truckID.setBounds(170, 90, 130, 21);
+				desktopPane_10.add(textField_truckID);
+				textField_truckID.setColumns(10);
 				
 				//查找车辆信息的事件监听
 				JButton button_20 = new JButton("查找");
@@ -79,13 +79,13 @@ public class truckmanageui extends JDesktopPane{
 					public void mouseClicked(MouseEvent e) {
 						TruckPO truck;
 						TruckManageController tmc=new TruckManageController();
-						truck=tmc.getTruck(textField_41.getText());
+						truck=tmc.getTruck(textField_truckID.getText());
 						if(truck==null){
 							textPane_39.setText("未查找到任何车辆信息！");
 						}else{
-							table_8.setValueAt(truck.vehicleCode, 0, 0);
-							table_8.setValueAt(truck.licensePlate, 0, 1);
-							table_8.setValueAt(truck.serviceTime, 0, 2);
+							table_findTruck.setValueAt(truck.vehicleCode, 0, 0);
+							table_findTruck.setValueAt(truck.licensePlate, 0, 1);
+							table_findTruck.setValueAt(truck.serviceTime, 0, 2);
 						}
 					}
 				});
@@ -96,8 +96,8 @@ public class truckmanageui extends JDesktopPane{
 				scrollPane_8.setBounds(80, 210, 700, 45);
 				desktopPane_10.add(scrollPane_8);
 				
-				table_8 = new JTable();
-				table_8.setModel(new DefaultTableModel(
+				table_findTruck = new JTable();
+				table_findTruck.setModel(new DefaultTableModel(
 					new Object[][] {
 						{null, null, null},
 					},
@@ -105,7 +105,7 @@ public class truckmanageui extends JDesktopPane{
 						"车辆代号", "车牌号", "服役时间"
 					}
 				));
-				scrollPane_8.setViewportView(table_8);
+				scrollPane_8.setViewportView(table_findTruck);
 				
 				JDesktopPane desktopPane_11 = new JDesktopPane();
 				desktopPane_11.setBackground(Color.WHITE);
@@ -116,50 +116,50 @@ public class truckmanageui extends JDesktopPane{
 				textPane_29.setBounds(63, 20, 54, 21);
 				desktopPane_11.add(textPane_29);
 				
-				textField_42 = new JTextField();
-				textField_42.setBounds(127, 20, 66, 21);
-				desktopPane_11.add(textField_42);
-				textField_42.setColumns(10);
+				textField_carID = new JTextField();
+				textField_carID.setBounds(127, 20, 66, 21);
+				desktopPane_11.add(textField_carID);
+				textField_carID.setColumns(10);
 				
 				JLabel textPane_30 = new JLabel();
 				textPane_30.setText("车牌号");
 				textPane_30.setBounds(255, 20, 42, 21);
 				desktopPane_11.add(textPane_30);
 				
-				textField_43 = new JTextField();
-				textField_43.setBounds(307, 20, 126, 21);
-				desktopPane_11.add(textField_43);
-				textField_43.setColumns(10);
+				textField_IDNumber = new JTextField();
+				textField_IDNumber.setBounds(307, 20, 126, 21);
+				desktopPane_11.add(textField_IDNumber);
+				textField_IDNumber.setColumns(10);
 				
 				JLabel textPane_31 = new JLabel();
 				textPane_31.setText("服役时间");
 				textPane_31.setBounds(493, 20, 54, 21);
 				desktopPane_11.add(textPane_31);
 				
-				textField_44 = new JTextField();
-				textField_44.setBounds(557, 20, 42, 21);
-				desktopPane_11.add(textField_44);
-				textField_44.setColumns(10);
+				textField_valid_year = new JTextField();
+				textField_valid_year.setBounds(557, 20, 42, 21);
+				desktopPane_11.add(textField_valid_year);
+				textField_valid_year.setColumns(10);
 				
-				textField_45 = new JTextField();
-				textField_45.setBounds(609, 20, 32, 21);
-				desktopPane_11.add(textField_45);
-				textField_45.setColumns(10);
+				textField_valid_month = new JTextField();
+				textField_valid_month.setBounds(609, 20, 32, 21);
+				desktopPane_11.add(textField_valid_month);
+				textField_valid_month.setColumns(10);
 				
-				textField_46 = new JTextField();
-				textField_46.setBounds(651, 20, 32, 21);
-				desktopPane_11.add(textField_46);
-				textField_46.setColumns(10);
+				textField_valid_day = new JTextField();
+				textField_valid_day.setBounds(651, 20, 32, 21);
+				desktopPane_11.add(textField_valid_day);
+				textField_valid_day.setColumns(10);
 				//添加车辆信息的事件监听
 				JButton button_21 = new JButton("添加");
 				button_21.addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent e) {
-						for(int i=0;i<table_9.getRowCount();i++){
-							if(table_9.getValueAt(i, 0)==null&&table_9.getValueAt(i, 1)==null&&table_9.getValueAt(i, 2)==null){
-								table_9.setValueAt(textField_42.getText(), i, 0);
-								table_9.setValueAt(textField_43.getText(), i, 1);
-								table_9.setValueAt(textField_44.getText()+textField_45.getText()+textField_46.getText(), i, 2);
+						for(int i=0;i<table_addCar.getRowCount();i++){
+							if(table_addCar.getValueAt(i, 0)==null&&table_addCar.getValueAt(i, 1)==null&&table_addCar.getValueAt(i, 2)==null){
+								table_addCar.setValueAt(textField_carID.getText(), i, 0);
+								table_addCar.setValueAt(textField_IDNumber.getText(), i, 1);
+								table_addCar.setValueAt(textField_valid_year.getText()+textField_valid_month.getText()+textField_valid_day.getText(), i, 2);
 								break;
 							}
 						}
@@ -172,8 +172,8 @@ public class truckmanageui extends JDesktopPane{
 				scrollPane_9.setBounds(63, 122, 657, 279);
 				desktopPane_11.add(scrollPane_9);
 				
-				table_9 = new JTable();
-				table_9.setModel(new DefaultTableModel(
+				table_addCar = new JTable();
+				table_addCar.setModel(new DefaultTableModel(
 					new Object[][] {
 						{null, null, null},
 						{null, null, null},
@@ -210,25 +210,25 @@ public class truckmanageui extends JDesktopPane{
 						"车辆代号", "车牌号", "服役时间"
 					}
 				));
-				scrollPane_9.setViewportView(table_9);
+				scrollPane_9.setViewportView(table_addCar);
 				
 				JButton button_22 = new JButton("提交");
 				button_22.addMouseListener(new MouseAdapter(){
 					public void mouseClicked(MouseEvent e){
 						TruckPO[] truck = null;
 						boolean isBoy=true;
-						for(int i=0;i<table_9.getRowCount();i++){
-							TruckPO truckPo=new TruckPO(table_9.getValueAt(i, 0).toString(), table_9.getValueAt(i, 1).toString(),
-									table_9.getValueAt(i, 2).toString());
+						for(int i=0;i<table_addCar.getRowCount();i++){
+							TruckPO truckPo=new TruckPO(table_addCar.getValueAt(i, 0).toString(), table_addCar.getValueAt(i, 1).toString(),
+									table_addCar.getValueAt(i, 2).toString());
 							truck[i]=truckPo;
 						}
 						TruckManageBLService truckManage=new TruckManageController();
 						boolean istrue=truckManage.addNewTruck(truck);
 						if(istrue=true){
-							for(int i=0;i<table_9.getRowCount();i++){
-								table_9.setValueAt(null, i, 0);
-								table_9.setValueAt(null, i, 1);
-								table_9.setValueAt(null, i, 2);
+							for(int i=0;i<table_addCar.getRowCount();i++){
+								table_addCar.setValueAt(null, i, 0);
+								table_addCar.setValueAt(null, i, 1);
+								table_addCar.setValueAt(null, i, 2);
 							}
 						}else{
 							textPane_39.setText("提交失败！");
@@ -242,11 +242,11 @@ public class truckmanageui extends JDesktopPane{
 				button_28.addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent e) {
-						for(int i=table_9.getRowCount()-1;i>=0;i--){
-							if(table_9.getValueAt(i, 0)!=null||table_9.getValueAt(i, 1)!=null||table_9.getValueAt(i, 2)!=null){
-								table_9.setValueAt(null, i, 0);
-								table_9.setValueAt(null, i, 1);
-								table_9.setValueAt(null, i, 2);
+						for(int i=table_addCar.getRowCount()-1;i>=0;i--){
+							if(table_addCar.getValueAt(i, 0)!=null||table_addCar.getValueAt(i, 1)!=null||table_addCar.getValueAt(i, 2)!=null){
+								table_addCar.setValueAt(null, i, 0);
+								table_addCar.setValueAt(null, i, 1);
+								table_addCar.setValueAt(null, i, 2);
 								break;
 							}
 						}
@@ -264,10 +264,10 @@ public class truckmanageui extends JDesktopPane{
 				textPane_32.setBounds(100, 90, 54, 21);
 				desktopPane_12.add(textPane_32);
 				
-				textField_47 = new JTextField();
-				textField_47.setBounds(170, 90, 130, 21);
-				desktopPane_12.add(textField_47);
-				textField_47.setColumns(10);
+				textField_carID = new JTextField();
+				textField_carID.setBounds(170, 90, 130, 21);
+				desktopPane_12.add(textField_carID);
+				textField_carID.setColumns(10);
 				
 				JButton button_23 = new JButton("查找");
 				button_23.addMouseListener(new MouseAdapter() {
@@ -275,13 +275,13 @@ public class truckmanageui extends JDesktopPane{
 					public void mouseClicked(MouseEvent e) {
 						TruckPO truck;
 						TruckManageController tmc=new TruckManageController();
-						truck=tmc.getTruck(textField_41.getText());
+						truck=tmc.getTruck(textField_truckID.getText());
 						if(truck==null){
 							textPane_39.setText("未查找到任何车辆信息！");
 						}else{
-							table_8.setValueAt(truck.vehicleCode, 0, 0);
-							table_8.setValueAt(truck.licensePlate, 0, 1);
-							table_8.setValueAt(truck.serviceTime, 0, 2);
+							table_findTruck.setValueAt(truck.vehicleCode, 0, 0);
+							table_findTruck.setValueAt(truck.licensePlate, 0, 1);
+							table_findTruck.setValueAt(truck.serviceTime, 0, 2);
 						}
 					}
 				});
@@ -292,8 +292,8 @@ public class truckmanageui extends JDesktopPane{
 				scrollPane_10.setBounds(80, 210, 700, 45);
 				desktopPane_12.add(scrollPane_10);
 				
-				table_10 = new JTable();
-				table_10.setModel(new DefaultTableModel(
+				table_deleteCar = new JTable();
+				table_deleteCar.setModel(new DefaultTableModel(
 					new Object[][] {
 						{null, null, null},
 					},
@@ -301,20 +301,20 @@ public class truckmanageui extends JDesktopPane{
 							"车辆代号", "车牌号", "服役时间"
 					}
 				));
-				scrollPane_10.setViewportView(table_10);
+				scrollPane_10.setViewportView(table_deleteCar);
 				
 				//删除车辆信息的事件监听
 				JButton button_24 = new JButton("删除车辆信息");
 				button_24.addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent e) {
-						String[] id=(String[]) table_10.getValueAt(0, 0);
+						String[] id=(String[]) table_deleteCar.getValueAt(0, 0);
 						TruckManageController tmc=new TruckManageController();
 						boolean istrue=tmc.deleteTruck(id);
 						if(istrue==true){
-							table_10.setValueAt(null, 0, 0);
-							table_10.setValueAt(null, 0, 1);
-							table_10.setValueAt(null, 0, 2);
+							table_deleteCar.setValueAt(null, 0, 0);
+							table_deleteCar.setValueAt(null, 0, 1);
+							table_deleteCar.setValueAt(null, 0, 2);
 						}else{
 							textPane_39.setText("删除车辆信息失败！");
 						}
@@ -332,10 +332,10 @@ public class truckmanageui extends JDesktopPane{
 				textPane_33.setBounds(100, 90, 54, 21);
 				desktopPane_13.add(textPane_33);
 				
-				textField_48 = new JTextField();
-				textField_48.setBounds(170, 90, 130, 21);
-				desktopPane_13.add(textField_48);
-				textField_48.setColumns(10);
+				textField_carID = new JTextField();
+				textField_carID.setBounds(170, 90, 130, 21);
+				desktopPane_13.add(textField_carID);
+				textField_carID.setColumns(10);
 				
 				JButton button_25 = new JButton("查找");
 				button_25.addMouseListener(new MouseAdapter() {
@@ -343,13 +343,13 @@ public class truckmanageui extends JDesktopPane{
 					public void mouseClicked(MouseEvent e) {
 						TruckPO truck;
 						TruckManageController tmc=new TruckManageController();
-						truck=tmc.getTruck(textField_41.getText());
+						truck=tmc.getTruck(textField_truckID.getText());
 						if(truck==null){
 							textPane_39.setText("未查找到任何车辆信息！");
 						}else{
-							table_8.setValueAt(truck.vehicleCode, 0, 0);
-							table_8.setValueAt(truck.licensePlate, 0, 1);
-							table_8.setValueAt(truck.serviceTime, 0, 2);
+							table_findTruck.setValueAt(truck.vehicleCode, 0, 0);
+							table_findTruck.setValueAt(truck.licensePlate, 0, 1);
+							table_findTruck.setValueAt(truck.serviceTime, 0, 2);
 						}
 					}
 				});
@@ -360,8 +360,8 @@ public class truckmanageui extends JDesktopPane{
 				scrollPane_11.setBounds(80, 210, 700, 45);
 				desktopPane_13.add(scrollPane_11);
 				
-				table_11 = new JTable();
-				table_11.setModel(new DefaultTableModel(
+				table_changeCar = new JTable();
+				table_changeCar.setModel(new DefaultTableModel(
 					new Object[][] {
 						{null, null, null},
 					},
@@ -369,22 +369,22 @@ public class truckmanageui extends JDesktopPane{
 							"车辆代号", "车牌号", "服役时间"
 					}
 				));
-				scrollPane_11.setViewportView(table_11);
+				scrollPane_11.setViewportView(table_changeCar);
 				
 				//修改车辆信息的事件监听
 				JButton button_26 = new JButton("修改车辆信息");
 				button_26.addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent e) {
-						String[] id=(String[]) table_10.getValueAt(0, 0);
-						String[] licensePlate=(String[]) table_10.getValueAt(0, 1);
-						String[] inTime=(String[]) table_10.getValueAt(0, 2);
+						String[] id=(String[]) table_deleteCar.getValueAt(0, 0);
+						String[] licensePlate=(String[]) table_deleteCar.getValueAt(0, 1);
+						String[] inTime=(String[]) table_deleteCar.getValueAt(0, 2);
 						TruckManageController tmc=new TruckManageController();
 						boolean istrue=tmc.ChangeTruckInfo(id, licensePlate, inTime);
 						if(istrue=true){
-							table_10.setValueAt(e, 0, 0);
-							table_10.setValueAt(e, 0, 1);
-							table_10.setValueAt(e, 0, 2);
+							table_deleteCar.setValueAt(e, 0, 0);
+							table_deleteCar.setValueAt(e, 0, 1);
+							table_deleteCar.setValueAt(e, 0, 2);
 						}else{
 							textPane_39.setText("修改司机信息失败！");
 						}
