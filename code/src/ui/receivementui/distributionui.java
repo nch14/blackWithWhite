@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.swing.JButton;
@@ -16,6 +17,7 @@ import javax.swing.table.DefaultTableModel;
 
 import vo.ReceiveInformationVO;
 import bill.AllocateBill;
+import bill.ReceiveBill;
 import bl.receivement.Impl.DistributionController;
 import bl.receivement.Impl.TransportFinishedController;
 import bl.receivement.Service.DistributionBLService;
@@ -161,18 +163,22 @@ public class distributionui extends JDesktopPane{
 		button_9.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				AllocateBill[] receive = new AllocateBill[table_send.getRowCount()];
+				AllocateBill allocate = null;
 				for(int i=0;i<table_send.getRowCount();i++){
-					receive[i].ID=(String) table_send.getValueAt(i, 0);
+					allocate.date=(String[]) table_send.getValueAt(i, 1);
+					allocate.ID = (String) table_send.getValueAt(i, 0);
 				}
+				ArrayList<AllocateBill> allocateBill = null;
+				allocateBill.add(allocate);
 				DistributionBLService distribution=new DistributionController();
-				boolean istrue=distribution.distribution(receive);
+				boolean istrue=distribution.distribution(allocateBill);
 				if(istrue==true){
 					for(int i=0;i<table_send.getRowCount();i++){
 						table_send.setValueAt(null, i, 0);
 						table_send.setValueAt(null, i, 1);
 						table_send.setValueAt(null, i, 2);
 					}
+					textPane_36.setText("提交成功！");
 				}else{
 					textPane_36.setText("提交失败！");
 				}

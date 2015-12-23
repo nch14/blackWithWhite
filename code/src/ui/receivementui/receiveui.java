@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.swing.DefaultComboBoxModel;
@@ -19,6 +20,7 @@ import javax.swing.table.DefaultTableModel;
 
 import vo.ReceiveInformationVO;
 import bill.AllocateBill;
+import bill.ArrivementBill;
 import bill.ArrivementBill_Shop;
 import bl.receivement.Impl.DistributionController;
 import bl.receivement.Impl.TransportFinishedController;
@@ -182,12 +184,16 @@ public class receiveui extends JDesktopPane{
 				button_6.addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent e) {
-						AllocateBill[] arrivement = new AllocateBill[table_arrivalOrder.getRowCount()];
+						ArrayList<ArrivementBill_Shop> arrivement = null;
+						ArrivementBill_Shop ArrivementBill_Shop = new ArrivementBill_Shop();
 						for(int i=0;i<table_arrivalOrder.getRowCount();i++){
-							arrivement[i].ID=table_arrivalOrder.getValueAt(i, 0).toString();
+							ArrivementBill_Shop.ID=(String) table_arrivalOrder.getValueAt(i, 0);
+							ArrivementBill_Shop.date = (String[]) table_arrivalOrder.getValueAt(i, 1);
+							ArrivementBill_Shop.placeOfDeparture = (String) table_arrivalOrder.getValueAt(i, 2);
 						}
+						arrivement.add(ArrivementBill_Shop);
 						DistributionBLService distribution=new DistributionController();
-						boolean istrue=distribution.distribution(arrivement);
+						boolean istrue=distribution.receive(ArrivementBill_Shop);
 						if(istrue=true){
 							for(int i=0;i<table_arrivalOrder.getRowCount();i++){
 								table_arrivalOrder.setValueAt(null, i, 0);
@@ -195,6 +201,7 @@ public class receiveui extends JDesktopPane{
 								table_arrivalOrder.setValueAt(null, i, 2);
 								table_arrivalOrder.setValueAt(null, i, 3);
 							}
+							textPane_35.setText("提交成功！");
 						}else{
 							textPane_35.setText("提交失败！");
 						}

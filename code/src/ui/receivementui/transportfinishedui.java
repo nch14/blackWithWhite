@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.swing.JButton;
@@ -159,14 +160,16 @@ public class transportfinishedui extends JDesktopPane{
 		button_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ReceiveInformationVO[] receive = new ReceiveInformationVO[table_1.getRowCount()];
+				ReceiveInformationVO receiveInfo = null;
+				ArrayList<ReceiveInformationVO> receive = null;
 				for(int i=0;i<table_1.getRowCount();i++){
-					receive[i].ID=(String) table_1.getValueAt(i, 0);
-					receive[i].nameOfReceiver=(String) table_1.getValueAt(i, 1);
-					receive[i].time[0]= table_1.getValueAt(i, 2).toString().substring(0, 3);
-					receive[i].time[1]= table_1.getValueAt(i, 2).toString().substring(4, 5);
-					receive[i].time[2]= table_1.getValueAt(i, 2).toString().substring(6, 7);
+					receiveInfo.ID=(String) table_1.getValueAt(i, 0);
+					receiveInfo.nameOfReceiver=(String) table_1.getValueAt(i, 1);
+					receiveInfo.time[0]= table_1.getValueAt(i, 2).toString().substring(0, 3);
+					receiveInfo.time[1]= table_1.getValueAt(i, 2).toString().substring(4, 5);
+					receiveInfo.time[2]= table_1.getValueAt(i, 2).toString().substring(6, 7);
 				}
+				receive.add(receiveInfo);
 				TransportFinishedBLService finish= new TransportFinishedController();
 				boolean istrue=finish.billFilled(receive);
 				if(istrue){

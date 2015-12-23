@@ -282,13 +282,19 @@ public class drivermanageui extends JDesktopPane{
 		JButton button_2 = new JButton("提交");
 		button_2.addMouseListener(new MouseAdapter(){
 			public void mouseClicked(MouseEvent e){
-				DriverPO[] driver = null;
+				ArrayList<DriverPO> driver = null;
+				DriverPO driverPo = null;
 				boolean isBoy=true;
 				for(int i=0;i<table_addDriver.getRowCount();i++){
-					DriverPO driverPo=new DriverPO(table_addDriver.getValueAt(i, 0).toString(), table_addDriver.getValueAt(i, 1).toString(),table_addDriver.getValueAt(i, 2).toString(),
-							 table_addDriver.getValueAt(i, 3).toString(), table_addDriver.getValueAt(i, 4).equals(isBoy), table_addDriver.getValueAt(i, 5).toString(), (String) table_addDriver.getValueAt(i, 6));
-					driver[i]=driverPo;
+					driverPo.ID=(String) table_addDriver.getValueAt(i, 0);
+					driverPo.name = (String) table_addDriver.getValueAt(i, 1);
+					driverPo.isBoy = (boolean) table_addDriver.getValueAt(i, 2);
+					driverPo.IDNumber = (String) table_addDriver.getValueAt(i, 3);
+					driverPo.birthday = (String) table_addDriver.getValueAt(i, 4);
+					driverPo.validData = (String) table_addDriver.getValueAt(i, 5);
+					driverPo.tel = (String) table_addDriver.getValueAt(i, 6);
 				}
+				driver.add(driverPo);
 				DriverManageBLService driverManage=new DriverManageCotroller();
 				boolean istrue=driverManage.addNewDiver(driver);
 				if(istrue=true){
@@ -301,6 +307,7 @@ public class drivermanageui extends JDesktopPane{
 						table_addDriver.setValueAt(null, i, 5);
 						table_addDriver.setValueAt(null, i, 6);
 					}
+					textPane_38.setText("提交成功！");
 				}else{
 					textPane_38.setText("提交失败！");
 				}
@@ -391,11 +398,19 @@ public class drivermanageui extends JDesktopPane{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				DriverManageCotroller dmc=new DriverManageCotroller();
-				String[] driverID = null;
+				ArrayList<String> driver = null;
+				DriverPO driverPo = null;
 				for(int i=0;i<table_findDriver.getRowCount();i++){
-					driverID=(String[]) table_findDriver.getValueAt(i, 0);
+					driverPo.ID = (String) table_addDriver.getValueAt(i, 0);
+					driverPo.name = (String) table_addDriver.getValueAt(i, 1);
+					driverPo.isBoy = (boolean) table_addDriver.getValueAt(i, 2);
+					driverPo.IDNumber = (String) table_addDriver.getValueAt(i, 3);
+					driverPo.birthday = (String) table_addDriver.getValueAt(i, 4);
+					driverPo.validData = (String) table_addDriver.getValueAt(i, 5);
+					driverPo.tel = (String) table_addDriver.getValueAt(i, 6);
 				}
-				Boolean istrue=dmc.deleteDriver(driverID);
+				//driver= driverPo.ID;
+				Boolean istrue=dmc.deleteDriver(driver);
 				if(istrue==true){
 					for(int j=0;j<table_findDriver.getRowCount();j++){
 						table_findDriver.setValueAt(null, j, 0);
@@ -406,6 +421,7 @@ public class drivermanageui extends JDesktopPane{
 						table_findDriver.setValueAt(null, j, 5);
 						table_findDriver.setValueAt(null, j, 6);
 					}
+					textPane_38.setText("删除成功！");
 				}else{
 					textPane_38.setText("删除失败！");
 				}
