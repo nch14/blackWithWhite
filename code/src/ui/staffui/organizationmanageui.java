@@ -13,11 +13,11 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 public class organizationmanageui extends JDesktopPane{
-	private JTextField textField_17;
-	private JTextField textField_18;
-	private JTable table_9;
-	private JTable table_10;
-	private JTable table_11;
+	private JTextField textFieldofnewcity;
+	private JTextField textFieldofdistance;
+	private JTable tableofaddnewcity;
+	private JTable tableoftransitmanage;
+	private JTable tableofbusinesshallmanage;
 	
 	public organizationmanageui() {
 		initialize();
@@ -47,8 +47,8 @@ public class organizationmanageui extends JDesktopPane{
 		scrollPane_7.setBounds(207, 111, 421, 342);
 		desktopPane_20.add(scrollPane_7);
 		
-		table_9 = new JTable();
-		table_9.setModel(new DefaultTableModel(
+		tableofaddnewcity = new JTable();
+		tableofaddnewcity.setModel(new DefaultTableModel(
 			new Object[][] {
 				{null, null, null},
 				{null, null, null},
@@ -75,48 +75,48 @@ public class organizationmanageui extends JDesktopPane{
 				{null, null, null},
 			},
 			new String[] {
-				"\u65B0\u589E\u57CE\u5E02\u540D", "\u539F\u6709\u57CE\u5E02\u540D", "\u8DDD\u79BB"
+				"新增城市名", "原有城市名", "距离"
 			}
 		));
-		scrollPane_7.setColumnHeaderView(table_9);
+		scrollPane_7.setColumnHeaderView(tableofaddnewcity);
 		
-		JLabel label_23 = new JLabel("\u65B0\u589E\u57CE\u5E02");
-		label_23.setBounds(155, 63, 54, 15);
-		desktopPane_20.add(label_23);
+		JLabel labelofnewcity = new JLabel("新增城市");
+		labelofnewcity.setBounds(155, 63, 54, 15);
+		desktopPane_20.add(labelofnewcity);
 		
-		textField_17 = new JTextField();
-		textField_17.setBounds(252, 60, 66, 21);
-		desktopPane_20.add(textField_17);
-		textField_17.setColumns(10);
+		textFieldofnewcity = new JTextField();
+		textFieldofnewcity.setBounds(252, 60, 66, 21);
+		desktopPane_20.add(textFieldofnewcity);
+		textFieldofnewcity.setColumns(10);
 		
-		JLabel label_24 = new JLabel("\u8DDD\u79BB");
-		label_24.setBounds(387, 63, 54, 15);
-		desktopPane_20.add(label_24);
+		JLabel labelofdistance = new JLabel("距离");
+		labelofdistance.setBounds(387, 63, 54, 15);
+		desktopPane_20.add(labelofdistance);
 		
-		JComboBox comboBox_6 = new JComboBox();
-		comboBox_6.setBounds(451, 60, 54, 21);
-		desktopPane_20.add(comboBox_6);
+		JComboBox comboBoxofoldcity = new JComboBox();
+		comboBoxofoldcity.setBounds(451, 60, 54, 21);
+		desktopPane_20.add(comboBoxofoldcity);
 		
-		textField_18 = new JTextField();
-		textField_18.setBounds(562, 60, 66, 21);
-		desktopPane_20.add(textField_18);
-		textField_18.setColumns(10);
+		textFieldofdistance = new JTextField();
+		textFieldofdistance.setBounds(562, 60, 66, 21);
+		desktopPane_20.add(textFieldofdistance);
+		textFieldofdistance.setColumns(10);
 		
-		JLabel lblKm = new JLabel("km");
-		lblKm.setBounds(638, 63, 54, 15);
-		desktopPane_20.add(lblKm);
+		JLabel labelofmile = new JLabel("km");
+		labelofmile.setBounds(638, 63, 54, 15);
+		desktopPane_20.add(labelofmile);
 		
-		JButton button_18 = new JButton("\u6DFB\u52A0");
-		button_18.setBounds(648, 88, 93, 23);
-		desktopPane_20.add(button_18);
+		JButton buttonofaddnewcity = new JButton("添加");
+		buttonofaddnewcity.setBounds(648, 88, 93, 23);
+		desktopPane_20.add(buttonofaddnewcity);
 		
-		JButton button_19 = new JButton("\u64A4\u9500");
-		button_19.setBounds(207, 463, 93, 23);
-		desktopPane_20.add(button_19);
+		JButton buttonofcancelnewcity = new JButton("撤销");
+		buttonofcancelnewcity.setBounds(207, 463, 93, 23);
+		desktopPane_20.add(buttonofcancelnewcity);
 		
-		JButton button_20 = new JButton("\u63D0\u4EA4");
-		button_20.setBounds(648, 463, 93, 23);
-		desktopPane_20.add(button_20);
+		JButton buttonofsubmitnewcity = new JButton("提交");
+		buttonofsubmitnewcity.setBounds(648, 463, 93, 23);
+		desktopPane_20.add(buttonofsubmitnewcity);
 		
 		JDesktopPane desktopPane_21 = new JDesktopPane();
 		desktopPane_21.setBackground(Color.WHITE);
@@ -126,8 +126,8 @@ public class organizationmanageui extends JDesktopPane{
 		scrollPane_8.setBounds(207, 111, 421, 342);
 		desktopPane_21.add(scrollPane_8);
 		
-		table_10 = new JTable();
-		table_10.setModel(new DefaultTableModel(
+		tableoftransitmanage = new JTable();
+		tableoftransitmanage.setModel(new DefaultTableModel(
 			new Object[][] {
 				{null, null, null},
 				{null, null, null},
@@ -151,30 +151,30 @@ public class organizationmanageui extends JDesktopPane{
 				{null, null, null},
 			},
 			new String[] {
-				"\u57CE\u5E02", "\u8425\u4E1A\u5385", "\u8425\u4E1A\u5385\u7F16\u53F7"
+				"城市", "中转中心", "中转中心编号"
 			}
 		));
-		scrollPane_8.setViewportView(table_10);
+		scrollPane_8.setViewportView(tableoftransitmanage);
 		
-		JLabel label_25 = new JLabel("\u57CE\u5E02");
-		label_25.setBounds(337, 32, 54, 15);
-		desktopPane_21.add(label_25);
+		JLabel labelofoldcity = new JLabel("城市");
+		labelofoldcity.setBounds(337, 32, 54, 15);
+		desktopPane_21.add(labelofoldcity);
 		
-		JComboBox comboBox_7 = new JComboBox();
-		comboBox_7.setBounds(432, 29, 66, 21);
-		desktopPane_21.add(comboBox_7);
+		JComboBox comboBoxofoldcity_1 = new JComboBox();
+		comboBoxofoldcity_1.setBounds(432, 29, 66, 21);
+		desktopPane_21.add(comboBoxofoldcity_1);
 		
-		JButton button_21 = new JButton("\u67E5\u8BE2");
-		button_21.setBounds(370, 71, 93, 23);
-		desktopPane_21.add(button_21);
+		JButton buttonofquerytransit = new JButton("查询");
+		buttonofquerytransit.setBounds(370, 71, 93, 23);
+		desktopPane_21.add(buttonofquerytransit);
 		
-		JButton button_22 = new JButton("\u4FDD\u5B58");
-		button_22.setBounds(663, 460, 93, 23);
-		desktopPane_21.add(button_22);
+		JButton buttonofcanceltransit = new JButton("撤销");
+		buttonofcanceltransit.setBounds(663, 460, 93, 23);
+		desktopPane_21.add(buttonofcanceltransit);
 		
-		JButton button_25 = new JButton("\u64A4\u9500");
-		button_25.setBounds(207, 460, 93, 23);
-		desktopPane_21.add(button_25);
+		JButton buttonofsubmittransit = new JButton("提交");
+		buttonofsubmittransit.setBounds(207, 460, 93, 23);
+		desktopPane_21.add(buttonofsubmittransit);
 		
 		JDesktopPane desktopPane_22 = new JDesktopPane();
 		desktopPane_22.setBackground(Color.WHITE);
@@ -184,8 +184,8 @@ public class organizationmanageui extends JDesktopPane{
 		scrollPane_9.setBounds(207, 111, 421, 342);
 		desktopPane_22.add(scrollPane_9);
 		
-		table_11 = new JTable();
-		table_11.setModel(new DefaultTableModel(
+		tableofbusinesshallmanage = new JTable();
+		tableofbusinesshallmanage.setModel(new DefaultTableModel(
 			new Object[][] {
 				{null, null, null},
 				{null, null, null},
@@ -211,30 +211,30 @@ public class organizationmanageui extends JDesktopPane{
 				{null, null, null},
 			},
 			new String[] {
-				"\u57CE\u5E02", "\u4E2D\u8F6C\u4E2D\u5FC3", "\u4E2D\u8F6C\u4E2D\u5FC3\u7F16\u53F7"
+				"城市", "营业厅", "营业厅编号"
 			}
 		));
-		scrollPane_9.setViewportView(table_11);
+		scrollPane_9.setViewportView(tableofbusinesshallmanage);
 		
-		JLabel label_26 = new JLabel("\u57CE\u5E02");
-		label_26.setBounds(337, 32, 54, 15);
-		desktopPane_22.add(label_26);
+		JLabel labelofoldcity_2 = new JLabel("城市");
+		labelofoldcity_2.setBounds(337, 32, 54, 15);
+		desktopPane_22.add(labelofoldcity_2);
 		
-		JComboBox comboBox_8 = new JComboBox();
-		comboBox_8.setBounds(432, 29, 66, 21);
-		desktopPane_22.add(comboBox_8);
+		JComboBox comboBoxofoldcity_2 = new JComboBox();
+		comboBoxofoldcity_2.setBounds(432, 29, 66, 21);
+		desktopPane_22.add(comboBoxofoldcity_2);
 		
-		JButton button_23 = new JButton("\u67E5\u8BE2");
-		button_23.setBounds(370, 71, 93, 23);
-		desktopPane_22.add(button_23);
+		JButton buttonofquerybusinesshall = new JButton("查询");
+		buttonofquerybusinesshall.setBounds(370, 71, 93, 23);
+		desktopPane_22.add(buttonofquerybusinesshall);
 		
-		JButton button_24 = new JButton("\u4FDD\u5B58");
-		button_24.setBounds(663, 460, 93, 23);
-		desktopPane_22.add(button_24);
+		JButton buttonofcancelbussinesshall = new JButton("撤销");
+		buttonofcancelbussinesshall.setBounds(663, 460, 93, 23);
+		desktopPane_22.add(buttonofcancelbussinesshall);
 		
-		JButton button_26 = new JButton("\u64A4\u9500");
-		button_26.setBounds(207, 460, 93, 23);
-		desktopPane_22.add(button_26);
+		JButton buttonofsubmitbussinesshall = new JButton("提交");
+		buttonofsubmitbussinesshall.setBounds(207, 460, 93, 23);
+		desktopPane_22.add(buttonofsubmitbussinesshall);
 		
 	}
 }
