@@ -15,9 +15,9 @@ import javax.swing.table.DefaultTableModel;
 public class organizationmanageui extends JDesktopPane{
 	private JTextField textFieldofnewcity;
 	private JTextField textFieldofdistance;
-	private JTable tableofaddnewcity;
 	private JTable tableoftransitmanage;
 	private JTable tableofbusinesshallmanage;
+	private JTable tableofaddnewstaff;
 	
 	public organizationmanageui() {
 		initialize();
@@ -47,11 +47,9 @@ public class organizationmanageui extends JDesktopPane{
 		scrollPane_7.setBounds(207, 111, 421, 342);
 		desktopPane_20.add(scrollPane_7);
 		
-		tableofaddnewcity = new JTable();
-		tableofaddnewcity.setModel(new DefaultTableModel(
+		tableofaddnewstaff = new JTable();
+		tableofaddnewstaff.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null},
-				{null, null, null},
 				{null, null, null},
 				{null, null, null},
 				{null, null, null},
@@ -78,7 +76,7 @@ public class organizationmanageui extends JDesktopPane{
 				"新增城市名", "原有城市名", "距离"
 			}
 		));
-		scrollPane_7.setColumnHeaderView(tableofaddnewcity);
+		scrollPane_7.setViewportView(tableofaddnewstaff);
 		
 		JLabel labelofnewcity = new JLabel("新增城市");
 		labelofnewcity.setBounds(155, 63, 54, 15);

@@ -49,6 +49,18 @@ public class profitsheetui extends JDesktopPane{
 		tabbedPane_3.setBounds(46, 36, 881, 536);
 		this.add(tabbedPane_3);
 		
+		/*
+		 * 查看成本收益表
+		 */
+		
+		/*
+		 * 导出成本收益表
+		 */
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+		
+		bussinesssheetui t1 = new bussinesssheetui();
+		tabbedPane_3.addTab("报表查询", null, t1, null);
+		
 		JDesktopPane desktopPane_17 = new JDesktopPane();
 		desktopPane_17.setBackground(Color.WHITE);
 		tabbedPane_3.addTab("成本收益表", null, desktopPane_17, null);
@@ -56,14 +68,10 @@ public class profitsheetui extends JDesktopPane{
 		JLabel labelofdate = new JLabel("系统当前日期：");
 		labelofdate.setBounds(235, 98, 89, 15);
 		desktopPane_17.add(labelofdate);
-		
-		/*
-		 * 查看成本收益表
-		 */
 		JButton btnNewButton = new JButton("查询");
 		btnNewButton.setBounds(519, 153, 93, 23);
 		desktopPane_17.add(btnNewButton);
-		 btnNewButton.addActionListener(new ActionListener() {
+		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
 				ProfitSheetVO profitSheet = profitsheet.show();
@@ -88,10 +96,6 @@ public class profitsheetui extends JDesktopPane{
 			}
 		));
 		scrollPane_5.setViewportView(tableofprofitsheet);
-		
-		/*
-		 * 导出成本收益表
-		 */
 		JButton buttonofexport = new JButton("导出");
 		buttonofexport.addMouseListener(new MouseAdapter() {
 			@Override
@@ -113,11 +117,7 @@ public class profitsheetui extends JDesktopPane{
 		JLabel labelofdate_1 = new JLabel("");
 		labelofdate_1.setBounds(349, 98, 165, 15);
 		desktopPane_17.add(labelofdate_1);
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
 		labelofdate_1.setText(df.format(new Date()));//显示当前时间
-		
-		bussinesssheetui t1 = new bussinesssheetui();
-		tabbedPane_3.addTab("报表查询", null, t1, null);
 		
 		new Thread() {        
 			public void run() {            
