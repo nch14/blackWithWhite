@@ -3,14 +3,14 @@ package settings;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Company implements Serializable {
-	public static ArrayList<City> citys;
-	public static ArrayList<Distance> distance;
+public class company implements Serializable {
+	public ArrayList<City> citys;
+	public ArrayList<Distance> distance;
 	
 	/**
 	 * 该方法不得调用！
 	 */
-	public Company(){
+	public company(){
 		citys=new ArrayList<City>();
 		distance=new ArrayList<Distance>();
 	}
@@ -26,7 +26,7 @@ public class Company implements Serializable {
 		return 0;
 	}	
 	
-	public static int getDistance(String city1,String city2){
+	public int getDistance(String city1,String city2){
 		Distance findDistance;
 		for(int i=0;i<distance.size();i++){
 			findDistance=distance.get(i);
@@ -37,17 +37,15 @@ public class Company implements Serializable {
 		}
 		return 0;
 	}	
-	public boolean addCity(City city,ArrayList<Integer> distances){
+	public void addCity(City city,ArrayList<Integer> distances){
 		Distance thisdistance;
 		for(int i=0;i<citys.size();i++){
 			thisdistance=new Distance(city,citys.get(i),distances.get(i));
 			distance.add(thisdistance);
 		}
 		citys.add(city);
-		//下面还要调用一次同步方法
-		return CompanySettingsController.push();
 	}
-	public boolean deleteCity(City city){
+	public void deleteCity(City city){
 		Distance findDistance;
 		ArrayList<Distance> distanceToDelete=new ArrayList<Distance>();
 		for(int i=0;i<distance.size();i++){
@@ -61,8 +59,6 @@ public class Company implements Serializable {
 			distanceToDelete.remove(dis);
 		}
 		citys.remove(city);
-		//下面还要调用一次同步方法
-		return CompanySettingsController.push();
 	}
 	
 
