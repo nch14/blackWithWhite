@@ -9,8 +9,8 @@ public class ArrivementBill implements Serializable{
 	
 	public String ID;//µ¥¾ÝµÄID
 	public boolean judged;
-	String[] date;
-	String placeOfDeparture;
+	public String[] date;
+	public String placeOfDeparture;
 	public ArrayList<struct> bill=new  ArrayList<struct>();
 	
 	public ArrivementBill(){
