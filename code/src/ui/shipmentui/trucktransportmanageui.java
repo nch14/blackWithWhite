@@ -239,11 +239,14 @@ public class trucktransportmanageui extends JDesktopPane{
 				JButton button_11 = new JButton("提交");
 				button_11.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						TransportBill_Truck truck = null;
-						for(int i=0;i<table_carTransport.getRowCount();i++){
-							truck.transBillID=table_carTransport.getValueAt(i, 0).toString();
-						}
+						TransportBill_Truck truck = new TransportBill_Truck();
 						TruckTransportManageBLService truckTransport=new TruckTransportManageController();
+						for(int i=0;i<table_carTransport.getRowCount();i++){
+							if(table_carTransport.getValueAt(i, 0)!= null){
+							    truck.transBillID=table_carTransport.getValueAt(i, 0).toString();
+							}
+						}
+						
 						double truckBill=truckTransport.submitBills(truck);
 						if(truckBill==0){
 							textPane_5.setText("提交失败！");
@@ -252,6 +255,7 @@ public class trucktransportmanageui extends JDesktopPane{
 								table_carTransport.setValueAt(null, i, 0);
 								table_carTransport.setValueAt(null, i, 1);
 							}
+							textPane_5.setText("提交成功！");
 						}
 					}
 				});

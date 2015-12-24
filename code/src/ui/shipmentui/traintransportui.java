@@ -241,11 +241,13 @@ public class traintransportui extends JDesktopPane{
 				button_5.addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent e) {
-						TransportBill_Train train = null;
-						for(int i=0;i<trainTable.getRowCount();i++){
-						     train.transBillID=trainTable.getValueAt(i, 0).toString();
-						}
+						TransportBill_Train train = new TransportBill_Train();
 						TrainTransportBLService trainTransport=new TrainTransportController();
+						for(int i=0;i<trainTable.getRowCount();i++){
+							if(trainTable.getValueAt(i, 0)!=null){
+						        train.transBillID=trainTable.getValueAt(i, 0).toString();
+							}
+						}
 						double trainBill=trainTransport.submitBills(train);
 						if(trainBill==0){
 							timeLabel.setText("提交失败！");
@@ -254,6 +256,7 @@ public class traintransportui extends JDesktopPane{
 								trainTable.setValueAt(null, i, 0);
 								trainTable.setValueAt(null, i, 1);
 							}
+							timeLabel.setText("提交成功！");
 						}
 					}
 				});

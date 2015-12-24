@@ -24,6 +24,7 @@ import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.table.DefaultTableModel;
 
+import bill.TransportBill;
 import bill.TransportBill_Plane;
 import bl.shipment.Impl.AirTransportController;
 import bl.shipment.Service.AirTransportBLService;
@@ -272,11 +273,13 @@ public class airtransportui {
 		button_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				TransportBill_Plane plane = null;
-				for(int i=0;i<table_airTransport.getRowCount();i++){
-				     plane.transBillID=table_airTransport.getValueAt(i, 0).toString();
-				}
+				TransportBill_Plane plane = new TransportBill_Plane();
 				AirTransportBLService airTransport=new AirTransportController();
+				for(int i=0;i<table_airTransport.getRowCount();i++){
+					if(table_airTransport.getValueAt(i, 0)!=null){
+				        plane.transBillID=table_airTransport.getValueAt(i, 0).toString();
+					}
+				}
 				double airBill=airTransport.submitBills(plane);
 				if(airBill==0){
 					textPane_1.setText("提交失败！");
@@ -285,6 +288,7 @@ public class airtransportui {
 						table_airTransport.setValueAt(null, i, 0);
 						table_airTransport.setValueAt(null, i, 1);
 					}
+					textPane_1.setText("提交成功！");
 				}
 			}
 		});

@@ -201,17 +201,21 @@ public class transportandreceiveui extends JDesktopPane{
 	JButton button_9 = new JButton("提交");
 	button_9.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
-			ArrivementBill_Center arrivement=null;
-			for(int i=0;i<table_arrival_order.getRowCount();i++){
-				arrivement.ID=table_arrival_order.getValueAt(i, 0).toString();
-			}
+			ArrivementBill_Center arrivement = new ArrivementBill_Center();
 			TransportAndReceiveBLService transport=new TransportAndReceiveController();
+			for(int i=0;i<table_arrival_order.getRowCount();i++){
+				if(table_arrival_order.getValueAt(i, 0)!= null){
+				    arrivement.ID=table_arrival_order.getValueAt(i, 0).toString();
+				}
+			}
+			
 			boolean istrue=transport.submitBills(arrivement);
 			if(istrue=true){
 				for(int i=0;i<table_arrival_order.getRowCount();i++){
 					table_arrival_order.setValueAt(null, i, 0);
 					table_arrival_order.setValueAt(null, i, 1);
 				}
+				textPane_14.setText("提交成功！");
 			}else{
 				textPane_14.setText("提交失败！");
 			}
