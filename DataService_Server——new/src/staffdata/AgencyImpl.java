@@ -7,18 +7,18 @@ import java.util.ArrayList;
 
 import Dataservice.FileHelper;
 import data.staff.AgencyInfoHelper;
-import settings.Company;
+import settings.company;
 
 public class AgencyImpl implements AgencyInfoHelper {
 
-	public static ArrayList<Company> array;
+	public static ArrayList<company> array;
 	public static boolean ready=false;
 	public static String dir="ser/Agency.ser";
 	
 	public AgencyImpl() throws FileNotFoundException, ClassNotFoundException, IOException{
 		if(!ready){
 			ready=true;
-			array=(ArrayList<Company>) FileHelper.read(dir);
+			array=(ArrayList<company>) FileHelper.read(dir);
 		}
 	}
 	public static void save() throws FileNotFoundException, IOException{
@@ -32,7 +32,7 @@ public class AgencyImpl implements AgencyInfoHelper {
 	}
 
 	@Override
-	public boolean push(Company c) throws RemoteException {
+	public boolean push(company c) throws RemoteException {
 		// TODO Auto-generated method stub
 		array.add(c);
 		try {
@@ -45,7 +45,7 @@ public class AgencyImpl implements AgencyInfoHelper {
 	}
 
 	@Override
-	public Company pull() throws RemoteException {
+	public company pull() throws RemoteException {
 		// TODO Auto-generated method stub
 		return array.get(0);
 	}

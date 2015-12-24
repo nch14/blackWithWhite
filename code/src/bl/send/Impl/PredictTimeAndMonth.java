@@ -1,7 +1,8 @@
 package bl.send.Impl;
 
 import enumHelper.TypeOfExpress;
-import settings.Company;
+import settings.company;
+import settings.CompanySettingsController;
 
 public class PredictTimeAndMonth {
 	public String[] moneyAndTime(String ID) {
@@ -12,7 +13,9 @@ public class PredictTimeAndMonth {
 	
 	
 	public static int CalculateMoney(double weight,TypeOfExpress type,String city1,String city2) throws Exception{
-		int distance=Company.getDistance(city1, city2);
+		CompanySettingsController companyManage=new CompanySettingsController();
+		company company=companyManage.ourCompany;
+		int distance=company.getDistance(city1, city2);
 		if(distance==0){
 			throw new Exception();
 		}

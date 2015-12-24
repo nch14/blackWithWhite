@@ -6,17 +6,26 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import data.staff.AgencyInfo;
 
 public class CompanySettingsController {
-	public static Company ourCompany;
+	public company ourCompany;
 	
+	public CompanySettingsController(company company){
+		ourCompany=company;
+	}
+
+	public CompanySettingsController(){
+		pull();
+	}
+
 	/**
 	 * 将服务器的公司设置同步到本地
 	 * @return
 	 */
-	public static boolean pull(){
+	public boolean pull(){
 		AgencyInfo agencyInfo=new AgencyInfo();
 		try {
 			ourCompany=agencyInfo.pull();
@@ -32,7 +41,7 @@ public class CompanySettingsController {
 	 * 将本地的公司设置同步到服务器
 	 * @return
 	 */
-	public static boolean push(){		
+	public boolean push(){		
 		AgencyInfo agencyInfo=new AgencyInfo();
 		try {
 			return agencyInfo.push(ourCompany);
@@ -43,7 +52,19 @@ public class CompanySettingsController {
 		}	
 	}
 	
-	public static boolean saveInThisComputer(){
+	public boolean addCity(City city,ArrayList<Integer> distances){
+		ourCompany.addCity(city, distances);
+		boolean result=push();
+		return result;
+	}
+	
+	public boolean deleteCity(City city){
+		ourCompany.deleteCity(city);
+		boolean result=push();
+		return result;
+	}
+	
+	public  boolean saveInThisComputer(){
 		//以下代码实现序列化
 	        try{
 	            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("CompanySettings.out"));//输出流保存的文件名为 my.out ；ObjectOutputStream能把Object输出成Byte流
@@ -60,7 +81,7 @@ public class CompanySettingsController {
 			return false;
 	}
 	 
-	public static boolean loadFromThisComputer(){    
+	public  boolean loadFromThisComputer(){    
 	         ObjectInputStream oin = null;//局部变量必须要初始化
 	        try{
 	            oin = new ObjectInputStream(new FileInputStream("CompanySettings.out"));
@@ -72,7 +93,7 @@ public class CompanySettingsController {
 	            return false;
 	        }      
 	        try {
-	        	ourCompany= (Company) oin.readObject();//由Object对象向下转型为MyTest对象
+	        	ourCompany= (company) oin.readObject();//由Object对象向下转型为MyTest对象
 	        } catch (ClassNotFoundException e) {
 	            e.printStackTrace();
 	            return false;
@@ -83,10 +104,10 @@ public class CompanySettingsController {
 	        return true;
 	}
 	
-	public static String DeapartmentSearch(String name){
-		int citySize=Company.citys.size();
+	public String DeapartmentSearch(String name){
+		int citySize=ourCompany.citys.size();
 		for(int i=0;i<citySize;i++){
-			City city=Company.citys.get(i);
+			City city=ourCompany.citys.get(i);
 			
 			for(int k=0;k<city.transportCenter.size();k++){
 				TransportCenter transportCenter=city.transportCenter.get(0);

@@ -36,6 +36,7 @@ public class TransportCenter implements Serializable{
 	public ArrayList<BussinessHall> getBussinessHall(){
 		return bussinessHall;
 	}
+	
 	/**
 	 * 本方法仅供系统初始化调用。任何人不得调用。
 	 * @param names 名称

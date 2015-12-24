@@ -2,27 +2,28 @@ package tools;
 
 import bl.staff.Impl.StaffManageController;
 import settings.City;
-import settings.Company;
+import settings.company;
 import settings.CompanySettingsController;
 import settings.Distance;
 import settings.TransportCenter;
 import vo.StaffVO;
 
 public class SystemHelper {
-
+	
 	public static void initSystem(){
 		//1.机构初始化城市
-		CompanySettingsController.ourCompany=new Company();
+		CompanySettingsController companyManage=new CompanySettingsController(new company());
+		company company=companyManage.ourCompany;
 	
 		City beijing=new City("北京","010");
 		City nanjing=new City("南京","025");
 		City guangzhou=new City("广州","020");
 		City shanghai=new City("上海","021");
 		
-		Company.citys.add(beijing);
-		Company.citys.add(nanjing);
-		Company.citys.add(guangzhou);
-		Company.citys.add(shanghai);
+		company.citys.add(beijing);
+		company.citys.add(nanjing);
+		company.citys.add(guangzhou);
+		company.citys.add(shanghai);
 		
 		Distance bn=new Distance(beijing, nanjing,900);
 		Distance bs=new Distance(beijing, shanghai,1065);
@@ -31,12 +32,12 @@ public class SystemHelper {
 		Distance ng=new Distance(nanjing,guangzhou,1132);
 		Distance sg=new Distance(guangzhou,shanghai,1213);
 		
-		Company.distance.add(bn);
-		Company.distance.add(bs);
-		Company.distance.add(bg);
-		Company.distance.add(ns);
-		Company.distance.add(ng);
-		Company.distance.add(sg);
+		company.distance.add(bn);
+		company.distance.add(bs);
+		company.distance.add(bg);
+		company.distance.add(ns);
+		company.distance.add(ng);
+		company.distance.add(sg);
 		
 		TransportCenter nj=nanjing.transportCenter.get(0);
 		TransportCenter sh=shanghai.transportCenter.get(0);
@@ -77,6 +78,5 @@ public class SystemHelper {
 	
 	public static void main(String[] args){
 		initSystem();
-		CompanySettingsController.saveInThisComputer();
 	}
 }
