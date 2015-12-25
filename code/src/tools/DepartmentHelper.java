@@ -23,7 +23,7 @@ public class DepartmentHelper {
 	public DepartmentHelper(StaffVO staff){
 		this.thisStaff=staff;
 		thisDepartment=staff.department;
-		this.thisDepartmentID=CompanySettingsController.DeapartmentSearch(thisDepartment);
+		//this.thisDepartmentID=CompanySettingsController.DeapartmentSearch(thisDepartment);
 		if(this.thisDepartmentID.equals("fail")){
 			System.out.println("在登记此用户的部门信息时出错！！！该部门可能不存在");
 		}

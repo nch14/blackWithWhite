@@ -2,7 +2,7 @@ package tools;
 
 import bl.staff.Impl.StaffManageController;
 import settings.City;
-import settings.company;
+import settings.Company;
 import settings.CompanySettingsController;
 import settings.Distance;
 import settings.TransportCenter;
@@ -12,8 +12,8 @@ public class SystemHelper {
 	
 	public static void initSystem(){
 		//1.机构初始化城市
-		CompanySettingsController companyManage=new CompanySettingsController(new company());
-		company company=companyManage.ourCompany;
+		CompanySettingsController companyManage=new CompanySettingsController(new Company());
+		Company company=companyManage.ourCompany;
 	
 		City beijing=new City("北京","010");
 		City nanjing=new City("南京","025");

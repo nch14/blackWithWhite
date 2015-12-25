@@ -4,8 +4,8 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 import remoteInterface.Client_Helper;
-import settings.company;
+import settings.Company;
 public interface AgencyInfoHelper extends Client_Helper{
-	public boolean push(company c) throws RemoteException;
-	public company pull() throws RemoteException;
+	public boolean push(Company c) throws RemoteException;
+	public Company pull() throws RemoteException;
 }

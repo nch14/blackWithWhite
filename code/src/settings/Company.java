@@ -3,14 +3,14 @@ package settings;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class company implements Serializable {
+public class Company implements Serializable {
 	public ArrayList<City> citys;
 	public ArrayList<Distance> distance;
 	
 	/**
 	 * 该方法不得调用！
 	 */
-	public company(){
+	public Company(){
 		citys=new ArrayList<City>();
 		distance=new ArrayList<Distance>();
 	}

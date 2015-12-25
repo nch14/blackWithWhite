@@ -17,7 +17,6 @@ import javax.swing.table.DefaultTableModel;
 
 import vo.ReceiveInformationVO;
 import bill.AllocateBill;
-import bill.ReceiveBill;
 import bl.receivement.Impl.DistributionController;
 import bl.receivement.Impl.TransportFinishedController;
 import bl.receivement.Service.DistributionBLService;

@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import data.staff.AgencyInfo;
 
 public class CompanySettingsController {
-	public company ourCompany;
+	public Company ourCompany;
 	
-	public CompanySettingsController(company company){
+	public CompanySettingsController(Company company){
 		ourCompany=company;
 	}
 
@@ -93,7 +93,7 @@ public class CompanySettingsController {
 	            return false;
 	        }      
 	        try {
-	        	ourCompany= (company) oin.readObject();//由Object对象向下转型为MyTest对象
+	        	ourCompany= (Company) oin.readObject();//由Object对象向下转型为MyTest对象
 	        } catch (ClassNotFoundException e) {
 	            e.printStackTrace();
 	            return false;

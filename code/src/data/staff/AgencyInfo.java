@@ -7,7 +7,7 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
 import data.Iphelper.Iphelper;
-import settings.company;
+import settings.Company;
 
 public class AgencyInfo implements AgencyInfoHelper{
 	
@@ -23,7 +23,7 @@ public class AgencyInfo implements AgencyInfoHelper{
 	}
 
 	@Override
-	public boolean push(company c) throws RemoteException {
+	public boolean push(Company c) throws RemoteException {
 		// TODO Auto-generated method stub
 		boolean result=false;
 		try {
@@ -38,9 +38,9 @@ public class AgencyInfo implements AgencyInfoHelper{
 	}
 
 	@Override
-	public company pull() throws RemoteException {
+	public Company pull() throws RemoteException {
 		// TODO Auto-generated method stub
-		company c = null;
+		Company c = null;
 		try {
 			AgencyInfoHelper x=(AgencyInfoHelper)Naming.lookup(getURL());
 			c=x.pull();
