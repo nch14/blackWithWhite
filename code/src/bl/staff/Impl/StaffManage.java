@@ -18,8 +18,12 @@ public class StaffManage {
 		boolean result=true;
 		try {
 			for(int i=0;i<staffs.length;i++){
-				staffPO=new StaffPO(staffs[i]);
-				result=result&&member.insert(staffPO);
+//				System.out.println(i+" "+staffs[i].name+staffs.length);
+				if(!(staffs[i]==null)){
+					staffPO=new StaffPO(staffs[i]);
+					result=result&&member.insert(staffPO);
+				}
+				
 			}	
 			return result;
 		} catch (RemoteException e) {
