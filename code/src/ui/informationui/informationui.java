@@ -20,7 +20,7 @@ import javax.swing.JLabel;
 import java.awt.Color;
 
 public class informationui {
-
+	
 	private JFrame frame;
 	private JTextField textField;
 	private JTable table;
@@ -55,8 +55,8 @@ public class informationui {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setResizable(false);
-		frame.setTitle("\u7269\u6D41\u4FE1\u606F\u7BA1\u7406\u7CFB\u7EDF");
-		frame.setBounds(100, 100, 1000, 650);
+		frame.setTitle("物流信息管理系统");
+		frame.setBounds(0, 0, 1000, 650);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		

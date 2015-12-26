@@ -47,11 +47,23 @@ public class TimeHelper {
 				adjustTime(""+c.get(Calendar.DATE),2)+
 				adjustTime(""+c.get(Calendar.HOUR),2)+
 				adjustTime(""+c.get(Calendar.MINUTE),2)+
-				adjustTime(""+c.get(Calendar.SECOND),2);
-		
+				adjustTime(""+c.get(Calendar.SECOND),2);	
 		return s;
 	}
 	
+	/**
+	 * 获得系统当前时间
+	 * @return 年月日时分秒的字符串,用于直接print的时间
+	 */
+	public static String getShowTime(){
+		Calendar c=Calendar.getInstance();
+		String s=""+c.get(Calendar.YEAR)+"/"+(c.get(Calendar.MONTH)+1)+"/"+
+				adjustTime(""+c.get(Calendar.DATE),2)+"    "+
+				adjustTime(""+c.get(Calendar.HOUR),2)+":"+
+				adjustTime(""+c.get(Calendar.MINUTE),2)+":"+
+				adjustTime(""+c.get(Calendar.SECOND),2);	
+		return s;
+	}
 	/**
 	 * getTime方法的私有辅助方法，能够实现把“3”转换为“03”
 	 * @param s 待转换的字符串

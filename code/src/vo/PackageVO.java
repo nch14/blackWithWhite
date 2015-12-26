@@ -10,17 +10,21 @@ import bill.TransMesgPO;
  */
 public class PackageVO {
 	private String ID;//¼Ä¼þµ¥ºÅ
-	public ArrayList<TransMesgPO> state;
-	
+	private ArrayList<TransMesgPO> state;
+
 	public PackageVO(String ID){
 		this.ID=ID;
+		state=new ArrayList<TransMesgPO>();
 	}
-	
+	public PackageVO(String ID,ArrayList<TransMesgPO> states){
+		this.ID=ID;
+		state=states;
+	}
 	public String getID(){
 		return ID;
 	}
-	public boolean refreshState(ArrayList<TransMesgPO> transMesgPO){
-		state=transMesgPO;
+	public boolean refreshState(TransMesgPO transMesgPO){
+		state.add(transMesgPO);
 		return true;
 	}
 	

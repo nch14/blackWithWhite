@@ -13,13 +13,13 @@ public class Information {
 		ship=new ShipmentInfo();
 	}
 
-	public PackageVO  inquireTransMesg(String id) {
+	public PackageVO inquireTransMesg(String id) {
 		// TODO Auto-generated method stub
 		ArrayList<TransMesgPO> transMesg;
-		PackageVO packageVO=new PackageVO(id); 
+		PackageVO packageVO;
 		try {
 			transMesg=ship.getTransMesg(id);
-			packageVO.refreshState(transMesg);
+			packageVO=new PackageVO(id,transMesg);
 			return packageVO;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

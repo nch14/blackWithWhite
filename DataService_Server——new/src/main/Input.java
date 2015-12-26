@@ -27,7 +27,8 @@ import database.Database_StockFillment;
 import database.Database_TransMesg;
 import database.Database_TransportBill;
 import database.Database_imformation;
-import settings.company;
+import settings.Company;
+
 
 public class Input {
 	public Database_AllocateBill database_AllocateBill;
@@ -169,7 +170,7 @@ public class Input {
 		out.close();
 		
 		out=new ObjectOutputStream(new FileOutputStream("ser/Agency.ser"));
-		out.writeObject(new ArrayList<company>());
+		out.writeObject(new ArrayList<Company>());
 		out.close();
 		
 		
