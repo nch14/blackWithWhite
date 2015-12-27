@@ -111,9 +111,9 @@ public class informationui {
 				));
 				scrollPane.setViewportView(table);
 				
-				for(int i=0;i<pac.state.size();i++){
-					table.setValueAt(pac.state.get(i).time, i, 0);
-					table.setValueAt(pac.state.get(i).location, i, 1);
+				for(int i=0;i<pac.getState().size();i++){
+					table.setValueAt(pac.getState().get(i).time, i, 0);
+					table.setValueAt(pac.getState().get(i).location, i, 1);
 				}
 				
 				
