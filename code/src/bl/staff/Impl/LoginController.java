@@ -22,8 +22,8 @@ public class LoginController implements LoginService{
 			staff=member.get(ID);
 			if(staff==null)
 				return null;
-			if(!passwords.equals(staff.passwords))
-				return null;
+//			if(!passwords.equals(staff.passwords))
+//				return null;
 			StaffVO thisUser=new StaffVO(staff);
 			DepartmentHelper helper=new DepartmentHelper(thisUser);
 			return thisUser;

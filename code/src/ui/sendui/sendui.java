@@ -212,7 +212,7 @@ public class sendui extends JDesktopPane{
 		this.add(labelofpackingexpense);
 		
 		JComboBox comboBoxofpackingexpense = new JComboBox();
-		comboBoxofpackingexpense.setModel(new DefaultComboBoxModel(new String[] {"\u7EB8\u7BB1\uFF085\u5143\uFF09"}));
+		comboBoxofpackingexpense.setModel(new DefaultComboBoxModel(new String[] {"5", "10", "15"}));
 		comboBoxofpackingexpense.setBounds(226, 508, 108, 21);
 		this.add(comboBoxofpackingexpense);
 		
@@ -221,6 +221,8 @@ public class sendui extends JDesktopPane{
 		this.add(labelofordertype);
 		
 		JComboBox comboBoxofordertype = new JComboBox();
+		comboBoxofordertype.setModel(new DefaultComboBoxModel(new String[] {"\u5FEB", "\u7279\u5FEB"}));
+		comboBoxofordertype.setToolTipText("\u5FEB");
 		comboBoxofordertype.setBounds(493, 508, 66, 21);
 		this.add(comboBoxofordertype);
 		
@@ -237,19 +239,19 @@ public class sendui extends JDesktopPane{
 		labelofexpense.setBounds(654, 486, 68, 15);
 		this.add(labelofexpense);
 		
+		JLabel labeloftotalexpense = new JLabel("");
+		labeloftotalexpense.setBounds(738, 486, 54, 15);
+		this.add(labeloftotalexpense);
+		
 		JButton buttonofack = new JButton("确认");
 		buttonofack.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+				labeloftotalexpense.setText("100");
 			}
 		});
 		buttonofack.setBounds(654, 507, 68, 23);
 		this.add(buttonofack);
-		
-		JLabel labeloftotalexpense = new JLabel("");
-		labeloftotalexpense.setBounds(738, 486, 54, 15);
-		this.add(labeloftotalexpense);
 		
 		JButton buttonofsubmit = new JButton("提交");
 		buttonofsubmit.addMouseListener(new MouseAdapter() {

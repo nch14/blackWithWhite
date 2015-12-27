@@ -160,10 +160,14 @@ public class transportfinishedui extends JDesktopPane{
 		button_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ReceiveInformationVO receiveInfo = null;
-				ArrayList<ReceiveInformationVO> receive = null;
-				for(int i=0;i<table_1.getRowCount();i++){
-					receiveInfo.ID=(String) table_1.getValueAt(i, 0);
+				ReceiveInformationVO receiveInfo = new ReceiveInformationVO();
+				ArrayList<ReceiveInformationVO> receive = new ArrayList<ReceiveInformationVO>();
+				int count=0;
+				while(!(table_1.getValueAt(count, 0)==null)){
+					++count;
+				}
+				for(int i=0;i<count;i++){
+					receiveInfo.ID= table_1.getValueAt(i, 0).toString();
 					receiveInfo.nameOfReceiver=(String) table_1.getValueAt(i, 1);
 					receiveInfo.time[0]= table_1.getValueAt(i, 2).toString().substring(0, 3);
 					receiveInfo.time[1]= table_1.getValueAt(i, 2).toString().substring(4, 5);

@@ -12,15 +12,22 @@ import javax.swing.JButton;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
+import bl.information.Impl.InformationController;
+import bl.information.Service.InformationBLService;
 import ui.receivementui.transportfinishedui;
+import vo.PackageVO;
 
 public class getsendui {
 
 	private JFrame frame;
-
+	private JTable table;
+	private JLabel label;
 	/**
 	 * Launch the application.
 	 */
