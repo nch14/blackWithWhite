@@ -45,23 +45,23 @@ public class AddDriverPanel extends JPanel{
 		
 		name=new JLabel();
 		name.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
-		name.setBounds(50,50,40,30);
+		name.setBounds(120,50,40,30);
 		name.setText("ÐÕÃû");
 		
 		username=new JTextField();
 		username.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
-		username.setBounds(140,50,80,30);
+		username.setBounds(210,50,80,30);
 		
 		sex=new JLabel();
 		sex.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
-		sex.setBounds(240,50,40,30);
+		sex.setBounds(340,50,40,30);
 		sex.setText("ÐÔ±ð");
 		
 		usersex=new JComboBox();
 		usersex.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
 		usersex.addItem("ÄÐ");
 		usersex.addItem("Å®");
-		usersex.setBounds(290,50,60,30);
+		usersex.setBounds(410,50,60,30);
 		
 		birthday=new JLabel();
 		birthday.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
@@ -75,12 +75,12 @@ public class AddDriverPanel extends JPanel{
 		
 		tel=new JLabel();
 		tel.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
-		tel.setBounds(50,110,160,30);
+		tel.setBounds(120,110,160,30);
 		tel.setText("ÊÖ»úºÅÂë");
 		
 		usertel=new JTextField();
 		usertel.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
-		usertel.setBounds(140,110,120,30);
+		usertel.setBounds(210,110,120,30);
 		
 		validDate=new JLabel();
 		validDate.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
@@ -94,12 +94,12 @@ public class AddDriverPanel extends JPanel{
 		
 		driverid=new JLabel();
 		driverid.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
-		driverid.setBounds(50,170,80,30);
+		driverid.setBounds(120,170,80,30);
 		driverid.setText("Ë¾»ú±àºÅ");
 		
 		userid=new JTextField();
 		userid.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
-		userid.setBounds(140,170,200,30);
+		userid.setBounds(210,170,200,30);
 		
 		IDNumbers=new JLabel();
 		IDNumbers.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
@@ -183,13 +183,12 @@ public class AddDriverPanel extends JPanel{
 		table=new JTable(tableData,columnTitle);
 		int height=table.getRowHeight()*(size+1)+9;
 		int ValidMaxHeight=250;
-		if(height>=400)
+		if(height>=300)
 			height=ValidMaxHeight;
-		//table.setBounds(200, 50, 600, height);
 		table.setOpaque(false); 
 		table.setRowSelectionAllowed(true);
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(140, 270, 658, height);
+		scrollPane.setBounds(140, 370, 658, height);
 		scrollPane.setOpaque(false);
 		this.add(scrollPane);
 		scrollPane.setViewportView(table);

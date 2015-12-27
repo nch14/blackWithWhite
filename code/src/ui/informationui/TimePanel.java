@@ -37,7 +37,7 @@ public class TimePanel extends JPanel implements Runnable {
 		message.setBounds(150, 8,1600, 40);
 		shut=new JButton();
 		shut.setIcon(new ImageIcon("pic/关闭按钮3A.png"));
-		shut.setBounds(1060,0, 54, 40);
+		shut.setBounds(1140,10, 54, 40);
 		shut.addActionListener(new ExitListener());
 		//shut.addFocusListener(new ShutListener());
 		shut.setBorder(null);
@@ -71,7 +71,7 @@ public class TimePanel extends JPanel implements Runnable {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			// TODO Auto-generated method stub
-			belongsTO.dispose();
+			System.exit(0);
 		}
 		
 	}
@@ -82,7 +82,7 @@ public class TimePanel extends JPanel implements Runnable {
 				message.setText("                  "/*18个空格*/+text);
 				this.repaint();
 				try {
-					Thread.sleep(8000);
+					Thread.sleep(5000);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

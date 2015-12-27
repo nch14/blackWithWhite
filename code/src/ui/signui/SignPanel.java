@@ -24,6 +24,7 @@ import ui.informationui.AddDriverPanel;
 import ui.informationui.AddStaffPanel;
 import ui.informationui.AddTrunckPanel;
 import ui.informationui.FunctionPanel;
+import ui.informationui.SendPackagePanel;
 import ui.informationui.StartFrame;
 import ui.informationui.StartPanel;
 import ui.informationui.UserManagePanel;
@@ -153,7 +154,7 @@ public class SignPanel extends JPanel{
 			
 			
 			
-			JButton[] buttons=new JButton[3];
+			JButton[] buttons=new JButton[5];
 			
 			buttons[0]=new JButton();
 			buttons[0].setFont(new Font("微软雅黑",Font.BOLD,16));
@@ -167,11 +168,20 @@ public class SignPanel extends JPanel{
 			buttons[2].setFont(new Font("微软雅黑",Font.BOLD,16));
 			buttons[2].setText("增加车辆信息");
 			
-			JPanel[] panels=new JPanel[3];
+			buttons[3]=new JButton();
+			buttons[3].setFont(new Font("微软雅黑",Font.BOLD,16));
+			buttons[3].setText("用户管理");
+			
+			buttons[4]=new JButton();
+			buttons[4].setFont(new Font("微软雅黑",Font.BOLD,16));
+			buttons[4].setText("寄件");
+			
+			JPanel[] panels=new JPanel[5];
 			panels[0]=new AddStaffPanel(belongsTO); 
 			panels[1]=new AddDriverPanel(belongsTO);
 			panels[2]=new AddTrunckPanel(belongsTO);
-			
+			panels[3]=new UserManagePanel(belongsTO);
+			panels[4]=new SendPackagePanel(belongsTO);
 			
 			FunctionPanel tool=new FunctionPanel(belongsTO,buttons,panels);
 			belongsTO.addToolBar(tool);

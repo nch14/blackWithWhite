@@ -16,172 +16,89 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-import bl.staff.Impl.StaffManageController;
-import bl.staff.Impl.UserManageController;
-import ui.informationui.AddDriverPanel.AgeListener;
-import ui.informationui.AddDriverPanel.PushListener;
+import bill.TruckPO;
+
+import bl.staff.Impl.TruckManageController;
 import vo.StaffVO;
 
 public class AddTrunckPanel extends JPanel{
 	StartFrame belongsTO;
 	JLabel driverid;
-	JLabel name;
-	JLabel sex;
-	JLabel birthday;
 	JLabel validDate;
-	JLabel tel;
-	JLabel IDNumbers;
-	JTextField usertel;
+	JLabel IDNumbers;	
 	JTextField userid;
-	JTextField userpass;
-	JTextField username;
 	JTextField userValidTime;
-	JTextField userbirthday;
-	JComboBox usersex;  
+	JTextField userIDNumbers;
     JButton okButton;
     JTable table;
 	public AddTrunckPanel(StartFrame belongsTO){
 		this.belongsTO=belongsTO;
 		this.setLayout(null);
 		this.setBounds(200, 60, 1000, 615);
+	
+		driverid=new JLabel();
+		driverid.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
+		driverid.setBounds(50,100,80,30);
+		driverid.setText("³µÁ¾´úºÅ");
 		
-		name=new JLabel();
-		name.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
-		name.setBounds(50,50,40,30);
-		name.setText("ÐÕÃû");
+		userid=new JTextField();
+		userid.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
+		userid.setBounds(140,100,200,30);
+	
+		IDNumbers=new JLabel();
+		IDNumbers.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
+		IDNumbers.setBounds(540,100,80,30);
+		IDNumbers.setText("³µÅÆºÅ");
 		
-		username=new JTextField();
-		username.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
-		username.setBounds(140,50,80,30);
-		
-		sex=new JLabel();
-		sex.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
-		sex.setBounds(240,50,40,30);
-		sex.setText("ÐÔ±ð");
-		
-		usersex=new JComboBox();
-		usersex.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
-		usersex.addItem("ÄÐ");
-		usersex.addItem("Å®");
-		usersex.setBounds(290,50,60,30);
-		
-		birthday=new JLabel();
-		birthday.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
-		birthday.setBounds(540,50,80,30);
-		birthday.setText("³öÉúÈÕÆÚ");
-		
-		userbirthday=new JTextField();
-		userbirthday.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
-		userbirthday.setBounds(630,50,200,30);
-		userbirthday.addFocusListener(new AgeListener());
-		
-		tel=new JLabel();
-		tel.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
-		tel.setBounds(50,110,160,30);
-		tel.setText("ÊÖ»úºÅÂë");
-		
-		usertel=new JTextField();
-		usertel.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
-		usertel.setBounds(140,110,120,30);
+		userIDNumbers=new JTextField();
+		userIDNumbers.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
+		userIDNumbers.setBounds(630,100,200,30);
 		
 		validDate=new JLabel();
 		validDate.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
-		validDate.setBounds(540,110,80,30);
-		validDate.setText("ÐÐÊ»Ö¤ÆÚÏÞ");
+		validDate.setBounds(50,160,80,30);
+		validDate.setText("·þÒÛÊ±¼ä");
 		
 		 
 		userValidTime=new JTextField();
 		userValidTime.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
-		userValidTime.setBounds(630,110,200,30);
+		userValidTime.setBounds(140,160,200,30);
 		
-		driverid=new JLabel();
-		driverid.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
-		driverid.setBounds(50,170,80,30);
-		driverid.setText("Ë¾»ú±àºÅ");
 		
-		userid=new JTextField();
-		userid.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
-		userid.setBounds(140,170,200,30);
 		
-		IDNumbers=new JLabel();
-		IDNumbers.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
-		IDNumbers.setBounds(540,170,80,30);
-		IDNumbers.setText("Éí·ÝÖ¤ºÅ");
-		
-		userpass=new JTextField();
-		userpass.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
-		userpass.setBounds(630,170,200,30);
+
 
 		
 		okButton=new JButton();
 		okButton.setBounds(700, 210, 40, 40);
 		okButton.addActionListener(new PushListener());
 		
-/*		StaffManageController staff=new StaffManageController();
-		ArrayList<StaffVO> staffs=staff.getAllStaff("");
-		int size=staffs.size();*/
-		ArrayList<StaffVO> staffs=new ArrayList<StaffVO>();
-		StaffVO A=new StaffVO();
-		A.ID="laoshu";
-		A.name="²ÖÊó";
-		A.age=18;
-		A.passwords="888";
-		A.pos="xiaolongbao";
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		buildTable(staffs);
+/*		TruckManageController staff=new TruckManageController();
+		ArrayList<TruckPO> staffs=staff.getTruck();
+		int size=staffs.size();
+		if(staffs!=null)
+			buildTable(staffs);*/
 		
 		
-		
-		this.add(birthday);
-		this.add(userbirthday);
-		this.add(name);
-		this.add(username);
-		this.add(sex);
-		this.add(usersex);
+	
 		this.add(validDate);
 		this.add(driverid);
 		this.add(userid);
 		this.add(IDNumbers);
-		this.add(userpass);
-		this.add(tel);
-		this.add(usertel);
+		this.add(userIDNumbers);
 		this.add(okButton);
 		this.add(userValidTime);
 	}
 	
-	public void buildTable(ArrayList<StaffVO> staffs){
+	public void buildTable(ArrayList<TruckPO> staffs){
 		int size=staffs.size();
 		
-		Object[][] tableData=new Object[size][5];
+		Object[][] tableData=new Object[size][3];
 		for(int i=0;i<size;i++){
-			StaffVO mess=staffs.get(i);
-			tableData[i]=new Object[]{mess.ID,mess.name,mess.age,mess.passwords,mess.pos," "};
+			TruckPO mess=staffs.get(i);
+			tableData[i]=new Object[]{mess.vehicleCode,mess.licensePlate,mess.serviceTime};
 		}
-		Object[] columnTitle = {"ÓÃ»§Ãû" ,"ÐÕÃû","ÄêÁä","ÃÜÂë","Ö°Î»","È¨ÏÞ"};  
+		Object[] columnTitle = {"³µÁ¾´úºÅ" ,"³µÅÆºÅ","·þÒÛÊ±¼ä"};  
 		table=new JTable(tableData,columnTitle);
 		int height=table.getRowHeight()*(size+1)+9;
 		int ValidMaxHeight=250;
