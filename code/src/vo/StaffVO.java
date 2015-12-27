@@ -14,7 +14,8 @@ public class StaffVO {
 	public String SalaryModel;
 	String topAuthority;
 
-	public StaffVO(String name,String age,String pos,String department,boolean isBoy){
+	public StaffVO(String id,String name,String age,String pos,String department,boolean isBoy){
+		this.ID=id;
 		this.name=name;
 		this.age=Integer.parseInt(age);
 		this.pos=pos;

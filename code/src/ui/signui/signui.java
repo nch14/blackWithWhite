@@ -10,7 +10,9 @@ import bl.staff.Impl.LoginController;
 import bl.staff.service.LoginService;
 import ui.commodityui.indepotui;
 import ui.judgementui.judgementui;
+import ui.moneyui.billingmanagementui;
 import ui.sendui.getsendui;
+import ui.staffui.usermanageui;
 import vo.StaffVO;
 
 import javax.swing.ImageIcon;
@@ -114,13 +116,13 @@ public class signui {
 				getsendui.main();
 			}else if(staff.pos.equals("财务人员")){
 				frame.dispose();
-			    //account.main();
+				billingmanagementui.main();
 			}else if(staff.pos.equals("总经理")){
 				 frame.dispose();
 				  judgementui.main();
 			}else if(staff.pos.equals("管理员")){
 				frame.dispose();
-			/*	administrator.main();*/
+				usermanageui.main();;
 			}else if(staff.pos.equals("中转中心业务员")){
 				frame.dispose();
 				/*transitCenterClerk.main();*/

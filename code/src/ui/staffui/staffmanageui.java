@@ -204,10 +204,10 @@ public class staffmanageui extends JDesktopPane{
 					else{
 						isboy=false;
 					}
-					StaffVO staffvo= new StaffVO(tableofaddnewstaff.getValueAt(i, 1).toString(),tableofaddnewstaff.getValueAt(i, 2).toString(),
+					StaffVO staffvo= new StaffVO("10000002",tableofaddnewstaff.getValueAt(i, 1).toString(),tableofaddnewstaff.getValueAt(i, 2).toString(),
 						tableofaddnewstaff.getValueAt(i, 4).toString(),tableofaddnewstaff.getValueAt(i, 5).toString(),isboy);
 					staff[i]=staffvo;
-					System.out.println(staff[i].name+" "+staff[i].department);
+					//System.out.println(staff[i].name+" "+staff[i].department);
 				}
 				StaffManageBLService addnewstaff = new StaffManageController();
 				boolean istrue=addnewstaff.addNewStaff(staff);
