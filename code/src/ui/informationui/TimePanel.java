@@ -22,11 +22,11 @@ public class TimePanel extends JPanel implements Runnable {
 		
 		this.setLayout(null);
 		this.setBounds(0,0,1200,60);
-		//this.setBackground(Color.BLACK);
+	/*	this.setBackground(Color.BLACK)*/;
 		this.setFont((new Font("楷体",Font.BOLD, 32)));
 		message=new JLabel();
 		message.setForeground(Color.WHITE);
-		message.setBounds(0, 8,1600, 40);
+		message.setBounds(150, 8,1600, 40);
 		this.add(message);
 		Thread time=new Thread(this);
 		time.start();
@@ -35,9 +35,12 @@ public class TimePanel extends JPanel implements Runnable {
 	protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         Image image;
+        Image icon;
         try {
             image = ImageIO.read(new File("pic/纯色背景3.png"));
             g.drawImage(image, 0, 0, this);
+            icon = ImageIO.read(new File("pic/logoT.png"));
+            g.drawImage(icon, 50, 0, this);
             
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -65,9 +68,11 @@ public class TimePanel extends JPanel implements Runnable {
 				toShow+="当前时间：";
 				toShow+=TimeHelper.getShowTime();
 				toShow+="                                                                                       ";
-				this.setFont((new Font("楷体",Font.PLAIN, 32)));
+/*				this.setFont((new Font("楷体",Font.PLAIN, 32)));
 				toShow+="您好！"+DepartmentHelper.thisStaff.name+"（您的身份："+
-				DepartmentHelper.thisStaff.pos+"）";
+				DepartmentHelper.thisStaff.pos+"）";*/
+				this.setFont((new Font("楷体",Font.PLAIN, 32)));
+				toShow+="您好！"+"小龙女"+"（您的身份："+"小笼包"+"）";
 				this.setFont((new Font("楷体",Font.BOLD, 32)));
 				message.setText(toShow);
 				this.repaint();

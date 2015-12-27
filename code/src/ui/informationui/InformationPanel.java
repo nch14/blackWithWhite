@@ -33,8 +33,10 @@ public class InformationPanel extends JPanel{
 	StartFrame belongsTO;
 	JButton okButton;
 	JButton sign; 
+	JButton shut;
 	JTextField getTransID;
 	JLabel LOGO;
+	JLabel bussinessMess2;
 	JLabel wrongMess;
 	JLabel bussinessMess;
 	JLabel[] labels;//用来显示位置
@@ -48,14 +50,20 @@ public class InformationPanel extends JPanel{
 		getTransID=new JTextField();
 		getTransID.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 138, 255)));
 		getTransID.setForeground(Color.gray);
-		getTransID.setFont(new Font("微软雅黑",Font.BOLD,12));
+		getTransID.setFont(new Font("微软雅黑 ",Font.BOLD,12));
 		getTransID.setText("请在此处输入您的订单号……");
 		getTransID.setBounds(450, 200, 260, 40);
 		
 		LOGO=new JLabel();
 		LOGO.setForeground(Color.WHITE);
 		LOGO.setText("POWERED BY BALCK&&WHITE");
-		LOGO.setBounds(1000, 610, 200, 40);
+		LOGO.setBounds(1000, 635, 200, 20);
+		
+		/*bussinessMess2=new JLabel();
+		bussinessMess2.setForeground(Color.WHITE);
+		bussinessMess2.setFont(new Font("微软雅黑 Light",Font.PLAIN,14));
+		bussinessMess2.setText("海德薇");
+		bussinessMess2.setBounds(1060, 615,60,20);*/
 		
 		bussinessMess=new JLabel();
 		bussinessMess.setForeground(Color.GRAY);
@@ -68,8 +76,17 @@ public class InformationPanel extends JPanel{
 		okButton.setBounds(730,200, 40, 40);
 		okButton.addActionListener(new SearchListener());
 		
+		shut=new JButton();
+		shut.setIcon(new ImageIcon("pic/关闭按钮3.png"));
+		shut.setBounds(1060,0, 54, 40);
+		shut.addActionListener(new SearchListener());
+		shut.setBorder(null);
+		shut.setFocusPainted(false);
+		shut.setBorderPainted(false);
+		shut.setContentAreaFilled(false);
+		
 		sign=new JButton();
-		sign.setIcon(new ImageIcon("pic/sign.png"));
+		sign.setIcon(new ImageIcon("pic/sign80%.png"));
 		sign.setBounds(1131, 0, 69, 34);
 		sign.addActionListener(new SignListener());
 		
@@ -80,6 +97,8 @@ public class InformationPanel extends JPanel{
 		this.add(LOGO);
 		this.add(sign);
 		this.add(bussinessMess);
+		this.add(shut);
+		/*this.add(bussinessMess2);*/
 		this.setVisible(true);
 	}
 	
@@ -87,11 +106,14 @@ public class InformationPanel extends JPanel{
         super.paintComponent(g);
         Image image;
         Image icon;
+        Image beiban;
         try {
             image = ImageIO.read(new File("pic/背景1.png"));
             g.drawImage(image, 0, 0, this);
-            icon = ImageIO.read(new File("pic/logo小.png"));
+            icon = ImageIO.read(new File("pic/logo60%小.png"));
             g.drawImage(icon, 1005, 450, this);
+/*            beiban = ImageIO.read(new File("pic/背板.png"));
+            g.drawImage(beiban, 1000, 0, this);*/
             
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -205,7 +227,6 @@ public class InformationPanel extends JPanel{
 			if(pack==null){
 				
 			}else{
-				System.out.println("zz");
 				buildTable(pack);	
 			}
 			

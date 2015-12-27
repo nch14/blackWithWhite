@@ -22,6 +22,7 @@ import bl.staff.service.LoginService;
 import ui.commodityui.indepotui;
 import ui.informationui.FunctionPanel;
 import ui.informationui.StartFrame;
+import ui.informationui.StartPanel;
 import ui.informationui.UserManagePanel;
 import ui.judgementui.judgementui;
 import ui.sendui.getsendui;
@@ -56,6 +57,7 @@ public class SignPanel extends JPanel{
 		name.setBounds(500, 290, 60, 30);
 		
 		this.userName=new JTextField();
+		userName.setFont(new Font("Œ¢»Ì—≈∫⁄ Light",Font.PLAIN,24));
 		userName.setBounds(500, 325, 200, 30);
 		userName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 138, 255)));
 		
@@ -65,6 +67,7 @@ public class SignPanel extends JPanel{
 		passwords.setBounds(505, 360, 60, 30);
 		
 		this.userPasswords=new JPasswordField();
+		userPasswords.setFont(new Font("Œ¢»Ì—≈∫⁄ Light",Font.PLAIN,24));
 		userPasswords.setBounds(500, 395, 200, 30);
 		userPasswords.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 138, 255)));
 		
@@ -139,20 +142,22 @@ public class SignPanel extends JPanel{
 		public void actionPerformed(ActionEvent arg0) {
 			
 			//test
-			UserManagePanel userManage=new UserManagePanel(belongsTO);
-			belongsTO.changePanel(userManage);
+			StartPanel start=new StartPanel(belongsTO);
+			belongsTO.changePanel(start);
 			belongsTO.addTimePanel();
 			JButton[] buttons=new JButton[1];
 			
 			buttons[0]=new JButton();
+			buttons[0].setFont(new Font("Œ¢»Ì—≈∫⁄",Font.BOLD,16));
 			buttons[0].setText("”√ªßπ‹¿Ì");
 			
 			JPanel[] panels=new JPanel[1];
 			panels[0]=new UserManagePanel(belongsTO); 
 			
-			FunctionPanel tools=new FunctionPanel(belongsTO, buttons, panels);
-			belongsTO.addToolBar(tools);
-			belongsTO.addTimePanel();
+			FunctionPanel tool=new FunctionPanel(belongsTO,buttons,panels);
+			belongsTO.addToolBar(tool);
+
+			
 			/*String signname=userName.getText();
 			String signpasswod=String.valueOf(userPasswords.getPassword());
 			LoginService login = new LoginController();

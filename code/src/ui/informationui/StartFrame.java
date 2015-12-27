@@ -11,17 +11,21 @@ public class StartFrame extends JFrame{
 	public  Stack<JPanel> lastPanel ;
 	
 	public StartFrame(){
-		this.setTitle("海德薇快递公司");
+		this.setUndecorated(true); 
+		//this.setTitle("海德薇快递公司");
 		this.setBounds(50, 50, 1200,675);
-		this.setVisible(true);
 		this.setLayout(null);
 		this.setContentPane(new JPanel());
 		this.setResizable(false);
+		//this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		
+	
 		lastPanel=new Stack<JPanel>();
 		JPanel myPanel=(JPanel) this.getContentPane();
 		
 		myPanel.setLayout(null);
+		
+/*		this.setLocationRelativeTo(null);*/
 		
 		
 		contentPanel=new InformationPanel(this);
@@ -33,7 +37,7 @@ public class StartFrame extends JFrame{
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}
-	public void addToolBar(FunctionPanel tools){
+		public void addToolBar(FunctionPanel tools){
 		toolBar=tools;
 		this.add(toolBar);
 		repaint();
