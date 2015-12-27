@@ -20,6 +20,7 @@ import javax.swing.JTextField;
 import bl.staff.Impl.LoginController;
 import bl.staff.service.LoginService;
 import ui.commodityui.indepotui;
+import ui.informationui.AddStaffPanel;
 import ui.informationui.FunctionPanel;
 import ui.informationui.StartFrame;
 import ui.informationui.StartPanel;
@@ -144,7 +145,33 @@ public class SignPanel extends JPanel{
 			String signname=userName.getText();
 			String signpasswod=String.valueOf(userPasswords.getPassword());
 			
+			
+			
+			
+			
+			
+			
 			JButton[] buttons=new JButton[1];
+			
+			buttons[0]=new JButton();
+			buttons[0].setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
+			buttons[0].setText("Ôö¼ÓÔ±¹¤");
+			
+			JPanel[] panels=new JPanel[1];
+			panels[0]=new AddStaffPanel(belongsTO); 
+			
+			FunctionPanel tool=new FunctionPanel(belongsTO,buttons,panels);
+			belongsTO.addToolBar(tool);
+			
+			StartPanel start=new StartPanel(belongsTO);
+			belongsTO.changePanel(start);
+			belongsTO.addTimePanel();
+			
+			
+			
+			
+			
+/*			JButton[] buttons=new JButton[1];
 			
 			buttons[0]=new JButton();
 			buttons[0].setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
@@ -158,7 +185,7 @@ public class SignPanel extends JPanel{
 			
 			StartPanel start=new StartPanel(belongsTO);
 			belongsTO.changePanel(start);
-			belongsTO.addTimePanel();
+			belongsTO.addTimePanel();*/
 			
 			/*LoginService login = new LoginController();
 			StaffVO staff=login.validUser(signname,signpasswod);
