@@ -25,12 +25,18 @@ public class UserManage {
 			return null;
 		}
 	}
-	public boolean changeStaff(String competence, String passwords, String age, String name) {
+	public boolean changeStaff(String ID,String competence, String passwords, String age, String name,String power) {
 		// TODO Auto-generated method stub
-		if(name==null||age==null||competence==null||passwords==null)
-			return false;
-		
+		if(ID==null||name==null||age==null||competence==null||passwords==null)
+			return false;	
 		boolean result=true;
+		
+		try {
+			staff=member.get(ID);
+		} catch (RemoteException e1) {
+			return false;
+		}
+		
 		try {
 			staff.changeStaffInfo(name,Integer.parseInt(age),competence, passwords);
 			result=result&&member.change(staff);

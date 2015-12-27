@@ -6,6 +6,8 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -77,9 +79,10 @@ public class InformationPanel extends JPanel{
 		okButton.addActionListener(new SearchListener());
 		
 		shut=new JButton();
-		shut.setIcon(new ImageIcon("pic/关闭按钮3.png"));
+		shut.setIcon(new ImageIcon("pic/关闭按钮3A.png"));
 		shut.setBounds(1060,0, 54, 40);
-		shut.addActionListener(new SearchListener());
+		shut.addActionListener(new ExitListener());
+		shut.addFocusListener(new ShutListener());
 		shut.setBorder(null);
 		shut.setFocusPainted(false);
 		shut.setBorderPainted(false);
@@ -90,8 +93,14 @@ public class InformationPanel extends JPanel{
 		sign.setBounds(1131, 0, 69, 34);
 		sign.addActionListener(new SignListener());
 		
+		//okButton.requestFocus();
 		
+		wrongMess =new JLabel();
+		wrongMess.setBounds(420, 250, 400, 30);
+		wrongMess.setFont(new Font("微软雅黑 Light",Font.PLAIN,12));
+		wrongMess.setForeground(Color.YELLOW);
 		
+		this.add(wrongMess);
 		this.add(okButton);
 		this.add(getTransID);
 		this.add(LOGO);
@@ -100,6 +109,8 @@ public class InformationPanel extends JPanel{
 		this.add(shut);
 		/*this.add(bussinessMess2);*/
 		this.setVisible(true);
+		
+
 	}
 	
 	protected void paintComponent(Graphics g) {
@@ -207,6 +218,32 @@ public class InformationPanel extends JPanel{
 		*/
 		
 	}
+	class ShutListener implements FocusListener{
+
+		@Override
+		public void focusGained(FocusEvent arg0) {
+			// TODO Auto-generated method stub
+			shut.setIcon(new ImageIcon("pic/关闭按钮3B.png"));
+			repaint();
+		}
+
+		@Override
+		public void focusLost(FocusEvent arg0) {
+			// TODO Auto-generated method stub
+			shut.setIcon(new ImageIcon("pic/关闭按钮3A.png"));
+			repaint();
+		}
+		
+	}
+	class ExitListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			// TODO Auto-generated method stub
+			belongsTO.dispose();
+		}
+		
+	}
 	class SearchListener implements ActionListener{
 
 		
@@ -225,7 +262,8 @@ public class InformationPanel extends JPanel{
 			messages.add(G);
 			PackageVO pack=new PackageVO("12345",messages);*/
 			if(pack==null){
-				
+				wrongMess.setText("您输入的订单号不存在，请重新输入。如有问题，请联系您的快递员！谢谢");
+				repaint();
 			}else{
 				buildTable(pack);	
 			}

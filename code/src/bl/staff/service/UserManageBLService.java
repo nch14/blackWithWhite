@@ -22,7 +22,7 @@ public interface UserManageBLService {
 	/**
 	 * 更改用户的信息
 	 */
-	public boolean changeStaffInfo(String competence,String passwords,String age,String name);
+	public boolean changeStaffInfo(String competence, String passwords, String age, String name,String ID,String power);
 	
 	/**
 	 * 显示所有员工或者模糊搜索所有员工

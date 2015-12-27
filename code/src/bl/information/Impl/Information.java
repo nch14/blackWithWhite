@@ -19,6 +19,8 @@ public class Information {
 		PackageVO packageVO;
 		try {
 			transMesg=ship.getTransMesg(id);
+			if(transMesg==null)
+				return null;
 			packageVO=new PackageVO(id,transMesg);
 			return packageVO;
 		} catch (Exception e) {

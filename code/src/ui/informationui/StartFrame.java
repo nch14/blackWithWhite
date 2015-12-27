@@ -43,7 +43,7 @@ public class StartFrame extends JFrame{
 		repaint();
 	}
 	public void addTimePanel(){
-		info=new TimePanel();
+		info=new TimePanel(this);
 		this.add(info);
 		repaint();
 	}

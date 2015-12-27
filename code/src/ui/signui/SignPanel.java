@@ -140,11 +140,10 @@ public class SignPanel extends JPanel{
 	class SignListener implements ActionListener{
 
 		public void actionPerformed(ActionEvent arg0) {
+		
+			String signname=userName.getText();
+			String signpasswod=String.valueOf(userPasswords.getPassword());
 			
-			//test
-			StartPanel start=new StartPanel(belongsTO);
-			belongsTO.changePanel(start);
-			belongsTO.addTimePanel();
 			JButton[] buttons=new JButton[1];
 			
 			buttons[0]=new JButton();
@@ -156,14 +155,15 @@ public class SignPanel extends JPanel{
 			
 			FunctionPanel tool=new FunctionPanel(belongsTO,buttons,panels);
 			belongsTO.addToolBar(tool);
-
 			
-			/*String signname=userName.getText();
-			String signpasswod=String.valueOf(userPasswords.getPassword());
-			LoginService login = new LoginController();
+			StartPanel start=new StartPanel(belongsTO);
+			belongsTO.changePanel(start);
+			belongsTO.addTimePanel();
+			
+			/*LoginService login = new LoginController();
 			StaffVO staff=login.validUser(signname,signpasswod);
 			if(staff==null){
-				WrongMess.setText("账号或密码错误，请重试");
+				WrongMess.setText("账号或密码错误，请重试!");
 				repaint();
 			}
 			else if(staff.pos.equals("中转中心仓库管理人员")){
@@ -179,15 +179,28 @@ public class SignPanel extends JPanel{
 				 
 				  judgementui.main();
 			}else if(staff.pos.equals("管理员")){
-				UserManagePanel userManage=new UserManagePanel(belongsTO);
-				belongsTO.changePanel(userManage);
+				JButton[] buttons=new JButton[1];
+				
+				buttons[0]=new JButton();
+				buttons[0].setFont(new Font("微软雅黑",Font.BOLD,16));
+				buttons[0].setText("用户管理");
+				
+				JPanel[] panels=new JPanel[1];
+				panels[0]=new UserManagePanel(belongsTO); 
+				
+				FunctionPanel tool=new FunctionPanel(belongsTO,buttons,panels);
+				belongsTO.addToolBar(tool);
+				
+				StartPanel start=new StartPanel(belongsTO);
+				belongsTO.changePanel(start);
+				belongsTO.addTimePanel();
 			}else if(staff.pos.equals("中转中心业务员")){
 				
-				transitCenterClerk.main();
+				//transitCenterClerk.main();
 			}else if(staff.pos.equals("营业厅业务员")){
 			
-				businessHall.main();
-			}*/
+				//businessHall.main();
+			}		*/
 		  }
 		}
 		
