@@ -12,16 +12,19 @@ public class StaffVO {
 	public int age;
 	public boolean isBoy;
 	public String SalaryModel;
-	String topAuthority;
+	public String topAuthority;
 
-	public StaffVO(String id,String name,String age,String pos,String department,boolean isBoy){
+	public StaffVO(String id,String name,String age,String pos,String department,boolean isBoy,String pass){
 		this.ID=id;
 		this.name=name;
 		this.age=Integer.parseInt(age);
 		this.pos=pos;
 		this.department=department;
 		this.isBoy=isBoy;
-
+		this.passwords=pass;
+		this.SalaryModel="月结";
+		this.topAuthority="普通";
+		
 	}
 	
 	public StaffVO(StaffPO staffPO){
@@ -35,14 +38,11 @@ public class StaffVO {
 		topAuthority=staffPO.authority;
 
 	}
-	
+	/**
+	 * 禁止使用
+	 */
 	public StaffVO(){
 		
 	}
 	
-	public void allocateID(){
-		String time=TimeHelper.getTime();//年月日时分秒，共14位
-		time=time.substring(2);
-		
-	}
 }

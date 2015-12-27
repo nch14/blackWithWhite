@@ -20,6 +20,9 @@ import javax.swing.JTextField;
 import bl.staff.Impl.LoginController;
 import bl.staff.service.LoginService;
 import ui.commodityui.indepotui;
+import ui.informationui.AddDriverPanel;
+import ui.informationui.AddStaffPanel;
+import ui.informationui.AddTrunckPanel;
 import ui.informationui.FunctionPanel;
 import ui.informationui.StartFrame;
 import ui.informationui.StartPanel;
@@ -144,7 +147,44 @@ public class SignPanel extends JPanel{
 			String signname=userName.getText();
 			String signpasswod=String.valueOf(userPasswords.getPassword());
 			
-			JButton[] buttons=new JButton[1];
+			
+			
+			
+			
+			
+			
+			JButton[] buttons=new JButton[3];
+			
+			buttons[0]=new JButton();
+			buttons[0].setFont(new Font("微软雅黑",Font.BOLD,16));
+			buttons[0].setText("增加员工");
+			
+			buttons[1]=new JButton();
+			buttons[1].setFont(new Font("微软雅黑",Font.BOLD,16));
+			buttons[1].setText("增加司机");
+			
+			buttons[2]=new JButton();
+			buttons[2].setFont(new Font("微软雅黑",Font.BOLD,16));
+			buttons[2].setText("增加车辆信息");
+			
+			JPanel[] panels=new JPanel[3];
+			panels[0]=new AddStaffPanel(belongsTO); 
+			panels[1]=new AddDriverPanel(belongsTO);
+			panels[2]=new AddTrunckPanel(belongsTO);
+			
+			
+			FunctionPanel tool=new FunctionPanel(belongsTO,buttons,panels);
+			belongsTO.addToolBar(tool);
+			
+			StartPanel start=new StartPanel(belongsTO);
+			belongsTO.changePanel(start);
+			belongsTO.addTimePanel();
+			
+			
+			
+			
+			
+/*			JButton[] buttons=new JButton[1];
 			
 			buttons[0]=new JButton();
 			buttons[0].setFont(new Font("微软雅黑",Font.BOLD,16));
@@ -158,7 +198,7 @@ public class SignPanel extends JPanel{
 			
 			StartPanel start=new StartPanel(belongsTO);
 			belongsTO.changePanel(start);
-			belongsTO.addTimePanel();
+			belongsTO.addTimePanel();*/
 			
 			/*LoginService login = new LoginController();
 			StaffVO staff=login.validUser(signname,signpasswod);
