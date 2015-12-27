@@ -37,6 +37,7 @@ public class MemberInfoImpl extends UnicastRemoteObject implements MemberInfoHel
 	@Override
 	public synchronized boolean insert(StaffPO po) throws RemoteException {
 		// TODO Auto-generated method stub
+		System.out.println(po.name+"¡¡"+po.ID);
 		boolean bool=database.add(po);
 		try {
 			save();
