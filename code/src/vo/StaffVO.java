@@ -12,7 +12,7 @@ public class StaffVO {
 	public int age;
 	public boolean isBoy;
 	public String SalaryModel;
-	String topAuthority;
+	public String topAuthority;
 
 	public StaffVO(String id,String name,String age,String pos,String department,boolean isBoy,String pass){
 		this.ID=id;
@@ -22,6 +22,8 @@ public class StaffVO {
 		this.department=department;
 		this.isBoy=isBoy;
 		this.passwords=pass;
+		this.SalaryModel="月结";
+		this.topAuthority="普通";
 		
 	}
 	
@@ -36,7 +38,9 @@ public class StaffVO {
 		topAuthority=staffPO.authority;
 
 	}
-	
+	/**
+	 * 禁止使用
+	 */
 	public StaffVO(){
 		
 	}

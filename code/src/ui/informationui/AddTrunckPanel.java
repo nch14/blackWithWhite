@@ -8,6 +8,7 @@ import java.awt.event.FocusListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -17,29 +18,29 @@ import javax.swing.JTextField;
 
 import bl.staff.Impl.StaffManageController;
 import bl.staff.Impl.UserManageController;
+import ui.informationui.AddDriverPanel.AgeListener;
+import ui.informationui.AddDriverPanel.PushListener;
 import vo.StaffVO;
 
-public class AddStaffPanel extends JPanel{
+public class AddTrunckPanel extends JPanel{
 	StartFrame belongsTO;
-	JLabel id;
-	JLabel pass;
+	JLabel driverid;
 	JLabel name;
 	JLabel sex;
-	JLabel age;
-	JLabel pos;
-	JLabel department;
-	JLabel city;
-	JComboBox usercity;
+	JLabel birthday;
+	JLabel validDate;
+	JLabel tel;
+	JLabel IDNumbers;
+	JTextField usertel;
 	JTextField userid;
 	JTextField userpass;
 	JTextField username;
-	JTextField userage;
-	JComboBox usersex; 
-    JComboBox userpos;  
-    JComboBox userdepartment;
+	JTextField userValidTime;
+	JTextField userbirthday;
+	JComboBox usersex;  
     JButton okButton;
     JTable table;
-	public AddStaffPanel(StartFrame belongsTO){
+	public AddTrunckPanel(StartFrame belongsTO){
 		this.belongsTO=belongsTO;
 		this.setLayout(null);
 		this.setBounds(200, 60, 1000, 615);
@@ -51,7 +52,7 @@ public class AddStaffPanel extends JPanel{
 		
 		username=new JTextField();
 		username.setFont(new Font("微软雅黑",Font.BOLD,16));
-		username.setBounds(100,50,80,30);
+		username.setBounds(140,50,80,30);
 		
 		sex=new JLabel();
 		sex.setFont(new Font("微软雅黑",Font.BOLD,16));
@@ -64,78 +65,56 @@ public class AddStaffPanel extends JPanel{
 		usersex.addItem("女");
 		usersex.setBounds(290,50,60,30);
 		
-		age=new JLabel();
-		age.setFont(new Font("微软雅黑",Font.BOLD,16));
-		age.setBounds(420,50,40,30);
-		age.setText("年龄");
+		birthday=new JLabel();
+		birthday.setFont(new Font("微软雅黑",Font.BOLD,16));
+		birthday.setBounds(540,50,80,30);
+		birthday.setText("出生日期");
 		
-		userage=new JTextField();
-		userage.setFont(new Font("微软雅黑",Font.BOLD,16));
-		userage.setBounds(470,50,60,30);
-		age.addFocusListener(new AgeListener());
+		userbirthday=new JTextField();
+		userbirthday.setFont(new Font("微软雅黑",Font.BOLD,16));
+		userbirthday.setBounds(630,50,200,30);
+		userbirthday.addFocusListener(new AgeListener());
 		
-		pos=new JLabel();
-		pos.setFont(new Font("微软雅黑",Font.BOLD,16));
-		pos.setBounds(590,50,40,30);
-		pos.setText("职位");
+		tel=new JLabel();
+		tel.setFont(new Font("微软雅黑",Font.BOLD,16));
+		tel.setBounds(50,110,160,30);
+		tel.setText("手机号码");
 		
-		userpos=new JComboBox();
-		userpos.setFont(new Font("微软雅黑",Font.BOLD,16));
-		userpos.addItem("快递员");
-		userpos.addItem("营业厅业务员");
-		userpos.addItem("中转中心业务员");
-		userpos.addItem("中转中心仓库管理人员");
-		userpos.addItem("总经理");
-		userpos.addItem("财务人员");
-		userpos.addItem("管理员");
-		userpos.setBounds(650,50,180,30);
+		usertel=new JTextField();
+		usertel.setFont(new Font("微软雅黑",Font.BOLD,16));
+		usertel.setBounds(140,110,120,30);
 		
-		city=new JLabel();
-		city.setFont(new Font("微软雅黑",Font.BOLD,16));
-		city.setBounds(50,110,40,30);
-		city.setText("城市");
+		validDate=new JLabel();
+		validDate.setFont(new Font("微软雅黑",Font.BOLD,16));
+		validDate.setBounds(540,110,80,30);
+		validDate.setText("行驶证期限");
 		
-		usercity=new JComboBox();
-		usercity.setFont(new Font("微软雅黑",Font.BOLD,16));
-		usercity.addItem("南京");
-		usercity.addItem("北京");
-		usercity.addItem("上海");
-		usercity.addItem("广州");
-		usercity.setBounds(100,110,80,30);
+		 
+		userValidTime=new JTextField();
+		userValidTime.setFont(new Font("微软雅黑",Font.BOLD,16));
+		userValidTime.setBounds(630,110,200,30);
 		
-		department=new JLabel();
-		department.setFont(new Font("微软雅黑",Font.BOLD,16));
-		department.setBounds(240,110,40,30);
-		department.setText("部门");
-		
-		userdepartment=new JComboBox();
-		userdepartment.setFont(new Font("微软雅黑",Font.BOLD,16));
-		userdepartment.addItem("寿康宫");
-		userdepartment.addItem("霍格沃兹");
-		userdepartment.addItem("对角巷");
-		userdepartment.setBounds(290,110,280,30);
-		
-		id=new JLabel();
-		id.setFont(new Font("微软雅黑",Font.BOLD,16));
-		id.setBounds(50,170,60,30);
-		id.setText("用户名");
+		driverid=new JLabel();
+		driverid.setFont(new Font("微软雅黑",Font.BOLD,16));
+		driverid.setBounds(50,170,80,30);
+		driverid.setText("司机编号");
 		
 		userid=new JTextField();
 		userid.setFont(new Font("微软雅黑",Font.BOLD,16));
-		userid.setBounds(100,170,200,30);
+		userid.setBounds(140,170,200,30);
 		
-		pass=new JLabel();
-		pass.setFont(new Font("微软雅黑",Font.BOLD,16));
-		pass.setBounds(420,170,40,30);
-		pass.setText("密码");
+		IDNumbers=new JLabel();
+		IDNumbers.setFont(new Font("微软雅黑",Font.BOLD,16));
+		IDNumbers.setBounds(540,170,80,30);
+		IDNumbers.setText("身份证号");
 		
 		userpass=new JTextField();
 		userpass.setFont(new Font("微软雅黑",Font.BOLD,16));
-		userpass.setBounds(470,170,200,30);
+		userpass.setBounds(630,170,200,30);
 
 		
 		okButton=new JButton();
-		okButton.setBounds(520, 210, 40, 40);
+		okButton.setBounds(700, 210, 40, 40);
 		okButton.addActionListener(new PushListener());
 		
 /*		StaffManageController staff=new StaffManageController();
@@ -174,25 +153,24 @@ public class AddStaffPanel extends JPanel{
 		staffs.add(A);
 		staffs.add(A);
 		buildTable(staffs);
-				
 		
-		this.add(age);
-		this.add(userage);
+		
+		
+		this.add(birthday);
+		this.add(userbirthday);
 		this.add(name);
 		this.add(username);
 		this.add(sex);
 		this.add(usersex);
-		this.add(pos);
-		this.add(userpos);
-		this.add(department);
-		this.add(userdepartment);
-		this.add(id);
+		this.add(validDate);
+		this.add(driverid);
 		this.add(userid);
-		this.add(pass);
+		this.add(IDNumbers);
 		this.add(userpass);
-		this.add(city);
-		this.add(usercity);
+		this.add(tel);
+		this.add(usertel);
 		this.add(okButton);
+		this.add(userValidTime);
 	}
 	
 	public void buildTable(ArrayList<StaffVO> staffs){
@@ -221,10 +199,10 @@ public class AddStaffPanel extends JPanel{
 	 class PushListener implements ActionListener{
 
 		public void actionPerformed(ActionEvent arg0) {
-			String id=userid.getText();
+			/*String id=userid.getText();
 			String pass=userpass.getText();
 			String name=username.getText();
-			String age=userage.getText();
+			String age=userbirthday.getText();
 			String sex=(String)usersex.getSelectedItem();
 			String pos=(String)userpos.getSelectedItem();
 			String department=(String)userdepartment.getSelectedItem();
@@ -243,11 +221,6 @@ public class AddStaffPanel extends JPanel{
 				if(result){
 					TimePanel.change=true;
 					TimePanel.text="您已成功增加该员工！";
-					StaffManageController staffManage=new StaffManageController();
-					ArrayList<StaffVO> staffsNew=staffManage.getAllStaff("");
-					int size=staffsNew.size();
-					buildTable(staffsNew);
-					repaint();
 				}else{
 					TimePanel.change=true;
 					TimePanel.text="添加员工失败，可能存在网络故障！";
@@ -255,7 +228,7 @@ public class AddStaffPanel extends JPanel{
 			}else{
 				TimePanel.change=true;
 				TimePanel.text="请检查您的输入！";
-			}
+			}*/
 		}
 		 
 	 }
