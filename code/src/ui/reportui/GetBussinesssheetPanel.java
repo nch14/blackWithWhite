@@ -1,12 +1,11 @@
 package ui.reportui;
 
-import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
-import javax.swing.JDesktopPane;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -14,26 +13,17 @@ import javax.swing.table.DefaultTableModel;
 
 import bl.report.impl.BussinessSheetController;
 import bl.report.service.BussinessSheetBLService;
+import ui.informationui.StartFrame;
 import vo.BussinessSheetVO;
 
-public class bussinesssheetui extends JDesktopPane{
-	
+public class GetBussinesssheetPanel extends JPanel {
+	StartFrame belongsTO;
 	JTable tableofbussinesssheet;
 	BussinessSheetBLService bussinesssheet = new BussinessSheetController();
-
-	/**
-	 * Create the application.
-	 */
-	public bussinesssheetui() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		
-		this.setBackground(Color.WHITE);
+	public GetBussinesssheetPanel(StartFrame belongsTO){
+		this.belongsTO=belongsTO;
+		this.setLayout(null);
+		this.setBounds(200, 60, 1000, 615);
 		
 		JLabel labelofstartdate = new JLabel("开始日期");
 		labelofstartdate.setBounds(190, 62, 54, 15);

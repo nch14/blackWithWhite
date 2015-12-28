@@ -23,6 +23,7 @@ import ui.commodityui.indepotui;
 import ui.informationui.AddDriverPanel;
 import ui.informationui.AddStaffPanel;
 import ui.informationui.AddTrunckPanel;
+import ui.informationui.FillReceivementBillPanel;
 import ui.informationui.FunctionPanel;
 import ui.informationui.GetOrderBillPanel;
 import ui.informationui.SendPackagePanel;
@@ -159,7 +160,7 @@ public class SignPanel extends JPanel{
 			String signpasswod=String.valueOf(userPasswords.getPassword());
 			
 			
-			JButton[] buttons=new JButton[6];
+			JButton[] buttons=new JButton[7];
 			
 			buttons[0]=new JButton();
 			buttons[0].setFont(new Font("微软雅黑",Font.BOLD,16));
@@ -185,13 +186,18 @@ public class SignPanel extends JPanel{
 			buttons[5].setFont(new Font("微软雅黑",Font.BOLD,16));
 			buttons[5].setText("查看寄件单");
 			
-			JPanel[] panels=new JPanel[6];
+			buttons[6]=new JButton();
+			buttons[6].setFont(new Font("微软雅黑",Font.BOLD,16));
+			buttons[6].setText("填写收件单");
+			
+			JPanel[] panels=new JPanel[7];
 			panels[0]=new AddStaffPanel(belongsTO); 
 			panels[1]=new AddDriverPanel(belongsTO);
 			panels[2]=new AddTrunckPanel(belongsTO);
 			panels[3]=new UserManagePanel(belongsTO);
 			panels[4]=new SendPackagePanel(belongsTO);
 			panels[5]=new GetOrderBillPanel(belongsTO);
+			panels[6]=new FillReceivementBillPanel(belongsTO);
 			
 			FunctionPanel tool=new FunctionPanel(belongsTO,buttons,panels);
 			belongsTO.addToolBar(tool);
@@ -199,68 +205,82 @@ public class SignPanel extends JPanel{
 			StartPanel start=new StartPanel(belongsTO);
 			belongsTO.changePanel(start);
 			belongsTO.addTimePanel();
-			
-			
-			
-			
-			
-/*			JButton[] buttons=new JButton[1];
-			
-			buttons[0]=new JButton();
-			buttons[0].setFont(new Font("微软雅黑",Font.BOLD,16));
-			buttons[0].setText("用户管理");
-			
-			JPanel[] panels=new JPanel[1];
-			panels[0]=new UserManagePanel(belongsTO); 
-			
-			FunctionPanel tool=new FunctionPanel(belongsTO,buttons,panels);
-			belongsTO.addToolBar(tool);
-			
-			StartPanel start=new StartPanel(belongsTO);
-			belongsTO.changePanel(start);
-			belongsTO.addTimePanel();*/
-			
+
 			/*LoginService login = new LoginController();
 			StaffVO staff=login.validUser(signname,signpasswod);
 			if(staff==null){
 				WrongMess.setText("账号或密码错误，请重试!");
 				repaint();
-			}
-			else if(staff.pos.equals("中转中心仓库管理人员")){
+			}else{
+				if(staff.pos.equals("中转中心仓库管理人员")){
 			
-			    indepotui.main();
-			}else if(staff.pos.equals("快递员")){
+			    
+				}else if(staff.pos.equals("快递员")){
+					JButton[] buttons=new JButton[3];
+					
+					buttons[0]=new JButton();
+					buttons[0].setFont(new Font("微软雅黑",Font.BOLD,16));
+					buttons[0].setText("寄件");
 			
-				getsendui.main();
-			}else if(staff.pos.equals("财务人员")){
-				
-			    //account.main();
-			}else if(staff.pos.equals("总经理")){
-				 
-				  judgementui.main();
-			}else if(staff.pos.equals("管理员")){
-				JButton[] buttons=new JButton[1];
-				
-				buttons[0]=new JButton();
-				buttons[0].setFont(new Font("微软雅黑",Font.BOLD,16));
-				buttons[0].setText("用户管理");
-				
-				JPanel[] panels=new JPanel[1];
-				panels[0]=new UserManagePanel(belongsTO); 
-				
-				FunctionPanel tool=new FunctionPanel(belongsTO,buttons,panels);
-				belongsTO.addToolBar(tool);
-				
-				StartPanel start=new StartPanel(belongsTO);
-				belongsTO.changePanel(start);
-				belongsTO.addTimePanel();
-			}else if(staff.pos.equals("中转中心业务员")){
-				
-				//transitCenterClerk.main();
-			}else if(staff.pos.equals("营业厅业务员")){
+					buttons[1]=new JButton();
+					buttons[1].setFont(new Font("微软雅黑",Font.BOLD,16));
+					buttons[1].setText("查看寄件单");
 			
-				//businessHall.main();
-			}		*/
+					buttons[2]=new JButton();
+					buttons[2].setFont(new Font("微软雅黑",Font.BOLD,16));
+					buttons[2].setText("填写收件单");
+				
+					JPanel[] panels=new JPanel[3];
+					panels[0]=new SendPackagePanel(belongsTO);
+					panels[1]=new GetOrderBillPanel(belongsTO);
+					panels[2]=new FillReceivementBillPanel(belongsTO);
+				}else if(staff.pos.equals("财务人员")){
+					
+				    //account.main();
+				}else if(staff.pos.equals("总经理")){
+					JButton[] buttons=new JButton[3];
+					
+					buttons[0]=new JButton();
+					buttons[0].setFont(new Font("微软雅黑",Font.BOLD,16));
+					buttons[0].setText("增加员工");
+			
+					buttons[1]=new JButton();
+					buttons[1].setFont(new Font("微软雅黑",Font.BOLD,16));
+					buttons[1].setText("查看成本收益表");
+			
+					buttons[2]=new JButton();
+					buttons[2].setFont(new Font("微软雅黑",Font.BOLD,16));
+					buttons[2].setText("查看经营情况表");
+				
+					JPanel[] panels=new JPanel[3];
+					panels[0]=new AddStaffPanel(belongsTO);
+					panels[1]=new GetBussinesssheetPanel(belongsTO);
+					panels[2]=new GetProfitSheetPanel(belongsTO);
+				}else if(staff.pos.equals("管理员")){
+					JButton[] buttons=new JButton[1];
+				
+					buttons[0]=new JButton();
+					buttons[0].setFont(new Font("微软雅黑",Font.BOLD,16));
+					buttons[0].setText("用户管理");
+				
+					JPanel[] panels=new JPanel[1];
+					panels[0]=new UserManagePanel(belongsTO); 
+				}else if(staff.pos.equals("中转中心业务员")){
+					
+					//transitCenterClerk.main();
+				}else if(staff.pos.equals("营业厅业务员")){
+				
+					//businessHall.main();
+				}		
+			FunctionPanel tool=new FunctionPanel(belongsTO,buttons,panels);
+			belongsTO.addToolBar(tool);
+		
+			belongsTO.addTimePanel();
+		
+			StartPanel start=new StartPanel(belongsTO);
+			belongsTO.changePanel(start);
+			}*/
+			
 		  }
 		}
 		
