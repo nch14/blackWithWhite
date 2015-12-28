@@ -46,7 +46,7 @@ public class Database_MemberInfo extends Database<StaffPO> implements Datainterf
 		while(iter.hasNext()){
 			Map.Entry entry=(Map.Entry)iter.next();
 			StaffPO staff=(StaffPO) entry.getValue();
-			if(str.equals(null)||staff.name.contains(str)){
+			if(str.equals("")||staff.name.contains(str)){
 				array.add(staff);
 			}
 		}

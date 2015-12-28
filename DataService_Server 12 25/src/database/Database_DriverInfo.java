@@ -51,7 +51,7 @@ public class Database_DriverInfo extends Database<DriverPO> implements Datainter
 		while(iter.hasNext()){
 			Map.Entry entry=(Map.Entry)iter.next();
 			DriverPO d=(DriverPO)entry.getValue();
-			if(str.equals(null)||d.name.contains(str)){
+			if(str.equals("")||d.name.contains(str)){
 				array.add(d);
 			}
 		}

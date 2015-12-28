@@ -45,7 +45,7 @@ public class ReceiveInfoImpl extends UnicastRemoteObject implements ReceiceInfoH
 	@Override
 	public boolean insert(ReceiveInformationVO bill) throws RemoteException {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 }

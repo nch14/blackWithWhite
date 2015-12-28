@@ -171,7 +171,7 @@ public class transportfinishedui extends JDesktopPane{
 					receiveInfo.nameOfReceiver=(String) table_1.getValueAt(i, 1);
 					receiveInfo.time[0]= table_1.getValueAt(i, 2).toString().substring(0, 4);
 					receiveInfo.time[1]= table_1.getValueAt(i, 2).toString().substring(4, 6);
-					receiveInfo.time[2]= table_1.getValueAt(i, 2).toString().substring(6, 7);
+					receiveInfo.time[2]= table_1.getValueAt(i, 2).toString().substring(6, 8);
 				}
 				receive.add(receiveInfo);
 				TransportFinishedBLService finish= new TransportFinishedController();
