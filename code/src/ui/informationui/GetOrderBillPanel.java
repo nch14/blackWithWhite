@@ -18,9 +18,7 @@ import bl.send.Impl.SendController;
 import bl.send.Service.SendBLService;
 
 public class GetOrderBillPanel extends JPanel{
-	StartFrame belongsTO;
-	public GetOrderBillPanel(StartFrame belongsTO){
-		this.belongsTO=belongsTO;
+	public GetOrderBillPanel(){
 		this.setBounds(200,60,1000,615);
 		this.setLayout(null);
 		

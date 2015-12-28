@@ -17,12 +17,10 @@ import bl.receivement.Service.TransportFinishedBLService;
 import vo.ReceiveInformationVO;
 
 public class FillReceivementBillPanel extends JPanel {
-	StartFrame belongsTO;
 	private JTable table_1;
 	private JTextField textFieldofday;
 	private JTextField textFieldofmonth;
-	public FillReceivementBillPanel(StartFrame belongsTO){
-		this.belongsTO=belongsTO;
+	public FillReceivementBillPanel(){
 		this.setLayout(null);
 		this.setBounds(200, 60, 1000, 615);
 		

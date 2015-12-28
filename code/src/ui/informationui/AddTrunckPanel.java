@@ -22,7 +22,6 @@ import bl.staff.Impl.TruckManageController;
 import vo.StaffVO;
 
 public class AddTrunckPanel extends JPanel{
-	StartFrame belongsTO;
 	JLabel driverid;
 	JLabel validDate;
 	JLabel IDNumbers;	
@@ -31,8 +30,7 @@ public class AddTrunckPanel extends JPanel{
 	JTextField userIDNumbers;
     JButton okButton;
     JTable table;
-	public AddTrunckPanel(StartFrame belongsTO){
-		this.belongsTO=belongsTO;
+	public AddTrunckPanel(){
 		this.setLayout(null);
 		this.setBounds(200, 60, 1000, 615);
 	

@@ -21,7 +21,6 @@ import vo.PackageVO;
 import vo.StaffVO;
 
 public class UserManagePanel extends JPanel {
-	StartFrame belongsTO;
 	/*JButton okButton;*/
 	JButton search; 
 	JTextField inputID;
@@ -31,8 +30,7 @@ public class UserManagePanel extends JPanel {
 	JTable table;
 	JButton save;
 	
-	public UserManagePanel(StartFrame belongsTO){
-		this.belongsTO=belongsTO;
+	public UserManagePanel(){
 		this.setLayout(null);
 		this.setBounds(200,60,1000,615);
 		
@@ -46,7 +44,9 @@ public class UserManagePanel extends JPanel {
 		inputID.setBounds(350, 50, 260, 40);
 		inputID.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 138, 255)));
 		
-/*		StaffManageController staff=new StaffManageController();
+/*		StaffManageController staffStaffManageController staff=new StaffManageController();
+		ArrayList<StaffVO> staffs=staff.getAllStaff("");
+		int size=staffs.size();=new StaffManageController();
 		ArrayList<StaffVO> staffs=staff.getAllStaff("");
 		int size=staffs.size();*/
 		ArrayList<StaffVO> staffs=new ArrayList<StaffVO>();

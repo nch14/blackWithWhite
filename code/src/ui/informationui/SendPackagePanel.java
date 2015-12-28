@@ -19,9 +19,7 @@ import bl.send.Impl.SendController;
 import bl.send.Service.SendBLService;
 
 public class SendPackagePanel extends JPanel {
-	StartFrame belongsTO;	
-	public SendPackagePanel(StartFrame belongsTO){
-		this.belongsTO=belongsTO;
+	public SendPackagePanel(){
 		this.setBounds(200,60,1000,615);
 		this.setLayout(null);
 		
@@ -282,21 +280,21 @@ public class SendPackagePanel extends JPanel {
 		
 		
 		JComboBox comboBoxofpackingexpense = new JComboBox();
-		comboBoxofpackingexpense.setModel(new DefaultComboBoxModel(new String[] {"5", "10", "15"}));
-		comboBoxofpackingexpense.setBounds(240, 540, 60, 30);
+		comboBoxofpackingexpense.setModel(new DefaultComboBoxModel(new String[] {"5元（包装袋）", "10元(纸箱)", "15元（木箱）"}));
+		comboBoxofpackingexpense.setBounds(220, 540, 110, 30);
 		this.add(comboBoxofpackingexpense);
 		
 		JLabel labelofordertype = new JLabel();
 		labelofordertype.setFont(new Font("微软雅黑",Font.BOLD,16));
 		labelofordertype.setText("快递类型");
-		labelofordertype.setBounds(330, 540, 80, 30);
+		labelofordertype.setBounds(360, 540, 80, 30);
 		this.add(labelofordertype);
 	
 		
 		JComboBox comboBoxofordertype = new JComboBox();
-		comboBoxofordertype.setModel(new DefaultComboBoxModel(new String[] {"\u5FEB", "\u7279\u5FEB"}));
+		comboBoxofordertype.setModel(new DefaultComboBoxModel(new String[] {"经济快递", "普通快递","特快快递"}));
 		comboBoxofordertype.setToolTipText("\u5FEB");
-		comboBoxofordertype.setBounds(420, 540, 60, 30);
+		comboBoxofordertype.setBounds(440, 540, 80, 30);
 		this.add(comboBoxofordertype);
 		
 		JLabel labelofkind = new JLabel();

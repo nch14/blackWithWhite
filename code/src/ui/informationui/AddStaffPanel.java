@@ -20,7 +20,6 @@ import bl.staff.Impl.UserManageController;
 import vo.StaffVO;
 
 public class AddStaffPanel extends JPanel{
-	StartFrame belongsTO;
 	JLabel id;
 	JLabel pass;
 	JLabel name;
@@ -39,8 +38,7 @@ public class AddStaffPanel extends JPanel{
     JComboBox userdepartment;
     JButton okButton;
     JTable table;
-	public AddStaffPanel(StartFrame belongsTO){
-		this.belongsTO=belongsTO;
+	public AddStaffPanel(){
 		this.setLayout(null);
 		this.setBounds(200, 60, 1000, 615);
 		
@@ -201,9 +199,9 @@ public class AddStaffPanel extends JPanel{
 		Object[][] tableData=new Object[size][5];
 		for(int i=0;i<size;i++){
 			StaffVO mess=staffs.get(i);
-			tableData[i]=new Object[]{mess.ID,mess.name,mess.age,mess.passwords,mess.pos," "};
+			tableData[i]=new Object[]{mess.ID,mess.name,mess.age,mess.passwords,mess.pos,mess.department};
 		}
-		Object[] columnTitle = {"用户名" ,"姓名","年龄","密码","职位","权限"};  
+		Object[] columnTitle = {"用户名" ,"姓名","年龄","密码","职位","部门"};  
 		table=new JTable(tableData,columnTitle);
 		int height=table.getRowHeight()*(size+1)+9;
 		int ValidMaxHeight=250;

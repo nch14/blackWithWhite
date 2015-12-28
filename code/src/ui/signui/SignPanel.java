@@ -23,14 +23,19 @@ import ui.commodityui.indepotui;
 import ui.informationui.AddDriverPanel;
 import ui.informationui.AddStaffPanel;
 import ui.informationui.AddTrunckPanel;
+import ui.informationui.ChangeStaffPanel;
+import ui.informationui.DeleteStaffPanel;
 import ui.informationui.FillReceivementBillPanel;
 import ui.informationui.FunctionPanel;
 import ui.informationui.GetOrderBillPanel;
+import ui.informationui.SalaryModelPanel;
 import ui.informationui.SendPackagePanel;
 import ui.informationui.StartFrame;
 import ui.informationui.StartPanel;
 import ui.informationui.UserManagePanel;
 import ui.judgementui.judgementui;
+import ui.reportui.GetBussinesssheetPanel;
+import ui.reportui.GetProfitSheetPanel;
 import ui.sendui.getsendui;
 import vo.StaffVO;
 
@@ -104,7 +109,7 @@ public class SignPanel extends JPanel{
 		attention3=new JLabel();
 		attention3.setFont(new Font("微软雅黑",Font.BOLD,12));
 		attention3.setForeground(Color.WHITE);
-		attention3.setText("2.如果您在登陆中遇到问题，请咨询管理员：025-8968511");
+		attention3.setText("2.如果您在登陆中遇到问题，请咨询管理员：025-89685110");
 		attention3.setBounds(850, 600, 350, 20);
 		
 		welcome=new JLabel();
@@ -159,64 +164,22 @@ public class SignPanel extends JPanel{
 			String signname=userName.getText();
 			String signpasswod=String.valueOf(userPasswords.getPassword());
 			
-			
-			JButton[] buttons=new JButton[7];
-			
-			buttons[0]=new JButton();
-			buttons[0].setFont(new Font("微软雅黑",Font.BOLD,16));
-			buttons[0].setText("增加员工");
-			
-			buttons[1]=new JButton();
-			buttons[1].setFont(new Font("微软雅黑",Font.BOLD,16));
-			buttons[1].setText("增加司机");
-			
-			buttons[2]=new JButton();
-			buttons[2].setFont(new Font("微软雅黑",Font.BOLD,16));
-			buttons[2].setText("增加车辆信息");
-			
-			buttons[3]=new JButton();
-			buttons[3].setFont(new Font("微软雅黑",Font.BOLD,16));
-			buttons[3].setText("用户管理");
-			
-			buttons[4]=new JButton();
-			buttons[4].setFont(new Font("微软雅黑",Font.BOLD,16));
-			buttons[4].setText("寄件");
-			
-			buttons[5]=new JButton();
-			buttons[5].setFont(new Font("微软雅黑",Font.BOLD,16));
-			buttons[5].setText("查看寄件单");
-			
-			buttons[6]=new JButton();
-			buttons[6].setFont(new Font("微软雅黑",Font.BOLD,16));
-			buttons[6].setText("填写收件单");
-			
-			JPanel[] panels=new JPanel[7];
-			panels[0]=new AddStaffPanel(belongsTO); 
-			panels[1]=new AddDriverPanel(belongsTO);
-			panels[2]=new AddTrunckPanel(belongsTO);
-			panels[3]=new UserManagePanel(belongsTO);
-			panels[4]=new SendPackagePanel(belongsTO);
-			panels[5]=new GetOrderBillPanel(belongsTO);
-			panels[6]=new FillReceivementBillPanel(belongsTO);
-			
-			FunctionPanel tool=new FunctionPanel(belongsTO,buttons,panels);
-			belongsTO.addToolBar(tool);
-			
-			StartPanel start=new StartPanel(belongsTO);
-			belongsTO.changePanel(start);
-			belongsTO.addTimePanel();
+/*			LoginService login = new LoginController();
+			StaffVO staff=login.validUser(signname,signpasswod);*/
+			StaffVO staff=new StaffVO();
+			staff.pos="总经理";
 
-			/*LoginService login = new LoginController();
-			StaffVO staff=login.validUser(signname,signpasswod);
 			if(staff==null){
 				WrongMess.setText("账号或密码错误，请重试!");
 				repaint();
 			}else{
+				JButton[] buttons=new JButton[0];
+				JPanel[] panels=new JPanel[0];
 				if(staff.pos.equals("中转中心仓库管理人员")){
 			
 			    
 				}else if(staff.pos.equals("快递员")){
-					JButton[] buttons=new JButton[3];
+					buttons=new JButton[3];
 					
 					buttons[0]=new JButton();
 					buttons[0].setFont(new Font("微软雅黑",Font.BOLD,16));
@@ -230,15 +193,15 @@ public class SignPanel extends JPanel{
 					buttons[2].setFont(new Font("微软雅黑",Font.BOLD,16));
 					buttons[2].setText("填写收件单");
 				
-					JPanel[] panels=new JPanel[3];
-					panels[0]=new SendPackagePanel(belongsTO);
-					panels[1]=new GetOrderBillPanel(belongsTO);
-					panels[2]=new FillReceivementBillPanel(belongsTO);
+					panels=new JPanel[3];
+					panels[0]=new SendPackagePanel();
+					panels[1]=new GetOrderBillPanel();
+					panels[2]=new FillReceivementBillPanel();
 				}else if(staff.pos.equals("财务人员")){
 					
 				    //account.main();
 				}else if(staff.pos.equals("总经理")){
-					JButton[] buttons=new JButton[3];
+					buttons=new JButton[6];
 					
 					buttons[0]=new JButton();
 					buttons[0].setFont(new Font("微软雅黑",Font.BOLD,16));
@@ -251,20 +214,35 @@ public class SignPanel extends JPanel{
 					buttons[2]=new JButton();
 					buttons[2].setFont(new Font("微软雅黑",Font.BOLD,16));
 					buttons[2].setText("查看经营情况表");
+					
+					buttons[3]=new JButton();
+					buttons[3].setFont(new Font("微软雅黑",Font.BOLD,16));
+					buttons[3].setText("制定薪水策略");
+					
+					buttons[4]=new JButton();
+					buttons[4].setFont(new Font("微软雅黑",Font.BOLD,16));
+					buttons[4].setText("人事调动");
+					
+					buttons[5]=new JButton();
+					buttons[5].setFont(new Font("微软雅黑",Font.BOLD,16));
+					buttons[5].setText("解雇员工");
 				
-					JPanel[] panels=new JPanel[3];
-					panels[0]=new AddStaffPanel(belongsTO);
-					panels[1]=new GetBussinesssheetPanel(belongsTO);
-					panels[2]=new GetProfitSheetPanel(belongsTO);
+					panels=new JPanel[6];
+					panels[0]=new AddStaffPanel();
+					panels[1]=new GetBussinesssheetPanel();
+					panels[2]=new GetProfitSheetPanel();
+					panels[3]=new SalaryModelPanel();
+					panels[4]=new ChangeStaffPanel();
+					panels[5]=new DeleteStaffPanel();
 				}else if(staff.pos.equals("管理员")){
-					JButton[] buttons=new JButton[1];
+					buttons=new JButton[1];
 				
 					buttons[0]=new JButton();
 					buttons[0].setFont(new Font("微软雅黑",Font.BOLD,16));
 					buttons[0].setText("用户管理");
 				
-					JPanel[] panels=new JPanel[1];
-					panels[0]=new UserManagePanel(belongsTO); 
+					panels=new JPanel[1];
+					panels[0]=new UserManagePanel(); 
 				}else if(staff.pos.equals("中转中心业务员")){
 					
 					//transitCenterClerk.main();
@@ -279,7 +257,7 @@ public class SignPanel extends JPanel{
 		
 			StartPanel start=new StartPanel(belongsTO);
 			belongsTO.changePanel(start);
-			}*/
+			}
 			
 		  }
 		}

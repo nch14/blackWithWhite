@@ -24,7 +24,6 @@ import bl.staff.Impl.UserManageController;
 import vo.StaffVO;
 
 public class AddDriverPanel extends JPanel{
-	StartFrame belongsTO;
 	JLabel driverid;
 	JLabel name;
 	JLabel sex;
@@ -41,8 +40,7 @@ public class AddDriverPanel extends JPanel{
 	JComboBox usersex;  
     JButton okButton;
     JTable table;
-	public AddDriverPanel(StartFrame belongsTO){
-		this.belongsTO=belongsTO;
+	public AddDriverPanel(){
 		this.setLayout(null);
 		this.setBounds(200, 60, 1000, 615);
 		
