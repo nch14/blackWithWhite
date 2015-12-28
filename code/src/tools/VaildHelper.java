@@ -12,7 +12,7 @@ public class VaildHelper {
 		if(ids.length!=n)
 			return false;
 		for(int i=0;i<n;i++){
-			if(ids[i]<='0'||ids[i]>='9')
+			if(ids[i]<'0'||ids[i]>'9')
 				return false;
 		}
 		return true;

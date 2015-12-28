@@ -44,12 +44,10 @@ public class UserManagePanel extends JPanel {
 		inputID.setBounds(350, 50, 260, 40);
 		inputID.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 138, 255)));
 		
-/*		StaffManageController staffStaffManageController staff=new StaffManageController();
+		StaffManageController staff=new StaffManageController();
 		ArrayList<StaffVO> staffs=staff.getAllStaff("");
-		int size=staffs.size();=new StaffManageController();
-		ArrayList<StaffVO> staffs=staff.getAllStaff("");
-		int size=staffs.size();*/
-		ArrayList<StaffVO> staffs=new ArrayList<StaffVO>();
+		int size=staffs.size();
+/*		ArrayList<StaffVO> staffs=new ArrayList<StaffVO>();
 		StaffVO A=new StaffVO();
 		A.ID="laoshu";
 		A.name="²ÖÊó";
@@ -82,7 +80,7 @@ public class UserManagePanel extends JPanel {
 		staffs.add(A);
 		staffs.add(A);
 		buildTable(staffs);
-		int size=staffs.size();
+		int size=staffs.size();*/
 		int height=table.getRowHeight()*(size+1)+9;
 		if(height>=400)
 			height=400;

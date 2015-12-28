@@ -8,7 +8,6 @@ import java.util.Date;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -16,6 +15,7 @@ import javax.swing.JTextField;
 import bill.OrderBillPO;
 import bl.send.Impl.SendController;
 import bl.send.Service.SendBLService;
+import tools.VaildHelper;
 
 public class GetOrderBillPanel extends JPanel{
 	public GetOrderBillPanel(){
@@ -37,7 +37,6 @@ public class GetOrderBillPanel extends JPanel{
 		
 		
 		JTextField textFieldofordernumber = new JTextField();
-		textFieldofordernumber.setColumns(10);
 		textFieldofordernumber.setBounds(730, 120, 180, 30);
 		this.add(textFieldofordernumber);
 		textFieldofordernumber.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(149,147,143)));
@@ -49,7 +48,7 @@ public class GetOrderBillPanel extends JPanel{
 		this.add(labelofsendername);
 		
 		
-		JTextField textFieldofsendername = new JTextField();
+		NLabel textFieldofsendername = new NLabel();
 		textFieldofsendername.setBounds(220, 100, 60, 30);
 		this.add(textFieldofsendername);
 		textFieldofsendername.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(149,147,143)));
@@ -61,10 +60,9 @@ public class GetOrderBillPanel extends JPanel{
 		this.add(labelofsenderphone);
 		
 		
-		JTextField textFieldofsenderphone = new JTextField();
+		NLabel textFieldofsenderphone = new NLabel();
 		textFieldofsenderphone.setBounds(361, 100, 90, 30);
 		this.add(textFieldofsenderphone);
-		textFieldofsenderphone.setColumns(10);
 		textFieldofsenderphone.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(149,147,143)));
 		
 		JLabel labelofsendermobile = new JLabel();
@@ -74,10 +72,9 @@ public class GetOrderBillPanel extends JPanel{
 		this.add(labelofsendermobile);
 		
 		
-		JTextField textFieldofsendermobile = new JTextField();
+		NLabel textFieldofsendermobile = new NLabel();
 		textFieldofsendermobile.setBounds(530, 100, 140, 30);
 		this.add(textFieldofsendermobile);
-		textFieldofsendermobile.setColumns(10);
 		textFieldofsendermobile.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(149,147,143)));
 		
 		JLabel labelofsenderunit = new JLabel();
@@ -87,10 +84,9 @@ public class GetOrderBillPanel extends JPanel{
 		this.add(labelofsenderunit);
 	
 		
-		JTextField textFieldofsenderunit = new JTextField();
+		NLabel textFieldofsenderunit = new NLabel();
 		textFieldofsenderunit.setBounds(220, 140, 450, 30);
 		this.add(textFieldofsenderunit);
-		textFieldofsenderunit.setColumns(10);
 		textFieldofsenderunit.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(149,147,143)));
 		
 		JLabel labelofsenderaddress = new JLabel();
@@ -100,10 +96,9 @@ public class GetOrderBillPanel extends JPanel{
 		this.add(labelofsenderaddress);
 		
 		
-		JTextField textFieldofsenderaddress = new JTextField();
+		NLabel textFieldofsenderaddress = new NLabel();
 		textFieldofsenderaddress.setBounds(220, 180, 450, 30);
 		this.add(textFieldofsenderaddress);
-		textFieldofsenderaddress.setColumns(10);
 		textFieldofsenderaddress.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(149,147,143)));
 		
 		JLabel labelofconsigneeinfo = new JLabel();
@@ -120,8 +115,7 @@ public class GetOrderBillPanel extends JPanel{
 		this.add(labelofconsigneename);
 		
 		
-		JTextField textFieldofconsigneename = new JTextField();
-		textFieldofconsigneename.setColumns(10);
+		NLabel textFieldofconsigneename = new NLabel();
 		textFieldofconsigneename.setBounds(220, 260, 60, 30);
 		this.add(textFieldofconsigneename);
 		textFieldofconsigneename.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(149,147,143)));
@@ -133,8 +127,7 @@ public class GetOrderBillPanel extends JPanel{
 		this.add(labelofconsigneephone);
 	
 		
-		JTextField textFieldofconsigneephone = new JTextField();
-		textFieldofconsigneephone.setColumns(10);
+		NLabel textFieldofconsigneephone = new NLabel();
 		textFieldofconsigneephone.setBounds(361, 260, 92, 30);
 		this.add(textFieldofconsigneephone);
 		textFieldofconsigneephone.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(149,147,143)));
@@ -146,8 +139,7 @@ public class GetOrderBillPanel extends JPanel{
 		this.add(labelofconsigneemobile);
 		
 		
-		JTextField textFieldofconsigneemobile = new JTextField();
-		textFieldofconsigneemobile.setColumns(10);
+		NLabel textFieldofconsigneemobile = new NLabel();
 		textFieldofconsigneemobile.setBounds(530, 260, 140, 30);
 		this.add(textFieldofconsigneemobile);
 		textFieldofconsigneemobile.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(149,147,143)));
@@ -159,14 +151,12 @@ public class GetOrderBillPanel extends JPanel{
 		this.add(labelofconsigneeunit);
 	
 		
-		JTextField textFieldofconsigneeunit = new JTextField();
-		textFieldofconsigneeunit.setColumns(10);
+		NLabel textFieldofconsigneeunit = new NLabel();
 		textFieldofconsigneeunit.setBounds(220, 300, 450, 30);
 		this.add(textFieldofconsigneeunit);
 		textFieldofconsigneeunit.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(149,147,143)));
 		
-		JTextField textFieldofconsigneeaddress = new JTextField();
-		textFieldofconsigneeaddress.setColumns(10);
+		NLabel textFieldofconsigneeaddress = new NLabel();
 		textFieldofconsigneeaddress.setBounds(220, 340, 450, 30);
 		this.add(textFieldofconsigneeaddress);
 		textFieldofconsigneeaddress.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(149,147,143)));
@@ -192,10 +182,9 @@ public class GetOrderBillPanel extends JPanel{
 		this.add(labelofnumber);
 		
 		
-		JTextField textFieldofnumber = new JTextField();
+		NLabel textFieldofnumber = new NLabel();
 		textFieldofnumber.setBounds(220, 420, 60, 30);
 		this.add(textFieldofnumber);
-		textFieldofnumber.setColumns(10);
 		textFieldofnumber.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(149,147,143)));
 		
 		JLabel labelofweight = new JLabel();
@@ -205,10 +194,9 @@ public class GetOrderBillPanel extends JPanel{
 		this.add(labelofweight);
 	
 		
-		JTextField textFieldofweight = new JTextField();
+		NLabel textFieldofweight = new NLabel();
 		textFieldofweight.setBounds(430, 420, 60, 30);
 		this.add(textFieldofweight);
-		textFieldofweight.setColumns(10);
 		textFieldofweight.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(149,147,143)));
 		
 		JLabel labelofvolume = new JLabel();
@@ -217,11 +205,10 @@ public class GetOrderBillPanel extends JPanel{
 		labelofvolume.setBounds(520, 420, 80, 30);
 		this.add(labelofvolume);
 		
-		
-		JTextField textFieldofvolume = new JTextField();
+
+		NLabel textFieldofvolume = new NLabel();
 		textFieldofvolume.setBounds(610, 420, 60, 30);
 		this.add(textFieldofvolume);
-		textFieldofvolume.setColumns(10);
 		textFieldofvolume.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(149,147,143)));
 		
 		JLabel labelofsize = new JLabel();
@@ -231,21 +218,18 @@ public class GetOrderBillPanel extends JPanel{
 		this.add(labelofsize);
 		
 		
-		JTextField textFieldoflength = new JTextField();
+		NLabel textFieldoflength = new NLabel();
 		textFieldoflength.setBounds(316, 460, 34, 30);
 		this.add(textFieldoflength);
-		textFieldoflength.setColumns(10);
 		textFieldoflength.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(149,147,143)));
 		
 		
-		JTextField textFieldofwidth = new JTextField();
-		textFieldofwidth.setColumns(10);
+		NLabel textFieldofwidth = new NLabel();
 		textFieldofwidth.setBounds(360, 460, 34, 30);
 		this.add(textFieldofwidth);
 		textFieldofwidth.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(149,147,143)));
 		
-		JTextField textFieldofheight = new JTextField();
-		textFieldofheight.setColumns(10);
+		NLabel textFieldofheight = new NLabel();
 		textFieldofheight.setBounds(405, 460, 34, 30);
 		this.add(textFieldofheight);
 		textFieldofheight.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(149,147,143)));
@@ -257,16 +241,14 @@ public class GetOrderBillPanel extends JPanel{
 		this.add(labelofcargoname);
 		
 		
-		JTextField textFieldofcargoname = new JTextField();
+		NLabel textFieldofcargoname = new NLabel();
 		textFieldofcargoname.setBounds(610,460, 60, 30);
 		this.add(textFieldofcargoname);
-		textFieldofcargoname.setColumns(10);
-		textFieldofcargoname.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(149,147,143)));
+		
 		
 		
 		JLabel labeloforderinfo = new JLabel();
 		labeloforderinfo .setFont(new Font("微软雅黑",Font.BOLD,16));
-		labeloforderinfo .setText("快递信息");
 		labeloforderinfo.setBounds(60, 500, 100, 30);
 		this.add(labeloforderinfo);
 		
@@ -278,9 +260,9 @@ public class GetOrderBillPanel extends JPanel{
 		this.add(labelofpackingexpense);
 		
 		
-		JComboBox comboBoxofpackingexpense = new JComboBox();
-		comboBoxofpackingexpense.setModel(new DefaultComboBoxModel(new String[] {"5", "10", "15"}));
-		comboBoxofpackingexpense.setBounds(240, 540, 60, 30);
+		NLabel comboBoxofpackingexpense = new NLabel();
+		comboBoxofpackingexpense.setBounds(220, 540, 60, 30);
+		comboBoxofpackingexpense.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(149,147,143)));
 		this.add(comboBoxofpackingexpense);
 		
 		JLabel labelofordertype = new JLabel();
@@ -290,23 +272,20 @@ public class GetOrderBillPanel extends JPanel{
 		this.add(labelofordertype);
 	
 		
-		JComboBox comboBoxofordertype = new JComboBox();
-		comboBoxofordertype.setModel(new DefaultComboBoxModel(new String[] {"\u5FEB", "\u7279\u5FEB"}));
-		comboBoxofordertype.setToolTipText("\u5FEB");
-		comboBoxofordertype.setBounds(420, 540, 60, 30);
+		NLabel comboBoxofordertype = new NLabel();
+		comboBoxofordertype.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(149,147,143)));
+		comboBoxofordertype.setBounds(420, 540, 80, 30);
 		this.add(comboBoxofordertype);
 		
 		JLabel labelofkind = new JLabel();
-		 labelofkind.setFont(new Font("微软雅黑",Font.BOLD,16));
+		labelofkind.setFont(new Font("微软雅黑",Font.BOLD,16));
 		 labelofkind.setText("种类");
 		labelofkind.setBounds(540, 540, 40, 30);
 		this.add(labelofkind);
 	
-		
-		JTextField textFieldofkind = new JTextField();
-		textFieldofkind.setBounds(610, 540, 60, 30);
+		NLabel textFieldofkind = new NLabel();
+		textFieldofkind.setBounds(610, 540, 80, 30);
 		this.add(textFieldofkind);
-		textFieldofkind.setColumns(10);
 		textFieldofkind.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(149,147,143)));
 		
 		JLabel labelofexpense = new JLabel();
@@ -318,51 +297,50 @@ public class GetOrderBillPanel extends JPanel{
 		
 		JLabel labeloftotalexpense = new JLabel("");
 		labeloftotalexpense.setFont(new Font("微软雅黑",Font.BOLD,16));
-		labeloftotalexpense.setBounds(816, 540, 40, 30);
+		labeloftotalexpense.setBounds(816, 540, 80, 30);
+		labeloftotalexpense.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(149,147,143)));
 		this.add(labeloftotalexpense);		
 		
 		JButton buttonofsubmit = new JButton("查询");
 		buttonofsubmit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				/*SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");//设置日期格式
-				OrderBillPO order = new OrderBillPO(textFieldofconsigneename.getText(),textFieldofsenderphone.getText(),textFieldofsendermobile.getText(),
-						textFieldofsenderunit.getText(),textFieldofsenderaddress.getText(),textFieldofconsigneename.getText(),textFieldofconsigneephone.getText(),
-						textFieldofconsigneemobile.getText(),textFieldofconsigneeunit.getText(),textFieldofconsigneeaddress.getText(),textFieldofnumber.getText(),
-						textFieldofweight.getText(),textFieldoflength.getText(),textFieldofwidth.getText(),textFieldofheight.getText(),
-						textFieldofcargoname.getText(),textFieldofvolume.getText(),comboBoxofpackingexpense.getSelectedItem().toString(),
-						comboBoxofordertype.getSelectedItem().toString(),textFieldofkind.getText(),df.format(new Date()),
-					    Double.parseDouble(labeloftotalexpense.getText()),textFieldofordernumber.getText());
-				SendBLService send = new SendController();
-				boolean istrue=send.push(order);
-				if(istrue==false){
-					TimePanel.change=true;
-					TimePanel.text="您未能成功录入此寄件单，请重试！";
-				}else{
-					TimePanel.change=true;
-					TimePanel.text="寄件单录入成功！";
-					textFieldofconsigneename.setText(null);
-					textFieldofconsigneename.setText(null);
-					textFieldofsenderphone.setText(null);
-					textFieldofsendermobile.setText(null);
-					textFieldofsenderunit.setText(null);
-					textFieldofsenderaddress.setText(null);
-					textFieldofconsigneename.setText(null);
-					textFieldofconsigneephone.setText(null);
-					textFieldofconsigneemobile.setText(null);
-					textFieldofconsigneeunit.setText(null);
-					textFieldofconsigneeaddress.setText(null);
-					textFieldofnumber.setText(null);
-					textFieldofweight.setText(null);
-					textFieldoflength.setText(null);
-					textFieldofwidth.setText(null);
-					textFieldofheight.setText(null);
-					textFieldofcargoname.setText(null);
-					textFieldofvolume.setText(null);
-					comboBoxofpackingexpense.setSelectedIndex(0);
-					comboBoxofordertype.setSelectedIndex(0);
-					textFieldofkind.setText(null);
-				}*/
+				String text=textFieldofordernumber.getText();
+				boolean result=VaildHelper.checkIsValidID(text, 10);
+				
+			//	boolean result=true;
+				if(result){
+					System.out.println("梦醒煞笔");
+					SendController send=new SendController();
+					OrderBillPO bill=send.inquireSendMesg(text);
+					//OrderBillPO bill=new OrderBillPO();
+					if(bill==null){
+						TimePanel.change=true;
+						TimePanel.text="查询失败！可能不存在该订单，也可能网络连接发生异常。请检查您的输入后重试。";
+					}else{
+						textFieldofsendername.setText(bill.nameOfSender);
+						textFieldofsenderphone.setText(bill.phoneOfSender);
+						textFieldofsendermobile.setText(bill.mobileOfSender);
+						textFieldofsenderunit.setText(bill.workplaceOfSender);
+						textFieldofsenderaddress.setText(bill.addressOfSender);
+						textFieldofconsigneename.setText(bill.nameOfReceiver);
+						textFieldofconsigneephone.setText(bill.phoneOfReceiver);
+						textFieldofconsigneemobile.setText(bill.mobileOfReceiver);
+						textFieldofconsigneeunit.setText(bill.workplaceOfReceiver);
+						textFieldofconsigneeaddress.setText(bill.addressOfReceiver);
+						textFieldofnumber.setText(""+bill.numOfItem);
+						textFieldofweight.setText(bill.weight+"");
+						textFieldofvolume.setText(bill.volume);
+						textFieldoflength.setText(""+bill.size[0]);
+						textFieldofwidth.setText(""+bill.size[1]);
+						textFieldofheight.setText(""+bill.size[2]);
+						textFieldofcargoname.setText(bill.nameOfOrder);
+						comboBoxofpackingexpense.setText(""+bill.moneyForCover);
+						comboBoxofordertype.setText(bill.speedLevel);;
+						textFieldofkind.setText(bill.kindOfSend);
+						labeloftotalexpense.setText(bill.money+"");
+					}
+				}
 			}
 		});
 		buttonofsubmit.setBounds(770, 170, 100, 30);

@@ -167,7 +167,7 @@ public class SignPanel extends JPanel{
 /*			LoginService login = new LoginController();
 			StaffVO staff=login.validUser(signname,signpasswod);*/
 			StaffVO staff=new StaffVO();
-			staff.pos="总经理";
+			staff.pos="快递员";
 
 			if(staff==null){
 				WrongMess.setText("账号或密码错误，请重试!");
@@ -209,11 +209,11 @@ public class SignPanel extends JPanel{
 			
 					buttons[1]=new JButton();
 					buttons[1].setFont(new Font("微软雅黑",Font.BOLD,16));
-					buttons[1].setText("查看成本收益表");
+					buttons[1].setText("查看经营情况表");
 			
 					buttons[2]=new JButton();
 					buttons[2].setFont(new Font("微软雅黑",Font.BOLD,16));
-					buttons[2].setText("查看经营情况表");
+					buttons[2].setText("查看成本收益表");
 					
 					buttons[3]=new JButton();
 					buttons[3].setFont(new Font("微软雅黑",Font.BOLD,16));
@@ -252,7 +252,7 @@ public class SignPanel extends JPanel{
 				}		
 			FunctionPanel tool=new FunctionPanel(belongsTO,buttons,panels);
 			belongsTO.addToolBar(tool);
-		
+	
 			belongsTO.addTimePanel();
 		
 			StartPanel start=new StartPanel(belongsTO);

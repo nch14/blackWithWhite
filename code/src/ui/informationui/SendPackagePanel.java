@@ -280,7 +280,7 @@ public class SendPackagePanel extends JPanel {
 		
 		
 		JComboBox comboBoxofpackingexpense = new JComboBox();
-		comboBoxofpackingexpense.setModel(new DefaultComboBoxModel(new String[] {"5元（包装袋）", "10元(纸箱)", "15元（木箱）"}));
+		comboBoxofpackingexpense.setModel(new DefaultComboBoxModel(new String[] {"05元（包装袋）", "10元(纸箱)", "15元（木箱）"}));
 		comboBoxofpackingexpense.setBounds(220, 540, 110, 30);
 		this.add(comboBoxofpackingexpense);
 		
@@ -338,11 +338,12 @@ public class SendPackagePanel extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");//设置日期格式
-				OrderBillPO order = new OrderBillPO(textFieldofconsigneename.getText(),textFieldofsenderphone.getText(),textFieldofsendermobile.getText(),
+				String money=comboBoxofpackingexpense.getSelectedItem().toString().substring(0,2);
+				OrderBillPO order = new OrderBillPO(textFieldofsendername.getText(),textFieldofsenderphone.getText(),textFieldofsendermobile.getText(),
 						textFieldofsenderunit.getText(),textFieldofsenderaddress.getText(),textFieldofconsigneename.getText(),textFieldofconsigneephone.getText(),
 						textFieldofconsigneemobile.getText(),textFieldofconsigneeunit.getText(),textFieldofconsigneeaddress.getText(),textFieldofnumber.getText(),
 						textFieldofweight.getText(),textFieldoflength.getText(),textFieldofwidth.getText(),textFieldofheight.getText(),
-						textFieldofcargoname.getText(),textFieldofvolume.getText(),comboBoxofpackingexpense.getSelectedItem().toString(),
+						textFieldofcargoname.getText(),textFieldofvolume.getText(),money,
 						comboBoxofordertype.getSelectedItem().toString(),textFieldofkind.getText(),df.format(new Date()),
 					    Double.parseDouble(labeloftotalexpense.getText()),textFieldofordernumber.getText());
 				SendBLService send = new SendController();
@@ -353,7 +354,7 @@ public class SendPackagePanel extends JPanel {
 				}else{
 					TimePanel.change=true;
 					TimePanel.text="寄件单录入成功！";
-					textFieldofconsigneename.setText(null);
+					textFieldofsendername.setText(null);
 					textFieldofconsigneename.setText(null);
 					textFieldofsenderphone.setText(null);
 					textFieldofsendermobile.setText(null);
