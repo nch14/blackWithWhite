@@ -25,8 +25,6 @@ public class StartFrame extends JFrame{
 		
 		myPanel.setLayout(null);
 		
-/*		this.setLocationRelativeTo(null);*/
-		
 		
 		contentPanel=new InformationPanel(this);
 		
@@ -52,8 +50,15 @@ public class StartFrame extends JFrame{
 		this.remove(contentPanel);
 		contentPanel=panel;
 		this.add(contentPanel);
-		repaint();
-		
+		repaint();		
+	}
+	
+	public void backLastPanel(){
+		JPanel panel=lastPanel.pop();
+		this.remove(contentPanel);
+		contentPanel=panel;
+		this.add(contentPanel);
+		repaint();		
 	}
 	public static void main(String[] args){
 		StartFrame a=new StartFrame();

@@ -15,7 +15,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 
+import bill.DriverPO;
 import bl.staff.Impl.StaffManageController;
 import bl.staff.Impl.UserManageController;
 import vo.StaffVO;
@@ -118,13 +121,8 @@ public class AddDriverPanel extends JPanel{
 /*		StaffManageController staff=new StaffManageController();
 		ArrayList<StaffVO> staffs=staff.getAllStaff("");
 		int size=staffs.size();*/
-		ArrayList<StaffVO> staffs=new ArrayList<StaffVO>();
-		StaffVO A=new StaffVO();
-		A.ID="laoshu";
-		A.name="仓鼠";
-		A.age=18;
-		A.passwords="888";
-		A.pos="xiaolongbao";
+		ArrayList<DriverPO> staffs=new ArrayList<DriverPO>();
+		DriverPO A=new DriverPO("0010", "杨过","320921199602111010", "19960219", true, "18912593173", "20151005");
 		staffs.add(A);
 		staffs.add(A);
 		staffs.add(A);
@@ -171,16 +169,24 @@ public class AddDriverPanel extends JPanel{
 		this.add(userValidTime);
 	}
 	
-	public void buildTable(ArrayList<StaffVO> staffs){
+	public void buildTable(ArrayList<DriverPO> staffs){
 		int size=staffs.size();
 		
-		Object[][] tableData=new Object[size][5];
+		Object[][] tableData=new Object[size][7];
 		for(int i=0;i<size;i++){
-			StaffVO mess=staffs.get(i);
-			tableData[i]=new Object[]{mess.ID,mess.name,mess.age,mess.passwords,mess.pos," "};
+			DriverPO mess=staffs.get(i);
+			String sex="男";
+			if(!mess.isBoy)
+				sex="女";
+			tableData[i]=new Object[]{mess.ID,mess.name,sex,mess.birthday,mess.tel,mess.validData,mess.IDNumber};
 		}
-		Object[] columnTitle = {"用户名" ,"姓名","年龄","密码","职位","权限"};  
-		table=new JTable(tableData,columnTitle);
+		Object[] columnTitle = {"司机编号" ,"姓名","性别","出生日期","手机号码","行驶证期限","身份证号"};  
+		
+		DefaultTableModel tableModel=new DefaultTableModel(tableData,columnTitle);
+		table=new JTable(tableModel);
+		DefaultTableCellRenderer r=new DefaultTableCellRenderer();   
+	  	r.setHorizontalAlignment(JLabel.CENTER); 
+	  	table.setDefaultRenderer(Object.class,r);
 		int height=table.getRowHeight()*(size+1)+9;
 		int ValidMaxHeight=250;
 		if(height>=300)
@@ -188,7 +194,7 @@ public class AddDriverPanel extends JPanel{
 		table.setOpaque(false); 
 		table.setRowSelectionAllowed(true);
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(140, 370, 658, height);
+		scrollPane.setBounds(120, 280, 700, height);
 		scrollPane.setOpaque(false);
 		this.add(scrollPane);
 		scrollPane.setViewportView(table);

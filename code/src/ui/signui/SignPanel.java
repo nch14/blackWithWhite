@@ -24,6 +24,7 @@ import ui.informationui.AddDriverPanel;
 import ui.informationui.AddStaffPanel;
 import ui.informationui.AddTrunckPanel;
 import ui.informationui.FunctionPanel;
+import ui.informationui.GetOrderBillPanel;
 import ui.informationui.SendPackagePanel;
 import ui.informationui.StartFrame;
 import ui.informationui.StartPanel;
@@ -81,12 +82,13 @@ public class SignPanel extends JPanel{
 		enter.addActionListener(new SignListener());
 		
 		back=new JButton();
-		back.setIcon(new ImageIcon("pic/·µ»Ø°´Å¥.png"));
-		back.setBounds(1150, 10,32, 32);
+		back.setIcon(new ImageIcon("pic/ÏÂ¼ýÍ·32.png"));
+		back.setBounds(20, 20,32, 32);
 		back.setBorder(null);
 		back.setFocusPainted(false);
 		back.setBorderPainted(false);
 		back.setContentAreaFilled(false);
+		back.addActionListener(new BackListener());
 		
 		attention1=new JLabel();
 		attention1.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
@@ -140,7 +142,15 @@ public class SignPanel extends JPanel{
 
     }
 	
-	
+	class BackListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			belongsTO.backLastPanel();		
+		}
+		
+		
+	}
 	class SignListener implements ActionListener{
 
 		public void actionPerformed(ActionEvent arg0) {
@@ -149,12 +159,7 @@ public class SignPanel extends JPanel{
 			String signpasswod=String.valueOf(userPasswords.getPassword());
 			
 			
-			
-			
-			
-			
-			
-			JButton[] buttons=new JButton[5];
+			JButton[] buttons=new JButton[6];
 			
 			buttons[0]=new JButton();
 			buttons[0].setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
@@ -176,12 +181,17 @@ public class SignPanel extends JPanel{
 			buttons[4].setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
 			buttons[4].setText("¼Ä¼þ");
 			
-			JPanel[] panels=new JPanel[5];
+			buttons[5]=new JButton();
+			buttons[5].setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
+			buttons[5].setText("²é¿´¼Ä¼þµ¥");
+			
+			JPanel[] panels=new JPanel[6];
 			panels[0]=new AddStaffPanel(belongsTO); 
 			panels[1]=new AddDriverPanel(belongsTO);
 			panels[2]=new AddTrunckPanel(belongsTO);
 			panels[3]=new UserManagePanel(belongsTO);
 			panels[4]=new SendPackagePanel(belongsTO);
+			panels[5]=new GetOrderBillPanel(belongsTO);
 			
 			FunctionPanel tool=new FunctionPanel(belongsTO,buttons,panels);
 			belongsTO.addToolBar(tool);
