@@ -9,13 +9,16 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+
 
 public class FunctionPanel extends JPanel {
 	StartFrame belongsTO;
 	JButton[] buttons;
 	JPanel[] panels;
+	JButton back;
 	
 	public FunctionPanel(StartFrame belongsTO,JButton[] buttons,JPanel[] panels){
 		this.belongsTO=belongsTO;
@@ -23,6 +26,16 @@ public class FunctionPanel extends JPanel {
 		this.panels=panels;
 		this.setLayout(null);
 		this.setBounds(0, 60, 200, 615);
+		
+		back=new JButton();
+		back.setIcon(new ImageIcon("pic/ÏÂ¼ýÍ·32.png"));
+		back.setBounds(20, 550,32, 32);
+		back.setBorder(null);
+		back.setFocusPainted(false);
+		back.setBorderPainted(false);
+		back.setContentAreaFilled(false);
+		back.addActionListener(new BackListener());
+		this.add(back);
 		
 		int numbers=buttons.length;
 		int x=20;
@@ -68,6 +81,15 @@ public class FunctionPanel extends JPanel {
 			// TODO Auto-generated method stub
 			belongsTO.changePanel(panel);
 		}
+		
+	}
+	class BackListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			belongsTO.backLastPanel();		
+		}
+		
 		
 	}
 }

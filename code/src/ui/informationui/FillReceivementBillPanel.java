@@ -1,205 +1,168 @@
 package ui.informationui;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
 
 import bl.receivement.Impl.TransportFinishedController;
-import bl.receivement.Service.TransportFinishedBLService;
+import tools.TimeHelper;
+import tools.VaildHelper;
 import vo.ReceiveInformationVO;
 
 public class FillReceivementBillPanel extends JPanel {
-	private JTable table_1;
-	private JTextField textFieldofday;
-	private JTextField textFieldofmonth;
+	private JTable table;
+	private NTextField textFieldofday;
+	private NTextField textFieldofmonth;
+	JButton okButton;
+	JScrollPane scrollPane;
+	ArrayList<ReceiveInformationVO> staffs;
 	public FillReceivementBillPanel(){
 		this.setLayout(null);
-		this.setBounds(200, 60, 1000, 615);
+		this.setBounds(200, 60, 1000, 615);	
 		
-		final JLabel label_31 = new JLabel();
-		label_31.setBounds(282, 0, 436, 21);
-		this.add(label_31);
+		NLabel id = new NLabel("订单编号");
+		id.setBounds(120, 90, 80, 30);
+		this.add(id);
 		
+		final NTextField billID = new NTextField();
+		billID.setBounds(210, 90, 140, 30);
+		this.add(billID);
+		billID.setColumns(10);
 		
-		JLabel labelofordernumber = new JLabel("订单编号");
-		labelofordernumber.setBounds(157, 87, 66, 15);
-		this.add(labelofordernumber);
+		NLabel name = new NLabel("收件人");
+		name.setBounds(390, 90, 60, 30);
+		this.add(name);
 		
-		final JTextField textFieldofordernumber = new JTextField();
-		textFieldofordernumber.setBounds(223, 84, 66, 21);
-		this.add(textFieldofordernumber);
-		textFieldofordernumber.setColumns(10);
+		final NTextField userName = new NTextField();
+		userName.setBounds(460, 90, 80, 30);
+		this.add(userName);
+		userName.setColumns(10);
 		
-		JLabel labelofconsignee = new JLabel("收件人");
-		labelofconsignee.setBounds(353, 87, 54, 15);
-		this.add(labelofconsignee);
-		
-		final JTextField textFieldofconsignee = new JTextField();
-		textFieldofconsignee.setBounds(404, 84, 66, 21);
-		this.add(textFieldofconsignee);
-		textFieldofconsignee.setColumns(10);
-		
-		JLabel labelofdate = new JLabel("收件日期");
-		labelofdate.setBounds(519, 87, 74, 15);
+		NLabel labelofdate = new NLabel("收件日期");
+		labelofdate.setBounds(580, 90, 70, 30);
 		this.add(labelofdate);
 		
-		final JTextField textFieldofyear = new JTextField();
-		textFieldofyear.setBounds(594, 82, 34, 21);
+		NTextField textFieldofyear = new NTextField();
+		textFieldofyear.setBounds(660, 90, 50, 30);
 		this.add(textFieldofyear);
-		textFieldofyear.setColumns(10);
+		textFieldofyear.setColumns(4);
 		
-		/*
-		 * 收件信息添加
-		 */
-		JButton button = new JButton("\u6DFB\u52A0");
-		button.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				for(int i=0;i<table_1.getRowCount();i++){
-					if(table_1.getValueAt(i, 0)==null&&table_1.getValueAt(i, 1)==null&&table_1.getValueAt(i, 2)==null){
-						String month=textFieldofmonth.getText();
-						String day=textFieldofday.getText();
-						if(month.length()==1){
-							month="0"+month;
-						}
-						if(day.length()==1){
-							day="0"+day;
-						}
-						String date=textFieldofyear.getText()+month+day;
-						table_1.setValueAt(textFieldofordernumber.getText(), i, 0);
-						table_1.setValueAt(textFieldofconsignee.getText(), i, 1);
-						table_1.setValueAt(date, i, 2);
-						textFieldofordernumber.setText(null);
-						textFieldofconsignee.setText(null);
-						textFieldofyear.setText(null);
-						textFieldofmonth.setText(null);
-						textFieldofday.setText(null);
-						break;
-					}
-				}
-			}
-		});
-		button.setBounds(755, 122, 93, 23);
-		this.add(button);
-		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(157, 174, 668, 347);
-		this.add(scrollPane);
-		
-		table_1 = new JTable();
-		table_1.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-			},
-			new String[] {
-				"订单编号", "收件人", "收件日期"
-			}
-		));
-		scrollPane.setViewportView(table_1);
-		
-		/*
-		 * 收件信息撤销
-		 */
-		JButton button_1 = new JButton("\u64A4\u9500");
-		button_1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				for(int i=table_1.getRowCount()-1;i>=0;i--){
-					if(table_1.getValueAt(i, 0)!=null&&table_1.getValueAt(i, 1)!=null&&table_1.getValueAt(i, 2)!=null){
-						table_1.setValueAt(null, i, 0);
-						table_1.setValueAt(null, i, 1);
-						table_1.setValueAt(null, i, 2);
-					}
-				}
-			}
-		});
-		button_1.setBounds(157, 531, 93, 23);
-		this.add(button_1);
-		
-		/*
-		 * 收件信息提交
-		 */
-		JButton button_2 = new JButton("\u63D0\u4EA4");
-		button_2.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				ReceiveInformationVO receiveInfo = new ReceiveInformationVO();
-				ArrayList<ReceiveInformationVO> receive = new ArrayList<ReceiveInformationVO>();
-				int count=0;
-				while(!(table_1.getValueAt(count, 0)==null)){
-					++count;
-				}
-				for(int i=0;i<count;i++){
-					receiveInfo.ID= table_1.getValueAt(i, 0).toString();
-					receiveInfo.nameOfReceiver=(String) table_1.getValueAt(i, 1);
-					receiveInfo.time[0]= table_1.getValueAt(i, 2).toString().substring(0, 4);
-					receiveInfo.time[1]= table_1.getValueAt(i, 2).toString().substring(4, 6);
-					receiveInfo.time[2]= table_1.getValueAt(i, 2).toString().substring(6, 7);
-				}
-				receive.add(receiveInfo);
-				TransportFinishedBLService finish= new TransportFinishedController();
-				boolean istrue=finish.billFilled(receive);
-				if(istrue){
-					for(int i=0; i<table_1.getRowCount();i++){
-						table_1.setValueAt(null, i, 0);
-						table_1.setValueAt(null, i, 1);
-						table_1.setValueAt(null, i, 2);
-					}
-				}else{
-					
-				}
-			}
-		});
-		button_2.setBounds(755, 531, 93, 23);
-		this.add(button_2);
-		
-		JLabel labelofyear = new JLabel("年");
-		labelofyear.setBounds(638, 87, 54, 15);
+		NLabel labelofyear = new NLabel("年");
+		labelofyear.setBounds(715, 90, 20, 30);
 		this.add(labelofyear);
 		
-		textFieldofmonth = new JTextField();
-		textFieldofmonth.setBounds(658, 84, 34, 21);
+		textFieldofmonth = new NTextField();
+		textFieldofmonth.setBounds(740, 90, 50, 30);
 		this.add(textFieldofmonth);
-		textFieldofmonth.setColumns(10);
+		textFieldofmonth.setColumns(2);
 		
-		JLabel labelofmonth = new JLabel("月");
-		labelofmonth.setBounds(699, 87, 54, 15);
+		
+		NLabel labelofmonth = new NLabel("月");
+		labelofmonth.setBounds(795, 90, 20, 30);
 		this.add(labelofmonth);
 		
-		textFieldofday = new JTextField();
-		textFieldofday.setBounds(718, 84, 34, 21);
+		textFieldofday = new NTextField();
+		textFieldofday.setBounds(820, 90,50, 30);
 		this.add(textFieldofday);
-		textFieldofday.setColumns(10);
+		textFieldofday.setColumns(2);
 		
-		JLabel labelofday = new JLabel("日");
-		labelofday.setBounds(763, 87, 54, 15);
+		NLabel labelofday = new NLabel("日");
+		labelofday.setBounds(875, 90, 20, 30);
 		this.add(labelofday);
+		
+		staffs=new ArrayList<ReceiveInformationVO>(); 
+
+		JButton addButton = new JButton("添加");
+		addButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				String thisID=billID.getText();
+				String thisName=userName.getText();
+				String thisDate=TimeHelper.adjustTime(textFieldofyear.getText(), 4)+
+						TimeHelper.adjustTime(textFieldofmonth.getText(),2)+
+						TimeHelper.adjustTime(textFieldofday.getText(),2);
+				boolean result=true;
+				System.out.println(thisDate);
+				result=result&&VaildHelper.checkIsValidID(thisID, 10);
+				result=result&&VaildHelper.checkIsValidID(thisDate,8);
+				if(result){
+					staffs.add(new ReceiveInformationVO(thisID,thisName,thisDate));
+					billID.setText("");
+					userName.setText("");
+					textFieldofyear.setText("");
+					textFieldofmonth.setText("");
+					textFieldofday.setText("");
+					buildTable(staffs);
+					repaint();
+				}
+			}
+		});
+		addButton.setBounds(755, 140, 80, 30);
+		this.add(addButton);
+
+		okButton=new JButton();
+		okButton.setIcon(new ImageIcon("pic/ok40.png"));
+		okButton.setBounds(720, 500, 40, 40);
+		okButton.setBorder(null);
+		okButton.setFocusPainted(false);
+		okButton.setBorderPainted(false);
+		okButton.setContentAreaFilled(false);
+		okButton.addActionListener(new PushListener());
+		this.add(okButton);
+	}
+	
+	public void buildTable(ArrayList<ReceiveInformationVO> staffs){
+		if(this.scrollPane!=null)
+			this.remove(scrollPane);
+		int size=staffs.size();
+		
+		Object[][] tableData=new Object[size][3];
+		for(int i=0;i<size;i++){
+			ReceiveInformationVO mess=staffs.get(i);
+			System.out.println(mess.time[0]+mess.time[1]+mess.time[2]);
+			tableData[i]=new Object[]{mess.ID,mess.nameOfReceiver,
+					mess.time[0]+mess.time[1]+mess.time[2]};
+		}
+		Object[] columnTitle = {"订单编号" ,"收件人","收件日期"};  
+		table=new JTable(tableData,columnTitle);
+		int height=table.getRowHeight()*(size+1)+9;
+		int ValidMaxHeight=250;
+		if(height>=400)
+			height=ValidMaxHeight;
+		//table.setBounds(200, 50, 600, height);
+		table.setOpaque(false); 
+		table.setRowSelectionAllowed(true);
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(140, 270, 658, height);
+		scrollPane.setOpaque(false);
+		this.add(scrollPane);
+		scrollPane.setViewportView(table);
+	}
+	
+
+	
+	class PushListener implements ActionListener{	
+		public void actionPerformed(ActionEvent arg0) {
+			TransportFinishedController trans=new TransportFinishedController();
+			boolean result=trans.billFilled(staffs);
+			if(result){
+				staffs=new ArrayList<ReceiveInformationVO>();
+				buildTable(staffs);
+				System.out.println(" tongguo");
+				repaint();
+			}else{
+				TimePanel.change=true;
+				TimePanel.text="提交失败！请重试！";
+			}
+		}
+		
 	}
 }

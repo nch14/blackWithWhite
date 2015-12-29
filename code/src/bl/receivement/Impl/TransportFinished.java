@@ -13,9 +13,6 @@ public class TransportFinished {
 		ReceiveInfo receiveInfo=new ReceiveInfo();
 		boolean result=true;
 		try {
-			for(int i=0;i<info.size();i++){
-				result=result&&receiveInfo.insert(info.get(i));
-			}
 			//更新物流动态
 			InformationController IC=new InformationController();
 			for(int i=0;i<info.size();i++){

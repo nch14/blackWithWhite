@@ -7,6 +7,7 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -133,7 +134,12 @@ public class AddStaffPanel extends JPanel{
 
 		
 		okButton=new JButton();
-		okButton.setBounds(520, 210, 40, 40);
+		okButton.setIcon(new ImageIcon("pic/ok40.png"));
+		okButton.setBounds(620, 210, 40, 40);
+		okButton.setBorder(null);
+		okButton.setFocusPainted(false);
+		okButton.setBorderPainted(false);
+		okButton.setContentAreaFilled(false);
 		okButton.addActionListener(new PushListener());
 		
 /*		StaffManageController staff=new StaffManageController();
