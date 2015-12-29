@@ -36,12 +36,12 @@ public class AddTrunckPanel extends JPanel{
 	
 		driverid=new JLabel();
 		driverid.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
-		driverid.setBounds(50,100,80,30);
+		driverid.setBounds(100,100,80,30);
 		driverid.setText("³µÁ¾´úºÅ");
 		
 		userid=new JTextField();
 		userid.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
-		userid.setBounds(140,100,200,30);
+		userid.setBounds(190,100,200,30);
 	
 		IDNumbers=new JLabel();
 		IDNumbers.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
@@ -54,13 +54,13 @@ public class AddTrunckPanel extends JPanel{
 		
 		validDate=new JLabel();
 		validDate.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
-		validDate.setBounds(50,160,80,30);
+		validDate.setBounds(100,160,80,30);
 		validDate.setText("·şÒÛÊ±¼ä");
 		
 		 
 		userValidTime=new JTextField();
 		userValidTime.setFont(new Font("Î¢ÈíÑÅºÚ",Font.BOLD,16));
-		userValidTime.setBounds(140,160,200,30);
+		userValidTime.setBounds(190,160,200,30);
 		
 		
 		

@@ -25,9 +25,12 @@ import ui.informationui.AddStaffPanel;
 import ui.informationui.AddTrunckPanel;
 import ui.informationui.ChangeStaffPanel;
 import ui.informationui.DeleteStaffPanel;
+import ui.informationui.DistributionPanel;
 import ui.informationui.FillReceivementBillPanel;
 import ui.informationui.FunctionPanel;
 import ui.informationui.GetOrderBillPanel;
+import ui.informationui.PaidPanel;
+import ui.informationui.PayPanel;
 import ui.informationui.SalaryModelPanel;
 import ui.informationui.SendPackagePanel;
 import ui.informationui.StartFrame;
@@ -167,7 +170,7 @@ public class SignPanel extends JPanel{
 /*			LoginService login = new LoginController();
 			StaffVO staff=login.validUser(signname,signpasswod);*/
 			StaffVO staff=new StaffVO();
-			staff.pos="总经理";
+			staff.pos="营业厅业务员";
 
 			if(staff==null){
 				WrongMess.setText("账号或密码错误，请重试!");
@@ -247,8 +250,30 @@ public class SignPanel extends JPanel{
 					
 					//transitCenterClerk.main();
 				}else if(staff.pos.equals("营业厅业务员")){
-				
-					//businessHall.main();
+					
+					buttons=new JButton[5];
+					
+					buttons[0]=new JButton();
+					buttons[0].setFont(new Font("微软雅黑",Font.BOLD,16));
+					buttons[0].setText("派件");
+					buttons[1]=new JButton();
+					buttons[1].setFont(new Font("微软雅黑",Font.BOLD,16));
+					buttons[1].setText("司机管理");	
+					buttons[2]=new JButton();
+					buttons[2].setFont(new Font("微软雅黑",Font.BOLD,16));
+					buttons[2].setText("车辆管理");
+					buttons[3]=new JButton();
+					buttons[3].setFont(new Font("微软雅黑",Font.BOLD,16));
+					buttons[3].setText("收款单填写");
+					buttons[4]=new JButton();
+					buttons[4].setFont(new Font("微软雅黑",Font.BOLD,16));
+					buttons[4].setText("付款单填写");
+					panels=new JPanel[5];
+					panels[0]=new DistributionPanel();
+					panels[1]=new AddDriverPanel(); 
+					panels[2]=new AddTrunckPanel();
+					panels[3]=new PaidPanel(); 
+					panels[4]=new PayPanel(); 
 				}		
 			FunctionPanel tool=new FunctionPanel(belongsTO,buttons,panels);
 			belongsTO.addToolBar(tool);

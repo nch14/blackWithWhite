@@ -79,7 +79,7 @@ public class FunctionPanel extends JPanel {
 		}		
 		public void actionPerformed(ActionEvent arg0) {
 			// TODO Auto-generated method stub
-			belongsTO.changePanel(panel);
+			belongsTO.changePanelInner(panel);
 		}
 		
 	}
@@ -87,7 +87,9 @@ public class FunctionPanel extends JPanel {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			belongsTO.backLastPanel();		
+			belongsTO.backLastPanel();
+			belongsTO.removeTimePanel();
+			belongsTO.removeToolBar();
 		}
 		
 		

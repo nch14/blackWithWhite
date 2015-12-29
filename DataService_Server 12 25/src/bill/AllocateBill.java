@@ -17,7 +17,7 @@ public class AllocateBill implements Serializable{
 	
 	public AllocateBill(){}
 	public AllocateBill(String a,String[] b){
-		numID=a;
+		name=a;
 		date=b;
 		list=new ArrayList<String>();
 	}

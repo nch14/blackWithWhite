@@ -12,13 +12,13 @@ public class AllocateBill implements Serializable{
 	public String ID;//单据的ID
 	public boolean judged;
 	public String[] date;
-	public String numID;//快递员的ID
+	public String name;//快递员的名字
 	public ArrayList<String> list;//单据的寄件单号
 	
-	public AllocateBill(){}
-	public AllocateBill(String a,String[] b){
-		numID=a;
-		date=b;
+	public AllocateBill(String ID,String numID,String[] date){
+		this.ID=ID;
+		this.name=numID;
+		this.date=date;
 		list=new ArrayList<String>();
 	}
 	

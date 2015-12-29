@@ -9,6 +9,43 @@ import java.util.Calendar;
  */
 public class TimeHelper {
 
+	public static String[] String2Array(String date){
+		String[] dateArray=new String[3];
+		try {
+			dateArray[0]=date.substring(0, 4);
+			dateArray[1]=date.substring(4, 6);
+			dateArray[2]=date.substring(6, 8);	
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+		return dateArray;	
+	}
+	
+	public static boolean isValidTime(String date){
+		int year;
+		int month;
+		int day;
+		try {
+			year=Integer.parseInt(date.substring(0, 4));
+			month=Integer.parseInt(date.substring(4, 6));
+			day=Integer.parseInt(date.substring(6, 8));	
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+		
+		if(year<1900||year>2200)
+			return false;
+		if(month<0||month>12)
+			return false;		
+		if(day<0||day>31)
+			return false;
+		
+		return true;	
+	}
 	/**
 	 * 完成年月日数组格式的检查
 	 * @param date
@@ -36,6 +73,22 @@ public class TimeHelper {
 			return false;
 		
 		return true;	
+	}
+	
+	public static String adjustTime(String[] date){
+		int year;
+		int month;
+		int day;
+		try {
+			year=Integer.parseInt(date[0]);
+			month=Integer.parseInt(date[1]);
+			day=Integer.parseInt(date[2]);	
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+		return ""+year+"/"+month+"/"+day;	
 	}
 	/**
 	 * 获得系统当前时间

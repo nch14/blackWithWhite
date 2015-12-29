@@ -35,9 +35,13 @@ public class StartFrame extends JFrame{
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}
-		public void addToolBar(FunctionPanel tools){
+	public void addToolBar(FunctionPanel tools){
 		toolBar=tools;
 		this.add(toolBar);
+		repaint();
+	}
+	public void removeToolBar(){
+		this.remove(toolBar);
 		repaint();
 	}
 	public void addTimePanel(){
@@ -45,8 +49,19 @@ public class StartFrame extends JFrame{
 		this.add(info);
 		repaint();
 	}
+	public void removeTimePanel(){
+		this.remove(info);
+		repaint();
+	}
 	public void changePanel(JPanel panel){
 		lastPanel.push(contentPanel);
+		this.remove(contentPanel);
+		contentPanel=panel;
+		this.add(contentPanel);
+		repaint();		
+	}
+	
+	public void changePanelInner(JPanel panel){
 		this.remove(contentPanel);
 		contentPanel=panel;
 		this.add(contentPanel);

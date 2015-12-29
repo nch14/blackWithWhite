@@ -75,6 +75,10 @@ public class TimePanel extends JPanel implements Runnable {
 		}
 		
 	}
+	public static void makeWords(String a){
+		change=true;
+		text=a;
+	}
 	public void run() {
 		while(state){
 			if(change){
