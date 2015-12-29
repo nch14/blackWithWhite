@@ -13,41 +13,41 @@ public class OrderBillPO implements Serializable{
 	/*
 	 * information of the sender
 	 */
-	String nameOfSender;
-	String addressOfSender;
+	public String nameOfSender;
+	public String addressOfSender;
 	public String workplaceOfSender;
-	String phoneOfSender;
-	String mobileOfSender;
+	public String phoneOfSender;
+	public String mobileOfSender;
 	
 	/*
 	 * information of the receiver
 	 */
 	
-	String nameOfReceiver;
-	String addressOfReceiver;
-	String workplaceOfReceiver;
-	String phoneOfReceiver;
-	String mobileOfReceiver;
+	public String nameOfReceiver;
+	public String addressOfReceiver;
+	public String workplaceOfReceiver;
+	public String phoneOfReceiver;
+	public String mobileOfReceiver;
 	
 	/*
 	 * information of the item
 	 */
-	int numOfItem;
-	double weight;
-	double[] size;
-	String nameOfOrder;
-	String volume ;
-	double moneyForCover;
-	String speedLevel;
-	String kindOfSend;
+	public int numOfItem;
+	public double weight;
+	public double[] size;
+	public String nameOfOrder;
+	public String volume ;
+	public double moneyForCover;
+	public String speedLevel;
+	public String kindOfSend;
 	public String time;
 	public double money;
 	
-	public OrderBillPO(String nameOfSender1,String addressOfSender1,String workplaceOfSender1,String phoneOfSender1,
-	String mobileOfSender1,String nameOfReceiver1,String addressOfReceiver1,String workplaceOfReceiver1,
-	String phoneOfReceiver1,String mobileOfReceiver1,String numOfItem1,String weight1,String length,String width,String height,
-	String nameOfOrder1,String volume1,String moneyForCover1,String speedLevel1,String kindOfSend1,String time1,double money1){
-		
+	public OrderBillPO(String nameOfSender1,String phoneOfSender1,String mobileOfSender1,String workplaceOfSender1,String addressOfSender1,
+	String nameOfReceiver1,String phoneOfReceiver1,String mobileOfReceiver1,String workplaceOfReceiver1,String addressOfReceiver1,
+	String numOfItem1,String weight1,String length,String width,String height,
+	String nameOfOrder1,String volume1,String moneyForCover1,String speedLevel1,String kindOfSend1,String time1,double money1,String id){
+		size=new double[3];
 		this.nameOfSender=nameOfSender1;
 		this.addressOfSender=addressOfSender1;
 		this.workplaceOfSender=workplaceOfSender1;
@@ -72,10 +72,13 @@ public class OrderBillPO implements Serializable{
 		this.kindOfSend=kindOfSend1;
 		this.time=time1;
 		this.money=money1;
-		
+		this.ID=id;
 		
 	}
 	
+	public OrderBillPO(){
+		this.size=new double[]{1,2,3};
+	}
 	/*public OrderBillPO(OrderBillVO orderbill){
 		
 		nameOfSender=orderbill.nameOfSender;

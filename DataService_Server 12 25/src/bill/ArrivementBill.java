@@ -3,15 +3,14 @@ package bill;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import enumHelper.State;
+
 public class ArrivementBill implements Serializable{
-	/**
-	 * 到达单父类
-	 */
 	
 	public String ID;//单据的ID
 	public boolean judged;
-	String[] date;
-	String placeOfDeparture;
+	public String[] date;
+	public String placeOfDeparture;
 	public ArrayList<struct> bill=new  ArrayList<struct>();
 	
 	public ArrivementBill(){

@@ -2,7 +2,7 @@ package bill;
 
 public class ArrivementBill_Shop extends ArrivementBill{
 	/**
-	 * 营业厅到达单
+	 * 
 	 */
 	private static final long serialVersionUID = 3547285606822781011L;
 	String transBillID;
