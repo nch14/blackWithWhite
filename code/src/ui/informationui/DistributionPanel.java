@@ -133,7 +133,8 @@ public class DistributionPanel extends JPanel {
 		scrollPane.setViewportView(table);
 	}
 	public void removeTable(){
-		this.remove(scrollPane);
+		if(scrollPane!=null)
+			this.remove(scrollPane);
 	}
 	class AddListener implements ActionListener{
 

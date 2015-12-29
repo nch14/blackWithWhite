@@ -2,8 +2,12 @@ package settings;
 
 import java.io.Serializable;
 
-public class BussinessHall implements Serializable {
+public class BussinessHall extends Department implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6295457600896574402L;
 	public String name;//营业厅名称
 	String ID;//营业厅编号
 	

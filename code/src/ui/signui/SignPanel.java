@@ -24,6 +24,7 @@ import ui.informationui.AddDriverPanel;
 import ui.informationui.AddStaffPanel;
 import ui.informationui.AddTrunckPanel;
 import ui.informationui.ArriveBussinesshallPanel;
+import ui.informationui.BillingManagePanel;
 import ui.informationui.ChangeStaffPanel;
 import ui.informationui.DeleteStaffPanel;
 import ui.informationui.DistributionPanel;
@@ -172,7 +173,7 @@ public class SignPanel extends JPanel{
 /*			LoginService login = new LoginController();
 			StaffVO staff=login.validUser(signname,signpasswod);*/
 			StaffVO staff=new StaffVO();
-			staff.pos="营业厅业务员";
+			staff.pos="财务人员";
 
 			if(staff==null){
 				WrongMess.setText("账号或密码错误，请重试!");
@@ -203,6 +204,14 @@ public class SignPanel extends JPanel{
 					panels[1]=new GetOrderBillPanel();
 					panels[2]=new FillReceivementBillPanel();
 				}else if(staff.pos.equals("财务人员")){
+					buttons=new JButton[1];
+					
+					buttons[0]=new JButton();
+					buttons[0].setFont(new Font("微软雅黑",Font.BOLD,16));
+					buttons[0].setText("结算管理");
+					
+					panels=new JPanel[1];
+					panels[0]=new BillingManagePanel();
 					
 				    //account.main();
 				}else if(staff.pos.equals("总经理")){

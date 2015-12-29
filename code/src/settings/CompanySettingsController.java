@@ -11,16 +11,21 @@ import java.util.ArrayList;
 import data.staff.AgencyInfo;
 
 public class CompanySettingsController {
+	
 	public Company ourCompany;
+	
 	
 	public CompanySettingsController(Company company){
 		ourCompany=company;
 	}
-
+	
 	public CompanySettingsController(){
 		pull();
 	}
+	public BussinessHall[] getBussinessHalls(String city){
 
+		return ourCompany.getBussinessHalls(city);	
+	}
 	/**
 	 * 将服务器的公司设置同步到本地
 	 * @return

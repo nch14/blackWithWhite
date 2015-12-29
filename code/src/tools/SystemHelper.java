@@ -55,8 +55,9 @@ public class SystemHelper {
 		bj.addBussinessHall(shnames);
 		String[] gznames={"01","02","03","04","05","06","07","08","09","10"};
 		bj.addBussinessHall(gznames);
-		/*CompanySettingsController.push();*/
-		//2.添加必要人员账号
+		CompanySettingsController c=new CompanySettingsController();
+		c.push();
+/*		//2.添加必要人员账号
 		StaffVO administor=new StaffVO();
 		administor.ID="00000001";
 		administor.passwords="2015";
@@ -70,7 +71,7 @@ public class SystemHelper {
 		manage.pos="总经理";
 		StaffManageController staffManage=new StaffManageController();
 		StaffVO[] staffs={administor,manage};
-	/*	staffManage.addNewStaff(staffs);*/
+		staffManage.addNewStaff(staffs);*/
 		
 		//3.期初建账
 		

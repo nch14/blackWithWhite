@@ -4,6 +4,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Company implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public ArrayList<City> citys;
 	public ArrayList<Distance> distance;
 	
@@ -14,6 +18,39 @@ public class Company implements Serializable {
 		citys=new ArrayList<City>();
 		distance=new ArrayList<Distance>();
 	}
+	
+	
+	public BussinessHall[] getBussinessHalls(String city){
+		int size=citys.size();
+		City cityTemp=null;
+		for(int i=0;i<size;i++){
+			cityTemp=citys.get(i);
+			if(cityTemp.name.equals(city))
+				break;
+		}
+		int s=0;
+		ArrayList<TransportCenter> trans=cityTemp.transportCenter;
+		int size2=trans.size();
+		TransportCenter transportCenterTemp=null;
+		for(int i=0;i<size2;i++){
+			transportCenterTemp=trans.get(i);
+			s+=transportCenterTemp.getBussinessHall().size();
+		}
+		BussinessHall[] bussiness=new BussinessHall[s];
+		int s2=0;
+		for(int i=0;i<size2;i++){
+			transportCenterTemp=trans.get(i);
+			ArrayList<BussinessHall> bussnessTemp=transportCenterTemp.getBussinessHall();
+			int size3=bussnessTemp.size();
+			for(int j=0;j<size3;j++){
+				bussiness[s2]=bussnessTemp.get(j);
+				s2++;
+			}
+		}
+		return bussiness;	
+	}
+	
+	
 	public int getDistance(City city1,City city2){
 		Distance findDistance;
 		for(int i=0;i<distance.size();i++){

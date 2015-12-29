@@ -2,7 +2,11 @@ package settings;
 
 import java.io.Serializable;
 
-public class Distance implements Serializable{
+public class Distance extends Department implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2572201682771903410L;
 	private City city1;
 	private City city2;
 	private int distance;

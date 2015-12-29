@@ -3,8 +3,12 @@ package settings;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class City implements Serializable{
+public class City extends Department implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4090542931586899709L;
 	public String name;//城市名称
 	String ID;//城市编号
 	public ArrayList<TransportCenter> transportCenter;//下辖中转中心
