@@ -16,6 +16,7 @@ import bill.OrderBillPO;
 import bl.send.Impl.SendController;
 import bl.send.Service.SendBLService;
 import tools.VaildHelper;
+import ui.NSwing.NLabel;
 
 public class GetOrderBillPanel extends JPanel{
 	public GetOrderBillPanel(){

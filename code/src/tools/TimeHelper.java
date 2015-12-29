@@ -75,7 +75,7 @@ public class TimeHelper {
 		return true;	
 	}
 	
-	public static String adjustTime(String[] date){
+	public static String Array2String(String[] date){
 		int year;
 		int month;
 		int day;

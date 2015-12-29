@@ -14,6 +14,9 @@ import bill.PaymentBill;
 import bl.money.Impl.PayController;
 import tools.TimeHelper;
 import tools.VaildHelper;
+import ui.NSwing.NButton;
+import ui.NSwing.NLabel;
+import ui.NSwing.NTextField;
 
 public class PayPanel extends JPanel {
 	private NTextField payDate;
@@ -55,11 +58,11 @@ public class PayPanel extends JPanel {
 		
 		NLabel textPane_5 = new NLabel();
 		textPane_5.setText("条目");
-		textPane_5.setBounds(600,50, 60, 30);
+		textPane_5.setBounds(610,50, 60, 30);
 		this.add(textPane_5);
 		
 		item = new NTextField();
-		item.setBounds(680, 50, 200, 30);
+		item.setBounds(690, 50, 200, 30);
 		this.add(item);
 		item.setColumns(10);
 		
@@ -80,11 +83,11 @@ public class PayPanel extends JPanel {
 		
 		NLabel textPane_8 = new NLabel();
 		textPane_8.setText("备注");
-		textPane_8.setBounds(600, 110, 40, 30);
+		textPane_8.setBounds(610, 110, 40, 30);
 		this.add(textPane_8);
 		
 		remarks = new NTextField();
-		remarks.setBounds(680, 110, 200, 30);
+		remarks.setBounds(690, 110, 200, 30);
 		this.add(remarks);
 		remarks.setColumns(10);
 		
@@ -161,7 +164,7 @@ public class PayPanel extends JPanel {
 		Object[][] tableData=new Object[size][6];
 		for(int i=0;i<size;i++){
 			PaymentBill mess=list.get(i);
-			tableData[i]=new Object[]{mess.ID,TimeHelper.adjustTime(mess.date),
+			tableData[i]=new Object[]{mess.ID,TimeHelper.Array2String(mess.date),
 					mess.payer,mess.money,mess.type,mess.remarks};
 		}
 		Object[] columnTitle = {"付款单号","付款日期","付款人","付款金额","付款条目","付款备注"};  

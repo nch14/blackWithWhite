@@ -13,6 +13,8 @@ import bill.AllocateBill;
 import bl.receivement.Impl.DistributionController;
 import tools.TimeHelper;
 import tools.VaildHelper;
+import ui.NSwing.NLabel;
+import ui.NSwing.NTextField;
 
 public class DistributionPanel extends JPanel {
 	JTable table;

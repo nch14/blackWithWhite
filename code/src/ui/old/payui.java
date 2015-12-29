@@ -1,4 +1,4 @@
-package ui.moneyui;
+package ui.old;
 
 import java.awt.Color;
 import java.awt.event.MouseAdapter;

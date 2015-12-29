@@ -40,5 +40,7 @@ public class ReceiveMoneyBill implements Serializable{
 		this.bussinessHallCode=bussinessHallCode;
 	}
 	
-	public ReceiveMoneyBill(){}
+	public ReceiveMoneyBill(){
+		
+	}
 }

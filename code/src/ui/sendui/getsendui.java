@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 
 import bl.information.Impl.InformationController;
 import bl.information.Service.InformationBLService;
-import ui.receivementui.transportfinishedui;
+import ui.old.transportfinishedui;
 import vo.PackageVO;
 
 public class getsendui {

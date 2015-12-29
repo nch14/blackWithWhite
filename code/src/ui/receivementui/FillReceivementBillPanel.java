@@ -1,4 +1,4 @@
-package ui.informationui;
+package ui.receivementui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,6 +15,9 @@ import javax.swing.JTable;
 import bl.receivement.Impl.TransportFinishedController;
 import tools.TimeHelper;
 import tools.VaildHelper;
+import ui.NSwing.NLabel;
+import ui.NSwing.NTextField;
+import ui.informationui.TimePanel;
 import vo.ReceiveInformationVO;
 
 public class FillReceivementBillPanel extends JPanel {

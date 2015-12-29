@@ -23,10 +23,10 @@ import ui.commodityui.indepotui;
 import ui.informationui.AddDriverPanel;
 import ui.informationui.AddStaffPanel;
 import ui.informationui.AddTrunckPanel;
+import ui.informationui.ArriveBussinesshallPanel;
 import ui.informationui.ChangeStaffPanel;
 import ui.informationui.DeleteStaffPanel;
 import ui.informationui.DistributionPanel;
-import ui.informationui.FillReceivementBillPanel;
 import ui.informationui.FunctionPanel;
 import ui.informationui.GetOrderBillPanel;
 import ui.informationui.PaidPanel;
@@ -35,8 +35,10 @@ import ui.informationui.SalaryModelPanel;
 import ui.informationui.SendPackagePanel;
 import ui.informationui.StartFrame;
 import ui.informationui.StartPanel;
+import ui.informationui.TruckLoadingPanel;
 import ui.informationui.UserManagePanel;
 import ui.judgementui.judgementui;
+import ui.receivementui.FillReceivementBillPanel;
 import ui.reportui.GetBussinesssheetPanel;
 import ui.reportui.GetProfitSheetPanel;
 import ui.sendui.getsendui;
@@ -251,7 +253,7 @@ public class SignPanel extends JPanel{
 					//transitCenterClerk.main();
 				}else if(staff.pos.equals("营业厅业务员")){
 					
-					buttons=new JButton[5];
+					buttons=new JButton[6];
 					
 					buttons[0]=new JButton();
 					buttons[0].setFont(new Font("微软雅黑",Font.BOLD,16));
@@ -267,13 +269,18 @@ public class SignPanel extends JPanel{
 					buttons[3].setText("收款单填写");
 					buttons[4]=new JButton();
 					buttons[4].setFont(new Font("微软雅黑",Font.BOLD,16));
-					buttons[4].setText("付款单填写");
-					panels=new JPanel[5];
+					buttons[4].setText("到达单填写");
+					buttons[5]=new JButton();
+					buttons[5].setFont(new Font("微软雅黑",Font.BOLD,16));
+					buttons[5].setText("装车单填写");
+					
+					panels=new JPanel[6];
 					panels[0]=new DistributionPanel();
 					panels[1]=new AddDriverPanel(); 
 					panels[2]=new AddTrunckPanel();
 					panels[3]=new PaidPanel(); 
-					panels[4]=new PayPanel(); 
+					panels[4]=new ArriveBussinesshallPanel(); 
+					panels[5]=new TruckLoadingPanel(); 
 				}		
 			FunctionPanel tool=new FunctionPanel(belongsTO,buttons,panels);
 			belongsTO.addToolBar(tool);

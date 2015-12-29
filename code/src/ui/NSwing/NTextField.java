@@ -1,4 +1,4 @@
-package ui.informationui;
+package ui.NSwing;
 
 import java.awt.Font;
 
