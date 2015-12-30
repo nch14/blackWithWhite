@@ -20,6 +20,7 @@ import javax.swing.JTextField;
 import bl.staff.Impl.LoginController;
 import bl.staff.service.LoginService;
 import ui.commodityui.indepotui;
+import ui.informationui.AccountManagePanel;
 import ui.informationui.AddDriverPanel;
 import ui.informationui.AddStaffPanel;
 import ui.informationui.AddTrunckPanel;
@@ -173,7 +174,7 @@ public class SignPanel extends JPanel{
 /*			LoginService login = new LoginController();
 			StaffVO staff=login.validUser(signname,signpasswod);*/
 			StaffVO staff=new StaffVO();
-			staff.pos="财务人员";
+			staff.pos="营业厅业务员";
 
 			if(staff==null){
 				WrongMess.setText("账号或密码错误，请重试!");
@@ -204,14 +205,26 @@ public class SignPanel extends JPanel{
 					panels[1]=new GetOrderBillPanel();
 					panels[2]=new FillReceivementBillPanel();
 				}else if(staff.pos.equals("财务人员")){
-					buttons=new JButton[1];
+					buttons=new JButton[4];
 					
 					buttons[0]=new JButton();
 					buttons[0].setFont(new Font("微软雅黑",Font.BOLD,16));
 					buttons[0].setText("结算管理");
+					buttons[1]=new JButton();
+					buttons[1].setFont(new Font("微软雅黑",Font.BOLD,16));
+					buttons[1].setText("查看经营情况表");
+					buttons[2]=new JButton();
+					buttons[2].setFont(new Font("微软雅黑",Font.BOLD,16));
+					buttons[2].setText("查看成本收益表");
+					buttons[3]=new JButton();
+					buttons[3].setFont(new Font("微软雅黑",Font.BOLD,16));
+					buttons[3].setText("账户管理");
 					
-					panels=new JPanel[1];
+					panels=new JPanel[4];
 					panels[0]=new BillingManagePanel();
+					panels[1]=new GetBussinesssheetPanel();
+					panels[2]=new GetProfitSheetPanel();
+					panels[3]=new AccountManagePanel();
 					
 				    //account.main();
 				}else if(staff.pos.equals("总经理")){

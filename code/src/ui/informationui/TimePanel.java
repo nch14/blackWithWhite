@@ -22,6 +22,7 @@ import ui.informationui.InformationPanel.ShutListener;
 public class TimePanel extends JPanel implements Runnable {
 	StartFrame belongsTO;
 	JLabel message;
+	JButton mini;
 	JButton shut;
 	public static boolean state=true;
 	public static boolean change=false;
@@ -36,8 +37,8 @@ public class TimePanel extends JPanel implements Runnable {
 		message.setForeground(Color.WHITE);
 		message.setBounds(150, 8,1600, 40);
 		shut=new JButton();
-		shut.setIcon(new ImageIcon("pic/关闭按钮3A.png"));
-		shut.setBounds(1140,10, 54, 40);
+		shut.setIcon(new ImageIcon("pic/关闭按钮3D.png"));
+		shut.setBounds(35,10, 20, 20);
 		shut.addActionListener(new ExitListener());
 		//shut.addFocusListener(new ShutListener());
 		shut.setBorder(null);
@@ -45,6 +46,16 @@ public class TimePanel extends JPanel implements Runnable {
 		shut.setBorderPainted(false);
 		shut.setContentAreaFilled(false);
 		
+		mini=new JButton();
+		mini.setIcon(new ImageIcon("pic/关闭按钮3D.png"));
+		mini.setBounds(10,10, 20, 20);
+		mini.addActionListener(new MiniListener());
+		mini.setBorder(null);
+		mini.setFocusPainted(false);
+		mini.setBorderPainted(false);
+		mini.setContentAreaFilled(false);
+		
+		this.add(mini);
 		this.add(shut);
 		this.add(message);
 		Thread time=new Thread(this);
@@ -59,13 +70,22 @@ public class TimePanel extends JPanel implements Runnable {
             image = ImageIO.read(new File("pic/纯色背景3.png"));
             g.drawImage(image, 0, 0, this);
             icon = ImageIO.read(new File("pic/logoT.png"));
-            g.drawImage(icon, 50, 0, this);
+            g.drawImage(icon, 1110, 0, this);
             
         } catch (IOException ex) {
             ex.printStackTrace();
         }
        
     }
+	class MiniListener implements ActionListener{
+
+		public void actionPerformed(ActionEvent arg0) {
+			// TODO Auto-generated method stub
+			belongsTO.mini();
+		}
+		
+	}
+	
 	class ExitListener implements ActionListener{
 
 		@Override

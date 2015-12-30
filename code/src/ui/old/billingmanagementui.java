@@ -1,4 +1,4 @@
-package ui.moneyui;
+package ui.old;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -26,7 +26,7 @@ import bl.money.Impl.BillingManagementController;
 import settings.BussinessHall;
 import settings.City;
 import settings.TransportCenter;
-import ui.old.payui;
+import ui.moneyui.accountmanageui;
 import ui.reportui.profitsheetui;
 
 public class billingmanagementui {

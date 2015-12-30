@@ -1,32 +1,36 @@
 package ui.informationui;
 import java.awt.Font;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+
 import bill.ReceiveMoneyBill;
 import bl.money.Impl.BillingManagementController;
+import tools.TimeHelper;
+import tools.VaildHelper;
+import ui.NSwing.NButton;
 import ui.NSwing.NLabel;
 import ui.NSwing.NTextField;
 
 public class BillingManagePanel extends JPanel{
-	private JFrame frame_money;
 	private NTextField textField_year;
-	private JTable table_receive_voucher;
-	private NTextField textField_month;
-	private NTextField textField_day;
 	NLabel city;
 	JComboBox usercity;
 	NLabel bussiness;
+	NLabel totalLabel;
+	NLabel totalNText;
 	JScrollPane scrollPane;
 	JTable table;
+	NButton check;
+	NButton total;
+	JComboBox comboBox ;
+	ArrayList<ReceiveMoneyBill> list;
 	public BillingManagePanel() {
 		this.setLayout(null);
 		this.setBounds(200, 60, 1000, 615);
@@ -58,55 +62,51 @@ public class BillingManagePanel extends JPanel{
 		
 		bussiness=new NLabel();
 		bussiness.setFont(new Font("微软雅黑",Font.BOLD,16));
-		bussiness.setBounds(120,110,40,30);
+		bussiness.setBounds(120,110,60,30);
 		bussiness.setText("营业厅");
 		this.add(bussiness);
 		
-		JComboBox comboBox = new JComboBox();
+		comboBox= new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {" "}));
 		comboBox.setBounds(220, 110, 120, 30);
 		this.add(comboBox);
 		
-		//查询收款单的事件监听
-		JButton button_3 = new JButton("查询");
-		button_3.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				String[] time={textField_year.getText(),textField_month.getText(),textField_day.getText()};
-				BillingManagementController bmc=new BillingManagementController();
-				ReceiveMoneyBill[] bills=bmc.getBills(time,(String) comboBox.getSelectedItem());
-				if(bills==null){
-					
-				}else{
-					for(int i=0;i<bills.length;i++){
-						ReceiveMoneyBill bill=bills[i];
-					    table_receive_voucher.setValueAt(bill.date[0]+bill.date[1]+bill.date[2], i, 0);
-					    table_receive_voucher.setValueAt(bill.ID, i, 1);
-					    table_receive_voucher.setValueAt(bill.transactor, i, 2);
-					    table_receive_voucher.setValueAt(bill.transactor, i, 3);
-					    table_receive_voucher.setValueAt(bill.list, i, 4);
-					    table_receive_voucher.setValueAt(bill.money, i, 5);
-					    table_receive_voucher.setValueAt(bill.bussinessHallCode, i, 6);
-					}
-				}
-					
-			}
-		});
-		button_3.setBounds(649, 93, 93, 23);
-		this.add(button_3);
+		check=new NButton("check");
+		check.setBounds(800, 110, 40, 40);
+		this.add(check);
+		check.addActionListener(new CheckListener());
+		
+		total=new NButton("total");
+		total.setBounds(800, 500, 40, 40);
+		this.add(total);
+		total.addActionListener(new TotalListener());
+		
+		totalLabel=new NLabel("合计金额");
+		totalLabel.setBounds(600, 580, 80, 30);
+		this.add(totalLabel);
+		
+
 	}
 	
-	
-	public void buildTable(ArrayList<String> list){
+	public void showTotalMoney(String money){
+		if(totalNText!=null)
+			this.remove(totalNText);
+		totalNText=new NLabel();
+		totalNText.setText(money);
+		totalNText.setBounds(700,580, 80, 30);
+		this.add(totalNText);
+		repaint();
+	}
+	public void buildTable(ArrayList<ReceiveMoneyBill> list){
 
 		int size=list.size();
 		Object[][] tableData=new Object[size][4];
 		for(int i=0;i<size;i++){
-			String mess=list.get(i);
-			/*tableData[i]=new Object[]{bill.ID,mess,bill.name,
-					bill.date[0]+bill.date[1]+bill.date[2]};*/
+			ReceiveMoneyBill mess=list.get(i);
+			tableData[i]=new Object[]{TimeHelper.Array2String(mess.date),
+					mess.bussinessHallCode,mess.transactor,mess.money};
 		}
-		Object[] columnTitle = {"收款日期", "收款单位", "收款人", "收款方", "收款金额", "收款地点"};  
+		Object[] columnTitle = {"收款日期", "收款单位", "收款人", "收款金额"};  
 		table=new JTable(tableData,columnTitle);
 		int height=table.getRowHeight()*(size+1)+9;
 		int ValidMaxHeight=250;
@@ -124,5 +124,39 @@ public class BillingManagePanel extends JPanel{
 		if(scrollPane!=null)
 			this.remove(scrollPane);
 	}
-	
+	class TotalListener implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			if(list!=null){
+				double totalMoney=0;
+				for(int i=0;i<list.size();i++){
+					totalMoney+=list.get(i).money;					
+				}
+				showTotalMoney(""+totalMoney);
+			}
+		}
+	}
+	class CheckListener implements ActionListener{
+
+		public void actionPerformed(ActionEvent arg0) {
+			String date=textField_year.getText();
+			boolean result=VaildHelper.checkIsValidID(date, 8);
+			String bussinessHall=(String)comboBox.getSelectedItem();
+			
+			BillingManagementController bmc=new BillingManagementController();
+			ReceiveMoneyBill[] bills=bmc.getBills(TimeHelper.String2Array(date), bussinessHall);
+			
+			if(bills!=null){
+				list=new ArrayList<ReceiveMoneyBill>();
+				for(int i=0;i<bills.length;i++){
+					list.add(bills[i]);
+				}
+				removeTable();
+				buildTable(list);			
+			}else{
+				TimePanel.makeWords("查询失败");
+			}
+		}
+		
+	}
 }

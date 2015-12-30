@@ -28,6 +28,8 @@ import javax.swing.table.TableCellRenderer;
 
 import bill.TransMesgPO;
 import bl.information.Impl.InformationController;
+import ui.informationui.TimePanel.ExitListener;
+import ui.informationui.TimePanel.MiniListener;
 import ui.signui.SignPanel;
 import vo.PackageVO;
 
@@ -36,6 +38,7 @@ public class InformationPanel extends JPanel{
 	JButton okButton;
 	JButton sign; 
 	JButton shut;
+	JButton mini;
 	JTextField getTransID;
 	JLabel LOGO;
 	JLabel bussinessMess2;
@@ -79,14 +82,23 @@ public class InformationPanel extends JPanel{
 		okButton.addActionListener(new SearchListener());
 		
 		shut=new JButton();
-		shut.setIcon(new ImageIcon("pic/�رհ�ť3A.png"));
-		shut.setBounds(1060,0, 54, 40);
+		shut.setIcon(new ImageIcon("pic/�رհ�ť3D.png"));
+		shut.setBounds(35,10, 20, 20);
 		shut.addActionListener(new ExitListener());
-		shut.addFocusListener(new ShutListener());
+		//shut.addFocusListener(new ShutListener());
 		shut.setBorder(null);
 		shut.setFocusPainted(false);
 		shut.setBorderPainted(false);
 		shut.setContentAreaFilled(false);
+		
+		mini=new JButton();
+		mini.setIcon(new ImageIcon("pic/�رհ�ť3D.png"));
+		mini.setBounds(10,10, 20, 20);
+		mini.addActionListener(new MiniListener());
+		mini.setBorder(null);
+		mini.setFocusPainted(false);
+		mini.setBorderPainted(false);
+		mini.setContentAreaFilled(false);
 		
 		sign=new JButton();
 		sign.setIcon(new ImageIcon("pic/sign80%.png"));
@@ -100,6 +112,7 @@ public class InformationPanel extends JPanel{
 		wrongMess.setFont(new Font("΢���ź� Light",Font.PLAIN,12));
 		wrongMess.setForeground(Color.YELLOW);
 		
+		this.add(mini);
 		this.add(wrongMess);
 		this.add(okButton);
 		this.add(getTransID);
@@ -112,7 +125,14 @@ public class InformationPanel extends JPanel{
 		
 
 	}
-	
+	class MiniListener implements ActionListener{
+
+		public void actionPerformed(ActionEvent arg0) {
+			// TODO Auto-generated method stub
+			belongsTO.mini();
+		}
+		
+	}
 	protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         Image image;

@@ -169,16 +169,17 @@ public class AddDriverPanel extends JPanel{
 	
 	public void buildTable(ArrayList<DriverPO> staffs){
 		int size=staffs.size();
-		
-		Object[][] tableData=new Object[size][7];
+		JCheckBox A[]=new JCheckBox[size];
+		Object[][] tableData=new Object[size][8];
 		for(int i=0;i<size;i++){
 			DriverPO mess=staffs.get(i);
 			String sex="男";
 			if(!mess.isBoy)
 				sex="女";
-			tableData[i]=new Object[]{mess.ID,mess.name,sex,mess.birthday,mess.tel,mess.validData,mess.IDNumber};
+			A[i]=new JCheckBox();
+			tableData[i]=new Object[]{A[i],mess.ID,mess.name,sex,mess.birthday,mess.tel,mess.validData,mess.IDNumber};
 		}
-		Object[] columnTitle = {"司机编号" ,"姓名","性别","出生日期","手机号码","行驶证期限","身份证号"};  
+		Object[] columnTitle = {new JCheckBox(),"司机编号" ,"姓名","性别","出生日期","手机号码","行驶证期限","身份证号"};  
 		
 		DefaultTableModel tableModel=new DefaultTableModel(tableData,columnTitle);
 		table=new JTable(tableModel);

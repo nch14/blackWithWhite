@@ -17,9 +17,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import ui.reportui.profitsheetui;
 import ui.staffui.organizationmanageui;
-import ui.staffui.staffmanageui;
 
 public class judgementui {
 
@@ -728,11 +726,6 @@ public class judgementui {
 		button9_3.setBounds(718, 479, 93, 23);
 		desktopPane_4.add(button9_3);
 		
-		staffmanageui t = new staffmanageui();
-		tabbedPane.addTab("人员管理", null, t, null);
-		
-		profitsheetui t1 = new profitsheetui();
-		tabbedPane.addTab("查看报表", null, t1, null);
 		
 		organizationmanageui t2 = new organizationmanageui();
 		tabbedPane.addTab("机构管理", null, t2, null);
