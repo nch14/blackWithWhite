@@ -173,10 +173,10 @@ public class SignPanel extends JPanel{
 			String signname=userName.getText();
 			String signpasswod=String.valueOf(userPasswords.getPassword());
 			
-		/*	LoginService login = new LoginController();
-			StaffVO staff=login.validUser(signname,signpasswod);*/
-			StaffVO staff=new StaffVO();
-			staff.pos="总经理";
+			LoginService login = new LoginController();
+			StaffVO staff=login.validUser(signname,signpasswod);
+/*			StaffVO staff=new StaffVO();
+			staff.pos="总经理";*/
 
 			if(staff==null){
 				WrongMess.setText("账号或密码错误，请重试!");
