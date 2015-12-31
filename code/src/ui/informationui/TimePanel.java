@@ -16,12 +16,14 @@ import javax.swing.JPanel;
 
 import tools.DepartmentHelper;
 import tools.TimeHelper;
+import ui.NSwing.NLabel;
 import ui.informationui.InformationPanel.ExitListener;
 import ui.informationui.InformationPanel.ShutListener;
 
 public class TimePanel extends JPanel implements Runnable {
 	StartFrame belongsTO;
 	JLabel message;
+	JLabel staff;
 	JButton mini;
 	JButton shut;
 	public static boolean state=true;
@@ -35,7 +37,7 @@ public class TimePanel extends JPanel implements Runnable {
 		this.setFont((new Font("楷体",Font.BOLD, 32)));
 		message=new JLabel();
 		message.setForeground(Color.WHITE);
-		message.setBounds(150, 8,1600, 40);
+		message.setBounds(220, 8,200, 40);
 		shut=new JButton();
 		shut.setIcon(new ImageIcon("pic/关闭按钮3D.png"));
 		shut.setBounds(35,10, 20, 20);
@@ -46,6 +48,11 @@ public class TimePanel extends JPanel implements Runnable {
 		shut.setBorderPainted(false);
 		shut.setContentAreaFilled(false);
 		
+		staff=new JLabel();
+		staff.setForeground(Color.WHITE);
+		staff.setText("您好！"+DepartmentHelper.thisStaff.name+"  (您的身份:"+DepartmentHelper.thisStaff.pos+")");
+		staff.setBounds(700, 8,350, 40);
+		
 		mini=new JButton();
 		mini.setIcon(new ImageIcon("pic/关闭按钮3D.png"));
 		mini.setBounds(10,10, 20, 20);
@@ -55,6 +62,7 @@ public class TimePanel extends JPanel implements Runnable {
 		mini.setBorderPainted(false);
 		mini.setContentAreaFilled(false);
 		
+		this.add(staff);
 		this.add(mini);
 		this.add(shut);
 		this.add(message);
@@ -102,6 +110,8 @@ public class TimePanel extends JPanel implements Runnable {
 	public void run() {
 		while(state){
 			if(change){
+				this.remove(staff);
+				repaint();
 				message.setForeground(Color.YELLOW);
 				message.setText("                  "/*18个空格*/+text);
 				this.repaint();
@@ -112,19 +122,13 @@ public class TimePanel extends JPanel implements Runnable {
 					e.printStackTrace();
 				}
 				change=false;
+				this.add(staff);
+				repaint();
 				text="";
 			}else{
 				message.setForeground(Color.WHITE);
-				String toShow="                    ";
-				toShow+="当前时间：";
+				String toShow="当前时间：";
 				toShow+=TimeHelper.getShowTime();
-				toShow+="                                                                                       ";
-/*				this.setFont((new Font("楷体",Font.PLAIN, 32)));
-				toShow+="您好！"+DepartmentHelper.thisStaff.name+"（您的身份："+
-				DepartmentHelper.thisStaff.pos+"）";*/
-				this.setFont((new Font("楷体",Font.PLAIN, 32)));
-				toShow+="您好！"+"小龙女"+"（您的身份："+"小笼包"+"）";
-				this.setFont((new Font("楷体",Font.BOLD, 32)));
 				message.setText(toShow);
 				this.repaint();
 				try {

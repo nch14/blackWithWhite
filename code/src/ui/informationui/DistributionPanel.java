@@ -184,8 +184,6 @@ public class DistributionPanel extends JPanel {
 			if(result){
 				billID2.setText("");
 				billID.setText("");
-				id.setText("");
-				id2.setText("");
 				userName.setText("");
 				textFieldofyear.setText("");
 				textFieldofmonth.setText("");

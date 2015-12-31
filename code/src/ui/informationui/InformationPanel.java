@@ -55,7 +55,7 @@ public class InformationPanel extends JPanel{
 		getTransID=new JTextField();
 		getTransID.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 138, 255)));
 		getTransID.setForeground(Color.gray);
-		getTransID.setFont(new Font("Î¢ÈíÑÅºÚ ",Font.BOLD,12));
+		getTransID.setFont(new Font("Î¢ÈíÑÅºÚ Light ",Font.PLAIN,16));
 		getTransID.setText("ÇëÔÚ´Ë´¦ÊäÈëÄúµÄ¶©µ¥ºÅ¡­¡­");
 		getTransID.setBounds(450, 200, 260, 40);
 		
@@ -63,12 +63,6 @@ public class InformationPanel extends JPanel{
 		LOGO.setForeground(Color.WHITE);
 		LOGO.setText("POWERED BY BALCK&&WHITE");
 		LOGO.setBounds(1000, 635, 200, 20);
-		
-		/*bussinessMess2=new JLabel();
-		bussinessMess2.setForeground(Color.WHITE);
-		bussinessMess2.setFont(new Font("Î¢ÈíÑÅºÚ Light",Font.PLAIN,14));
-		bussinessMess2.setText("º£µÂÞ±");
-		bussinessMess2.setBounds(1060, 615,60,20);*/
 		
 		bussinessMess=new JLabel();
 		bussinessMess.setForeground(Color.GRAY);
@@ -143,9 +137,6 @@ public class InformationPanel extends JPanel{
             g.drawImage(image, 0, 0, this);
             icon = ImageIO.read(new File("pic/logo60%Ð¡.png"));
             g.drawImage(icon, 1005, 450, this);
-/*            beiban = ImageIO.read(new File("pic/±³°å.png"));
-            g.drawImage(beiban, 1000, 0, this);*/
-            
         } catch (IOException ex) {
             ex.printStackTrace();
         }

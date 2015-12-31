@@ -19,6 +19,7 @@ import javax.swing.JTextField;
 
 import bl.staff.Impl.LoginController;
 import bl.staff.service.LoginService;
+import tools.DepartmentHelper;
 import ui.commodityui.indepotui;
 import ui.informationui.AddAccountPanel;
 import ui.informationui.AddDriverPanel;
@@ -37,6 +38,7 @@ import ui.informationui.PaidPanel;
 import ui.informationui.PayPanel;
 import ui.informationui.SalaryModelPanel;
 import ui.informationui.SendPackagePanel;
+import ui.informationui.ShipPanel;
 import ui.informationui.StartFrame;
 import ui.informationui.StartPanel;
 import ui.informationui.TruckLoadingPanel;
@@ -182,6 +184,7 @@ public class SignPanel extends JPanel{
 				WrongMess.setText("账号或密码错误，请重试!");
 				repaint();
 			}else{
+				DepartmentHelper.thisStaff=staff;
 				JButton[] buttons=new JButton[0];
 				JPanel[] panels=new JPanel[0];
 				if(staff.pos.equals("中转中心仓库管理人员")){
@@ -284,8 +287,15 @@ public class SignPanel extends JPanel{
 					panels=new JPanel[1];
 					panels[0]=new UserManagePanel(); 
 				}else if(staff.pos.equals("中转中心业务员")){
+					buttons=new JButton[1];
 					
-					//transitCenterClerk.main();
+					buttons[0]=new JButton();
+					buttons[0].setFont(new Font("微软雅黑",Font.BOLD,16));
+					buttons[0].setText("填写中转单");
+				
+					panels=new JPanel[1];
+					panels[0]=new ShipPanel(); 
+					
 				}else if(staff.pos.equals("营业厅业务员")){
 					
 					buttons=new JButton[6];
