@@ -1,5 +1,7 @@
 package ui.receivementui;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -16,6 +18,7 @@ import bl.receivement.Impl.TransportFinishedController;
 import tools.TimeHelper;
 import tools.VaildHelper;
 import ui.NSwing.NLabel;
+import ui.NSwing.NTable;
 import ui.NSwing.NTextField;
 import ui.informationui.TimePanel;
 import vo.ReceiveInformationVO;
@@ -122,6 +125,12 @@ public class FillReceivementBillPanel extends JPanel {
 		this.add(okButton);
 	}
 	
+	protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.setColor(Color.gray);
+        g.drawRect(125, 250, 690, 300);
+	}
+	
 	public void buildTable(ArrayList<ReceiveInformationVO> staffs){
 		if(this.scrollPane!=null)
 			this.remove(scrollPane);
@@ -135,8 +144,8 @@ public class FillReceivementBillPanel extends JPanel {
 					mess.time[0]+mess.time[1]+mess.time[2]};
 		}
 		Object[] columnTitle = {"订单编号" ,"收件人","收件日期"};  
-		table=new JTable(tableData,columnTitle);
-		int height=table.getRowHeight()*(size+1)+9;
+		table=new NTable(tableData,columnTitle);
+		int height=table.getRowHeight()*(size+1)+13;
 		int ValidMaxHeight=250;
 		if(height>=400)
 			height=ValidMaxHeight;
@@ -148,6 +157,7 @@ public class FillReceivementBillPanel extends JPanel {
 		scrollPane.setOpaque(false);
 		this.add(scrollPane);
 		scrollPane.setViewportView(table);
+		
 	}
 	
 
