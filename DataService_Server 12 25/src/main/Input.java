@@ -65,111 +65,115 @@ public class Input {
 		int index=0;
 		ObjectOutputStream out;
 		
-		out=new ObjectOutputStream(new FileOutputStream(filename[index++]));
-		System.out.print(index);
-		out.writeObject(new Database_AllocateBill());
-		out.close();
+//		out=new ObjectOutputStream(new FileOutputStream(filename[index++]));
+//		System.out.print(index);
+//		out.writeObject(new Database_AllocateBill());
+//		out.close();
+//		
+//		out=new ObjectOutputStream(new FileOutputStream(filename[index++]));
+//		System.out.print(index);
+//		out.writeObject(new Database_ArrivementBill_Center());
+//		out.close();
+//		
+//		out=new ObjectOutputStream(new FileOutputStream(filename[index++]));
+//		System.out.print(index);
+//		out.writeObject(new Database_ArrivementBill_Shop());
+//		out.close();
+//		
+//		out=new ObjectOutputStream(new FileOutputStream(filename[index++]));
+//		System.out.print(index);
+//		out.writeObject(new Database_BusShipmentBill_Center());
+//		out.close();
+//		
+//		out=new ObjectOutputStream(new FileOutputStream(filename[index++]));
+//		System.out.print(index);
+//		out.writeObject(new Database_BusShipmentBill_Shop());
+//		out.close();
+//		
+//		out=new ObjectOutputStream(new FileOutputStream(filename[index++]));
+//		System.out.print(index);
+//		out.writeObject(new Database_imformation());
+//		out.close();
+//		
+//		out=new ObjectOutputStream(new FileOutputStream(filename[index++]));
+//		System.out.print(index);
+//		out.writeObject(new Database_OrderBillPO());
+//		out.close();
+//		
+//		out=new ObjectOutputStream(new FileOutputStream(filename[index++]));
+//		System.out.print(index);
+//		out.writeObject(new Database_Payment());
+//		out.close();
+//		
+//		out=new ObjectOutputStream(new FileOutputStream(filename[index++]));
+//		System.out.print(index);
+//		out.writeObject(new Database_ReceiveMoneyBill());
+//		out.close();
+//		
+//		out=new ObjectOutputStream(new FileOutputStream(filename[index++]));
+//		System.out.print(index);
+//		out.writeObject(new Database_StockBill_In());
+//		out.close();
+//		
+//		out=new ObjectOutputStream(new FileOutputStream(filename[index++]));
+//		System.out.print(index);
+//		out.writeObject(new Database_StockBill_Out());
+//		out.close();
+//		
+//		out=new ObjectOutputStream(new FileOutputStream(filename[index++]));
+//		System.out.print(index);
+//		out.writeObject(new Database_StockBlockInfo());
+//		out.close();
+//		
+//		out=new ObjectOutputStream(new FileOutputStream(filename[index++]));
+//		System.out.print(index);
+//		out.writeObject(new Database_StockFillment());
+//		out.close();
+//		
+//		index++;
+//		
+//		out=new ObjectOutputStream(new FileOutputStream(filename[index++]));
+//		System.out.print(index);
+//		out.writeObject(new Database_TransMesg());
+//		out.close();
+//		
+//		out=new ObjectOutputStream(new FileOutputStream(filename[index++]));
+//		System.out.print(index);
+//		out.writeObject(new Database_TransportBill());
+//		out.close();
+//		
+//		out=new ObjectOutputStream(new FileOutputStream(filename[index++]));
+//		System.out.print(index);
+//		out.writeObject(new Database_TransportBill());
+//		out.close();
+//		
+//		out=new ObjectOutputStream(new FileOutputStream(filename[index++]));
+//		System.out.print(index);
+//		out.writeObject(new Database_TransportBill());
+//		out.close();
+//		
+//		out=new ObjectOutputStream(new FileOutputStream("ser/BusInfo.ser"));
+//		out.writeObject(new Database_BusInfo());
+//		out.close();
+//		
+//		out=new ObjectOutputStream(new FileOutputStream("ser/DriverInfo.ser"));
+//		out.writeObject(new Database_DriverInfo());
+//		out.close();
+//		
+//		out=new ObjectOutputStream(new FileOutputStream("ser/MemberInfo.ser"));
+//		out.writeObject(new Database_MemberInfo());
+//		out.close();
+//		
+//		out=new ObjectOutputStream(new FileOutputStream("ser/Account.ser"));
+//		out.writeObject(new ArrayList<Account>());
+//		out.close();
+//		
+//		out=new ObjectOutputStream(new FileOutputStream("ser/Agency.ser"));
+//		out.writeObject(new ArrayList<Company>());
+//		out.close();
 		
-		out=new ObjectOutputStream(new FileOutputStream(filename[index++]));
-		System.out.print(index);
-		out.writeObject(new Database_ArrivementBill_Center());
-		out.close();
-		
-		out=new ObjectOutputStream(new FileOutputStream(filename[index++]));
-		System.out.print(index);
-		out.writeObject(new Database_ArrivementBill_Shop());
-		out.close();
-		
-		out=new ObjectOutputStream(new FileOutputStream(filename[index++]));
-		System.out.print(index);
-		out.writeObject(new Database_BusShipmentBill_Center());
-		out.close();
-		
-		out=new ObjectOutputStream(new FileOutputStream(filename[index++]));
-		System.out.print(index);
-		out.writeObject(new Database_BusShipmentBill_Shop());
-		out.close();
-		
-		out=new ObjectOutputStream(new FileOutputStream(filename[index++]));
-		System.out.print(index);
-		out.writeObject(new Database_imformation());
-		out.close();
-		
-		out=new ObjectOutputStream(new FileOutputStream(filename[index++]));
-		System.out.print(index);
-		out.writeObject(new Database_OrderBillPO());
-		out.close();
-		
-		out=new ObjectOutputStream(new FileOutputStream(filename[index++]));
-		System.out.print(index);
-		out.writeObject(new Database_Payment());
-		out.close();
-		
-		out=new ObjectOutputStream(new FileOutputStream(filename[index++]));
-		System.out.print(index);
-		out.writeObject(new Database_ReceiveMoneyBill());
-		out.close();
-		
-		out=new ObjectOutputStream(new FileOutputStream(filename[index++]));
-		System.out.print(index);
-		out.writeObject(new Database_StockBill_In());
-		out.close();
-		
-		out=new ObjectOutputStream(new FileOutputStream(filename[index++]));
-		System.out.print(index);
-		out.writeObject(new Database_StockBill_Out());
-		out.close();
-		
-		out=new ObjectOutputStream(new FileOutputStream(filename[index++]));
-		System.out.print(index);
-		out.writeObject(new Database_StockBlockInfo());
-		out.close();
-		
-		out=new ObjectOutputStream(new FileOutputStream(filename[index++]));
-		System.out.print(index);
-		out.writeObject(new Database_StockFillment());
-		out.close();
-		
-		index++;
-		
-		out=new ObjectOutputStream(new FileOutputStream(filename[index++]));
-		System.out.print(index);
-		out.writeObject(new Database_TransMesg());
-		out.close();
-		
-		out=new ObjectOutputStream(new FileOutputStream(filename[index++]));
-		System.out.print(index);
+		out=new ObjectOutputStream(new FileOutputStream("ser/TransportBill.ser"));
 		out.writeObject(new Database_TransportBill());
-		out.close();
-		
-		out=new ObjectOutputStream(new FileOutputStream(filename[index++]));
-		System.out.print(index);
-		out.writeObject(new Database_TransportBill());
-		out.close();
-		
-		out=new ObjectOutputStream(new FileOutputStream(filename[index++]));
-		System.out.print(index);
-		out.writeObject(new Database_TransportBill());
-		out.close();
-		
-		out=new ObjectOutputStream(new FileOutputStream("ser/BusInfo.ser"));
-		out.writeObject(new Database_BusInfo());
-		out.close();
-		
-		out=new ObjectOutputStream(new FileOutputStream("ser/DriverInfo.ser"));
-		out.writeObject(new Database_DriverInfo());
-		out.close();
-		
-		out=new ObjectOutputStream(new FileOutputStream("ser/MemberInfo.ser"));
-		out.writeObject(new Database_MemberInfo());
-		out.close();
-		
-		out=new ObjectOutputStream(new FileOutputStream("ser/Account.ser"));
-		out.writeObject(new ArrayList<Account>());
-		out.close();
-		
-		out=new ObjectOutputStream(new FileOutputStream("ser/Agency.ser"));
-		out.writeObject(new ArrayList<Company>());
 		out.close();
 		
 		
