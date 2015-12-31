@@ -11,7 +11,7 @@ import vo.StaffVO;
 public class SystemHelper {
 	
 	public static void initSystem(){
-		//1.机构初始化城市
+/*		//1.机构初始化城市
 		CompanySettingsController companyManage=new CompanySettingsController(new Company());
 		Company company=companyManage.ourCompany;
 	
@@ -61,7 +61,7 @@ public class SystemHelper {
 
 		companyManage.push();
 
-		
+		*/
 	}
 	
 	public static void main(String[] args){
