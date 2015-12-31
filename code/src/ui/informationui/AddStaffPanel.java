@@ -181,7 +181,7 @@ public class AddStaffPanel extends JPanel{
 		Object[] columnTitle = {"用户名" ,"姓名","年龄","密码","职位","部门"};  
 		TableModel tableModel=new DefaultTableModel(tableData,columnTitle);
 		table=new NTable(tableModel);
-		int height=table.getRowHeight()*(size+1)+9;
+		int height=table.getRowHeight()*(size+1)+13;
 		int ValidMaxHeight=250;
 		if(height>=400)
 			height=ValidMaxHeight;
@@ -325,7 +325,7 @@ public class AddStaffPanel extends JPanel{
 			case "中转中心业务员":
 				userdepartment.removeAllItems();
 				CompanySettingsController csc=new CompanySettingsController();
-				TransportCenter[] names=csc.getTransportCenters((String)userpos.getSelectedItem());
+				TransportCenter[] names=csc.getTransportCenters((String)usercity.getSelectedItem());
 				for(int i=0;i<names.length;i++){
 					userdepartment.addItem((String)names[i].getName());
 				}
@@ -334,7 +334,7 @@ public class AddStaffPanel extends JPanel{
 			case "中转中心仓库管理人员":
 				userdepartment.removeAllItems();
 				CompanySettingsController csc2=new CompanySettingsController();
-				TransportCenter[] names2=csc2.getTransportCenters((String)userpos.getSelectedItem());
+				TransportCenter[] names2=csc2.getTransportCenters((String)usercity.getSelectedItem());
 				for(int i=0;i<names2.length;i++){
 					userdepartment.addItem((String)names2[i].getName());
 				}
@@ -343,7 +343,7 @@ public class AddStaffPanel extends JPanel{
 			default:
 				userdepartment.removeAllItems();
 				CompanySettingsController csc3=new CompanySettingsController();
-				BussinessHall[] names3=csc3.getBussinessHalls((String)userpos.getSelectedItem());
+				BussinessHall[] names3=csc3.getBussinessHalls((String)usercity.getSelectedItem());
 				for(int i=0;i<names3.length;i++){
 					userdepartment.addItem((String)names3[i].name);
 				}
