@@ -217,7 +217,7 @@ public class airtransportui {
 		textField_containerNumber.setColumns(10);
 		
 		JLabel textPane_10 = new JLabel();
-		textPane_10.setText("\u672C\u8D27\u67DC\u8D27\u7269\u767B\u8BB0");
+		textPane_10.setText("中转中心业务员");
 		textPane_10.setBounds(150, 180, 100, 26);
 		desktopPane_airTransport.add(textPane_10);
 		
