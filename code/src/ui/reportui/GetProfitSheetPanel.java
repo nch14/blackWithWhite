@@ -55,12 +55,13 @@ public class GetProfitSheetPanel extends JPanel{
 				"总收入", "总支出", "总利润", "截止日期"
 			}
 		));
+		tableofprofitsheet.getColumnModel().getColumn(3).setMinWidth(120);
 		tableofprofitsheet.setRowHeight(30);
 		tableofprofitsheet.setFont(new Font("微软雅黑 Light",Font.PLAIN,24));
 		int height=55;
 		
 		JScrollPane scrollPane_5 = new JScrollPane();
-		scrollPane_5.setBounds(300, 250, 400, height);
+		scrollPane_5.setBounds(250, 250,500, height);
 		this.add(scrollPane_5);
 		scrollPane_5.setViewportView(tableofprofitsheet);
 		

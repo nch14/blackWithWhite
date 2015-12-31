@@ -24,10 +24,6 @@ import javax.swing.table.DefaultTableModel;
 import bill.BusShipmentBill_Shop;
 import bl.shipment.Impl.TruckLoadingManageController;
 import bl.shipment.Service.TruckLoadingManageBLService;
-import ui.old.distributionui;
-import ui.old.paidui;
-import ui.old.receiveui;
-import ui.old.truckloadingmanageui;
 import ui.staffui.drivermanageui;
 import ui.staffui.truckmanageui;
 

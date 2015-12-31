@@ -43,11 +43,9 @@ import ui.informationui.StartFrame;
 import ui.informationui.StartPanel;
 import ui.informationui.TruckLoadingPanel;
 import ui.informationui.UserManagePanel;
-import ui.judgementui.judgementui;
 import ui.receivementui.FillReceivementBillPanel;
 import ui.reportui.GetBussinesssheetPanel;
 import ui.reportui.GetProfitSheetPanel;
-import ui.sendui.getsendui;
 import vo.StaffVO;
 
 public class SignPanel extends JPanel{

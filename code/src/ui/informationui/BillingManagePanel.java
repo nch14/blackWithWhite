@@ -2,6 +2,8 @@ package ui.informationui;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.util.ArrayList;
 
 import javax.swing.DefaultComboBoxModel;
@@ -12,11 +14,15 @@ import javax.swing.JTable;
 
 import bill.ReceiveMoneyBill;
 import bl.money.Impl.BillingManagementController;
+import settings.BussinessHall;
+import settings.CompanySettingsController;
+import settings.TransportCenter;
 import tools.TimeHelper;
 import tools.VaildHelper;
 import ui.NSwing.NButton;
 import ui.NSwing.NLabel;
 import ui.NSwing.NTextField;
+import ui.informationui.AddStaffPanel.SelectListener;
 
 public class BillingManagePanel extends JPanel{
 	private NTextField textField_year;
@@ -41,13 +47,13 @@ public class BillingManagePanel extends JPanel{
 		this.add(textPane_9);
 		
 		textField_year = new NTextField();
-		textField_year.setBounds(220, 50, 120, 30);
+		textField_year.setBounds(220, 50, 160, 30);
 		this.add(textField_year);
 		textField_year.setColumns(10);
 		
 		city=new NLabel();
 		city.setFont(new Font("微软雅黑",Font.BOLD,16));
-		city.setBounds(480,50,40,30);
+		city.setBounds(540,50,40,30);
 		city.setText("城市");
 		this.add(city);
 		
@@ -57,7 +63,8 @@ public class BillingManagePanel extends JPanel{
 		usercity.addItem("北京");
 		usercity.addItem("上海");
 		usercity.addItem("广州");
-		usercity.setBounds(560,50,80,30);
+		usercity.addFocusListener(new SelectListener());
+		usercity.setBounds(620,50,80,30);
 		this.add(usercity);
 		
 		bussiness=new NLabel();
@@ -67,8 +74,7 @@ public class BillingManagePanel extends JPanel{
 		this.add(bussiness);
 		
 		comboBox= new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {" "}));
-		comboBox.setBounds(220, 110, 120, 30);
+		comboBox.setBounds(220, 110, 160, 30);
 		this.add(comboBox);
 		
 		check=new NButton("check");
@@ -159,4 +165,28 @@ public class BillingManagePanel extends JPanel{
 		}
 		
 	}
+	
+	class SelectListener implements FocusListener{
+
+		@Override
+		public void focusGained(FocusEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void focusLost(FocusEvent arg0) {
+			// TODO Auto-generated method stub
+				comboBox.removeAllItems();
+				CompanySettingsController csc3=new CompanySettingsController();
+				BussinessHall[] names3=csc3.getBussinessHalls((String)usercity.getSelectedItem());
+				for(int i=0;i<names3.length;i++){
+					comboBox.addItem((String)names3[i].name);
+				}
+				repaint();
+			
+		}
+	}
 }
+		 
+
