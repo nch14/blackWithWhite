@@ -176,7 +176,7 @@ public class SignPanel extends JPanel{
 /*			LoginService login = new LoginController();
 			StaffVO staff=login.validUser(signname,signpasswod);*/
 			StaffVO staff=new StaffVO();
-			staff.pos="财务人员";
+			staff.pos="营业厅业务员";
 
 			if(staff==null){
 				WrongMess.setText("账号或密码错误，请重试!");
