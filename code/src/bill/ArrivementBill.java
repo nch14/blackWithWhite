@@ -2,9 +2,6 @@ package bill;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-
-import enumHelper.State;
-
 public class ArrivementBill implements Serializable{
 	
 	public String ID;//µ¥¾ÝµÄID
@@ -16,7 +13,13 @@ public class ArrivementBill implements Serializable{
 	public ArrivementBill(){
 		judged=false;
 	}
-	
+	public ArrayList<String> showAllState(){
+		ArrayList<String> back=new ArrayList<String>();
+		for(int i=0;i<bill.size();i++){
+			back.add(bill.get(i).state);
+		}	
+		return back;	
+	}
 	public ArrayList<String> showAllID(){
 		ArrayList<String> back=new ArrayList<String>();
 		for(int i=0;i<bill.size();i++){
@@ -24,15 +27,16 @@ public class ArrivementBill implements Serializable{
 		}	
 		return back;	
 	}
-
 	
-	
-	class struct{
+	public void addID(String s,String t){
+		bill.add(new struct(s,t));
+	}
+	public class struct{
 		public String id;
-		State st;
-		public struct(String s,State t){
+		String state;
+		public struct(String s,String t){
 			id=s;
-			st=t;
+			state=t;
 		}
 	}
 }

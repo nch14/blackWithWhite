@@ -19,6 +19,9 @@ import javax.swing.table.TableModel;
 
 import bl.staff.Impl.StaffManageController;
 import bl.staff.Impl.UserManageController;
+import settings.BussinessHall;
+import settings.CompanySettingsController;
+import settings.TransportCenter;
 import ui.NSwing.NButton;
 import ui.NSwing.NTable;
 import ui.NSwing.NTableModel;
@@ -93,6 +96,7 @@ public class AddStaffPanel extends JPanel{
 		userpos.addItem("总经理");
 		userpos.addItem("财务人员");
 		userpos.addItem("管理员");
+		userpos.addFocusListener(new PosListener());
 		userpos.setBounds(650,50,180,30);
 		
 		city=new JLabel();
@@ -102,10 +106,7 @@ public class AddStaffPanel extends JPanel{
 		
 		usercity=new JComboBox();
 		usercity.setFont(new Font("微软雅黑",Font.BOLD,16));
-		usercity.addItem("南京");
-		usercity.addItem("北京");
-		usercity.addItem("上海");
-		usercity.addItem("广州");
+		usercity.addFocusListener(new SelectListener());
 		usercity.setBounds(100,110,80,30);
 		
 		department=new JLabel();
@@ -115,9 +116,6 @@ public class AddStaffPanel extends JPanel{
 		
 		userdepartment=new JComboBox();
 		userdepartment.setFont(new Font("微软雅黑",Font.BOLD,16));
-		userdepartment.addItem("寿康宫");
-		userdepartment.addItem("霍格沃兹");
-		userdepartment.addItem("对角巷");
 		userdepartment.setBounds(290,110,280,30);
 		
 		id=new JLabel();
@@ -253,6 +251,106 @@ public class AddStaffPanel extends JPanel{
 		public void focusLost(FocusEvent arg0) {
 			// TODO Auto-generated method stub
 			
+		}
+		 
+	 }
+	 
+	 class PosListener implements FocusListener{
+
+		@Override
+		public void focusGained(FocusEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void focusLost(FocusEvent e) {
+			// TODO Auto-generated method stub
+			switch((String)userpos.getSelectedItem()){
+			case "总经理":
+				usercity.removeAllItems();
+				usercity.addItem("总部");
+				repaint();
+				break;
+			case "财务人员":
+				usercity.removeAllItems();
+				usercity.addItem("总部");
+				repaint();
+				break;
+			case "管理员":
+				usercity.removeAllItems();
+				usercity.addItem("总部");
+				repaint();
+				break;
+			default:
+				usercity.removeAllItems();
+				CompanySettingsController csc=new CompanySettingsController();
+				String[] names=csc.getCityName();
+				for(int i=0;i<names.length;i++){
+					usercity.addItem((String)names[i]);
+				}
+				repaint();
+				break;
+			}
+		}
+		 
+	 }
+	 class SelectListener implements FocusListener{
+
+		@Override
+		public void focusGained(FocusEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void focusLost(FocusEvent arg0) {
+			// TODO Auto-generated method stub
+			switch((String)userpos.getSelectedItem()){
+			case "总经理":
+				userdepartment.removeAllItems();
+				userdepartment.addItem("执行部");
+				repaint();
+				break;
+			case "财务人员":
+				userdepartment.removeAllItems();
+				userdepartment.addItem("财务部");
+				repaint();
+				break;
+			case "管理员":
+				userdepartment.removeAllItems();
+				userdepartment.addItem("技术部");
+				repaint();
+				break;		
+			case "中转中心业务员":
+				userdepartment.removeAllItems();
+				CompanySettingsController csc=new CompanySettingsController();
+				TransportCenter[] names=csc.getTransportCenters((String)userpos.getSelectedItem());
+				for(int i=0;i<names.length;i++){
+					userdepartment.addItem((String)names[i].getName());
+				}
+				repaint();
+				break;	
+			case "中转中心仓库管理人员":
+				userdepartment.removeAllItems();
+				CompanySettingsController csc2=new CompanySettingsController();
+				TransportCenter[] names2=csc2.getTransportCenters((String)userpos.getSelectedItem());
+				for(int i=0;i<names2.length;i++){
+					userdepartment.addItem((String)names2[i].getName());
+				}
+				repaint();
+				break;
+			default:
+				userdepartment.removeAllItems();
+				CompanySettingsController csc3=new CompanySettingsController();
+				BussinessHall[] names3=csc3.getBussinessHalls((String)userpos.getSelectedItem());
+				for(int i=0;i<names3.length;i++){
+					userdepartment.addItem((String)names3[i].name);
+				}
+				repaint();
+				break;
+			
+			}
 		}
 		 
 	 }

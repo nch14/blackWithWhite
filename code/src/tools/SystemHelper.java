@@ -20,6 +20,23 @@ public class SystemHelper {
 		City guangzhou=new City("广州","020");
 		City shanghai=new City("上海","021");
 		
+		TransportCenter nj=nanjing.transportCenter.get(0);
+		TransportCenter sh=shanghai.transportCenter.get(0);
+		TransportCenter bj=beijing.transportCenter.get(0);
+		TransportCenter gz=guangzhou.transportCenter.get(0);
+		
+		String[] njnames={"南京市栖霞区营业厅","南京市鼓楼区营业厅","南京市仙林大学城营业厅",
+				 "南京市九龙湖营业厅","南京市下关区营业厅","南京市江浦营业厅",
+				 "南京市紫金山营业厅","南京市老山森林营业厅","南京市白下区营业厅",
+				 "南京市玄武区营业厅"};
+		nj.addBussinessHall(njnames);
+		String[] bjnames={"01","02","03","04","05","06","07","08","09","10"};
+		bj.addBussinessHall(bjnames);
+		String[] shnames={"01","02","03","04","05","06","07","08","09","10"};
+		bj.addBussinessHall(shnames);
+		String[] gznames={"01","02","03","04","05","06","07","08","09","10"};
+		bj.addBussinessHall(gznames);
+			
 		company.citys.add(beijing);
 		company.citys.add(nanjing);
 		company.citys.add(guangzhou);
@@ -39,40 +56,11 @@ public class SystemHelper {
 		company.distance.add(ng);
 		company.distance.add(sg);
 		
-		TransportCenter nj=nanjing.transportCenter.get(0);
-		TransportCenter sh=shanghai.transportCenter.get(0);
-		TransportCenter bj=beijing.transportCenter.get(0);
-		TransportCenter gz=guangzhou.transportCenter.get(0);
 		
-		String[] njnames={"南京市栖霞区营业厅","南京市鼓楼区营业厅","南京市仙林大学城营业厅",
-				 "南京市九龙湖营业厅","南京市下关区营业厅","南京市江浦营业厅",
-				 "南京市紫金山营业厅","南京市老山森林营业厅","南京市白下区营业厅",
-				 "南京市玄武区营业厅"};
-		nj.addBussinessHall(njnames);
-		String[] bjnames={"01","02","03","04","05","06","07","08","09","10"};
-		bj.addBussinessHall(bjnames);
-		String[] shnames={"01","02","03","04","05","06","07","08","09","10"};
-		bj.addBussinessHall(shnames);
-		String[] gznames={"01","02","03","04","05","06","07","08","09","10"};
-		bj.addBussinessHall(gznames);
+		
+
 		companyManage.push();
-/*		//2.添加必要人员账号
-		StaffVO administor=new StaffVO();
-		administor.ID="00000001";
-		administor.passwords="2015";
-		administor.department="--";
-		administor.pos="管理员";
-		
-		StaffVO manage=new StaffVO();
-		manage.ID="00000011";
-		manage.department="--";
-		manage.passwords="2015";
-		manage.pos="总经理";
-		StaffManageController staffManage=new StaffManageController();
-		StaffVO[] staffs={administor,manage};
-		staffManage.addNewStaff(staffs);*/
-		
-		//3.期初建账
+
 		
 	}
 	

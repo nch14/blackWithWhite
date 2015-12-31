@@ -14,13 +14,38 @@ public class CompanySettingsController {
 	
 	public Company ourCompany;
 	
-	
+
 	public CompanySettingsController(Company company){
 		ourCompany=company;
 	}
 	
 	public CompanySettingsController(){
 		pull();
+	}
+	
+	public String[] getCityName(){
+		int size=ourCompany.citys.size();
+		String[] names=new String[size];
+		for(int i=0;i<size;i++){
+			names[i]=ourCompany.citys.get(i).name;
+		}
+		return names;
+	}
+	public TransportCenter[] getTransportCenters(String city){
+		ArrayList<City> citys=ourCompany.citys;
+		ArrayList<TransportCenter> transportCenters = null;
+		TransportCenter[] t;
+		for(int i=0;i<citys.size();i++){		
+			if(citys.get(i).name.equals(city)){
+				transportCenters=citys.get(i).transportCenter;
+				break;
+			}
+		}
+		t=new TransportCenter[transportCenters.size()];
+		for(int j=0;j<transportCenters.size();j++){
+			t[j]=transportCenters.get(j);
+		}
+		return t ;	
 	}
 	public BussinessHall[] getBussinessHalls(String city){
 

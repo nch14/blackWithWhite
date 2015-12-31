@@ -28,4 +28,26 @@ public class VaildHelper {
 		return true;
 		
 	}
+	
+	/**
+	 * 
+	 * @param date 年月日字符串
+	 * @return
+	 */
+	public static boolean checkIfValidDate(String date){
+		
+		
+		return true;
+	}
+	
+	/**
+	 * 
+	 * @param date 年月日数组
+	 * @return
+	 */
+	public static boolean checkIfValidDate(String[] date){
+		
+		
+		return true;
+	}
 }
