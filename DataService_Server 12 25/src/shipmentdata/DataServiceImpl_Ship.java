@@ -9,6 +9,7 @@ import data.shipment.*;
 public class DataServiceImpl_Ship {
 	public static void initialService() throws FileNotFoundException, ClassNotFoundException, IOException{
 		try {
+			ShipmentImpl ship=new ShipmentImpl();
 			AllocateHelper allo=new AllocateImpl();
 			Arrive_CenterHelper arrc=new Arrive_CenterImpl();
 			Arrive_ShopHelper arrs=new Arrive_ShopImpl();
@@ -26,6 +27,7 @@ public class DataServiceImpl_Ship {
 			Registry Re_bs=LocateRegistry.createRegistry(37005);
 			Registry Re_plane=LocateRegistry.createRegistry(37006);
 			Registry Re_train=LocateRegistry.createRegistry(37007);
+			Registry Re_ship=LocateRegistry.createRegistry(37008);
 			
 			Re_allo.rebind("allocate", allo);
 			Re_arrc.rebind("arrivecenter",arrc);
@@ -35,6 +37,8 @@ public class DataServiceImpl_Ship {
 			Re_bs.rebind("bustransbillshop", bs);
 			Re_plane.rebind("planeshipment", plane);
 			Re_train.rebind("trainshipment", train);
+			Re_ship.rebind("shipment", ship);
+			
 			
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
