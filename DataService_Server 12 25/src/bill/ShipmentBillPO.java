@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 public class ShipmentBillPO implements Serializable{
 	/**
-	 * 
+	 * 中转单父类
 	 */
 	private static final long serialVersionUID = -807772043543209941L;
 

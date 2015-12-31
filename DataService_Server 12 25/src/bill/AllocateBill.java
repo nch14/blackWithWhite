@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class AllocateBill implements Serializable{
 	
 	/**
-	 * 
+	 * 派件单
 	 */
 	private static final long serialVersionUID = 4864493447844671634L;
 	public String ID;//单据的ID

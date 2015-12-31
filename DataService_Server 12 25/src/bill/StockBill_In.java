@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 public class StockBill_In implements Serializable{
 	/**
-	 * 
+	 * Èë¿âµ¥
 	 */
 	private static final long serialVersionUID = 345001898270272103L;
 	public static String billtype="StockBill_In";

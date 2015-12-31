@@ -3,7 +3,7 @@ import java.io.Serializable;
 
 public class TransMesgPO implements Serializable{
 	/**
-	 * 
+	 * 物流状态信息
 	 */
 	private static final long serialVersionUID = 2126095202400585501L;
 	public String id;

@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class ArrivementBill implements Serializable{
+	/**
+	 * 到达单父类
+	 */
 	
 	public String ID;//单据的ID
 	public boolean judged;

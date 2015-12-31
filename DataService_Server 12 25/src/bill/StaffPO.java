@@ -5,7 +5,7 @@ import tools.TimeHelper;
 import vo.StaffVO;
 public class StaffPO implements Serializable{
 	/**
-	 * 
+	 * 员工信息
 	 */
 	private static final long serialVersionUID = 3264604823154715722L;
 	public String name;

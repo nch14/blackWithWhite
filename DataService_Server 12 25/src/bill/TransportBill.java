@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class TransportBill implements Serializable{
 	/**
-	 * 
+	 * 中转单父类
 	 */
 	private static final long serialVersionUID = 5236873291717999704L;
 	String[] date;

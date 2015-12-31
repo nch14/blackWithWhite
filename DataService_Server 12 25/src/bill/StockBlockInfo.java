@@ -7,7 +7,7 @@ import bill.StockBill_Out.Info;
 
 public class StockBlockInfo implements Serializable{
 	/**
-	 * 
+	 * 库存信息
 	 */
 	private static final long serialVersionUID = 4983807107972385969L;
 	/**
@@ -234,7 +234,13 @@ public class StockBlockInfo implements Serializable{
 		}
 		return true;
 	}
-	
+	/**
+	 * 库区信息初始化
+	 * @param bus
+	 * @param train
+	 * @param plane
+	 * @return
+	 */
 	public boolean initialCommodity(int bus,int train,int plane){
 		if(bus+train+plane>25){
 			return false;
