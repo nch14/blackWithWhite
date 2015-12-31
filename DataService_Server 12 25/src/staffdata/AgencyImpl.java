@@ -41,6 +41,7 @@ public class AgencyImpl  extends UnicastRemoteObject implements AgencyInfoHelper
 	@Override
 	public boolean push(Company c) throws RemoteException {
 		// TODO Auto-generated method stub
+		System.out.println("getHere");
 		array.add(0,c);
 		try {
 			save();
@@ -54,6 +55,7 @@ public class AgencyImpl  extends UnicastRemoteObject implements AgencyInfoHelper
 	@Override
 	public Company pull() throws RemoteException {
 		// TODO Auto-generated method stub
+		System.out.println("pullHere");
 		return array.get(0);
 	}
 
