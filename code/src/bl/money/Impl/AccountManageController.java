@@ -19,21 +19,15 @@ public class AccountManageController implements AccountManageBLService {
 	}
 
 	@Override
-	public boolean delateAccount(ArrayList<String> ID) {
+	public boolean delateAccount(String[] ID) {
 		// TODO Auto-generated method stub
-		int length=ID.size();
-		String[] IDS=(String[])ID.toArray(new String[length]);
-		return accoutManagement.delateAccount(IDS);
+		return accoutManagement.delateAccount(ID);
 	}
 
 	@Override
-	public boolean changeAccountInfo(ArrayList<String> ID, ArrayList<String> name) {
+	public boolean changeAccountInfo(String[] ID, String[] name) {
 		// TODO Auto-generated method stub
-		int length=ID.size();
-		String[] IDs=(String[])ID.toArray(new String[length]);
-		length=name.size();
-		String[] names=(String[])name.toArray(new String[length]);
-		return accoutManagement.changeAccountInfo(IDs, names);
+		return accoutManagement.changeAccountInfo(ID, name);
 	}
 
 	@Override

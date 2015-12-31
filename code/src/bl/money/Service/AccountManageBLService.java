@@ -21,13 +21,13 @@ public interface AccountManageBLService {
 	 * 删除账户
 	 * @return
 	 */
-	public boolean delateAccount(ArrayList<String> ID);
+	public boolean delateAccount(String[] ID);
 	
 	/**
 	 * @param name 账户名称
 	 * @return
 	 */
-	public boolean changeAccountInfo(ArrayList<String> ID, ArrayList<String> name);
+	public boolean changeAccountInfo(String[] ID, String[] name);
 	
 	/**
 	 * 查找账户

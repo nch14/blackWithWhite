@@ -1,5 +1,6 @@
 package ui.informationui;
 
+import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -10,7 +11,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
+import bill.Account;
 import bill.PaymentBill;
+import bl.money.Impl.AccountManageController;
 import bl.money.Impl.PayController;
 import tools.TimeHelper;
 import tools.VaildHelper;
@@ -92,7 +95,12 @@ public class PayPanel extends JPanel {
 		remarks.setColumns(10);
 		
 		accountNum = new JComboBox();
-		accountNum.setModel(new DefaultComboBoxModel(new String[] {"中国农业银行", "中国工商银行", "中国建设银行", "南京银行"}));
+		AccountManageController amc=new AccountManageController();
+		ArrayList<Account> acc=amc.getAccount("");
+		accountNum.setFont(new Font("微软雅黑  Light",Font.PLAIN,14));
+		for(int i=0;i<acc.size();i++){
+			accountNum.addItem((String)acc.get(i).name);
+		}
 		accountNum.setBounds(220, 110, 160, 30);
 		this.add(accountNum);
 		
@@ -129,10 +137,10 @@ public class PayPanel extends JPanel {
 				}
 			}
 		});
-		button.setBounds(800, 150, 40, 40);
+		button.setBounds(800, 170, 40, 40);
 		this.add(button);
 		
-		NButton push = new NButton("push");
+		NButton push = new NButton("ok");
 		push.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {

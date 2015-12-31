@@ -17,4 +17,15 @@ public class VaildHelper {
 		}
 		return true;
 	}
+	
+	
+	public static boolean checkMoneyValid(String money){
+		char[] moneys=money.toCharArray();
+		for(int i=0;i<money.length();i++){
+			if((moneys[i]<'0'||moneys[i]>'9')&&moneys[i]!='.')
+				return false;
+		}
+		return true;
+		
+	}
 }

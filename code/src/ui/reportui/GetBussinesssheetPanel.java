@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
+
 import javax.swing.table.DefaultTableModel;
 
 import bill.PaymentBill;
@@ -21,6 +21,7 @@ import bl.report.impl.BussinessSheetController;
 import bl.report.service.BussinessSheetBLService;
 import tools.TimeHelper;
 import tools.VaildHelper;
+import ui.NSwing.NTextField;
 import ui.informationui.TimePanel;
 import vo.BussinessSheetVO;
 import vo.ProfitSheetVO;
@@ -46,12 +47,12 @@ public class GetBussinesssheetPanel extends JPanel {
 		labelofenddate.setBounds(150, 120, 80, 30);
 		this.add(labelofenddate);
 		
-		JTextField nian1 = new JTextField();
+		NTextField nian1 = new NTextField();
 		nian1.setBounds(250, 60, 40,30);
 		this.add(nian1);
 		nian1.setColumns(10);
 		
-		JTextField nian2 = new JTextField();
+		NTextField nian2 = new NTextField();
 		nian2.setColumns(10);
 		nian2.setBounds(250, 120, 40, 30);
 		this.add(nian2);
@@ -70,12 +71,12 @@ public class GetBussinesssheetPanel extends JPanel {
 		
 
 		
-		JTextField yue1 = new JTextField();
+		NTextField yue1 = new NTextField();
 		yue1.setColumns(10);
 		yue1.setBounds(325, 60, 40, 30);
 		this.add(yue1);
 		
-		JTextField yue2 = new JTextField();
+		NTextField yue2 = new NTextField();
 		yue2.setBounds(325, 120, 40, 30);
 		this.add(yue2);
 		yue2.setColumns(10);
@@ -92,12 +93,12 @@ public class GetBussinesssheetPanel extends JPanel {
 		labelofendmonth.setBounds(370, 120, 20, 30);
 		this.add(labelofendmonth);
 		
-		JTextField ri1 = new JTextField();
+		NTextField ri1 = new NTextField();
 		ri1.setColumns(10);
 		ri1.setBounds(400, 60, 40, 30);
 		this.add(ri1);
 		
-		JTextField ri2 = new JTextField();
+		NTextField ri2 = new NTextField();
 		ri2.setColumns(10);
 		ri2.setBounds(400, 120, 40, 30);
 		this.add(ri2);

@@ -14,10 +14,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 import bl.staff.Impl.StaffManageController;
 import bl.staff.Impl.UserManageController;
+import ui.NSwing.NButton;
+import ui.NSwing.NTable;
+import ui.NSwing.NTableModel;
+import ui.NSwing.NTextField;
 import vo.StaffVO;
 
 public class AddStaffPanel extends JPanel{
@@ -30,15 +35,16 @@ public class AddStaffPanel extends JPanel{
 	JLabel department;
 	JLabel city;
 	JComboBox usercity;
-	JTextField userid;
-	JTextField userpass;
-	JTextField username;
-	JTextField userage;
+	NTextField userid;
+	NTextField userpass;
+	NTextField username;
+	NTextField userage;
 	JComboBox usersex; 
     JComboBox userpos;  
     JComboBox userdepartment;
-    JButton okButton;
-    JTable table;
+    NButton okButton;
+    NTable table;
+    JScrollPane scrollPane;
 	public AddStaffPanel(){
 		this.setLayout(null);
 		this.setBounds(200, 60, 1000, 615);
@@ -48,7 +54,7 @@ public class AddStaffPanel extends JPanel{
 		name.setBounds(50,50,40,30);
 		name.setText("姓名");
 		
-		username=new JTextField();
+		username=new NTextField();
 		username.setFont(new Font("微软雅黑",Font.BOLD,16));
 		username.setBounds(100,50,80,30);
 		
@@ -68,7 +74,7 @@ public class AddStaffPanel extends JPanel{
 		age.setBounds(420,50,40,30);
 		age.setText("年龄");
 		
-		userage=new JTextField();
+		userage=new NTextField();
 		userage.setFont(new Font("微软雅黑",Font.BOLD,16));
 		userage.setBounds(470,50,60,30);
 		age.addFocusListener(new AgeListener());
@@ -119,7 +125,7 @@ public class AddStaffPanel extends JPanel{
 		id.setBounds(50,170,60,30);
 		id.setText("用户名");
 		
-		userid=new JTextField();
+		userid=new NTextField();
 		userid.setFont(new Font("微软雅黑",Font.BOLD,16));
 		userid.setBounds(100,170,200,30);
 		
@@ -128,55 +134,22 @@ public class AddStaffPanel extends JPanel{
 		pass.setBounds(420,170,40,30);
 		pass.setText("密码");
 		
-		userpass=new JTextField();
+		userpass=new NTextField();
 		userpass.setFont(new Font("微软雅黑",Font.BOLD,16));
 		userpass.setBounds(470,170,200,30);
 
 		
-		okButton=new JButton();
-		okButton.setIcon(new ImageIcon("pic/ok40.png"));
-		okButton.setBounds(620, 210, 40, 40);
+		okButton=new NButton("ok");
+		okButton.setBounds(640, 210, 40, 40);
 		okButton.setBorder(null);
 		okButton.setFocusPainted(false);
 		okButton.setBorderPainted(false);
 		okButton.setContentAreaFilled(false);
 		okButton.addActionListener(new PushListener());
 		
-/*		StaffManageController staff=new StaffManageController();
+		StaffManageController staff=new StaffManageController();
 		ArrayList<StaffVO> staffs=staff.getAllStaff("");
-		int size=staffs.size();*/
-		ArrayList<StaffVO> staffs=new ArrayList<StaffVO>();
-		StaffVO A=new StaffVO();
-		A.ID="laoshu";
-		A.name="仓鼠";
-		A.age=18;
-		A.passwords="888";
-		A.pos="xiaolongbao";
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
+	
 		buildTable(staffs);
 				
 		
@@ -202,21 +175,22 @@ public class AddStaffPanel extends JPanel{
 	public void buildTable(ArrayList<StaffVO> staffs){
 		int size=staffs.size();
 		
-		Object[][] tableData=new Object[size][5];
+		Object[][] tableData=new Object[size][6];
 		for(int i=0;i<size;i++){
 			StaffVO mess=staffs.get(i);
 			tableData[i]=new Object[]{mess.ID,mess.name,mess.age,mess.passwords,mess.pos,mess.department};
 		}
 		Object[] columnTitle = {"用户名" ,"姓名","年龄","密码","职位","部门"};  
-		table=new JTable(tableData,columnTitle);
+		TableModel tableModel=new DefaultTableModel(tableData,columnTitle);
+		table=new NTable(tableModel);
 		int height=table.getRowHeight()*(size+1)+9;
 		int ValidMaxHeight=250;
 		if(height>=400)
 			height=ValidMaxHeight;
-		//table.setBounds(200, 50, 600, height);
+		
 		table.setOpaque(false); 
 		table.setRowSelectionAllowed(true);
-		JScrollPane scrollPane = new JScrollPane();
+		scrollPane = new JScrollPane();
 		scrollPane.setBounds(140, 270, 658, height);
 		scrollPane.setOpaque(false);
 		this.add(scrollPane);
@@ -247,9 +221,8 @@ public class AddStaffPanel extends JPanel{
 				if(result){
 					TimePanel.change=true;
 					TimePanel.text="您已成功增加该员工！";
-					StaffManageController staffManage=new StaffManageController();
-					ArrayList<StaffVO> staffsNew=staffManage.getAllStaff("");
-					int size=staffsNew.size();
+					ArrayList<StaffVO> staffsNew=user.getAllStaff("");
+					removeTable();
 					buildTable(staffsNew);
 					repaint();
 				}else{
@@ -263,6 +236,11 @@ public class AddStaffPanel extends JPanel{
 		}
 		 
 	 }
+	 
+	public void removeTable(){
+		if(scrollPane!=null)
+			this.remove(scrollPane);
+	}
 	 class AgeListener implements FocusListener{
 
 		@Override

@@ -2,6 +2,8 @@ package ui.informationui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
@@ -9,22 +11,25 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 import bill.Account;
+import bl.money.Impl.AccountManageController;
 import tools.TimeHelper;
+import tools.VaildHelper;
 import ui.NSwing.NButton;
 import ui.NSwing.NLabel;
+import ui.NSwing.NTable;
 import ui.NSwing.NTextField;
 
 
 
-public class AccountManagePanel extends JPanel {
+public class ChangeAccountPanel extends JPanel {
 	private NTextField accountID;
 	private NTextField accountName;
-	private NTextField accountMoney;
 	NButton add;
-	JTable table;
+	NTable table;
 	JScrollPane scrollPane;
-	
-	public AccountManagePanel() {
+	NLabel help1;
+	NLabel help2;
+	public ChangeAccountPanel() {
 		this.setBounds(200, 60, 1000, 615);
 		this.setLayout(null);
 		
@@ -38,6 +43,10 @@ public class AccountManagePanel extends JPanel {
 		accountID.setBounds(160, 110, 160, 30);
 		this.add(accountID);
 		accountID.setColumns(10);
+		accountID.addFocusListener(new ValidListener());
+		
+		help1 = new NLabel("账号必须为18位数字！","tips");
+		help1.setBounds(160, 140, 160, 30);
 		
 		NLabel textPane_22 = new NLabel();
 		textPane_22.setText("名称");
@@ -49,23 +58,25 @@ public class AccountManagePanel extends JPanel {
 		this.add(accountName);
 		accountName.setColumns(10);
 		
-		NLabel textPane_23 = new NLabel();
-		textPane_23.setText("金额");
-		textPane_23.setBounds(680, 110, 40, 30);
-		this.add(textPane_23);
-		
-		accountMoney = new NTextField();
-		accountMoney.setBounds(740, 110, 100, 30);
-		this.add(accountMoney);
-		accountMoney.setColumns(10);
-		
-		add=new NButton("add");
-		add.setBounds(700, 130, 40, 40);
+		add=new NButton("ok");
+		add.setBounds(740, 150, 40, 40);
 		add.addActionListener(new AddListener());
 		this.add(add);
 		
+		AccountManageController amc=new AccountManageController();
+		ArrayList<Account> list=amc.getAccount("");
+		buildTable(list);
+		repaint();
 		
-		
+	}
+	
+	public void addWarning(NLabel l){
+		this.add(l);
+		repaint();
+	}
+	public void removeWarning(NLabel l){
+		this.remove(l);
+		repaint();
 	}
 	public void buildTable(ArrayList<Account> list){
 
@@ -76,8 +87,8 @@ public class AccountManagePanel extends JPanel {
 			tableData[i]=new Object[]{mess.getID(),mess.name,mess.getMoney()};
 		}
 		Object[] columnTitle = {"账号", "账户名称", "账户金额"};  
-		table=new JTable(tableData,columnTitle);
-		int height=table.getRowHeight()*(size+1)+9;
+		table=new NTable(tableData,columnTitle);
+		int height=table.getRowHeight()*(size+1)+13;
 		int ValidMaxHeight=250;
 		if(height>=400)
 			height=ValidMaxHeight;
@@ -98,11 +109,45 @@ public class AccountManagePanel extends JPanel {
 
 		public void actionPerformed(ActionEvent arg0) {
 			// TODO Auto-generated method stub
-			
+			AccountManageController amc=new AccountManageController();
+			boolean result=VaildHelper.checkIsValidID(accountID.getText(),18);
+			if(result){
+				amc.changeAccountInfo(new String[]{accountID.getText()}, new String[]{accountName.getText()});
+				accountID.setText("");
+				accountName.setText("");
+				removeTable();
+				repaint();
+				ArrayList<Account> list=amc.getAccount("");
+				buildTable(list);
+				repaint();
+			}else{
+				TimePanel.makeWords("修改账户失败");
+			}
 		}
 		
 	}
+
+	class ValidListener implements FocusListener{
+
+		@Override
+		public void focusGained(FocusEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void focusLost(FocusEvent arg0) {
+			// TODO Auto-generated method stub
+			String id=accountID.getText();
+			boolean result=VaildHelper.checkIsValidID(id,18);
+			if(!result){
+				addWarning(help1);
+			}else{
+				removeWarning(help1);
+			}
+		}
 		
+	}
 	
 
 }

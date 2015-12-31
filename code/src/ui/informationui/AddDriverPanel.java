@@ -17,10 +17,12 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 import bill.DriverPO;
 import bl.staff.Impl.StaffManageController;
 import bl.staff.Impl.UserManageController;
+import ui.NSwing.NTableModel;
 import vo.StaffVO;
 
 public class AddDriverPanel extends JPanel{
@@ -176,12 +178,11 @@ public class AddDriverPanel extends JPanel{
 			String sex="男";
 			if(!mess.isBoy)
 				sex="女";
-			A[i]=new JCheckBox();
-			tableData[i]=new Object[]{A[i],mess.ID,mess.name,sex,mess.birthday,mess.tel,mess.validData,mess.IDNumber};
+			tableData[i]=new Object[]{false,mess.ID,mess.name,sex,mess.birthday,mess.tel,mess.validData,mess.IDNumber};
 		}
-		Object[] columnTitle = {new JCheckBox(),"司机编号" ,"姓名","性别","出生日期","手机号码","行驶证期限","身份证号"};  
+		Object[] columnTitle = {"选中","司机编号" ,"姓名","性别","出生日期","手机号码","行驶证期限","身份证号"};  
 		
-		DefaultTableModel tableModel=new DefaultTableModel(tableData,columnTitle);
+		TableModel tableModel=new NTableModel(tableData,columnTitle);
 		table=new JTable(tableModel);
 		DefaultTableCellRenderer r=new DefaultTableCellRenderer();   
 	  	r.setHorizontalAlignment(JLabel.CENTER); 
@@ -201,36 +202,7 @@ public class AddDriverPanel extends JPanel{
 	 class PushListener implements ActionListener{
 
 		public void actionPerformed(ActionEvent arg0) {
-			/*String id=userid.getText();
-			String pass=userpass.getText();
-			String name=username.getText();
-			String age=userbirthday.getText();
-			String sex=(String)usersex.getSelectedItem();
-			String pos=(String)userpos.getSelectedItem();
-			String department=(String)userdepartment.getSelectedItem();
 			
-			if(id!=null&&pass!=null&&name!=null&&age!=null&&sex!=null&&pos!=null&&department!=null){
-				boolean isBoy=true;
-				if(sex.equals("女"))
-					isBoy=false;
-				
-				StaffVO staff=new StaffVO(id,name,age,pos,department,isBoy,pass);
-				StaffVO[] staffs=new StaffVO[1];
-				staffs[0]=staff;
-				StaffManageController user=new StaffManageController();			
-				boolean result=true;
-				result=result&user.addNewStaff(staffs);
-				if(result){
-					TimePanel.change=true;
-					TimePanel.text="您已成功增加该员工！";
-				}else{
-					TimePanel.change=true;
-					TimePanel.text="添加员工失败，可能存在网络故障！";
-				}
-			}else{
-				TimePanel.change=true;
-				TimePanel.text="请检查您的输入！";
-			}*/
 		}
 		 
 	 }

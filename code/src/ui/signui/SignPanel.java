@@ -20,13 +20,15 @@ import javax.swing.JTextField;
 import bl.staff.Impl.LoginController;
 import bl.staff.service.LoginService;
 import ui.commodityui.indepotui;
-import ui.informationui.AccountManagePanel;
+import ui.informationui.AddAccountPanel;
 import ui.informationui.AddDriverPanel;
 import ui.informationui.AddStaffPanel;
 import ui.informationui.AddTrunckPanel;
 import ui.informationui.ArriveBussinesshallPanel;
 import ui.informationui.BillingManagePanel;
+import ui.informationui.ChangeAccountPanel;
 import ui.informationui.ChangeStaffPanel;
+import ui.informationui.DeleteAccountPanel;
 import ui.informationui.DeleteStaffPanel;
 import ui.informationui.DistributionPanel;
 import ui.informationui.FunctionPanel;
@@ -174,7 +176,7 @@ public class SignPanel extends JPanel{
 /*			LoginService login = new LoginController();
 			StaffVO staff=login.validUser(signname,signpasswod);*/
 			StaffVO staff=new StaffVO();
-			staff.pos="营业厅业务员";
+			staff.pos="财务人员";
 
 			if(staff==null){
 				WrongMess.setText("账号或密码错误，请重试!");
@@ -205,7 +207,7 @@ public class SignPanel extends JPanel{
 					panels[1]=new GetOrderBillPanel();
 					panels[2]=new FillReceivementBillPanel();
 				}else if(staff.pos.equals("财务人员")){
-					buttons=new JButton[4];
+					buttons=new JButton[7];
 					
 					buttons[0]=new JButton();
 					buttons[0].setFont(new Font("微软雅黑",Font.BOLD,16));
@@ -218,15 +220,26 @@ public class SignPanel extends JPanel{
 					buttons[2].setText("查看成本收益表");
 					buttons[3]=new JButton();
 					buttons[3].setFont(new Font("微软雅黑",Font.BOLD,16));
-					buttons[3].setText("账户管理");
+					buttons[3].setText("创建付款单");
+					buttons[4]=new JButton();
+					buttons[4].setFont(new Font("微软雅黑",Font.BOLD,16));
+					buttons[4].setText("增加账户");
+					buttons[5]=new JButton();
+					buttons[5].setFont(new Font("微软雅黑",Font.BOLD,16));
+					buttons[5].setText("删除账户");
+					buttons[6]=new JButton();
+					buttons[6].setFont(new Font("微软雅黑",Font.BOLD,16));
+					buttons[6].setText("修改账户名称");
 					
-					panels=new JPanel[4];
+					panels=new JPanel[7];
 					panels[0]=new BillingManagePanel();
 					panels[1]=new GetBussinesssheetPanel();
 					panels[2]=new GetProfitSheetPanel();
-					panels[3]=new AccountManagePanel();
+					panels[3]=new PayPanel();
+					panels[4]=new AddAccountPanel();
+					panels[5]=new DeleteAccountPanel();
+					panels[6]=new ChangeAccountPanel();
 					
-				    //account.main();
 				}else if(staff.pos.equals("总经理")){
 					buttons=new JButton[6];
 					

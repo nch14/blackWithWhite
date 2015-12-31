@@ -13,6 +13,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
+import bl.staff.Impl.StaffManageController;
+import ui.NSwing.NButton;
+import ui.NSwing.NTable;
 import vo.StaffVO;
 
 public class DeleteStaffPanel extends JPanel{
@@ -22,14 +25,15 @@ public class DeleteStaffPanel extends JPanel{
 	JComboBox comboBoxofsalary;
 	JTextField userpay;
 	JLabel pay;
-	JTable table;
-	JButton submit;
+	NTable table;
+	NButton submit;
 	JLabel pos;
 	JComboBox userpos;
 	JLabel city;
 	JLabel department;
 	JComboBox userdepartment;
 	JComboBox usercity;
+	JScrollPane scrollPane;
 	public DeleteStaffPanel(){
 		this.setLayout(null);
 		this.setBounds(200, 60, 1000, 615);
@@ -43,114 +47,55 @@ public class DeleteStaffPanel extends JPanel{
 		userid.setBounds(200, 50, 160, 30);
 		userid.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(149,147,143)));
 		this.add(userid);
-		
-		/*pos=new JLabel();
-		pos.setFont(new Font("微软雅黑",Font.BOLD,16));
-		pos.setBounds(540,50,60,30);
-		pos.setText("新职位");
-		this.add(pos);
-		
-		userpos=new JComboBox();
-		userpos.setFont(new Font("微软雅黑",Font.BOLD,16));
-		userpos.addItem("快递员");
-		userpos.addItem("营业厅业务员");
-		userpos.addItem("中转中心业务员");
-		userpos.addItem("中转中心仓库管理人员");
-		userpos.addItem("总经理");
-		userpos.addItem("财务人员");
-		userpos.addItem("管理员");
-		userpos.setBounds(620,50,180,30);
-		this.add(userpos);
-		
-		city=new JLabel();
-		city.setFont(new Font("微软雅黑",Font.BOLD,16));
-		city.setBounds(120,110,80,30);
-		city.setText("调派城市");
-		this.add(city);
-		
-		usercity=new JComboBox();
-		usercity.setFont(new Font("微软雅黑",Font.BOLD,16));
-		usercity.addItem("南京");
-		usercity.addItem("北京");
-		usercity.addItem("上海");
-		usercity.addItem("广州");
-		usercity.setBounds(200,110,80,30);
-		this.add(usercity);
-		
-		department=new JLabel();
-		department.setFont(new Font("微软雅黑",Font.BOLD,16));
-		department.setBounds(540,110,80,30);
-		department.setText("调派部门");
-		this.add(department);
-		
-		userdepartment=new JComboBox();
-		userdepartment.setFont(new Font("微软雅黑",Font.BOLD,16));
-		userdepartment.addItem("寿康宫");
-		userdepartment.addItem("霍格沃兹");
-		userdepartment.addItem("对角巷");
-		userdepartment.setBounds(620,110,280,30);
-		this.add(userdepartment);*/
-
-		
-
-		submit = new JButton("提交");
+	
+		submit = new NButton("ok");
 		submit.setBounds(720, 180, 80, 30);
 		this.add(submit);
+		
+		
+		StaffManageController staff=new StaffManageController();
+		ArrayList<StaffVO> staffs=staff.getAllStaff("");
+		buildTable(staffs);
+		
 		submit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-
+				StaffManageController staffManage=new StaffManageController();
+				boolean success=staffManage.deleteStaff(new String[]{userid.getText()});
+				if(success){
+					userid.setText("");
+					removeTable();
+					ArrayList<StaffVO> staffs=staffManage.getAllStaff("");
+					buildTable(staffs);
+					repaint();
+					TimePanel.makeWords("您已成功解雇该员工！");
+				}else{
+					TimePanel.makeWords("解雇该员工发生错误，请重试！");
+				}
 			}
 		});
 		
 		
-		ArrayList<StaffVO> staffs=new ArrayList<StaffVO>();
-		StaffVO A=new StaffVO();
-		A.ID="小龙女";
-		A.name="陈妍希";
-		A.age=18;
-		A.pos="小笼包";
-		A.department="仙二404";
-		A.SalaryModel="月薪：5000";
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		buildTable(staffs);
+		
+		
 	}
 	
 	public void buildTable(ArrayList<StaffVO> staffs){
 		int size=staffs.size();
 		
-		Object[][] tableData=new Object[size][5];
+		Object[][] tableData=new Object[size][7];
 		for(int i=0;i<size;i++){
 			StaffVO mess=staffs.get(i);
-			tableData[i]=new Object[]{mess.ID,mess.name,mess.age,mess.passwords,mess.pos," "};
+			String sex="";
+			if(mess.isBoy){
+				sex="男";
+			}else{
+				sex="女";
+			}
+			tableData[i]=new Object[]{mess.ID,mess.name,sex,mess.age,mess.pos,mess.department,mess.SalaryModel};
 		}
-		Object[] columnTitle = {"用户名","姓名","年龄","职位","薪水"};  
-		table=new JTable(tableData,columnTitle);
+		Object[] columnTitle = {"用户名","姓名","性别","年龄","职位","部门","薪水"};  
+		table=new NTable(tableData,columnTitle);
 		int height=table.getRowHeight()*(size+1)+9;
 		int ValidMaxHeight=250;
 		if(height>=400)
@@ -158,10 +103,15 @@ public class DeleteStaffPanel extends JPanel{
 		//table.setBounds(200, 50, 600, height);
 		table.setOpaque(false); 
 		table.setRowSelectionAllowed(true);
-		JScrollPane scrollPane = new JScrollPane();
+		scrollPane = new JScrollPane();
 		scrollPane.setBounds(140, 270, 658, height);
 		scrollPane.setOpaque(false);
 		this.add(scrollPane);
 		scrollPane.setViewportView(table);
+	}
+	
+	public void removeTable(){
+		if(scrollPane!=null)
+			this.remove(scrollPane);
 	}
 }

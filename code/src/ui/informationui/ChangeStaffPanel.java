@@ -12,27 +12,31 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
+
 
 import bl.staff.Impl.StaffManageController;
+import ui.NSwing.NButton;
+import ui.NSwing.NTable;
+import ui.NSwing.NTextField;
 import vo.StaffVO;
 
 public class ChangeStaffPanel extends JPanel{
 	StartFrame belongsTO;
 	JLabel id;
-	JTextField userid;
+	NTextField userid;
 	JLabel labelofsalary;
 	JComboBox comboBoxofsalary;
-	JTextField userpay;
+	NTextField userpay;
 	JLabel pay;
-	JTable table;
-	JButton submit;
+	NTable table;
+	NButton submit;
 	JLabel pos;
 	JComboBox userpos;
 	JLabel city;
 	JLabel department;
 	JComboBox userdepartment;
 	JComboBox usercity;
+	JScrollPane scrollPane;
 	public ChangeStaffPanel(){
 		this.setLayout(null);
 		this.setBounds(200, 60, 1000, 615);
@@ -42,7 +46,7 @@ public class ChangeStaffPanel extends JPanel{
 		id.setBounds(120, 50, 80, 30);
 		this.add(id);
 		
-		userid = new JTextField();
+		userid = new NTextField();
 		userid.setBounds(200, 50, 160, 30);
 		userid.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(149,147,143)));
 		this.add(userid);
@@ -96,51 +100,35 @@ public class ChangeStaffPanel extends JPanel{
 
 		
 
-		submit = new JButton("提交");
+		submit = new NButton("ok");
 		submit.setBounds(720, 180, 80, 30);
 		this.add(submit);
 		submit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-
+				StaffManageController staff=new StaffManageController();
+				boolean result=staff.changePosition(new String[]{userid.getText()},
+						new String[]{(String)userpos.getSelectedItem()}, new String[]{(String)userdepartment.getSelectedItem()});
+			
+				if(result){
+					userid.setText("");
+					usercity.setSelectedIndex(0);
+					userpos.setSelectedIndex(0);
+					userdepartment.setSelectedIndex(0);
+					removeTable();
+					ArrayList<StaffVO> staffs=staff.getAllStaff("");
+					buildTable(staffs);
+					TimePanel.makeWords("您已成功解雇该员工！");
+				}else{
+					TimePanel.makeWords("发生错误，请重试！");
+				}
+			
 			}
 		});
 		
 		
-		ArrayList<StaffVO> staffs=new ArrayList<StaffVO>();
-		StaffVO A=new StaffVO();
-		A.ID="小龙女";
-		A.name="陈妍希";
-		A.age=18;
-		A.pos="小笼包";
-		A.department="仙二404";
-		A.SalaryModel="月薪：5000";
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
+		StaffManageController staff=new StaffManageController();
+		ArrayList<StaffVO> staffs=staff.getAllStaff("");
 		buildTable(staffs);
 	}
 	
@@ -153,7 +141,7 @@ public class ChangeStaffPanel extends JPanel{
 			tableData[i]=new Object[]{mess.ID,mess.name,mess.age,mess.passwords,mess.pos," "};
 		}
 		Object[] columnTitle = {"用户名","姓名","年龄","职位","薪水"};  
-		table=new JTable(tableData,columnTitle);
+		table=new NTable(tableData,columnTitle);
 		int height=table.getRowHeight()*(size+1)+9;
 		int ValidMaxHeight=250;
 		if(height>=400)
@@ -161,10 +149,15 @@ public class ChangeStaffPanel extends JPanel{
 		//table.setBounds(200, 50, 600, height);
 		table.setOpaque(false); 
 		table.setRowSelectionAllowed(true);
-		JScrollPane scrollPane = new JScrollPane();
+		scrollPane = new JScrollPane();
 		scrollPane.setBounds(140, 270, 658, height);
 		scrollPane.setOpaque(false);
 		this.add(scrollPane);
 		scrollPane.setViewportView(table);
+	}
+	
+	public void removeTable(){
+		if(scrollPane!=null)
+			this.remove(scrollPane);
 	}
 }

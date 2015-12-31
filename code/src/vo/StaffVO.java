@@ -36,7 +36,7 @@ public class StaffVO {
 		isBoy=staffPO.sex;
 		age=Integer.parseInt(TimeHelper.getTime().substring(0, 4))-staffPO.birthyear;
 		topAuthority=staffPO.authority;
-
+		this.SalaryModel=staffPO.SalaryModel;
 	}
 	/**
 	 * ½ûÖ¹Ê¹ÓÃ
