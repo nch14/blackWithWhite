@@ -17,7 +17,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import ui.staffui.organizationmanageui;
+import ui.staff.organizationmanageui;
 
 public class judgementui {
 

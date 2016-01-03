@@ -1,4 +1,4 @@
-package ui.informationui;
+package ui.staff;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;

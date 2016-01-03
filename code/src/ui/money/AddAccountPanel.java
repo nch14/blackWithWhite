@@ -1,4 +1,4 @@
-package ui.informationui;
+package ui.money;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,18 +18,20 @@ import ui.NSwing.NButton;
 import ui.NSwing.NLabel;
 import ui.NSwing.NTable;
 import ui.NSwing.NTextField;
+import ui.informationui.TimePanel;
 
 
 
-public class ChangeAccountPanel extends JPanel {
+public class AddAccountPanel extends JPanel {
 	private NTextField accountID;
 	private NTextField accountName;
+	private NTextField accountMoney;
 	NButton add;
 	NTable table;
 	JScrollPane scrollPane;
 	NLabel help1;
 	NLabel help2;
-	public ChangeAccountPanel() {
+	public AddAccountPanel() {
 		this.setBounds(200, 60, 1000, 615);
 		this.setLayout(null);
 		
@@ -57,6 +59,20 @@ public class ChangeAccountPanel extends JPanel {
 		accountName.setBounds(430, 110, 200, 30);
 		this.add(accountName);
 		accountName.setColumns(10);
+		
+		NLabel textPane_23 = new NLabel();
+		textPane_23.setText("金额");
+		textPane_23.setBounds(680, 110, 40, 30);
+		this.add(textPane_23);
+		
+		accountMoney = new NTextField();
+		accountMoney.setBounds(740, 110, 100, 30);
+		this.add(accountMoney);
+		accountMoney.addFocusListener(new MoneyListener());
+		accountMoney.setColumns(10);
+		
+		help2 = new NLabel("金额必须为数字！","tips");
+		help2.setBounds(680, 140, 100, 30);
 		
 		add=new NButton("ok");
 		add.setBounds(740, 150, 40, 40);
@@ -110,23 +126,51 @@ public class ChangeAccountPanel extends JPanel {
 		public void actionPerformed(ActionEvent arg0) {
 			// TODO Auto-generated method stub
 			AccountManageController amc=new AccountManageController();
-			boolean result=VaildHelper.checkIsValidID(accountID.getText(),18);
+			boolean result=VaildHelper.checkMoneyValid(accountMoney.getText());
+			result=result&&VaildHelper.checkIsValidID(accountID.getText(),18);
 			if(result){
-				amc.changeAccountInfo(new String[]{accountID.getText()}, new String[]{accountName.getText()});
+				ArrayList<Account> aa=new ArrayList<Account>();
+				aa.add(new Account(accountID.getText(),accountName.getText(),Double.parseDouble(accountMoney.getText())));
+				amc.adddAccount(aa);
 				accountID.setText("");
 				accountName.setText("");
+				accountMoney.setText("");
 				removeTable();
 				repaint();
 				ArrayList<Account> list=amc.getAccount("");
 				buildTable(list);
 				repaint();
 			}else{
-				TimePanel.makeWords("修改账户失败");
+				TimePanel.makeWords("创建账户失败");
+			}
+			
+			ArrayList<Account> list=amc.getAccount("");
+		}
+		
+	}
+	
+	
+	class MoneyListener implements FocusListener{
+
+		@Override
+		public void focusGained(FocusEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void focusLost(FocusEvent arg0) {
+			// TODO Auto-generated method stub
+			String id=accountID.getText();
+			boolean result=VaildHelper.checkMoneyValid(accountMoney.getText());
+			if(!result){
+				addWarning(help2);
+			}else{
+				removeWarning(help2);
 			}
 		}
 		
 	}
-
 	class ValidListener implements FocusListener{
 
 		@Override

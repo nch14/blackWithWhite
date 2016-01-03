@@ -1,4 +1,4 @@
-package ui.informationui;
+package ui.staff;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,6 +18,7 @@ import ui.NSwing.NButton;
 import ui.NSwing.NLabel;
 import ui.NSwing.NTable;
 import ui.NSwing.NTextField;
+import ui.informationui.TimePanel;
 
 
 

@@ -1,4 +1,4 @@
-package ui.informationui;
+package ui.staff;
 
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
@@ -16,6 +16,7 @@ import javax.swing.JTextField;
 import bl.staff.Impl.StaffManageController;
 import ui.NSwing.NButton;
 import ui.NSwing.NTable;
+import ui.informationui.TimePanel;
 import vo.StaffVO;
 
 public class DeleteStaffPanel extends JPanel{

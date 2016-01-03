@@ -1,4 +1,4 @@
-package ui.staffui;
+package ui.staff;
 
 import java.awt.Color;
 

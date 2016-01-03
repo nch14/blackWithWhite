@@ -1,4 +1,4 @@
-package ui.informationui;
+package ui.staff;
 
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
@@ -16,6 +16,8 @@ import javax.swing.JTable;
 import bl.staff.Impl.StaffManageController;
 import ui.NSwing.NTable;
 import ui.NSwing.NTextField;
+import ui.informationui.StartFrame;
+import ui.informationui.TimePanel;
 import vo.StaffVO;
 
 public class SalaryModelPanel extends JPanel{

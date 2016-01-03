@@ -1,4 +1,4 @@
-package ui.informationui;
+package ui.staff;
 
 import java.awt.Font;
 import java.awt.event.FocusEvent;
@@ -23,8 +23,10 @@ import settings.TransportCenter;
 import ui.NSwing.NButton;
 import ui.NSwing.NTable;
 import ui.NSwing.NTextField;
-import ui.informationui.AddStaffPanel.PosListener;
-import ui.informationui.AddStaffPanel.SelectListener;
+import ui.informationui.StartFrame;
+import ui.informationui.TimePanel;
+import ui.staff.AddStaffPanel.PosListener;
+import ui.staff.AddStaffPanel.SelectListener;
 import vo.StaffVO;
 
 public class ChangeStaffPanel extends JPanel{

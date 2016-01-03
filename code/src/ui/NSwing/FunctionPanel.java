@@ -1,4 +1,4 @@
-package ui.informationui;
+package ui.NSwing;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -12,6 +12,8 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+
+import ui.informationui.StartFrame;
 
 
 public class FunctionPanel extends JPanel {

@@ -1,4 +1,4 @@
-package ui.informationui;
+package ui.money;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -19,6 +19,7 @@ import tools.VaildHelper;
 import ui.NSwing.NButton;
 import ui.NSwing.NLabel;
 import ui.NSwing.NTextField;
+import ui.informationui.TimePanel;
 
 public class PaidPanel extends JPanel {
 	private NTextField payDate;

@@ -1,4 +1,4 @@
-package ui.informationui;
+package ui.staff;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -16,7 +16,7 @@ import javax.swing.JTextField;
 import bl.information.Impl.InformationController;
 import bl.staff.Impl.StaffManageController;
 import bl.staff.Impl.UserManageController;
-import ui.informationui.InformationPanel.SearchListener;
+import ui.informationui.TimePanel;
 import vo.PackageVO;
 import vo.StaffVO;
 

@@ -1,4 +1,4 @@
-package ui.informationui;
+package ui.money;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,7 +22,7 @@ import tools.VaildHelper;
 import ui.NSwing.NButton;
 import ui.NSwing.NLabel;
 import ui.NSwing.NTextField;
-import ui.informationui.AddStaffPanel.SelectListener;
+import ui.informationui.TimePanel;
 
 public class BillingManagePanel extends JPanel{
 	private NTextField textField_year;

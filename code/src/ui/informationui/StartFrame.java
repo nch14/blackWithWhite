@@ -9,6 +9,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.event.MouseInputListener;
 
+import ui.NSwing.FunctionPanel;
+
 public class StartFrame extends JFrame{
 	public  TimePanel info;
 	public  JPanel contentPanel;

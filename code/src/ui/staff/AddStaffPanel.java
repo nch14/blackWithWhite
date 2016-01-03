@@ -1,4 +1,4 @@
-package ui.informationui;
+package ui.staff;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -26,6 +26,7 @@ import ui.NSwing.NButton;
 import ui.NSwing.NTable;
 import ui.NSwing.NTableModel;
 import ui.NSwing.NTextField;
+import ui.informationui.TimePanel;
 import vo.StaffVO;
 
 public class AddStaffPanel extends JPanel{

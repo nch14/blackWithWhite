@@ -1,270 +1,300 @@
 package ui.informationui;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import javax.swing.JButton;
-import javax.swing.JDesktopPane;
-import javax.swing.JFrame;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.util.ArrayList;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTabbedPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
-
-import bill.TransportBill_Plane;
-import bl.shipment.Impl.AirTransportController;
-import bl.shipment.Service.AirTransportBLService;
-import ui.shipmentui.airtransportui;
-import ui.shipmentui.traintransportui;
-import ui.shipmentui.transportandreceiveui;
-import ui.shipmentui.trucktransportmanageui;
+import bill.TransportBill;
+import tools.TimeHelper;
+import tools.VaildHelper;
+import ui.NSwing.NButton;
+import ui.NSwing.NLabel;
+import ui.NSwing.NTable;
+import ui.NSwing.NTextField;
 
 public class ShipPanel extends JPanel {
-	private JTable table_Transport;
-	private JTable table_airTransport;
-	private JTextField textField_departure;
-	private JTextField textField_supervisor;
-	private JTextField textField_year;
-	private JTextField textField_transfer_order;
-	private JTextField textField_planeNumber;
-	private JTextField textField_destination;
-	private JTextField textField_containerNumber;
-	private JTextField textField_orderNumber;
-	private JButton button;
-	private JTextField textField_month;
-	private JTextField textField_day;
-
+	private NTextField ChuFaDi;
+	private NTextField JianZhuangYuan;
+	private NTextField textField_transfer_order;
+	private NTextField textField_planeNumber;
+	private NTextField DaoDaDi;
+	private NTextField textField_containerNumber;
+	private NTextField textField_orderNumber;
+	NLabel special;
+	JLabel labelofstartdate;
+	NTextField nian1;
+	NTextField yue1 ;
+	NTextField ri1 ;
+	JLabel labelofstartyear;
+	JLabel labelofstartmonth;
+	JLabel labelofstartday;
+	NLabel jianZhuangYuan;
+	NLabel chuFaDi;
+	NLabel cheCiHao;
+	JScrollPane scrollPane;
+	JComboBox<String> choose;
+	NTable table;
+	NButton add;
+	NButton ok;
+	String type1;
+	String type2;
+	TransportBill trans;
 	public ShipPanel(){
 		this.setLayout(null);
 		this.setBounds(200, 60, 1000, 615);
 		
-		
-		final JLabel textPane_1 = new JLabel();
-		textPane_1.setText("\u4E2D\u8F6C\u4E2D\u5FC3\u4E1A\u52A1\u5458");
-		textPane_1.setBounds(280, 0, 700, 21);
-		this.add(textPane_1);
-		
-		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(150, 210, 700, 320);
-		this.add(scrollPane);
-		
-		table_airTransport = new JTable();
-		table_airTransport.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-			},
-			new String[] {
-				"订单号", "中转中心中转单编号"
-			}
-		));
-		table_airTransport.getColumnModel().getColumn(0).setPreferredWidth(25);
-		scrollPane.setViewportView(table_airTransport);
-		
-		JLabel textPane_2 = new JLabel();
-		textPane_2.setText("出发地");
-		textPane_2.setBounds(150, 80, 50, 21);
-		this.add(textPane_2);
-		
-		textField_departure = new JTextField();
-		textField_departure.setBounds(200, 80, 200, 21);
-		this.add(textField_departure);
-		textField_departure.setColumns(10);
-		
-		JLabel textPane_3 = new JLabel();
-		textPane_3.setText("监装员");
-		textPane_3.setBounds(150, 110, 50, 21);
-		this.add(textPane_3);
-		
-		textField_supervisor = new JTextField();
-		textField_supervisor.setBounds(200, 110, 200, 21);
-		this.add(textField_supervisor);
-		textField_supervisor.setColumns(10);
-		
-		JLabel textPane = new JLabel();
-		textPane.setText("日期(年/月/日）");
-		textPane.setBounds(150, 49, 102, 21);
-		this.add(textPane);
-		
-		textField_year = new JTextField();
-		textField_year.setBounds(260, 49, 40, 21);
-		this.add(textField_year);
-		textField_year.setColumns(10);
-		
-		JLabel textPane_6 = new JLabel();
-		textPane_6.setText("中转中心中转单编号");
-		textPane_6.setBounds(150, 142, 126, 26);
+		NLabel textPane_6 = new NLabel();
+		textPane_6.setText("中转单编号");
+		textPane_6.setBounds(530, 50, 100, 30);
 		this.add(textPane_6);
 		
-		textField_transfer_order = new JTextField();
-		textField_transfer_order.setBounds(276, 142, 212, 21);
+		textField_transfer_order = new NTextField();
+		textField_transfer_order.setBounds(630, 50, 150, 30);
 		this.add(textField_transfer_order);
-		textField_transfer_order.setColumns(10);
 		
-		JLabel textPane_7 = new JLabel();
-		textPane_7.setText("航班号");
-		textPane_7.setBounds(504, 49, 45, 21);
-		this.add(textPane_7);
+		JLabel type=new NLabel("请选择单据类型");
+		type.setBounds(120, 50, 140, 30);
+		this.add(type);
 		
-		textField_planeNumber = new JTextField();
-		textField_planeNumber.setBounds(559, 49, 196, 21);
-		this.add(textField_planeNumber);
-		textField_planeNumber.setColumns(10);
+		choose=new JComboBox<String>();
+		choose.setFont(new Font("微软雅黑",Font.BOLD,16));
+		choose.addItem("汽车中转单");
+		choose.addItem("火车中转单");
+		choose.addItem("飞机中转单");
+		choose.setBounds(250, 50, 160, 30);
+		choose.addFocusListener(new SelectListener());
+		this.add(choose);
 		
-		JLabel textPane_8 = new JLabel();
-		textPane_8.setText("到达地");
-		textPane_8.setBounds(504, 80, 50, 21);
-		this.add(textPane_8);
+		add=new NButton("add");
+
 		
-		textField_destination = new JTextField();
-		textField_destination.setBounds(559, 80, 196, 21);
-		this.add(textField_destination);
-		textField_destination.setColumns(10);
+	}
+	
+	class SelectListener implements FocusListener{
+
+		@Override
+		public void focusGained(FocusEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void focusLost(FocusEvent arg0) {
+			// TODO Auto-generated method stub
+			String chosed=(String)choose.getSelectedItem();
+			if(chosed.equals("汽车中转单")){
+				romoveList(); 
+				type1="押运员";
+				type2="车次号";		
+				buildList();
+				repaint();
+			}
+			if(chosed.equals("火车中转单")){
+				romoveList(); 
+				type1="车厢号";
+				type2="车次号";	
+				buildList();
+				 repaint();
+			}
+			if(chosed.equals("飞机中转单")){
+				romoveList(); 
+				type1="货柜号";
+				type2="航班号";	
+				buildList();
+				repaint();
+			}
+		}
+	
+	}
+	public void romoveList(){
+		if(special!=null){
+			this.remove(special);
+			this.remove(cheCiHao);
+		}
+		this.repaint();
+	}
+	public void buildList(){
+		labelofstartdate = new JLabel();
+		labelofstartdate.setFont(new Font("微软雅黑",Font.BOLD,16));
+		labelofstartdate.setText("中转日期");
+		labelofstartdate.setBounds(120, 110, 80, 30);
+		this.add(labelofstartdate);
+		nian1 = new NTextField();
+		nian1.setBounds(220, 110, 40,30);
+		this.add(nian1);
+		nian1.setColumns(10);
+		labelofstartyear = new JLabel();
+		labelofstartyear.setFont(new Font("微软雅黑",Font.BOLD,16));
+		labelofstartyear.setText("年");
+		labelofstartyear.setBounds(265,110, 20, 30);
+		this.add(labelofstartyear);
+		yue1 = new NTextField();
+		yue1.setColumns(10);
+		yue1.setBounds(295, 110, 40, 30);
+		this.add(yue1);
+		labelofstartmonth = new JLabel();
+		labelofstartmonth.setFont(new Font("微软雅黑",Font.BOLD,16));
+		labelofstartmonth.setText("月");
+		labelofstartmonth.setBounds(340, 110, 20, 30);
+		this.add(labelofstartmonth);
+		ri1 = new NTextField();
+		ri1.setColumns(10);
+		ri1.setBounds(370, 110, 40, 30);
+		this.add(ri1);
+		labelofstartday = new JLabel();
+		labelofstartday.setFont(new Font("微软雅黑",Font.BOLD,16));
+		labelofstartday.setText("日");
+		labelofstartday.setBounds(415, 110, 20, 30);
+		this.add(labelofstartday);
 		
-		JLabel textPane_9 = new JLabel();
-		textPane_9.setText("货柜号");
-		textPane_9.setBounds(504, 110, 50, 21);
-		this.add(textPane_9);
 		
-		textField_containerNumber = new JTextField();
-		textField_containerNumber.setBounds(559, 110, 196, 21);
+		chuFaDi = new NLabel();
+		chuFaDi.setText("出发地");
+		chuFaDi.setBounds(530, 110,60, 30);
+		this.add(chuFaDi);
+		
+		ChuFaDi = new NTextField();
+		ChuFaDi.setBounds(610, 110, 100, 30);
+		this.add(ChuFaDi);
+		ChuFaDi.setColumns(10);
+		
+		jianZhuangYuan = new NLabel();
+		jianZhuangYuan.setText("监装员");
+		jianZhuangYuan.setBounds(120, 170, 80, 30);
+		this.add(jianZhuangYuan);
+		
+		JianZhuangYuan = new NTextField();
+		JianZhuangYuan.setBounds(220, 170, 100, 30);
+		this.add(JianZhuangYuan);
+		JianZhuangYuan.setColumns(10);
+
+		special = new NLabel();
+		special.setText(type2);
+		special.setBounds(120, 230, 50, 30);
+		this.add(special);
+		
+		textField_containerNumber = new NTextField();
+		textField_containerNumber.setBounds(220, 230, 100, 30);
 		this.add(textField_containerNumber);
 		textField_containerNumber.setColumns(10);
 		
-		JLabel textPane_10 = new JLabel();
-		textPane_10.setText("中转中心业务员");
-		textPane_10.setBounds(150, 180, 100, 26);
-		this.add(textPane_10);
+		NLabel textPane_8 = new NLabel();
+		textPane_8.setText("到达地");
+		textPane_8.setBounds(530, 170,60, 30);
+		this.add(textPane_8);
 		
-		JLabel textPane_11 = new JLabel();
+		DaoDaDi = new NTextField();
+		DaoDaDi.setBounds(610, 170, 100, 30);
+		this.add(DaoDaDi);
+		DaoDaDi.setColumns(10);
+		
+		
+		
+		
+		cheCiHao = new NLabel();
+		cheCiHao.setText(type1);
+		cheCiHao.setBounds(530, 230, 60, 30);
+		this.add(cheCiHao);
+		
+		textField_planeNumber = new NTextField();
+		textField_planeNumber.setBounds(610, 230, 100, 30);
+		this.add(textField_planeNumber);
+		textField_planeNumber.setColumns(10);
+		
+		NLabel textPane_11 = new NLabel();
 		textPane_11.setText("订单号");
-		textPane_11.setBounds(290, 180, 50, 21);
+		textPane_11.setBounds(350, 270, 60, 30);
 		this.add(textPane_11);
 		
-		textField_orderNumber = new JTextField();
-		textField_orderNumber.setBounds(350, 179, 140, 21);
+		textField_orderNumber = new NTextField();
+		textField_orderNumber.setBounds(440, 270, 120, 30);
 		this.add(textField_orderNumber);
 		textField_orderNumber.setColumns(10);
-		//添加飞机装运单号事件监听
-		button = new JButton("添加");
-		button.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				for(int i=0;i<table_airTransport.getRowCount();i++){
-					if(table_airTransport.getValueAt(i, 0)==null&&table_airTransport.getValueAt(i, 1)==null){
-						table_airTransport.setValueAt(textField_orderNumber.getText(), i, 0);
-						table_airTransport.setValueAt(textField_transfer_order.getText(), i, 1);
-						break;
-					}
-				}
-			}
-		});
-		button.setBounds(750, 170, 93, 23);
-		this.add(button);
 		
-		//撤消飞机装运单一行的事件监听
-		JButton button_1 = new JButton("撤消");
-		button_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		button_1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				for(int i=table_airTransport.getRowCount()-1;i>=0;i--){
-					if(table_airTransport.getValueAt(i, 0)!=null||table_airTransport.getValueAt(i, 1)!=null){
-						table_airTransport.setValueAt(null, i, 0);
-						table_airTransport.setValueAt(null, i, 1);
-						break;
-					}
-				}
-			}
-		});
-		button_1.setBounds(200, 540, 93, 23);
-		this.add(button_1);
+		add=new NButton("add");
+		add.setBounds(600, 270, 40, 40);
+		add.addActionListener(new AddListener());
+		this.add(add);
 		
-		//提交飞机装运单的事件监听
-		JButton button_2 = new JButton("提交");
-		button_2.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				TransportBill_Plane plane = new TransportBill_Plane();
-				AirTransportBLService airTransport=new AirTransportController();
-				for(int i=0;i<table_airTransport.getRowCount();i++){
-					if(table_airTransport.getValueAt(i, 0)!=null){
-				        plane.transBillID=table_airTransport.getValueAt(i, 0).toString();
-					}
-				}
-				double airBill=airTransport.submitBills(plane);
-				if(airBill==0){
-					textPane_1.setText("提交失败！");
-				}else{
-					for(int i=0;i<table_airTransport.getRowCount();i++){
-						table_airTransport.setValueAt(null, i, 0);
-						table_airTransport.setValueAt(null, i, 1);
-					}
-					textPane_1.setText("提交成功！");
-				}
-			}
-		});
-		
-		button_2.setBounds(750, 540, 93, 23);
-		this.add(button_2);
-		
-		textField_month = new JTextField();
-		textField_month.setBounds(312, 49, 30, 21);
-		this.add(textField_month);
-		textField_month.setColumns(10);
-		
-		textField_day = new JTextField();
-		textField_day.setBounds(352, 49, 30, 21);
-		this.add(textField_day);
-		textField_day.setColumns(10);
-		
-		
-	
+		ok=new NButton("ok");
+		ok.setBounds(800, 560, 40, 40);
+		ok.addActionListener(new PushListener());
+		this.add(ok);
+		this.repaint();
 	}
+	
 
+	public void buildTable(){
+		ArrayList<String> list=trans.list;
+		int size=list.size();
+		Object[][] tableData=new Object[size][8];
+		for(int i=0;i<size;i++){
+			tableData[i]=new Object[]{trans.transBillID,TimeHelper.Array2String(trans.date),trans.placeOfDeparture,trans.destination,
+					trans.observer,trans.yaYun,trans.cheCihao,list.get(i)};
+		}
+		Object[] columnTitle = {"中转单编号","中转日期","出发地","到达地","监装员",type1,type2,"订单号"};  
+		table=new NTable(tableData,columnTitle);
+		int height=table.getRowHeight()*(size+1)+13;
+		int ValidMaxHeight=250;
+		if(height>=275)
+			height=ValidMaxHeight;
+		table.setOpaque(false); 
+		table.setRowSelectionAllowed(true);
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(140, 320, 658, height);
+		scrollPane.setOpaque(false);
+		this.add(scrollPane);
+		scrollPane.setViewportView(table);
+	}
+	public void removeTable(){
+		if(scrollPane!=null)
+			this.remove(scrollPane);
+	}
+	class AddListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			// TODO Auto-generated method stub
+			
+			String[] time=new String[]{nian1.getText(),yue1.getText(),ri1.getText()};
+			boolean success=VaildHelper.checkIfValidDate(time)&&VaildHelper.checkIsValidID(textField_transfer_order.getText());			
+			if(success){
+				if(trans==null){
+					trans=new TransportBill(time,textField_transfer_order.getText(),ChuFaDi.getText(),
+							DaoDaDi.getText(),JianZhuangYuan.getText(),textField_containerNumber.getText(),textField_planeNumber.getText(),500);
+					if(VaildHelper.checkIsValidID(textField_orderNumber.getText()))
+						trans.list.add(textField_orderNumber.getText());
+					removeTable();
+					buildTable();
+				}else{
+					if(VaildHelper.checkIsValidID(textField_orderNumber.getText())){
+						trans.list.add(textField_orderNumber.getText());
+						removeTable();
+						buildTable();
+					}
+				}
+			}
+		}
+			
+	}
+	
+	class PushListener implements ActionListener{
 
 	
+		public void actionPerformed(ActionEvent arg0) {
+			
+			
+			
+			
+			
+			
+		}
 		
+	}
 }

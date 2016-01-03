@@ -50,4 +50,13 @@ public class VaildHelper {
 		
 		return true;
 	}
+	
+	public static boolean checkIsValidID(String id){
+		char[] ids=id.toCharArray();
+		for(int i=0;i<id.length();i++){
+			if(ids[i]<'0'||ids[i]>'9')
+				return false;
+		}
+		return true;
+	}
 }

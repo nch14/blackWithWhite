@@ -30,7 +30,7 @@ import bill.TransMesgPO;
 import bl.information.Impl.InformationController;
 import ui.informationui.TimePanel.ExitListener;
 import ui.informationui.TimePanel.MiniListener;
-import ui.signui.SignPanel;
+import ui.sign.SignPanel;
 import vo.PackageVO;
 
 public class InformationPanel extends JPanel{

@@ -16,9 +16,6 @@ import javax.swing.JPanel;
 
 import tools.DepartmentHelper;
 import tools.TimeHelper;
-import ui.NSwing.NLabel;
-import ui.informationui.InformationPanel.ExitListener;
-import ui.informationui.InformationPanel.ShutListener;
 
 public class TimePanel extends JPanel implements Runnable {
 	StartFrame belongsTO;

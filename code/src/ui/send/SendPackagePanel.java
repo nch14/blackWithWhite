@@ -1,4 +1,4 @@
-package ui.informationui;
+package ui.send;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -17,6 +17,7 @@ import javax.swing.JTextField;
 import bill.OrderBillPO;
 import bl.send.Impl.SendController;
 import bl.send.Service.SendBLService;
+import ui.informationui.TimePanel;
 
 public class SendPackagePanel extends JPanel {
 	public SendPackagePanel(){

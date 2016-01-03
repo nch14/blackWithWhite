@@ -1,4 +1,4 @@
-package ui.informationui;
+package ui.NSwing;
 
 import java.awt.Graphics;
 import java.awt.Image;
@@ -8,6 +8,8 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+
+import ui.informationui.StartFrame;
 
 public class StartPanel extends JPanel {
 	StartFrame belongsTO;

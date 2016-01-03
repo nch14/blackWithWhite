@@ -1,4 +1,4 @@
-package ui.informationui;
+package ui.receivementui;
 
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
