@@ -2,7 +2,7 @@ package bill;
 
 import java.io.Serializable;
 
-class Row implements Serializable{
+public class Row implements Serializable{
 	/**
 	 * 
 	 */

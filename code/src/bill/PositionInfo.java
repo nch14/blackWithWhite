@@ -3,8 +3,8 @@ package bill;
 public class PositionInfo{
 	public  String ID;//寄件单号
 	public String form;//运输方式
-	private String[] date;//入库日期
-	private String destination;//目的地
+	public String[] date;//入库日期
+	public String destination;//目的地
 	private String zoneID;//区号
 	private String rowID;//排号
 	private String frameID;//架号
