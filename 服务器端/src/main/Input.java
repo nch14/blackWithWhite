@@ -172,8 +172,8 @@ public class Input {
 //		out.writeObject(new ArrayList<Company>());
 //		out.close();
 		
-		out=new ObjectOutputStream(new FileOutputStream("ser/TransportBill.ser"));
-		out.writeObject(new Database_TransportBill());
+		out=new ObjectOutputStream(new FileOutputStream("ser/StockBlockInfo.ser"));
+		out.writeObject(new Database_StockBlockInfo());
 		out.close();
 		
 		

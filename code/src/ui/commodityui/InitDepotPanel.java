@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 
 import bl.commoditybl.Impl.InitDepotAreaController;
 import bl.commoditybl.Service.InitDepotAreaBLService;
+import tools.DepartmentHelper;
 import ui.NSwing.NButton;
 import ui.NSwing.NLabel;
 import ui.NSwing.NTable;
@@ -171,7 +172,7 @@ public class InitDepotPanel extends JPanel{
 					}
 				}
 				InitDepotAreaBLService initdepotarea = new InitDepotAreaController();
-				 boolean istrue=initdepotarea.init(motorTransport, trainTransport, airTransport, balnkSpace);
+				 boolean istrue=initdepotarea.init(DepartmentHelper.getDepartment(),motorTransport, trainTransport, airTransport, balnkSpace);
 				if(istrue==false){
 					TimePanel.makeWords("Ã·Ωª ß∞‹£°");
 				}else{

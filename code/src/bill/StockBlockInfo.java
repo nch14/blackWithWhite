@@ -9,7 +9,7 @@ public class StockBlockInfo implements Serializable{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 4983807107972385969L;
+	
 	/**
 	 * ≤÷ø‚ Ù–‘
 	 */

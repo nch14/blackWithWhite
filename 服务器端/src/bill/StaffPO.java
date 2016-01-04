@@ -26,6 +26,8 @@ public class StaffPO implements Serializable{
 		this.ID=staff.ID;
 		this.birthyear=Integer.parseInt(TimeHelper.getTime().substring(0, 4))-staff.age;
 		this.sex=staff.isBoy;
+		this.SalaryModel=staff.SalaryModel;
+		this.authority=staff.topAuthority;
 	}
 	
 	public void changePosition(String newPosition,String newDepartment){

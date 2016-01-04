@@ -13,13 +13,17 @@ public class Account implements Serializable{
 	public String name;
 	private double balance;
 	
-	Account(String id,String name,double balance){
-		this.ID="1000";
+	public Account(String id,String name,double balance){
+		this.ID=id;
 		this.balance=balance;
 		this.name=name;
 	}
 	
 	public String getID(){
 		return this.ID;
+	}
+	
+	public double getMoney(){
+		return this.balance;
 	}
 }

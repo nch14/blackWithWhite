@@ -14,5 +14,5 @@ public interface InitDepotAreaBLService {
 	 * @param balnkSpace	»úÔËÇø
 	 * @return
 	 */
-	public boolean init(int[] motorTransport,int[] trainTransport,int[] airTransport, int[] balnkSpace);
+	public boolean init(String id,int[] motorTransport,int[] trainTransport,int[] airTransport, int[] balnkSpace);
 }

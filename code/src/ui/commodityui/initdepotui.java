@@ -17,6 +17,7 @@ import javax.swing.table.DefaultTableModel;
 
 import bl.commoditybl.Impl.InitDepotAreaController;
 import bl.commoditybl.Service.InitDepotAreaBLService;
+import tools.DepartmentHelper;
 
 public class initdepotui extends JDesktopPane{
 	
@@ -183,7 +184,7 @@ public class initdepotui extends JDesktopPane{
 					}
 				}
 				InitDepotAreaBLService initdepotarea = new InitDepotAreaController();
-				 boolean istrue=initdepotarea.init(motorTransport, trainTransport, airTransport, balnkSpace);
+				 boolean istrue=initdepotarea.init(DepartmentHelper.getDepartment(),motorTransport, trainTransport, airTransport, balnkSpace);
 				if(istrue==false){
 					
 				}else{

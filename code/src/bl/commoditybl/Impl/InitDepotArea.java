@@ -12,11 +12,11 @@ public class InitDepotArea {
 		co=new Commodity();
 	}
 	
-	public boolean init(int[] motorTransport, int[] trainTransport, int[] airTransport, int[] balnkSpace) {
+	public boolean init(String id,int[] motorTransport, int[] trainTransport, int[] airTransport, int[] balnkSpace) {
 		// TODO Auto-generated method stub
 		boolean result=false;
 		try {
-			result=co.initialCommodity(motorTransport, trainTransport, airTransport, balnkSpace);
+			result=co.initialCommodity(id,motorTransport, trainTransport, airTransport, balnkSpace);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

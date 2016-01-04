@@ -26,10 +26,10 @@ public class StockBlockInfo implements Serializable{
 	int numOfZone_Plane=7;
 	int numOfZone_Buffer=4;
 	
-	ArrayList<Row> bus=new ArrayList<Row>();
-	ArrayList<Row> train=new ArrayList<Row>();
-	ArrayList<Row> plane=new ArrayList<Row>();
-	ArrayList<Row> buffer=new ArrayList<Row>();
+	public ArrayList<Row> bus=new ArrayList<Row>();
+	public ArrayList<Row> train=new ArrayList<Row>();
+	public ArrayList<Row> plane=new ArrayList<Row>();
+	public ArrayList<Row> buffer=new ArrayList<Row>();
 	
 	public StockBlockInfo(){
 		
@@ -58,7 +58,7 @@ public class StockBlockInfo implements Serializable{
 	
 	boolean check(StockBill_In s){
 		int busNum=0,trainNum=0,planeNum=0;
-		for(bill.StockBill_In.Info i:s.list){
+		for(PositionInfo i:s.list){
 			if(i.form.equals("bus"))
 				busNum++;
 			else if(i.form.equals("train"))
@@ -235,22 +235,37 @@ public class StockBlockInfo implements Serializable{
 		return true;
 	}
 	
-	public boolean initialCommodity(int bus,int train,int plane){
-		if(bus+train+plane>25){
-			return false;
+	public boolean initialCommodity(int[] bus,int[] train,int[] plane,int[] blank){
+//		if(bus+train+plane>25){
+//			return false;
+//		}
+//		for(int i=0;i<bus;++i){
+//			this.bus.add(new Row(Integer.toString(i)));
+//		}
+//		for(int i=bus;i<bus+train;++i){
+//			this.train.add(new Row(Integer.toString(i)));
+//		}
+//		for(int i=bus+train;i<bus+train+plane;++i){
+//			this.plane.add(new Row(Integer.toString(i)));
+//		}
+//		for(int i=bus+train+plane;i<25;++i){
+//			this.buffer.add(new Row(Integer.toString(i)));
+//		}
+//		return true;
+		for(int i=0;i<bus.length;++i){
+			this.bus.add(new Row(Integer.toString(bus[i])));
 		}
-		for(int i=0;i<bus;++i){
-			this.bus.add(new Row(Integer.toString(i)));
+		for(int i=0;i<train.length;++i){
+			this.train.add(new Row(Integer.toString(train[i])));
 		}
-		for(int i=bus;i<bus+train;++i){
-			this.train.add(new Row(Integer.toString(i)));
+		for(int i=0;i<plane.length;++i){
+			this.plane.add(new Row(Integer.toString(plane[i])));
 		}
-		for(int i=bus+train;i<bus+train+plane;++i){
-			this.plane.add(new Row(Integer.toString(i)));
+		for(int i=0;i<blank.length;++i){
+			this.buffer.add(new Row(Integer.toString(blank[i])));
 		}
-		for(int i=bus+train+plane;i<25;++i){
-			this.buffer.add(new Row(Integer.toString(i)));
-		}
+		
 		return true;
 	}
+	
 }
