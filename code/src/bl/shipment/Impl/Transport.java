@@ -1,15 +1,15 @@
 package bl.shipment.Impl;
 
-import bill.TransportBill_Plane;
-import data.shipment.PlaneShipment;
+import bill.TransportBill;
+import data.shipment.ShipmentCenter;
 import tools.MoneyHelper;
 
-public class AirTransport {
-	PlaneShipment planeInfo;
-	public AirTransport(){
-		planeInfo=new PlaneShipment();
+public class Transport {
+	ShipmentCenter planeInfo;
+	public Transport(){
+		planeInfo=new ShipmentCenter();
 	}
-	public double submitBills(TransportBill_Plane planeBill) {
+	public double submitBills(TransportBill planeBill) {
 		// TODO Auto-generated method stub
 		try {
 			boolean success=planeInfo.insert(planeBill);

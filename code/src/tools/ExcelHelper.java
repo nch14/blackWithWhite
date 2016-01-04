@@ -220,7 +220,7 @@ public class ExcelHelper {
 		cell.setCellStyle(style); 
 				
 		// 第五步，写入实体数据 实际应用中这些数据从数据库得到，  
-		StockSnapShotVO snapShot=new StockSnapShotVO();
+		StockSnapShotVO snapShot=snap;
 		ArrayList<DepotItem> items=snapShot.list;
 		for(int i=0;i<items.size();i++){  
 					
@@ -269,11 +269,5 @@ public class ExcelHelper {
 			return true;
 	
 	}
-	
-	
-	//Test
-/*	public static void main(String[] args){
-		ProfitSheetVO ps=new ProfitSheetVO(500,600,100);
-		ExcelHelper.export(ps);
-	}*/
+
 }
