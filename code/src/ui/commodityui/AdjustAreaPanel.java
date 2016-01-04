@@ -2,6 +2,7 @@ package ui.commodityui;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -15,6 +16,7 @@ import bill.Account;
 import bl.commoditybl.Impl.AreaAdjust;
 import bl.commoditybl.Impl.AreaAdjustController;
 import bl.commoditybl.Service.AreaAdjustBLService;
+import tools.VaildHelper;
 import ui.NSwing.NButton;
 import ui.NSwing.NLabel;
 import ui.NSwing.NTable;
@@ -32,7 +34,7 @@ public class AdjustAreaPanel extends JPanel{
 	NButton buttonofsubmit;
 	NTable table;
 	JScrollPane scrollPane;
-	
+	ArrayList<Pack> list;
 	public AdjustAreaPanel(){
 		this.setLayout(null);
 		this.setBounds(200, 60, 1000, 615);
@@ -64,82 +66,63 @@ public class AdjustAreaPanel extends JPanel{
 		comboBoxofnewarea.setBounds(380, 160, 80, 30);
 		this.add(comboBoxofnewarea);
 		
-		buttonofack = new NButton("确认");
+		buttonofack = new NButton("add");
 		buttonofack.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				for(int i=0;i<table.getRowCount();i++){
-					if(table.getValueAt(i, 1)==null&&table.getValueAt(i, 2)==null&&table.getValueAt(i, 3)==null){
-						table.setValueAt(textFieldofrownumber.getText(), i, 1);
-						table.setValueAt(comboBoxoforiginalarea.getSelectedItem(), i, 2);
-						table.setValueAt(comboBoxofnewarea.getSelectedItem(), i, 3);
-						textFieldofrownumber.setText(null);
-						comboBoxoforiginalarea.setSelectedIndex(0);
-						comboBoxofnewarea.setSelectedIndex(0);
-						break;
+				if(VaildHelper.checkIsValidID(textFieldofrownumber.getText())){
+					int row = Integer.parseInt(textFieldofrownumber.getText());
+					String orignal = (String) comboBoxoforiginalarea.getSelectedItem();
+					String now = (String) comboBoxofnewarea.getSelectedItem();
+					if(list==null){
+						list=new ArrayList<Pack>();
+						list.add(new Pack(row,orignal,now));
+					}else{
+						list.add(new Pack(row,orignal,now));
 					}
+					removeTable();
+					buildTable();
 				}
 			}
 		});
 		buttonofack.setBounds(600, 210, 40, 40);
 		this.add(buttonofack);
 		
-		buttonofcancel = new NButton("撤销");
-		buttonofcancel.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				for(int i=table.getRowCount()-1;i>=0;i--){
-					if(table.getValueAt(i, 0)!=null&&table.getValueAt(i, 1)!=null
-							&&table.getValueAt(i, 2)!=null){
-						table.setValueAt(null, i, 0);
-						table.setValueAt(null, i, 1);
-						table.setValueAt(null, i, 2);
-					}
-				}
-			}
-		});
-		buttonofcancel.setBounds(240, 600, 40, 40);
-		this.add(buttonofcancel);
 		
-		buttonofsubmit = new NButton("提交");
+		buttonofsubmit = new NButton("ok");
 		buttonofsubmit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				int[] rows= new int[table.getRowCount()];
-				for(int i=0;i<table.getRowCount();i++){
-					rows[i]=(int) table.getValueAt(i, 0);
-					
+				AreaAdjustController aac=new AreaAdjustController();
+				
+				int size=list.size();
+				int[] rows=new int[size];
+				String[] type=new String[size];
+				for(int i=0;i<size;i++){
+					rows[i]=list.get(i).row;
+					type[i]=list.get(i).now;
 				}
-				String type=(String) table.getValueAt(0, 1);
-				AreaAdjustBLService areaadjust = new AreaAdjustController();
-				boolean istrue=areaadjust.areaAdjust(rows, type);
-				if(istrue==false){
-					TimePanel.makeWords("提交失败！");
+				boolean result=aac.areaAdjust(rows, type);
+				if(result){
+					TimePanel.makeWords("区域调整成功！");
 				}else{
-					for(int i=0; i<table.getRowCount();i++){
-						table.setValueAt(null, i, 0);
-						table.setValueAt(null, i, 1);
-						table.setValueAt(null, i, 2);
-					}
-					TimePanel.makeWords("提交成功！");
+					TimePanel.makeWords("区域调整失败！请重试！");
 				}
 			}
 		});
-		buttonofsubmit.setBounds(240, 600, 40, 40);
+		buttonofsubmit.setBounds(600, 550, 40, 40);
 		this.add(buttonofsubmit);
 		
-		String rows = rownumber.getText();
-		String orignal = (String) comboBoxoforiginalarea.getSelectedItem();
-		String now = (String) comboBoxofnewarea.getSelectedItem();
-		buildTable(rows,orignal,now);
+
 		repaint();
 	}
 	
-	public void buildTable(String rows,String orignal,String now){
-		int size = rows.length();
+	public void buildTable(){
+		int size =list.size();
 		Object[][] tableData=new Object[size][3];
 		for(int i=0;i<size;i++){
-			tableData[i]=new Object[]{rows,orignal,now};
+			Pack p=list.get(i);
+			tableData[i]=new Object[]{p.row,p.ori,p.now};
 		}
 		Object[] columnTitle = {"排号","原分区","现分区"};  
 		table=new NTable(tableData,columnTitle);
@@ -154,6 +137,20 @@ public class AdjustAreaPanel extends JPanel{
 		scrollPane.setOpaque(false);
 		this.add(scrollPane);
 		scrollPane.setViewportView(table);
+	}
+	public void removeTable(){
+		if(scrollPane!=null)
+			this.remove(scrollPane);
+	}
+	class Pack{
+		int row;
+		String ori;
+		String now;
+		public Pack(int row,String ori,String now){
+			this.row=row;
+			this.ori=ori;
+			this.now=now;
+		}
 	}
 }
 
