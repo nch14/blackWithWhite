@@ -730,19 +730,7 @@ public class judgementui {
 		organizationmanageui t2 = new organizationmanageui();
 		tabbedPane.addTab("机构管理", null, t2, null);
 		
-		new Thread() {        
-			public void run() {            
-				try {                
-					while (true) {       
-						SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-						label_18.setText(df.format(new Date()));//显示当前时间      
-						Thread.sleep(1000);//暂停一秒                
-						}            
-					} catch (Exception e) {            
-						
-					}        
-				}    
-			}.start();
+		
 	}
 
 }

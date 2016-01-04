@@ -88,12 +88,78 @@ public class CompanySettingsController {
 		return result;
 	}
 	
+	public boolean deleteCity(String city){
+		ArrayList<City> citys=ourCompany.citys;
+		City cityToDelete=null;
+		for(int i=0;i<citys.size();i++){
+			if(citys.get(i).name.equals(city)){
+				cityToDelete=citys.get(i);
+				break;
+			}
+		}
+		ourCompany.deleteCity(cityToDelete);
+		boolean result=push();
+		return result;
+	}
 	public boolean deleteCity(City city){
 		ourCompany.deleteCity(city);
 		boolean result=push();
 		return result;
 	}
-	
+	public boolean deleteTrans(String city,String trans){
+		ArrayList<City> citys=ourCompany.citys;
+		City cityToDelete=null;
+		for(int i=0;i<citys.size();i++){
+			if(citys.get(i).name.equals(city)){
+				cityToDelete=citys.get(i);
+				break;
+			}
+		}
+		ArrayList<TransportCenter> t=cityToDelete.transportCenter;
+		int n=0;
+		for(int i=0;i<t.size();i++){
+			if(t.get(i).getName().equals(trans)){
+				n=i;
+				break;
+			}
+		}
+		t.remove(n);
+		boolean result=push();
+		return result;
+		
+	}
+	public boolean deleteBussiness(String city,String trans,String hall){
+		ArrayList<City> citys=ourCompany.citys;
+		City cityToDelete=null;
+		for(int i=0;i<citys.size();i++){
+			if(citys.get(i).name.equals(city)){
+				cityToDelete=citys.get(i);
+				break;
+			}
+		}
+		ArrayList<TransportCenter> t=cityToDelete.transportCenter;
+		int n=0;
+		for(int i=0;i<t.size();i++){
+			if(t.get(i).getName().equals(trans)){
+				n=i;
+				break;
+			}
+		}
+		TransportCenter tr=t.get(n);
+		ArrayList<BussinessHall> b=tr.getBussinessHall();
+		int n2=0;
+		for(int i=0;i<b.size();i++){
+			if(b.get(i).name.equals(hall)){
+				n2=i;
+				break;
+			}
+		}
+		b.remove(n2);
+		boolean result=push();
+		
+		return result;
+		
+	}
 	public  boolean saveInThisComputer(){
 		//以下代码实现序列化
 	        try{

@@ -29,6 +29,7 @@ import ui.commodityui.InitDepotPanel;
 import ui.commodityui.InventoryPanel;
 import ui.commodityui.OutDepotPanel;
 import ui.information.AddDepartmentPanel;
+import ui.information.DeleteDepartmentPanel;
 import ui.information.GetOrderBillPanel;
 import ui.money.AddAccountPanel;
 import ui.money.BillingManagePanel;
@@ -275,7 +276,7 @@ public class SignPanel extends JPanel{
 					panels[6]=new ChangeAccountPanel();
 					
 				}else if(staff.pos.equals("总经理")){
-					buttons=new JButton[7];
+					buttons=new JButton[8];
 					
 					buttons[0]=new JButton();
 					buttons[0].setFont(new Font("微软雅黑",Font.BOLD,16));
@@ -305,7 +306,11 @@ public class SignPanel extends JPanel{
 					buttons[6].setFont(new Font("微软雅黑",Font.BOLD,16));
 					buttons[6].setText("增加机构");
 					
-					panels=new JPanel[7];
+					buttons[7]=new JButton();
+					buttons[7].setFont(new Font("微软雅黑",Font.BOLD,16));
+					buttons[7].setText("删除机构");
+					
+					panels=new JPanel[8];
 					panels[0]=new AddStaffPanel();
 					panels[1]=new GetBussinesssheetPanel();
 					panels[2]=new GetProfitSheetPanel();
@@ -313,6 +318,7 @@ public class SignPanel extends JPanel{
 					panels[4]=new ChangeStaffPanel();
 					panels[5]=new DeleteStaffPanel();
 					panels[6]=new AddDepartmentPanel();
+					panels[7]=new DeleteDepartmentPanel();
 				}else if(staff.pos.equals("管理员")){
 					buttons=new JButton[1];
 				

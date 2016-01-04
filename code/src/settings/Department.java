@@ -7,6 +7,6 @@ public class Department implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -7244440014097040537L;
-	String name;
-	String id;
+	public String name;
+	public String ID;
 }
