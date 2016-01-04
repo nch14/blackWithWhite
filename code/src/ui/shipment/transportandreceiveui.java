@@ -1,4 +1,4 @@
-package ui.shipmentui;
+package ui.shipment;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;

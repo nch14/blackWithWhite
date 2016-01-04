@@ -1,4 +1,4 @@
-package ui.informationui;
+package ui.shipment;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

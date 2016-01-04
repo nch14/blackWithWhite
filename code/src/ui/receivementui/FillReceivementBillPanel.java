@@ -20,7 +20,7 @@ import tools.VaildHelper;
 import ui.NSwing.NLabel;
 import ui.NSwing.NTable;
 import ui.NSwing.NTextField;
-import ui.informationui.TimePanel;
+import ui.NSwing.TimePanel;
 import vo.ReceiveInformationVO;
 
 public class FillReceivementBillPanel extends JPanel {

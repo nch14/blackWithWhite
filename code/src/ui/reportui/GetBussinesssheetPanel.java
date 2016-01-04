@@ -22,7 +22,7 @@ import bl.report.service.BussinessSheetBLService;
 import tools.TimeHelper;
 import tools.VaildHelper;
 import ui.NSwing.NTextField;
-import ui.informationui.TimePanel;
+import ui.NSwing.TimePanel;
 import vo.BussinessSheetVO;
 import vo.ProfitSheetVO;
 import vo.StaffVO;

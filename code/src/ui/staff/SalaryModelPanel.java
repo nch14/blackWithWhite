@@ -14,10 +14,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 import bl.staff.Impl.StaffManageController;
+import main.StartFrame;
 import ui.NSwing.NTable;
 import ui.NSwing.NTextField;
-import ui.informationui.StartFrame;
-import ui.informationui.TimePanel;
+import ui.NSwing.TimePanel;
 import vo.StaffVO;
 
 public class SalaryModelPanel extends JPanel{

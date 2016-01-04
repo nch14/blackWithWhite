@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
 
 import bl.report.impl.ProfitSheetController;
 import bl.report.service.ProfitSheetBLService;
-import ui.informationui.StartFrame;
+import main.StartFrame;
 import vo.ProfitSheetVO;
 
 public class GetProfitSheetPanel extends JPanel{

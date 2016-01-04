@@ -19,14 +19,12 @@ import javax.swing.JTextField;
 
 import bl.staff.Impl.LoginController;
 import bl.staff.service.LoginService;
+import main.StartFrame;
 import tools.DepartmentHelper;
 import ui.NSwing.FunctionPanel;
 import ui.NSwing.StartPanel;
-import ui.commodityui.indepotui;
-import ui.informationui.GetOrderBillPanel;
-import ui.informationui.ShipPanel;
-import ui.informationui.StartFrame;
-import ui.informationui.TruckLoadingPanel;
+import ui.information.AddDepartmentPanel;
+import ui.information.GetOrderBillPanel;
 import ui.money.AddAccountPanel;
 import ui.money.BillingManagePanel;
 import ui.money.ChangeAccountPanel;
@@ -38,6 +36,9 @@ import ui.receivementui.FillReceivementBillPanel;
 import ui.reportui.GetBussinesssheetPanel;
 import ui.reportui.GetProfitSheetPanel;
 import ui.send.SendPackagePanel;
+import ui.shipment.ArriveTransportPanel;
+import ui.shipment.ShipPanel;
+import ui.shipment.TruckLoadingPanel;
 import ui.staff.AddDriverPanel;
 import ui.staff.AddStaffPanel;
 import ui.staff.AddTrunckPanel;
@@ -242,7 +243,7 @@ public class SignPanel extends JPanel{
 					panels[6]=new ChangeAccountPanel();
 					
 				}else if(staff.pos.equals("总经理")){
-					buttons=new JButton[6];
+					buttons=new JButton[7];
 					
 					buttons[0]=new JButton();
 					buttons[0].setFont(new Font("微软雅黑",Font.BOLD,16));
@@ -268,13 +269,18 @@ public class SignPanel extends JPanel{
 					buttons[5].setFont(new Font("微软雅黑",Font.BOLD,16));
 					buttons[5].setText("解雇员工");
 				
-					panels=new JPanel[6];
+					buttons[6]=new JButton();
+					buttons[6].setFont(new Font("微软雅黑",Font.BOLD,16));
+					buttons[6].setText("增加机构");
+					
+					panels=new JPanel[7];
 					panels[0]=new AddStaffPanel();
 					panels[1]=new GetBussinesssheetPanel();
 					panels[2]=new GetProfitSheetPanel();
 					panels[3]=new SalaryModelPanel();
 					panels[4]=new ChangeStaffPanel();
 					panels[5]=new DeleteStaffPanel();
+					panels[6]=new AddDepartmentPanel();
 				}else if(staff.pos.equals("管理员")){
 					buttons=new JButton[1];
 				
@@ -285,14 +291,18 @@ public class SignPanel extends JPanel{
 					panels=new JPanel[1];
 					panels[0]=new UserManagePanel(); 
 				}else if(staff.pos.equals("中转中心业务员")){
-					buttons=new JButton[1];
+					buttons=new JButton[2];
 					
 					buttons[0]=new JButton();
 					buttons[0].setFont(new Font("微软雅黑",Font.BOLD,16));
 					buttons[0].setText("填写中转单");
-				
-					panels=new JPanel[1];
+					buttons[1]=new JButton();
+					buttons[1].setFont(new Font("微软雅黑",Font.BOLD,16));
+					buttons[1].setText("中转中心到达单");
+					
+					panels=new JPanel[2];
 					panels[0]=new ShipPanel(); 
+					panels[1]=new ArriveTransportPanel(); 
 					
 				}else if(staff.pos.equals("营业厅业务员")){
 					

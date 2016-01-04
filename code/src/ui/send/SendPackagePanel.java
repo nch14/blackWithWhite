@@ -17,7 +17,7 @@ import javax.swing.JTextField;
 import bill.OrderBillPO;
 import bl.send.Impl.SendController;
 import bl.send.Service.SendBLService;
-import ui.informationui.TimePanel;
+import ui.NSwing.TimePanel;
 
 public class SendPackagePanel extends JPanel {
 	public SendPackagePanel(){

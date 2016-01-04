@@ -9,7 +9,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-import ui.informationui.StartFrame;
+import main.StartFrame;
 
 public class StartPanel extends JPanel {
 	StartFrame belongsTO;

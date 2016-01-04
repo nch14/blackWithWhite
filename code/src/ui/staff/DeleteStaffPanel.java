@@ -16,7 +16,7 @@ import javax.swing.JTextField;
 import bl.staff.Impl.StaffManageController;
 import ui.NSwing.NButton;
 import ui.NSwing.NTable;
-import ui.informationui.TimePanel;
+import ui.NSwing.TimePanel;
 import vo.StaffVO;
 
 public class DeleteStaffPanel extends JPanel{

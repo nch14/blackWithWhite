@@ -1,4 +1,4 @@
-package ui.informationui;
+package main;
 import java.awt.Cursor;
 import java.awt.Frame;
 import java.awt.Point;
@@ -10,6 +10,8 @@ import javax.swing.JPanel;
 import javax.swing.event.MouseInputListener;
 
 import ui.NSwing.FunctionPanel;
+import ui.NSwing.TimePanel;
+import ui.information.InformationPanel;
 
 public class StartFrame extends JFrame{
 	public  TimePanel info;

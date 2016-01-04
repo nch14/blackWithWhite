@@ -1,4 +1,4 @@
-package ui.informationui;
+package ui.shipment;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;

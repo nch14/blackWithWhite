@@ -26,7 +26,7 @@ import ui.NSwing.NButton;
 import ui.NSwing.NTable;
 import ui.NSwing.NTableModel;
 import ui.NSwing.NTextField;
-import ui.informationui.TimePanel;
+import ui.NSwing.TimePanel;
 import vo.StaffVO;
 
 public class AddStaffPanel extends JPanel{

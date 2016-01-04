@@ -16,7 +16,7 @@ import javax.swing.JTextField;
 import bl.information.Impl.InformationController;
 import bl.staff.Impl.StaffManageController;
 import bl.staff.Impl.UserManageController;
-import ui.informationui.TimePanel;
+import ui.NSwing.TimePanel;
 import vo.PackageVO;
 import vo.StaffVO;
 

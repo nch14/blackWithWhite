@@ -17,14 +17,14 @@ import javax.swing.JTable;
 
 
 import bl.staff.Impl.StaffManageController;
+import main.StartFrame;
 import settings.BussinessHall;
 import settings.CompanySettingsController;
 import settings.TransportCenter;
 import ui.NSwing.NButton;
 import ui.NSwing.NTable;
 import ui.NSwing.NTextField;
-import ui.informationui.StartFrame;
-import ui.informationui.TimePanel;
+import ui.NSwing.TimePanel;
 import ui.staff.AddStaffPanel.PosListener;
 import ui.staff.AddStaffPanel.SelectListener;
 import vo.StaffVO;

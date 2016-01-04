@@ -15,7 +15,7 @@ import tools.TimeHelper;
 import tools.VaildHelper;
 import ui.NSwing.NLabel;
 import ui.NSwing.NTextField;
-import ui.informationui.TimePanel;
+import ui.NSwing.TimePanel;
 
 public class DistributionPanel extends JPanel {
 	JTable table;

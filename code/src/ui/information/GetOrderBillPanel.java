@@ -1,4 +1,4 @@
-package ui.informationui;
+package ui.information;
 
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
@@ -17,6 +17,7 @@ import bl.send.Impl.SendController;
 import bl.send.Service.SendBLService;
 import tools.VaildHelper;
 import ui.NSwing.NLabel;
+import ui.NSwing.TimePanel;
 
 public class GetOrderBillPanel extends JPanel{
 	public GetOrderBillPanel(){

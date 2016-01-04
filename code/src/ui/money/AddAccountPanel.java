@@ -18,7 +18,7 @@ import ui.NSwing.NButton;
 import ui.NSwing.NLabel;
 import ui.NSwing.NTable;
 import ui.NSwing.NTextField;
-import ui.informationui.TimePanel;
+import ui.NSwing.TimePanel;
 
 
 
