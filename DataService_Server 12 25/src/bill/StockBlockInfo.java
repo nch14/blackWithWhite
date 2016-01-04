@@ -7,7 +7,7 @@ import bill.StockBill_Out.Info;
 
 public class StockBlockInfo implements Serializable{
 	/**
-	 * 库存信息
+	 * 
 	 */
 	private static final long serialVersionUID = 4983807107972385969L;
 	/**
@@ -58,7 +58,7 @@ public class StockBlockInfo implements Serializable{
 	
 	boolean check(StockBill_In s){
 		int busNum=0,trainNum=0,planeNum=0;
-		for(bill.StockBill_In.Info i:s.list){
+		for(PositionInfo i:s.list){
 			if(i.form.equals("bus"))
 				busNum++;
 			else if(i.form.equals("train"))
@@ -134,7 +134,7 @@ public class StockBlockInfo implements Serializable{
 	    return true;
 	}
 	
-	String[] getpos(ArrayList<Row> array,String ID){
+	String[] getpos(ArrayList<Row> array,PositionInfo t){
 		String[] result=new String[4];
 		for(Row j:array){
 			if(!j.full()){
@@ -144,6 +144,8 @@ public class StockBlockInfo implements Serializable{
 					if(p.empty=true){
 						p.empty=false;
 						p.id=ID;
+						p.date=t.date;
+						p.destination=t.destination;
 					}
 					result[2]=Integer.toString(i/20);
 					result[3]=Integer.toString(i%20);
@@ -159,19 +161,19 @@ public class StockBlockInfo implements Serializable{
 	 * @param ID
 	 * @return
 	 */
-	public String[] getPosition(String s,String ID){
+	public String[] getPosition(String s,PositionInfo i){
 		
 		String[] result=new String[4];
 		if(s.equals("bus")){
-			result=getpos(this.bus,ID);
+			result=getpos(this.bus,i);
 			result[0]="bus";
 		}
 		else if(s.equals("train")){
-			result=getpos(this.train,ID);
+			result=getpos(this.train,i);
 			result[0]="train";
 		}
 		else if(s.equals("plane")){
-			result=getpos(this.plane,ID);
+			result=getpos(this.plane,i);
 			result[0]="plane";
 		}
 		return result;
@@ -182,7 +184,7 @@ public class StockBlockInfo implements Serializable{
 		if(!check(s))
 			return null;
 		int length=s.getLength();
-		String[] ids=new String[length];
+		PositionInfo[] ids=s.getID();
 		String[] zone=new String[length];
 		String[] row=new String[length];
 		String[] col=new String[length];
@@ -234,13 +236,7 @@ public class StockBlockInfo implements Serializable{
 		}
 		return true;
 	}
-	/**
-	 * 库区信息初始化
-	 * @param bus
-	 * @param train
-	 * @param plane
-	 * @return
-	 */
+	
 	public boolean initialCommodity(int bus,int train,int plane){
 		if(bus+train+plane>25){
 			return false;

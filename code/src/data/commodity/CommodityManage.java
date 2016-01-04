@@ -20,5 +20,5 @@ public interface CommodityManage extends Client_Helper{
 	
 	public StockBlockInfo checkCommodity(String id) throws RemoteException;
 	
-	public boolean initialCommodity(String ID,int bus,int train,int plane) throws RemoteException;
+	public boolean initialCommodity(int[] bus,int[] train,int[] plane,int[] blank) throws RemoteException;
 }

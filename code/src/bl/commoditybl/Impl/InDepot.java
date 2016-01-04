@@ -16,6 +16,7 @@ public class InDepot {
 		StockBill_In result;
 		try {
 			result=commodity.insert(stock_in, DepartmentHelper.getDepartment());
+			
 			return result;
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block

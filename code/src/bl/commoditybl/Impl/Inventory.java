@@ -13,7 +13,8 @@ public class Inventory {
 		// TODO Auto-generated method stub
 		commodity=new Commodity();
 		StockBlockInfo info=commodity.checkCommodity(DepartmentHelper.getDepartment());
-		return null;
+		snap=new StockSnapShotVO(info);
+		return snap;
 	}
 
 

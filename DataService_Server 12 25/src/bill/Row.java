@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 class Row implements Serializable{
 	/**
-	 * ≤÷ø‚÷–µƒ≈≈
+	 * 
 	 */
 	private static final long serialVersionUID = 2975987894979370914L;
 	public String num;

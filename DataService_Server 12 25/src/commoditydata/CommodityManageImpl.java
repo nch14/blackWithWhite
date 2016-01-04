@@ -111,9 +111,9 @@ public class CommodityManageImpl extends UnicastRemoteObject implements Commodit
 
 	@Override
 	//库区信息初始化。输入仓库ＩＤ，以及每个分区的大小
-	public synchronized boolean initialCommodity(String ID, int bus, int train, int plane) throws RemoteException {
+	public synchronized boolean initialCommodity(int[] bus,int[] train,int[] plane,int[] blank) throws RemoteException {
 		// TODO Auto-generated method stub
-		boolean bool=database_StockBlockInfo.initialCommodity(ID, bus, train, plane);
+		boolean bool=database_StockBlockInfo.initialCommodity(bus,train,plane,blank);
 		try {
 			save();
 		} catch (IOException e) {

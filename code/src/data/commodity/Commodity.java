@@ -58,11 +58,11 @@ public class Commodity implements CommodityManage{
 	}
 
 	@Override
-	public boolean initialCommodity(String ID,int bus, int train, int plane) throws RemoteException {
+	public boolean initialCommodity(int[] bus,int[] train,int[] plane,int[] blank) throws RemoteException {
 		// TODO Auto-generated method stub
 		try {
 			CommodityManage x=(CommodityManage) Naming.lookup(getURL());
-			result=x.initialCommodity(ID,bus, train, plane);
+			result=x.initialCommodity(bus,train,plane,blank);
 		} catch (ClassNotFoundException | NotBoundException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

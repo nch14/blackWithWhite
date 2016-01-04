@@ -89,9 +89,9 @@ public class Database_StockBlockInfo extends Database<StockBlockInfo> implements
 		return stock.free(t);
 	}
 	
-	public boolean initialCommodity(String ID,int bus,int train,int plane){
+	public boolean initialCommodity(int[] bus,int[] train,int[] plane,int[] blank){
 		StockBlockInfo stock=database.get(ID);
-		return stock.initialCommodity(bus, train, plane);
+		return stock.initialCommodity(int[] bus,int[] train,int[] plane,int[] blank);
 	}
 	
 }

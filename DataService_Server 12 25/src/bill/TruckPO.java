@@ -9,7 +9,7 @@ import java.io.Serializable;
  */
 public class TruckPO implements Serializable{
 	/**
-	 * 货车对象
+	 * 
 	 */
 	private static final long serialVersionUID = -4652056148887406177L;
 	public String vehicleCode;

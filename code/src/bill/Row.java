@@ -2,13 +2,13 @@ package bill;
 
 import java.io.Serializable;
 
-class Row implements Serializable{
+public class Row implements Serializable{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 2975987894979370914L;
 	public String num;
-	Position array[];
+	public Position array[];
 	
 	public Row(String s){
 		array=new Position[400];

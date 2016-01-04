@@ -2,7 +2,7 @@ package bill;
 
 public class BusShipmentBill_Shop extends BusShipmentBill{
 	/**
-	 * 营业厅装车单
+	 * 
 	 */
 	private static final long serialVersionUID = 4224701028156219373L;
 	String ID;

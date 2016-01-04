@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class StockBill_Out implements Serializable{
 	/**
-	 * ³ö¿âµ¥
+	 * 
 	 */
 	private static final long serialVersionUID = -5561537289245015410L;
 	public static String billtype="StockBill_Out";
