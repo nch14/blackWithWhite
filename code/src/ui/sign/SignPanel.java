@@ -23,6 +23,11 @@ import main.StartFrame;
 import tools.DepartmentHelper;
 import ui.NSwing.FunctionPanel;
 import ui.NSwing.StartPanel;
+import ui.commodityui.AdjustAreaPanel;
+import ui.commodityui.InDepotPanel;
+import ui.commodityui.InitDepotPanel;
+import ui.commodityui.InventoryPanel;
+import ui.commodityui.OutDepotPanel;
 import ui.information.AddDepartmentPanel;
 import ui.information.GetOrderBillPanel;
 import ui.money.AddAccountPanel;
@@ -187,7 +192,34 @@ public class SignPanel extends JPanel{
 				JButton[] buttons=new JButton[0];
 				JPanel[] panels=new JPanel[0];
 				if(staff.pos.equals("中转中心仓库管理人员")){
+					buttons=new JButton[5];
+					
+					buttons[0]=new JButton();
+					buttons[0].setFont(new Font("微软雅黑",Font.BOLD,16));
+					buttons[0].setText("入库");
 			
+					buttons[1]=new JButton();
+					buttons[1].setFont(new Font("微软雅黑",Font.BOLD,16));
+					buttons[1].setText("出库");
+			
+					buttons[2]=new JButton();
+					buttons[2].setFont(new Font("微软雅黑",Font.BOLD,16));
+					buttons[2].setText("库区信息初始化");
+					
+					buttons[3]=new JButton();
+					buttons[3].setFont(new Font("微软雅黑",Font.BOLD,16));
+					buttons[3].setText("库存盘点");
+					
+					buttons[4]=new JButton();
+					buttons[4].setFont(new Font("微软雅黑",Font.BOLD,16));
+					buttons[4].setText("库区调整");
+					
+					panels=new JPanel[5];
+					panels[0]=new InDepotPanel();
+					panels[1]=new OutDepotPanel();
+					panels[2]=new InitDepotPanel();
+					panels[3]=new InventoryPanel();
+					panels[4]=new AdjustAreaPanel();
 			    
 				}else if(staff.pos.equals("快递员")){
 					buttons=new JButton[3];
