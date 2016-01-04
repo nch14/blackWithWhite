@@ -190,7 +190,7 @@ public class StockBlockInfo implements Serializable{
 		
 		String[] temp;
 		for(int i=0;i<length;++i){
-			temp=this.getPosition(s.list.get(i).form, ids[i]);
+			temp=this.getPosition(s.list1.get(i).form, ids[i]);
 			zone[i]=temp[0];
 			row[i]=temp[1];
 			col[i]=temp[2];

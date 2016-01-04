@@ -127,7 +127,7 @@ public class InDepotPanel extends JPanel {
 						((!textFieldofindepotnumber.getText().equals(indepot.ID))||
 								(!((TimeHelper.adjustTime(textFieldofyear.getText(), 4)+
 										TimeHelper.adjustTime(textFieldofmonth.getText(),2)+
-										TimeHelper.adjustTime(textFieldofday.getText(),2)).equals(indepot.list.get(0).date))))){
+										TimeHelper.adjustTime(textFieldofday.getText(),2)).equals(indepot.list1.get(0).date))))){
 					TimePanel.makeWords("入库单编号及入库日期不可改！");
 				}else{
 					    String thisID=textFieldofordernumber.getText();
@@ -135,7 +135,7 @@ public class InDepotPanel extends JPanel {
 						boolean result=true;
 						result=result&&VaildHelper.checkIsValidID(thisID, 10);
 						if(result){
-							indepot.addlist(indepot.ID,thisID,indepot.list.get(0).date.toString(),thisDestination);
+							indepot.addlist(indepot.ID,thisID,indepot.list1.get(0).date.toString(),thisDestination);
 							buildTable(indepot);
 							textFieldofordernumber.setText("");
 							textFieldofdestination.setText("");
@@ -162,11 +162,11 @@ public class InDepotPanel extends JPanel {
 		if(this.scrollPane!=null)
 			this.remove(scrollPane);
 
-		int size=indepot.list.size();
+		int size=indepot.list1.size();
 		Object[][] tableData=new Object[size][7];
 		for(int i=0;i<size;i++){
-			tableData[i]=new Object[]{indepot.list.get(i).ID,indepot.list.get(i).date,indepot.list.get(i).destination,
-					indepot.list.get(i).zoneID,indepot.list.get(i).rowID,indepot.list.get(i).frameID,indepot.list.get(i).positionID};
+			tableData[i]=new Object[]{indepot.list1.get(i).ID,indepot.list1.get(i).date,indepot.list1.get(i).destination,
+					indepot.list1.get(i).zoneID,indepot.list1.get(i).rowID,indepot.list1.get(i).frameID,indepot.list1.get(i).positionID};
 		}
 		Object[] columnTitle = {"订单号", "入库日期", "目的地","区号","排号","架号","位号"};  
 		table=new NTable(tableData,columnTitle);
@@ -186,6 +186,7 @@ public class InDepotPanel extends JPanel {
 		if(scrollPane!=null)
 			this.remove(scrollPane);
 	}
+	
 	
 	class PushListener implements ActionListener{	
 		public void actionPerformed(ActionEvent arg0) {

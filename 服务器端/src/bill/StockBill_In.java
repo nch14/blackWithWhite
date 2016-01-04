@@ -14,13 +14,13 @@ public class StockBill_In implements Serializable{
 	public ArrayList<PositionInfo> list;
 	
 	public int getLength(){
-		return list.size();
+		return list1.size();
 	}
 	
 	public String[] getID(){
-		String[] s=new String[list.size()];
-		for(int i=0;i<list.size();++i){
-			s[i]=list.get(i).ID;
+		String[] s=new String[list1.size()];
+		for(int i=0;i<list1.size();++i){
+			s[i]=list1.get(i).ID;
 		}
 		return s;
 	}
@@ -32,7 +32,7 @@ public class StockBill_In implements Serializable{
 	 */
 	public StockBill_In(String[] ID,String[][]date,String[] destination){
 		for(int i=0;i<ID.length;i++){
-			list.add(new PositionInfo(ID[i],date[i],destination[i]));
+			list1.add(new PositionInfo(ID[i],date[i],destination[i]));
 		}
 	}
 	
@@ -45,7 +45,7 @@ public class StockBill_In implements Serializable{
 	 */
 	public void allocate(String[] zoneID,String[] rowID,String[] frameID,String[] positionID){
 		for(int i=0;i<zoneID.length;i++){
-			list.get(i).allocate(zoneID[i], rowID[i], frameID[i], positionID[i]);
+			list1.get(i).allocate(zoneID[i], rowID[i], frameID[i], positionID[i]);
 		}
 	}
 	

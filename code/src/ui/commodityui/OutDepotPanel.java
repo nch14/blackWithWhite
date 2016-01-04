@@ -50,6 +50,7 @@ public class OutDepotPanel extends JPanel {
 		this.setLayout(null);
 		this.setBounds(200, 60, 1000, 615);
 		
+		
 		JLabel labelofoutdepotnumber = new NLabel("³ö¿âµ¥ºÅ");
 		labelofoutdepotnumber.setBounds(120, 50, 80, 30);
 		this.add(labelofoutdepotnumber);

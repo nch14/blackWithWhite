@@ -58,7 +58,7 @@ public class StockBlockInfo implements Serializable{
 	
 	boolean check(StockBill_In s){
 		int busNum=0,trainNum=0,planeNum=0;
-		for(PositionInfo i:s.list){
+		for(PositionInfo i:s.list1){
 			if(i.form.equals("bus"))
 				busNum++;
 			else if(i.form.equals("train"))
@@ -190,7 +190,7 @@ public class StockBlockInfo implements Serializable{
 		
 		String[] temp;
 		for(int i=0;i<length;++i){
-			temp=this.getPosition(s.list.get(i).form, ids[i]);
+			temp=this.getPosition(s.list1.get(i).form, ids[i]);
 			zone[i]=temp[0];
 			row[i]=temp[1];
 			col[i]=temp[2];
