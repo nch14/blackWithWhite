@@ -30,10 +30,20 @@ public class StockBill_In implements Serializable{
 	 * @param date
 	 * @param destination
 	 */
-	public StockBill_In(String[] ID,String[][]date,String[] destination){
+	public StockBill_In(String[] ID,String[]date,String[] destination){
+		list=new ArrayList<PositionInfo>();
 		for(int i=0;i<ID.length;i++){
 			list.add(new PositionInfo(ID[i],date[i],destination[i]));
 		}
+	}
+	public StockBill_In(){
+		list=new ArrayList<PositionInfo>();
+	}
+	
+	public void add( String billID,String ID,String date,String destination){
+		    this.ID=billID;
+			list.add(new PositionInfo(ID,date,destination));
+		
 	}
 	
 	/**
