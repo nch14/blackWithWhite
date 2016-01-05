@@ -18,14 +18,7 @@ public class ProfitSheetVO {
 			for(int i=0;i<paid.size();i++){
 				totalGet+=paid.get(i).money;
 			}
-			profit=totalGet;
+			profit=totalGet-totalPay;
 			time=TimeHelper.getTime();
 		}
-	
-		/*//以下为测试用
-		public ProfitSheetVO(double a,double b,double c){
-			this.totalGet=a;
-			this.totalPay=b;
-			this.profit=c;
-		}*/
 }

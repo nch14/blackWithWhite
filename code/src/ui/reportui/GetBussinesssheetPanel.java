@@ -198,8 +198,8 @@ public class GetBussinesssheetPanel extends JPanel {
 			}else{
 				paidbill=paid.get(i);
 			}
-			tableData[i]=new Object[]{paidbill.ID,paidbill.date,paidbill.transactor,
-					paidbill.money,paybill.ID,paybill.date,paybill.payer,
+			tableData[i]=new Object[]{paidbill.ID,TimeHelper.Array2String(paidbill.date),paidbill.transactor,
+					paidbill.money,paybill.ID,TimeHelper.Array2String(paybill.date),paybill.payer,
 					paybill.money,paybill.type,paybill.remarks};					
 		}
 		Object[] columnTitle = {"收款单编号","收款日期","收款快递员","收款金额","付款单编号","付款日期","付款人","付款金额","付款条目","付款备注"};  

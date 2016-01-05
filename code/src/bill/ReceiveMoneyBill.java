@@ -41,6 +41,5 @@ public class ReceiveMoneyBill implements Serializable{
 	}
 	
 	public ReceiveMoneyBill(){
-		
 	}
 }

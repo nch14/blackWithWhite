@@ -26,11 +26,9 @@ public class PaidPanel extends JPanel {
 	private NTextField money;
 	private NTextField billID;
 	private NTextField payer;
-	private NTextField remarks;
 	NLabel ID;
 	NTextField thisID;
 	JScrollPane scrollPane;
-	JComboBox accountNum;
 	JTable table;
 	ReceiveMoneyBill list;
 	
@@ -97,13 +95,12 @@ public class PaidPanel extends JPanel {
 				if(list==null){
 					boolean valid=TimeHelper.isValidTime(payDate.getText());
 					String moneyThis=money.getText();
-					moneyThis=TimeHelper.adjustTime(moneyThis, 10);
-					valid=valid&&VaildHelper.checkIsValidID(moneyThis, 10);
+					valid=valid&&VaildHelper.checkIsValidID(moneyThis);
 					String IDThis=billID.getText();
 					IDThis=TimeHelper.adjustTime(IDThis, 10);
 					valid=valid&&VaildHelper.checkIsValidID(IDThis, 10);
 					if(valid){
-						list=new ReceiveMoneyBill(IDThis,TimeHelper.String2Array(payDate.getText()),
+						list=new ReceiveMoneyBill(billID.getText(),TimeHelper.String2Array(payDate.getText()),
 							Double.parseDouble(money.getText()),payer.getText(),"营业厅代号");
 						list.list.add(thisID.getText());
 						removeTable();
@@ -112,6 +109,8 @@ public class PaidPanel extends JPanel {
 						TimePanel.makeWords("请检查您的输入是否正确！");
 					}
 				}else if(!billID.getText().equals(list.ID)){
+					System.out.println(billID.getText());
+					System.out.println(list.ID);
 						TimePanel.makeWords("系统不允许一次操作两张收款单！");
 				}else{
 					list.list.add(thisID.getText());
@@ -123,7 +122,7 @@ public class PaidPanel extends JPanel {
 		button.setBounds(800, 150, 40, 40);
 		this.add(button);
 		
-		NButton push = new NButton("push");
+		NButton push = new NButton("ok");
 		push.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -138,12 +137,12 @@ public class PaidPanel extends JPanel {
 						money.setText("");
 						thisID.setText("");
 						payer.setText("");
-						remarks.setText("");
+						billID.setText("");
 						list=null;
 						removeTable();
-						TimePanel.makeWords("付款单创建成功！");
+						TimePanel.makeWords("收款单创建成功！");
 					}else{
-						TimePanel.makeWords("请检查您的输入是否正确！");
+						TimePanel.makeWords("请检查您的输入！");
 					}
 				}
 			}

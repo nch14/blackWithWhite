@@ -13,11 +13,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-import bl.information.Impl.InformationController;
 import bl.staff.Impl.StaffManageController;
 import bl.staff.Impl.UserManageController;
 import ui.NSwing.TimePanel;
-import vo.PackageVO;
 import vo.StaffVO;
 
 public class UserManagePanel extends JPanel {
@@ -29,6 +27,7 @@ public class UserManagePanel extends JPanel {
 	JLabel bussinessMess;
 	JTable table;
 	JButton save;
+	JScrollPane scrollPane;
 	
 	public UserManagePanel(){
 		this.setLayout(null);
@@ -46,51 +45,13 @@ public class UserManagePanel extends JPanel {
 		
 		StaffManageController staff=new StaffManageController();
 		ArrayList<StaffVO> staffs=staff.getAllStaff("");
-		int size=staffs.size();
-/*		ArrayList<StaffVO> staffs=new ArrayList<StaffVO>();
-		StaffVO A=new StaffVO();
-		A.ID="laoshu";
-		A.name="仓鼠";
-		A.age=18;
-		A.passwords="888";
-		A.pos="xiaolongbao";
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
 		buildTable(staffs);
-		int size=staffs.size();*/
-		int height=table.getRowHeight()*(size+1)+9;
-		if(height>=400)
-			height=400;
 		save=new JButton();
-		save.setBounds(700, 120+height+30, 40, 40);
+		save.setBounds(700, 550, 40, 40);
 		save.addActionListener(new PushListener());
 		this.add(search);
 		this.add(inputID);
 		this.add(save);
-		/*this.add(table);*/
 	}
 	public void buildTable(ArrayList<StaffVO> staffs){
 		int size=staffs.size();
@@ -109,7 +70,7 @@ public class UserManagePanel extends JPanel {
 		//table.setBounds(200, 50, 600, height);
 		table.setOpaque(false); 
 		table.setRowSelectionAllowed(true);
-		JScrollPane scrollPane = new JScrollPane();
+		scrollPane = new JScrollPane();
 		scrollPane.setBounds(161, 120, 658, height);
 		scrollPane.setOpaque(false);
 		this.add(scrollPane);
@@ -151,10 +112,15 @@ public class UserManagePanel extends JPanel {
 				TimePanel.change=true;
 				TimePanel.text="系统中找不到您要找的用户，该用户可能尚未被创建！";
 			}else{
+				removeTable();
 				buildTable(staffs);	
 			}	
 		}
 		
+	}
+	public void removeTable(){
+		if(scrollPane!=null)
+			this.remove(scrollPane);
 	}
 	
 }

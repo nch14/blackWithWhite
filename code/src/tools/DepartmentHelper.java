@@ -1,6 +1,5 @@
 package tools;
 
-import settings.CompanySettingsController;
 import vo.StaffVO;
 
 /**
@@ -13,10 +12,6 @@ public class DepartmentHelper {
 	 * 当前登录的用户所隶属的部门
 	 */
 	public static String thisDepartment;
-	/**
-	 * 当前登陆的用户所隶属的部门代号
-	 */
- 	public static String thisDepartmentID;
 	public static StaffVO thisStaff;//存放当前登录的人的信息
 	public static String pos;
 	

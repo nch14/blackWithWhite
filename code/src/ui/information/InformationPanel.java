@@ -147,7 +147,7 @@ public class InformationPanel extends JPanel{
 		labels=new JLabel[size];
 		int x=400;
 		int y=250;
-		int length=150;
+		int length=600;
 		int wight=100;
 		for(int i=0;i<size;i++){
 			TransMesgPO mess=messages.get(i);
