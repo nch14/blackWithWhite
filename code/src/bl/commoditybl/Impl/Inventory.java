@@ -17,7 +17,6 @@ public class Inventory {
 		return snap;
 	}
 
-
 	public boolean export() {
 		// TODO Auto-generated method stub
 		if(snap==null)
