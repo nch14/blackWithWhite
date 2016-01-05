@@ -38,7 +38,9 @@ public class Commodity_OutImpl extends UnicastRemoteObject implements Commodity_
 	public synchronized boolean insert(StockBill_Out bill,String id) {
 		// TODO Auto-generated method stub
 		CommodityManageImpl.freePosition(bill, id);
+		System.out.println("insert here");
 		boolean bool=database.add(bill);
+		System.out.println(bool);
 		try {
 			this.save();
 		} catch (IOException e) {

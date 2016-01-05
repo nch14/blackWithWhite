@@ -21,7 +21,8 @@ public class Commodity_Out implements Commodity_Out_Manage{
 	public boolean insert(StockBill_Out a,String ID){
 		try {
 			Commodity_Out_Manage x=(Commodity_Out_Manage) Naming.lookup(getURL());
-			result=x.insert(a,ID);
+			System.out.println(ID);
+			result=x.insert(a,"010");
 		} catch (ClassNotFoundException | NotBoundException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
