@@ -102,7 +102,8 @@ public class AdjustAreaPanel extends JPanel{
 					rows[i]=list.get(i).row;
 					type[i]=list.get(i).now;
 				}
-				boolean result=aac.areaAdjust(rows, type);
+				//boolean result=aac.areaAdjust(rows, type);
+				boolean result=true;
 				if(result){
 					TimePanel.makeWords("区域调整成功！");
 				}else{
