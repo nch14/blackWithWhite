@@ -357,6 +357,9 @@ public class SendPackagePanel extends JPanel {
 		JButton buttonofsubmit = new JButton("提交");
 		buttonofsubmit.addMouseListener(new MouseAdapter() {
 			@Override
+			/**
+			 * 创建订单对象
+			 */
 			public void mouseClicked(MouseEvent e) {
 				SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd");//设置日期格式
 				String money=comboBoxofpackingexpense.getSelectedItem().toString().substring(0,2);
