@@ -76,6 +76,8 @@ public class TimeHelper {
 	}
 	
 	public static String Array2String(String[] date){
+		if(date==null)
+			return null;
 		int year;
 		int month;
 		int day;
@@ -125,8 +127,10 @@ public class TimeHelper {
 	 */
 	public static String adjustTime(String s,int n){
 		char c[]=s.toCharArray();
-		if(c.length<n)
+		int t=n-c.length;
+		for(int i=0;i<t;i++){
 			s="0"+s;
+		}
 		return s;
 	}
 }

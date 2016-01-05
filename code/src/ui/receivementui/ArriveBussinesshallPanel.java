@@ -23,18 +23,19 @@ import bill.ArrivementBill_Shop;
 import bill.ReceiveMoneyBill;
 import bl.receivement.Impl.DistributionController;
 import bl.receivement.Service.DistributionBLService;
+import bl.shipment.Impl.TransportAndReceiveController;
 import tools.TimeHelper;
 import tools.VaildHelper;
 import ui.NSwing.NButton;
 import ui.NSwing.NLabel;
 import ui.NSwing.NTable;
 import ui.NSwing.NTextField;
+import ui.NSwing.TimePanel;
 
 public class ArriveBussinesshallPanel extends JPanel{
 	private NTextField textField_year;
 	private NTextField textField_departure;
 	private NTextField textField_order_number;
-	private NTable table_arrivalOrder;
 	JScrollPane scrollPane;
 	NTable table;
 	ArrivementBill_Shop list;
@@ -45,13 +46,13 @@ public class ArriveBussinesshallPanel extends JPanel{
 		JLabel labelofordernumber = new JLabel();
 		labelofordernumber.setFont(new Font("微软雅黑",Font.BOLD,16));
 		labelofordernumber.setText("营业厅到达单号");
-		labelofordernumber.setBounds(760, 270, 180, 30);
+		labelofordernumber.setBounds(760, 230, 180, 30);
 		this.add(labelofordernumber);
 		
 		
 		JTextField textFieldofordernumber = new JTextField();
 		textFieldofordernumber.setColumns(10);
-		textFieldofordernumber.setBounds(760, 300, 180, 30);
+		textFieldofordernumber.setBounds(760, 260, 180, 30);
 		this.add(textFieldofordernumber);
 		textFieldofordernumber.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(149,147,143)));
 		
@@ -137,6 +138,15 @@ public class ArriveBussinesshallPanel extends JPanel{
 		ok.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				DistributionController trc=new DistributionController();
+				boolean suceess=trc.receive(list);
+				if(suceess){
+					list=null;
+					removeTable();
+					TimePanel.makeWords("提交成功");
+				}else{
+					TimePanel.makeWords("提交失败");
+				}
 			}
 		});
 		ok.setBounds(708, 528, 93, 23);

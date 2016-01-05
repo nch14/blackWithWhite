@@ -23,7 +23,7 @@ public class Distribution {
 			InformationController IC=new InformationController();
 			for(int j=0;j<bills.size();j++)	{
 				for(int i=0;i<bills.get(j).list.size();i++){
-					result=result&&IC.refreshMesg(bills.get(j).list.get(i),"货物正在由代号为"+bills.get(j).name+"的派送员进行派送", TimeHelper.getTime());
+					result=result&&IC.refreshMesg(bills.get(j).list.get(i),"货物正在由代号为"+bills.get(j).name+"的派送员进行派送", TimeHelper.getShowTime());
 				}
 			}
 		} catch (Exception e) {

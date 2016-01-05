@@ -142,7 +142,7 @@ public class ChangeStaffPanel extends JPanel{
 		Object[][] tableData=new Object[size][5];
 		for(int i=0;i<size;i++){
 			StaffVO mess=staffs.get(i);
-			tableData[i]=new Object[]{mess.ID,mess.name,mess.age,mess.passwords,mess.pos," "};
+			tableData[i]=new Object[]{mess.ID,mess.name,mess.age,mess.pos,mess.SalaryModel};
 		}
 		Object[] columnTitle = {"用户名","姓名","年龄","职位","薪水"};  
 		table=new NTable(tableData,columnTitle);

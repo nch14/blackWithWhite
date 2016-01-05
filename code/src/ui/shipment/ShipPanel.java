@@ -11,12 +11,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import bill.TransportBill;
+import bl.shipment.Impl.TransportController;
 import tools.TimeHelper;
 import tools.VaildHelper;
 import ui.NSwing.NButton;
 import ui.NSwing.NLabel;
 import ui.NSwing.NTable;
 import ui.NSwing.NTextField;
+import ui.NSwing.TimePanel;
 
 public class ShipPanel extends JPanel {
 	private NTextField ChuFaDi;
@@ -288,8 +290,15 @@ public class ShipPanel extends JPanel {
 
 	
 		public void actionPerformed(ActionEvent arg0) {
-			
-			
+			TransportController tc=new TransportController();
+			double d=tc.submitBills(trans);
+			if(d>=0){
+				TimePanel.makeWords("³É¹¦");
+				trans=null;
+				removeTable();
+			}else{
+				TimePanel.makeWords("Ê§°Ü");
+			}
 			
 			
 			

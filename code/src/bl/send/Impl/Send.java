@@ -25,7 +25,7 @@ public class Send {
 		}
 		//2.更新物流动态
 		InformationController IC=new InformationController();
-		boolean success=IC.refreshMesg(order.ID, order.workplaceOfSender,order.time);
+		boolean success=IC.refreshMesg(order.ID,"货物从"+order.workplaceOfSender+"寄出，寄件人是"+order.nameOfSender,order.time);
 		if(!success)
 			return false;
 		return result;
