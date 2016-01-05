@@ -1,4 +1,4 @@
-package ui.information;
+package ui.staff;
 
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
@@ -161,21 +161,6 @@ public class AddDepartmentPanel extends JPanel{
 		chooseTrans1.addFocusListener(new ChooseListener("营业厅"));
 		this.add(chooseTrans1);
 		
-		/*addCityName=new NLabel("营业厅名称");
-		addCityName.setBounds(120, 110, 140, 30);
-		this.add(addCityName);
-		
-		addCityName1=new NTextField();
-		addCityName1.setBounds(300, 110, 100, 30);
-		this.add(addCityName1);
-		
-		addCityCode=new NLabel("营业厅代号");
-		addCityCode.setBounds(500, 110, 140, 30);
-		this.add(addCityCode);
-		
-		addCityCode1=new NTextField();
-		addCityCode1.setBounds(660, 110, 100, 30);
-		this.add(addCityCode1);*/
 		repaint();
 	}
 	public void addTransport(){

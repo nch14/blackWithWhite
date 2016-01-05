@@ -16,9 +16,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
+import bill.DriverPO;
 import bill.TruckPO;
-
+import bl.staff.Impl.DriverManageCotroller;
 import bl.staff.Impl.TruckManageController;
+import ui.NSwing.TimePanel;
 import vo.StaffVO;
 
 public class AddTrunckPanel extends JPanel{
@@ -30,6 +32,7 @@ public class AddTrunckPanel extends JPanel{
 	JTextField userIDNumbers;
     JButton okButton;
     JTable table;
+    JScrollPane scrollPane;
 	public AddTrunckPanel(){
 		this.setLayout(null);
 		this.setBounds(200, 60, 1000, 615);
@@ -71,11 +74,9 @@ public class AddTrunckPanel extends JPanel{
 		okButton.setBounds(700, 210, 40, 40);
 		okButton.addActionListener(new PushListener());
 		
-/*		TruckManageController staff=new TruckManageController();
+		TruckManageController staff=new TruckManageController();
 		ArrayList<TruckPO> staffs=staff.getTruck();
-		int size=staffs.size();
-		if(staffs!=null)
-			buildTable(staffs);*/
+		buildTable(staffs);
 		
 		
 	
@@ -105,7 +106,7 @@ public class AddTrunckPanel extends JPanel{
 		//table.setBounds(200, 50, 600, height);
 		table.setOpaque(false); 
 		table.setRowSelectionAllowed(true);
-		JScrollPane scrollPane = new JScrollPane();
+		scrollPane = new JScrollPane();
 		scrollPane.setBounds(140, 270, 658, height);
 		scrollPane.setOpaque(false);
 		this.add(scrollPane);
@@ -114,36 +115,17 @@ public class AddTrunckPanel extends JPanel{
 	 class PushListener implements ActionListener{
 
 		public void actionPerformed(ActionEvent arg0) {
-			/*String id=userid.getText();
-			String pass=userpass.getText();
-			String name=username.getText();
-			String age=userbirthday.getText();
-			String sex=(String)usersex.getSelectedItem();
-			String pos=(String)userpos.getSelectedItem();
-			String department=(String)userdepartment.getSelectedItem();
-			
-			if(id!=null&&pass!=null&&name!=null&&age!=null&&sex!=null&&pos!=null&&department!=null){
-				boolean isBoy=true;
-				if(sex.equals("女"))
-					isBoy=false;
-				
-				StaffVO staff=new StaffVO(id,name,age,pos,department,isBoy,pass);
-				StaffVO[] staffs=new StaffVO[1];
-				staffs[0]=staff;
-				StaffManageController user=new StaffManageController();			
-				boolean result=true;
-				result=result&user.addNewStaff(staffs);
-				if(result){
-					TimePanel.change=true;
-					TimePanel.text="您已成功增加该员工！";
-				}else{
-					TimePanel.change=true;
-					TimePanel.text="添加员工失败，可能存在网络故障！";
-				}
+			TruckPO t=new TruckPO(userid.getText(),userIDNumbers.getText(),userValidTime.getText());
+			TruckManageController staff=new TruckManageController();
+			boolean suceess=staff.addNewTruck(new TruckPO[]{t});
+			if(suceess){
+				TimePanel.makeWords("增加成功");
 			}else{
-				TimePanel.change=true;
-				TimePanel.text="请检查您的输入！";
-			}*/
+				TimePanel.makeWords("增加失败");
+			}
+			removeTable();
+			ArrayList<TruckPO> staffs=staff.getTruck();
+			buildTable(staffs);
 		}
 		 
 	 }
@@ -162,4 +144,8 @@ public class AddTrunckPanel extends JPanel{
 		}
 		 
 	 }
+	 public void removeTable(){
+			if(scrollPane!=null)
+				this.remove(scrollPane);
+		}
 }

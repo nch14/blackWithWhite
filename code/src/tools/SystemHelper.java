@@ -11,9 +11,9 @@ import vo.StaffVO;
 public class SystemHelper {
 	
 	public static void initSystem(){
-/*		//1.机构初始化城市
+		//1.机构初始化城市
 		CompanySettingsController companyManage=new CompanySettingsController(new Company());
-		Company company=companyManage.ourCompany;
+		
 	
 		City beijing=new City("北京","010");
 		City nanjing=new City("南京","025");
@@ -37,11 +37,12 @@ public class SystemHelper {
 		String[] gznames={"01","02","03","04","05","06","07","08","09","10"};
 		bj.addBussinessHall(gznames);
 			
-		company.citys.add(beijing);
-		company.citys.add(nanjing);
-		company.citys.add(guangzhou);
-		company.citys.add(shanghai);
+		companyManage.ourCompany.citys.add(beijing);
+		companyManage.ourCompany.citys.add(nanjing);
+		companyManage.ourCompany.citys.add(guangzhou);
+		companyManage.ourCompany.citys.add(shanghai);
 		
+
 		Distance bn=new Distance(beijing, nanjing,900);
 		Distance bs=new Distance(beijing, shanghai,1065);
 		Distance bg=new Distance(beijing, guangzhou,1889);
@@ -49,19 +50,19 @@ public class SystemHelper {
 		Distance ng=new Distance(nanjing,guangzhou,1132);
 		Distance sg=new Distance(guangzhou,shanghai,1213);
 		
-		company.distance.add(bn);
-		company.distance.add(bs);
-		company.distance.add(bg);
-		company.distance.add(ns);
-		company.distance.add(ng);
-		company.distance.add(sg);
+		companyManage.ourCompany.distance.add(bn);
+		companyManage.ourCompany.distance.add(bs);
+		companyManage.ourCompany.distance.add(bg);
+		companyManage.ourCompany.distance.add(ns);
+		companyManage.ourCompany.distance.add(ng);
+		companyManage.ourCompany.distance.add(sg);
 		
 		
 		
 
 		companyManage.push();
 
-		*/
+		
 	}
 	
 	public static void main(String[] args){

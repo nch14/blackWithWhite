@@ -20,9 +20,11 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 import bill.DriverPO;
+import bl.staff.Impl.DriverManageCotroller;
 import bl.staff.Impl.StaffManageController;
 import bl.staff.Impl.UserManageController;
 import ui.NSwing.NTableModel;
+import ui.NSwing.TimePanel;
 import vo.StaffVO;
 
 public class AddDriverPanel extends JPanel{
@@ -42,6 +44,7 @@ public class AddDriverPanel extends JPanel{
 	JComboBox usersex;  
     JButton okButton;
     JTable table;
+    JScrollPane scrollPane;
 	public AddDriverPanel(){
 		this.setLayout(null);
 		this.setBounds(200, 60, 1000, 615);
@@ -118,38 +121,9 @@ public class AddDriverPanel extends JPanel{
 		okButton.setBounds(700, 210, 40, 40);
 		okButton.addActionListener(new PushListener());
 		
-/*		StaffManageController staff=new StaffManageController();
-		ArrayList<StaffVO> staffs=staff.getAllStaff("");
-		int size=staffs.size();*/
-		ArrayList<DriverPO> staffs=new ArrayList<DriverPO>();
-		DriverPO A=new DriverPO("0010", "杨过","320921199602111010", "19960219", true, "18912593173", "20151005");
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		buildTable(staffs);
-		
+		DriverManageCotroller staff=new DriverManageCotroller();
+		ArrayList<DriverPO> staffs=staff.getAllDriver("");		
+		buildTable(staffs);	
 		
 		
 		this.add(birthday);
@@ -171,18 +145,17 @@ public class AddDriverPanel extends JPanel{
 	
 	public void buildTable(ArrayList<DriverPO> staffs){
 		int size=staffs.size();
-		JCheckBox A[]=new JCheckBox[size];
-		Object[][] tableData=new Object[size][8];
+		Object[][] tableData=new Object[size][7];
 		for(int i=0;i<size;i++){
 			DriverPO mess=staffs.get(i);
 			String sex="男";
 			if(!mess.isBoy)
 				sex="女";
-			tableData[i]=new Object[]{false,mess.ID,mess.name,sex,mess.birthday,mess.tel,mess.validData,mess.IDNumber};
+			tableData[i]=new Object[]{mess.ID,mess.name,sex,mess.birthday,mess.tel,mess.validData,mess.IDNumber};
 		}
-		Object[] columnTitle = {"选中","司机编号" ,"姓名","性别","出生日期","手机号码","行驶证期限","身份证号"};  
+		Object[] columnTitle = {"司机编号" ,"姓名","性别","出生日期","手机号码","行驶证期限","身份证号"};  
 		
-		TableModel tableModel=new NTableModel(tableData,columnTitle);
+		TableModel tableModel=new DefaultTableModel(tableData,columnTitle);
 		table=new JTable(tableModel);
 		DefaultTableCellRenderer r=new DefaultTableCellRenderer();   
 	  	r.setHorizontalAlignment(JLabel.CENTER); 
@@ -193,7 +166,7 @@ public class AddDriverPanel extends JPanel{
 			height=ValidMaxHeight;
 		table.setOpaque(false); 
 		table.setRowSelectionAllowed(true);
-		JScrollPane scrollPane = new JScrollPane();
+		scrollPane = new JScrollPane();
 		scrollPane.setBounds(120, 280, 700, height);
 		scrollPane.setOpaque(false);
 		this.add(scrollPane);
@@ -202,7 +175,26 @@ public class AddDriverPanel extends JPanel{
 	 class PushListener implements ActionListener{
 
 		public void actionPerformed(ActionEvent arg0) {
-			
+			boolean isBoy=true;
+			if(((String)usersex.getSelectedItem()).equals("男")){
+				
+			}else{
+				isBoy=false;
+			}
+			DriverPO d=new DriverPO(userid.getText(),username.getText(),userpass.getText(),userbirthday.getText(),
+					isBoy,usertel.getText(),userValidTime.getText());
+			DriverManageCotroller staff=new DriverManageCotroller();
+			ArrayList<DriverPO> a=new ArrayList<DriverPO>();
+			a.add(d);
+			boolean suceess=staff.addNewDiver(a);
+			if(suceess){
+				TimePanel.makeWords("增加成功");
+			}else{
+				TimePanel.makeWords("增加失败");
+			}
+			removeTable();
+			ArrayList<DriverPO> staffs=staff.getAllDriver("");		
+			buildTable(staffs);	
 		}
 		 
 	 }
@@ -221,4 +213,8 @@ public class AddDriverPanel extends JPanel{
 		}
 		 
 	 }
+		public void removeTable(){
+			if(scrollPane!=null)
+				this.remove(scrollPane);
+		}
 }

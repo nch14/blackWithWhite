@@ -46,46 +46,9 @@ public class UserManagePanel extends JPanel {
 		
 		StaffManageController staff=new StaffManageController();
 		ArrayList<StaffVO> staffs=staff.getAllStaff("");
-		int size=staffs.size();
-/*		ArrayList<StaffVO> staffs=new ArrayList<StaffVO>();
-		StaffVO A=new StaffVO();
-		A.ID="laoshu";
-		A.name="²ÖÊó";
-		A.age=18;
-		A.passwords="888";
-		A.pos="xiaolongbao";
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
-		staffs.add(A);
 		buildTable(staffs);
-		int size=staffs.size();*/
-		int height=table.getRowHeight()*(size+1)+9;
-		if(height>=400)
-			height=400;
 		save=new JButton();
-		save.setBounds(700, 120+height+30, 40, 40);
+		save.setBounds(700, 550, 40, 40);
 		save.addActionListener(new PushListener());
 		this.add(search);
 		this.add(inputID);

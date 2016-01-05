@@ -13,11 +13,8 @@ public class StockBill_In implements Serializable{
 	public String ID;
 	public boolean judged;
 	
-<<<<<<< HEAD
-	public ArrayList<Info> list = new ArrayList<Info>();
-=======
 	public ArrayList<PositionInfo> list;
->>>>>>> 224ec90dced0934d4e8961902beed4c6a7037ea7
+
 	
 	public StockBill_In() {
 		// TODO Auto-generated constructor stub
@@ -68,7 +65,7 @@ public class StockBill_In implements Serializable{
 		}
 	}
 	
-<<<<<<< HEAD
+
 	public class Info{
 		public  String ID;//寄件单号
 		public String form;//运输方式
@@ -91,8 +88,6 @@ public class StockBill_In implements Serializable{
 			this.positionID=positionID;
 		}
 	}
-=======
->>>>>>> 224ec90dced0934d4e8961902beed4c6a7037ea7
-	
+
 	}
 	
