@@ -1,4 +1,4 @@
-package ui.information;
+package ui.staff;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -107,6 +107,14 @@ public class DeleteDepartmentPanel extends JPanel {
 		chooseCity.setBounds(120, 110, 80, 30);
 		this.add(chooseCity);
 		
+		chooseTrans=new NLabel("选择中转中心");
+		chooseTrans.setBounds(500, 110, 140, 30);
+		this.add(chooseTrans);
+		
+		chooseTrans1=new JComboBox<String>();
+		chooseTrans1.setBounds(660, 110, 100, 30);
+		this.add(chooseTrans1);
+		
 		chooseCity1=new JComboBox<String>();
 		CompanySettingsController csc=new CompanySettingsController();
 		String[] names=csc.getCityName();
@@ -116,15 +124,7 @@ public class DeleteDepartmentPanel extends JPanel {
 		chooseCity1.setBounds(220, 110, 100, 30);
 		chooseCity1.addFocusListener(new SelectTransListener());
 		this.add(chooseCity1);
-		
-		chooseTrans=new NLabel("选择中转中心");
-		chooseTrans.setBounds(500, 110, 140, 30);
-		this.add(chooseTrans);
-		
-		chooseTrans1=new JComboBox<String>();
-		chooseTrans1.setBounds(660, 110, 100, 30);
-		this.add(chooseTrans1);
-		
+
 		ok=new NButton("ok");
 		ok.setBounds(750, 110, 40, 40);
 		ok.addActionListener(new DeleteTransListener());
@@ -137,6 +137,23 @@ public class DeleteDepartmentPanel extends JPanel {
 			ok=null;
 			repaint();
 		}
+		chooseBussess=new NLabel("选择营业厅");
+		chooseBussess.setBounds(120, 170, 140, 30);
+		this.add(chooseBussess);
+		
+		chooseBussess1=new JComboBox<String>();
+		chooseBussess1.setBounds(280, 170, 100, 30);
+		this.add(chooseBussess1);
+		
+		chooseTrans=new NLabel("选择中转中心");
+		chooseTrans.setBounds(500, 110, 140, 30);
+		this.add(chooseTrans);
+		
+		chooseTrans1=new JComboBox<String>();
+		chooseTrans1.setBounds(660, 110, 100, 30);
+		chooseTrans1.addFocusListener(new SelectBussessListener());
+		this.add(chooseTrans1);
+		
 		chooseCity=new NLabel("选择城市");
 		chooseCity.setBounds(120, 110, 80, 30);
 		this.add(chooseCity);
@@ -151,22 +168,8 @@ public class DeleteDepartmentPanel extends JPanel {
 		chooseCity1.addFocusListener(new SelectTransListener());
 		this.add(chooseCity1);
 		
-		chooseTrans=new NLabel("选择中转中心");
-		chooseTrans.setBounds(500, 110, 140, 30);
-		this.add(chooseTrans);
 		
-		chooseTrans1=new JComboBox<String>();
-		chooseTrans1.setBounds(660, 110, 100, 30);
-		chooseTrans1.addFocusListener(new SelectBussessListener());
-		this.add(chooseTrans1);
 		
-		chooseBussess=new NLabel("选择营业厅");
-		chooseBussess.setBounds(120, 170, 140, 30);
-		this.add(chooseBussess);
-		
-		chooseBussess1=new JComboBox<String>();
-		chooseBussess1.setBounds(280, 170, 100, 30);
-		this.add(chooseBussess1);
 		
 		ok=new NButton("ok");
 		ok.setBounds(750, 110, 40, 40);
@@ -223,22 +226,18 @@ public class DeleteDepartmentPanel extends JPanel {
 		@Override
 		public void focusLost(FocusEvent arg0) {
 			// TODO Auto-generated method stub
-			String text=(String) chooseCity1.getSelectedItem();
-			System.out.println("text");
-			CompanySettingsController csc=new CompanySettingsController();			
-			try {
-				chooseTrans1.removeAllItems();
-			} catch (Exception e) {
-			}
-			TransportCenter[] names=csc.getTransportCenters(text);
-			for(int i=0;i<names.length;i++){
-				chooseTrans1.addItem((String)names[i].getName());
+			
+			repaint();
+			
+			chooseTrans1.removeAllItems();
+			CompanySettingsController csc=new CompanySettingsController();
+			TransportCenter[] trans=csc.getTransportCenters((String)chooseCity1.getSelectedItem());
+			String name[]=new String[trans.length];
+			for(int i=0;i<trans.length;i++){
+				chooseTrans1.addItem((String)trans[i].getName());
+				name[i]=trans[i].getName();
 			}
 			removeTable();
-			String name[]=new String[names.length];
-			for(int i=0;i<name.length;i++){
-				name[i]=names[i].getName();
-			}
 			buildTable("中转中心",name);
 			repaint();
 		}

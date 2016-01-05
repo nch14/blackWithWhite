@@ -35,12 +35,13 @@ public class GetProfitSheetPanel extends JPanel{
 		this.add(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-
+				
 				ProfitSheetVO profitSheet = profitsheet.show();
+				String time=profitSheet.time.substring(0, 4)+"/"+profitSheet.time.substring(4, 6)+"/"+profitSheet.time.substring(6, 8);
 				tableofprofitsheet.setValueAt(profitSheet.totalGet, 0, 0);
 				tableofprofitsheet.setValueAt(profitSheet.totalPay, 0, 1);
 				tableofprofitsheet.setValueAt(profitSheet.profit, 0, 2);
-				tableofprofitsheet.setValueAt(profitSheet.time, 0, 3);
+				tableofprofitsheet.setValueAt(time, 0, 3);
 			}
 		});
 		

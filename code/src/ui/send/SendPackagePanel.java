@@ -17,6 +17,7 @@ import javax.swing.JTextField;
 import bill.OrderBillPO;
 import bl.send.Impl.SendController;
 import bl.send.Service.SendBLService;
+import settings.CompanySettingsController;
 import ui.NSwing.TimePanel;
 
 public class SendPackagePanel extends JPanel {
@@ -327,7 +328,26 @@ public class SendPackagePanel extends JPanel {
 		buttonofack.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				labeloftotalexpense.setText("100");
+				double money=0;
+				money+=Double.parseDouble(((String)comboBoxofpackingexpense.getSelectedItem()).substring(0, 2));
+				String a=textFieldofsenderaddress.getText().substring(0, 2);
+				String b=textFieldofconsigneeaddress.getText().substring(0, 2);
+				
+				CompanySettingsController csc=new CompanySettingsController();
+				double dis=csc.ourCompany.getDistance(a, b);
+				
+				int k;
+				if(((String)comboBoxofordertype.getSelectedItem()).equals("经济快递")){
+					k=18;
+				}else if(((String)comboBoxofordertype.getSelectedItem()).equals("普通快递")){
+				
+					k=23;
+				}else{
+					k=25;
+				}
+				money+=dis/1000*k;
+				int fact=(int)money;
+				labeloftotalexpense.setText(""+fact);
 			}
 		});
 		buttonofack.setBounds(730, 530, 68, 30);

@@ -117,7 +117,7 @@ public class InDepotPanel extends JPanel {
 					result=result&&VaildHelper.checkIsValidID(thisDate,8);
 					if(result){
 						indepot = new StockBill_In();
-						indepot.add(thisBillID,thisID,thisDate,thisDestination);
+						indepot.addlist(thisBillID,thisID,thisDate,thisDestination);
 						textFieldofordernumber.setText("");
 						textFieldofdestination.setText("");
 						buildTable(indepot);
@@ -135,7 +135,7 @@ public class InDepotPanel extends JPanel {
 						boolean result=true;
 						result=result&&VaildHelper.checkIsValidID(thisID, 10);
 						if(result){
-							indepot.add(indepot.ID,thisID,indepot.list.get(0).date.toString(),thisDestination);
+							indepot.addlist(indepot.ID,thisID,indepot.list.get(0).date.toString(),thisDestination);
 							buildTable(indepot);
 							textFieldofordernumber.setText("");
 							textFieldofdestination.setText("");
@@ -186,7 +186,6 @@ public class InDepotPanel extends JPanel {
 		if(scrollPane!=null)
 			this.remove(scrollPane);
 	}
-	
 	
 	class PushListener implements ActionListener{	
 		public void actionPerformed(ActionEvent arg0) {
