@@ -13,7 +13,7 @@ public class StockBill_In implements Serializable{
 	public String ID;
 	public boolean judged;
 	
-	public ArrayList<PositionInfo> list;
+	public ArrayList<PositionInfo> list = new ArrayList<PositionInfo>();
 
 	
 	public StockBill_In() {
@@ -37,19 +37,20 @@ public class StockBill_In implements Serializable{
 	 * @param date
 	 * @param destination
 	 */
-<<<<<<< HEAD
+
 	
 	
 	public void addlist(String billID,String ID,String date,String destination){
 		    this.ID=billID;
-			list.add(new Info(ID,date,destination));
+			list.add(new PositionInfo(ID,date,destination));
+	}
 		
-=======
-	public StockBill_In(String[] ID,String[][]date,String[] destination){
+
+	public StockBill_In(String[] ID,String[] date,String[] destination){
 		for(int i=0;i<ID.length;i++){
 			list.add(new PositionInfo(ID[i],date[i],destination[i]));
 		}
->>>>>>> 224ec90dced0934d4e8961902beed4c6a7037ea7
+
 	}
 	
 	/**
