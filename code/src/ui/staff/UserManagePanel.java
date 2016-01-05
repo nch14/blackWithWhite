@@ -56,12 +56,12 @@ public class UserManagePanel extends JPanel {
 	public void buildTable(ArrayList<StaffVO> staffs){
 		int size=staffs.size();
 		
-		Object[][] tableData=new Object[size][5];
+		Object[][] tableData=new Object[size][6];
 		for(int i=0;i<size;i++){
 			StaffVO mess=staffs.get(i);
-			tableData[i]=new Object[]{mess.ID,mess.name,mess.age,mess.passwords,mess.pos," "};
+			tableData[i]=new Object[]{mess.ID,mess.name,mess.age,mess.passwords,mess.pos,mess.topAuthority};
 		}
-		Object[] columnTitle = {"用户名" ,"姓名","年龄","密码","职位","优先级"};  
+		Object[] columnTitle = {"用户名" ,"姓名","年龄","密码","职位","权限"};  
 		table=new JTable(tableData,columnTitle);
 		int height=table.getRowHeight()*(size+1)+9;
 		int ValidMaxHeight=400;
@@ -80,16 +80,18 @@ public class UserManagePanel extends JPanel {
 
 		public void actionPerformed(ActionEvent arg0) {
 			UserManageController user=new UserManageController();
-			
 			int rows=table.getRowCount();
 			boolean result=true;
-			for(int i=0;i<rows;i++){
-				result=result&user.changeStaffInfo((String)table.getValueAt(i, 4), (String)table.getValueAt(i, 3), 
-						(String)table.getValueAt(i, 2),(String)table.getValueAt(i, 1),
-						(String)table.getValueAt(i, 0),(String)table.getValueAt(i, 5));	
+			for(int i=1;i<rows;i++){
+				result=result&&user.changeStaffInfo((String)table.getModel().getValueAt(i, 4),
+						(String)table.getModel().getValueAt(i, 3),
+						""+(Integer)table.getModel().getValueAt(i, 2), 
+						(String)table.getModel().getValueAt(i, 1), 
+						(String)table.getModel().getValueAt(i, 0),
+						(String)table.getModel().getValueAt(i, 5));
 			}
 			if(result){
-				
+				TimePanel.makeWords("操作成功！");
 			}else{
 				TimePanel.change=true;
 				TimePanel.text="更新人员信息时出现问题，请重试";
