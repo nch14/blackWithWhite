@@ -5,7 +5,7 @@ import tools.DepartmentHelper;
 
 public class AreaAdjust {
 	Commodity commodity=new Commodity();
-	public boolean areaAdjust(int[] rows, String[] type) {
+	public boolean areaAdjust(int[] rows, String type) {
 		// TODO Auto-generated method stub
 
 		try {
@@ -13,7 +13,7 @@ public class AreaAdjust {
 			boolean result2= true;
 			for(int i=0;i<rows.length;i++){
 			result=commodity.adjustCommodity(DepartmentHelper.getDepartment(),
-					""+rows[i], type[i]);
+					""+rows[i], type);
 			if(result==false){
 				result2 = false;
 			}

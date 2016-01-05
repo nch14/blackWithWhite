@@ -8,7 +8,7 @@ public class AreaAdjustController implements AreaAdjustBLService {
 		adjust=new AreaAdjust();
 	}
 	@Override
-	public boolean areaAdjust(int[] rows, String[] type) {
+	public boolean areaAdjust(int[] rows, String type) {
 		// TODO Auto-generated method stub
 		return adjust.areaAdjust(rows, type);
 	}

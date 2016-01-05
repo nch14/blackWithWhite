@@ -3,7 +3,6 @@ package bill;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import bill.StockBill_In.Info;
 
 public class StockBill_Out implements Serializable{
 	/**
