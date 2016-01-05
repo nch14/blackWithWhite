@@ -23,7 +23,7 @@ public class UserManageController implements UserManageBLService {
 	@Override
 	public boolean changeStaffInfo(String competence, String passwords, String age, String name,String ID,String power) {
 		// TODO Auto-generated method stub
-		boolean isComplete=userManage.changeStaff(competence, passwords, age, name, ID, power);
+		boolean isComplete=userManage.changeStaff(ID,competence, passwords, age, name,  power);
 		return isComplete;
 	}
 

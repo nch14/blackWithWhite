@@ -242,38 +242,62 @@ public class SignPanel extends JPanel{
 					panels[1]=new GetOrderBillPanel();
 					panels[2]=new FillReceivementBillPanel();
 				}else if(staff.pos.equals("财务人员")){
-					buttons=new JButton[7];
 					
-					buttons[0]=new JButton();
-					buttons[0].setFont(new Font("微软雅黑",Font.BOLD,16));
-					buttons[0].setText("结算管理");
-					buttons[1]=new JButton();
-					buttons[1].setFont(new Font("微软雅黑",Font.BOLD,16));
-					buttons[1].setText("查看经营情况表");
-					buttons[2]=new JButton();
-					buttons[2].setFont(new Font("微软雅黑",Font.BOLD,16));
-					buttons[2].setText("查看成本收益表");
-					buttons[3]=new JButton();
-					buttons[3].setFont(new Font("微软雅黑",Font.BOLD,16));
-					buttons[3].setText("创建付款单");
-					buttons[4]=new JButton();
-					buttons[4].setFont(new Font("微软雅黑",Font.BOLD,16));
-					buttons[4].setText("增加账户");
-					buttons[5]=new JButton();
-					buttons[5].setFont(new Font("微软雅黑",Font.BOLD,16));
-					buttons[5].setText("删除账户");
-					buttons[6]=new JButton();
-					buttons[6].setFont(new Font("微软雅黑",Font.BOLD,16));
-					buttons[6].setText("修改账户名称");
-					
-					panels=new JPanel[7];
-					panels[0]=new BillingManagePanel();
-					panels[1]=new GetBussinesssheetPanel();
-					panels[2]=new GetProfitSheetPanel();
-					panels[3]=new PayPanel();
-					panels[4]=new AddAccountPanel();
-					panels[5]=new DeleteAccountPanel();
-					panels[6]=new ChangeAccountPanel();
+					if(staff.topAuthority.equals("高级")){
+						buttons=new JButton[7];
+						
+						buttons[0]=new JButton();
+						buttons[0].setFont(new Font("微软雅黑",Font.BOLD,16));
+						buttons[0].setText("结算管理");
+						buttons[1]=new JButton();
+						buttons[1].setFont(new Font("微软雅黑",Font.BOLD,16));
+						buttons[1].setText("查看经营情况表");
+						buttons[2]=new JButton();
+						buttons[2].setFont(new Font("微软雅黑",Font.BOLD,16));
+						buttons[2].setText("查看成本收益表");
+						buttons[3]=new JButton();
+						buttons[3].setFont(new Font("微软雅黑",Font.BOLD,16));
+						buttons[3].setText("创建付款单");
+						buttons[4]=new JButton();
+						buttons[4].setFont(new Font("微软雅黑",Font.BOLD,16));
+						buttons[4].setText("增加账户");
+						buttons[5]=new JButton();
+						buttons[5].setFont(new Font("微软雅黑",Font.BOLD,16));
+						buttons[5].setText("删除账户");
+						buttons[6]=new JButton();
+						buttons[6].setFont(new Font("微软雅黑",Font.BOLD,16));
+						buttons[6].setText("修改账户名称");
+						
+						panels=new JPanel[7];
+						panels[0]=new BillingManagePanel();
+						panels[1]=new GetBussinesssheetPanel();
+						panels[2]=new GetProfitSheetPanel();
+						panels[3]=new PayPanel();
+						panels[4]=new AddAccountPanel();
+						panels[5]=new DeleteAccountPanel();
+						panels[6]=new ChangeAccountPanel();
+					}else{
+						buttons=new JButton[4];
+						
+						buttons[0]=new JButton();
+						buttons[0].setFont(new Font("微软雅黑",Font.BOLD,16));
+						buttons[0].setText("结算管理");
+						buttons[1]=new JButton();
+						buttons[1].setFont(new Font("微软雅黑",Font.BOLD,16));
+						buttons[1].setText("查看经营情况表");
+						buttons[2]=new JButton();
+						buttons[2].setFont(new Font("微软雅黑",Font.BOLD,16));
+						buttons[2].setText("查看成本收益表");
+						buttons[3]=new JButton();
+						buttons[3].setFont(new Font("微软雅黑",Font.BOLD,16));
+						buttons[3].setText("创建付款单");						
+						
+						panels=new JPanel[4];
+						panels[0]=new BillingManagePanel();
+						panels[1]=new GetBussinesssheetPanel();
+						panels[2]=new GetProfitSheetPanel();
+						panels[3]=new PayPanel();
+					}
 					
 				}else if(staff.pos.equals("总经理")){
 					buttons=new JButton[8];

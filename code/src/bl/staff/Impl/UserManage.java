@@ -39,6 +39,9 @@ public class UserManage {
 		
 		try {
 			staff.changeStaffInfo(name,Integer.parseInt(age),competence, passwords);
+			if(power!=null){
+				staff.authority=power;
+			}
 			result=result&&member.change(staff);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
